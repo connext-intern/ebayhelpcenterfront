@@ -1,0 +1,7 @@
+<div class="menu-left logictics-menu" v-cloak>
+    <dl v-for="(item,index) in items" v-bind:id="item.id" v-bind:class="{'cur':hignlight.index==index}">
+        <dt>
+            <a href="javascript:;">{{item.text}}</a>
+        </dt>
+    </dl>
+</div>

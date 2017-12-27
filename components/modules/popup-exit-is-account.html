@@ -1,0 +1,33 @@
+<!--指定子账号 add by gena-->
+<div class='popup setaccount exitIsAccount' v-bind:class="unselectedbaylist.length?'show':'hide'">
+    <div class='mask'></div>
+    <div class='content'>
+        <a href='javascript:;' v-on:click="unselectedbaylist=[];" class='close sprite' lg="close"></a>
+        <div class='content-container'>
+            <h3 class="setaccount-title">编辑授权</h3>
+            <p class="setaccount-tips isPrimaryAccount"><span>IS主账号</span>： {{currEntity&&currEntity.email}}</p>
+            <div class="cf">
+                <div class="setting setaccount-left fl">
+                    <h4>已授权eBayID</h4>
+                    <div class="scrollBlock checkBox multi">
+                        <div class="js-checkbox radio" :class="{'cur':item.ischecked}" v-on:click="setActive(item,index)" v-for="(item,index) in unselectedbaylist">{{item.ebayId}}</div>
+                    </div>
+                </div>
+                <div class="setting setaccount-center">
+
+                </div>
+                <div class="setting setaccount-right fl">
+                    <h4><span>已选eBayID</span><span class="bold" lg="dbclick-to-remove"></span></h4>
+                    <div class="scrollBlock checkBox multi">
+                        <div class="js-checkbox disabled radio" v-for="(item,index) in selectedbaylist" v-on:dblclick="setDisabled(item)">{{item.ebayId}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="btns">
+                <a class="btn allSelect" href="javascript:;" v-on:click="selectAll"><i class="icon" v-bind:class="isAll?'cur':''"></i>全选</a>
+                <a class="btn reset" href="javascript:;" v-on:click="resetAuthrize" lg="reset-data"></a>
+                <a class="btn save revoke" href="javascript:;" v-on:click="cancelAuthrize">取消授权</a>
+            </div>
+        </div>
+    </div>
+</div>

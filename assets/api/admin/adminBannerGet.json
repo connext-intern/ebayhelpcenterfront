@@ -1,0 +1,46 @@
+﻿{
+    "code":"00",
+    "message":"获取所有广告位列表",
+    "result":[
+        {
+            "bannerId":"广告位ID",
+            "bannerNumber":"01",
+            "bannerTitle":"ebay平台改版公告",
+            "bannerURL":"http://cn.bing.com/search?q=ebay&qs=n&formq=ebay&qs=n&form=QBLH&sp=QBLH&sp=QBLH&sp=QBLH&sp=sdfa",
+            "imageURL":"../../assets/images/banner/banner1.jpg",
+            "uploadDate":"2017/08/27 19:00:00"
+        },
+        {
+            "bannerId":"广告位ID",
+            "bannerNumber":"02",
+            "bannerTitle":"ebay平台改版公告",
+            "bannerURL":"http://cn.bing.com/search?q=ebay&qs=n&formq=ebay&qs=n&form=QBLH&sp=QBLH&sp=QBLH&sp=QBLH&sp=sdfa",
+            "imageURL":"../../assets/images/banner/banner1.jpg",
+            "uploadDate":"2017/08/27 19:00:00"
+        },
+        {
+            "bannerId":"广告位ID",
+            "bannerNumber":"03",
+            "bannerTitle":"ebay平台改版公告",
+            "bannerURL":"http://cn.bing.com/search?q=ebay&qs=n&formq=ebay&qs=n&form=QBLH&sp=QBLH&sp=QBLH&sp=QBLH&sp=sdfa",
+            "imageURL":"../../assets/images/banner/banner1.jpg",
+            "uploadDate":"2017/08/27 19:00:00"
+        },
+        {
+            "bannerId":"广告位ID",
+            "bannerNumber":"04",
+            "bannerTitle":"ebay平台改版公告",
+            "bannerURL":"http://cn.bing.com/search?q=ebay&qs=n&formq=ebay&qs=n&form=QBLH&sp=QBLH&sp=QBLH&sp=QBLH&sp=sdfa",
+            "imageURL":"../../assets/images/banner/banner1.jpg",
+            "uploadDate":"2017/08/27 19:00:00"
+        },
+        {
+            "bannerId":"广告位ID",
+            "bannerNumber":"05",
+            "bannerTitle":"ebay平台改版公告",
+            "bannerURL":"http://cn.bing.com/search?q=ebay&qs=n&formq=ebay&qs=n&form=QBLH&sp=QBLH&sp=QBLH&sp=QBLH&sp=sdfa",
+            "imageURL":"../../assets/images/banner/banner1.jpg",
+            "uploadDate":"2017/08/27 19:00:00"
+        }
+    ]
+}

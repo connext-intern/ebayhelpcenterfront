@@ -1,0 +1,14 @@
+﻿{
+    "code": "00",
+    "message": "success",
+    "result": {
+        "isId": "1760868441024743",
+        "userName": "1261736844@qq.com",
+        "userType": "b",
+        "verifyState": "1",
+        "verifyType": "1",
+        "firstLogin": false,
+        "orderSource": "API",
+        "batteryVerifyState": "001"
+    }
+}

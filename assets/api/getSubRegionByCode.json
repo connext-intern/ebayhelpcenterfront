@@ -1,0 +1,316 @@
+﻿{
+    "code": "00",
+    "message": "success",
+    "result": [
+        {
+            "code": "910100",
+            "name": "NewYork",
+            "value": "NY"
+        },
+        {
+            "code": "910200",
+            "name": "PuertoRico",
+            "value": "PR"
+        },
+        {
+            "code": "910300",
+            "name": "VirginIslands",
+            "value": "VI"
+        },
+        {
+            "code": "910400",
+            "name": "Massachusetts",
+            "value": "MA"
+        },
+        {
+            "code": "910500",
+            "name": "RhodeIsland",
+            "value": "RI"
+        },
+        {
+            "code": "910600",
+            "name": "NewHampshire",
+            "value": "NH"
+        },
+        {
+            "code": "910700",
+            "name": "Maine",
+            "value": "ME"
+        },
+        {
+            "code": "910800",
+            "name": "Vermont",
+            "value": "VT"
+        },
+        {
+            "code": "910900",
+            "name": "Connecticut",
+            "value": "CT"
+        },
+        {
+            "code": "911000",
+            "name": "NewJersey",
+            "value": "NJ"
+        },
+        {
+            "code": "911100",
+            "name": "Military",
+            "value": "AE"
+        },
+        {
+            "code": "911200",
+            "name": "Pennsylvania",
+            "value": "PA"
+        },
+        {
+            "code": "911300",
+            "name": "Delaware",
+            "value": "DE"
+        },
+        {
+            "code": "911400",
+            "name": "Washington,DC",
+            "value": "DC"
+        },
+        {
+            "code": "911500",
+            "name": "Virginia",
+            "value": "VA"
+        },
+        {
+            "code": "911600",
+            "name": "Maryland",
+            "value": "MD"
+        },
+        {
+            "code": "911700",
+            "name": "WestVirginia",
+            "value": "WV"
+        },
+        {
+            "code": "911800",
+            "name": "NorthCarolina",
+            "value": "NC"
+        },
+        {
+            "code": "911900",
+            "name": "SouthCarolina",
+            "value": "SC"
+        },
+        {
+            "code": "912000",
+            "name": "Georgia",
+            "value": "GA"
+        },
+        {
+            "code": "912100",
+            "name": "Florida",
+            "value": "FL"
+        },
+        {
+            "code": "912200",
+            "name": "ArmedForcesAmericas",
+            "value": "AA"
+        },
+        {
+            "code": "912300",
+            "name": "Alabama",
+            "value": "AL"
+        },
+        {
+            "code": "912400",
+            "name": "Tennessee",
+            "value": "TN"
+        },
+        {
+            "code": "912500",
+            "name": "Mississippi",
+            "value": "MS"
+        },
+        {
+            "code": "912600",
+            "name": "Kentucky",
+            "value": "KY"
+        },
+        {
+            "code": "912700",
+            "name": "Ohio",
+            "value": "OH"
+        },
+        {
+            "code": "912800",
+            "name": "Indiana",
+            "value": "IN"
+        },
+        {
+            "code": "912900",
+            "name": "Michigan",
+            "value": "MI"
+        },
+        {
+            "code": "913000",
+            "name": "Iowa",
+            "value": "IA"
+        },
+        {
+            "code": "913100",
+            "name": "Wisconsin",
+            "value": "WI"
+        },
+        {
+            "code": "913200",
+            "name": "Minnesota",
+            "value": "MN"
+        },
+        {
+            "code": "913300",
+            "name": "South Dakota",
+            "value": "SD"
+        },
+        {
+            "code": "913400",
+            "name": "NorthDakota",
+            "value": "ND"
+        },
+        {
+            "code": "913500",
+            "name": "Montana",
+            "value": "MT"
+        },
+        {
+            "code": "913600",
+            "name": "Illinois",
+            "value": "IL"
+        },
+        {
+            "code": "913700",
+            "name": "Missouri",
+            "value": "MO"
+        },
+        {
+            "code": "913800",
+            "name": "Kansas",
+            "value": "KS"
+        },
+        {
+            "code": "913900",
+            "name": "Nebraska",
+            "value": "NE"
+        },
+        {
+            "code": "914000",
+            "name": "Louisiana",
+            "value": "LA"
+        },
+        {
+            "code": "914100",
+            "name": "Arkansas",
+            "value": "AR"
+        },
+        {
+            "code": "914200",
+            "name": "Oklahoma",
+            "value": "OK"
+        },
+        {
+            "code": "914300",
+            "name": "Texas",
+            "value": "TX"
+        },
+        {
+            "code": "914400",
+            "name": "Colorado",
+            "value": "CO"
+        },
+        {
+            "code": "914500",
+            "name": "Wyoming",
+            "value": "WY"
+        },
+        {
+            "code": "914600",
+            "name": "Idaho",
+            "value": "ID"
+        },
+        {
+            "code": "914700",
+            "name": "Utah",
+            "value": "UT"
+        },
+        {
+            "code": "914800",
+            "name": "Arizona",
+            "value": "AZ"
+        },
+        {
+            "code": "914900",
+            "name": "NewMexico",
+            "value": "NM"
+        },
+        {
+            "code": "915000",
+            "name": "Nevada",
+            "value": "NV"
+        },
+        {
+            "code": "915100",
+            "name": "California",
+            "value": "CA"
+        },
+        {
+            "code": "915200",
+            "name": "ArmedForcesPacific",
+            "value": "AP"
+        },
+        {
+            "code": "915300",
+            "name": "Hawaii",
+            "value": "HI"
+        },
+        {
+            "code": "915400",
+            "name": "AmericanSamoa",
+            "value": "AS"
+        },
+        {
+            "code": "915500",
+            "name": "Guam",
+            "value": "GU"
+        },
+        {
+            "code": "915600",
+            "name": "Palau",
+            "value": "PW"
+        },
+        {
+            "code": "915700",
+            "name": "FederatedStatesofMicronesia",
+            "value": "FM"
+        },
+        {
+            "code": "915800",
+            "name": "NorthernMarianaIslands",
+            "value": "MP"
+        },
+        {
+            "code": "915900",
+            "name": "MarshallIslands",
+            "value": "MH"
+        },
+        {
+            "code": "916000",
+            "name": "Oregon",
+            "value": "OR"
+        },
+        {
+            "code": "916100",
+            "name": "Washington",
+            "value": "WA"
+        },
+        {
+            "code": "916200",
+            "name": "Alaska",
+            "value": "AK"
+        }
+    ]
+}

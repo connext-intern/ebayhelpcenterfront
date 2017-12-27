@@ -1,0 +1,497 @@
+/*common namespace:popup,20170808,louis*/
+.popup{
+    position:fixed;top:0;left:0;z-index: 9999999;width:100%;height:100%; display: none;
+    .mask{width:100%;height:100%;position:fixed;top:0;left:0;opacity:.5;-moz-opacity: 0.5;filter: alpha(opacity=50);background:#000;}
+    .content{background:#fff;width:640px; min-height:500px;position:absolute;top:50%;left:50%;margin-left:-320px;margin-top:-250px;}
+    .close{@include sprite; font-size:0;position:absolute;right:10px;top:10px;display:block; background-position: 0 -22px; width: 22px; height: 22px;}
+    .btnArr{
+        .blueBtn{@include colorBtn; width: 108px; line-height: 36px;}
+        .whiteBtn{@include cancelBtn; width: 106px; line-height: 34px;}
+    }
+}
+.popup.workOn{
+    display: block!important;
+}
+/*userTerm & privateTerm*/
+.popup.privateTerm .content,.popup.userTerm .content{
+    padding: 46px 7px 7px 36px; 
+    .scrollBlock{
+        overflow: auto; height: 448px; padding-bottom: 36px;
+        &::-webkit-scrollbar{width: 10px;}
+        &::-webkit-scrollbar-track{width:10px; background: #f5f5f5;}
+        &::-webkit-scrollbar-thumb{width:10px; background: #e5e5e5;}
+    }
+    .title{line-height: 32px; text-align: center; font-size: 24px; margin-bottom: 22px;}
+    .text{line-height: 24px; margin-bottom: 36px;}
+    .btns{
+        width: 274px; margin: 0 auto;
+        a{@include colorBtn; width: 128px; line-height: 36px; float: right;}
+        .unagree{background-color: $textcolor; float: left;}
+    }
+}
+
+.popup.view-print{
+        .error-message{display:none;color:#e42e35;padding-bottom:5px;}
+        .input-group.error{
+            input{border-color:#e42e35;}
+            .error-message{display:block;}
+        }
+        .close{right:20px;top:15px;}
+        h2{left:20px;font-weight:normal;}
+        .btn-container {
+            position: absolute; bottom: 19px; right: 19px;
+            .btn {
+                width: 106px; height: 34px; text-align: center; line-height: 34px; float: right; cursor: pointer; font-size: 12px;
+                &.cancel { @include lightBtn }
+                &.confirm { background-color: #0048CE; border: 1px solid #0048CE; margin-left: 20px; color: #fff; }
+            }
+        }
+        .printSample{
+            display: inline-block; position: relative; width: 512px; height: 512px; background: url('/assets/imgs/printBg.jpg') no-repeat;margin-top:15px;
+            padding:140px 32px 152px 38px;
+            .nav{
+                @include cf;font-size:12px;margin-top:10px;
+                li{float:left;width:50%;font-weight: 700;}
+            }
+            table{
+                margin-top:10px;
+                th,td{border:1px solid #d7d7d8;text-align:center;line-height:15px;font-weight: 700; font-size: 0;}
+                th span,td span{display: inline-block; overflow: hidden; text-overflow: ellipsis; font-size: 8px;}
+            }
+        }
+            .content{
+                width:512px;min-height:512px;height:512px;margin-left:-256px;margin-top:-256px;
+                .printSample{margin-top:0;}
+            }
+}
+//popup-prefer
+.popup.prefer-addAdr,.popup.prefer-deliver,.popup.prefer-sku-updata,.popup.prefer-sku,.popup.prefer-addAdr-return{
+    p,span,a{font-size: 12px;}
+    .close{top:20px; right: 20px;}
+    .content{padding: 0 20px; width: 680px; height: 568px; padding-top: 8px; margin-top: -284px;}
+    .topErroMsg{line-height: 26px; color: $erroColor; min-height: 26px;}
+    .popTitle{
+        font-size: 18px; line-height: 48px; width: 100%; padding-right: 40px; border-bottom: #dfdfdf 1px solid;
+        span{float: right;}
+    }
+    .inputBox,.selectBox{width: 100%; margin-bottom: 8px;}
+    .labelTwo{
+        >*{width: 315px; float: left;}
+        >*:nth-child(2){float: right;}
+    }
+    .labelFour{
+        >*{width: 154px; float: left; margin-right: 8px;}
+        >*:nth-child(4){margin-right:0;}
+    }
+    .btns{
+        padding-top: 20px;
+        .setDft,.download{
+            float: left;
+            .radio{line-height: 36px; padding-left: 26px; cursor: pointer;}
+            .radio::after{top: 11px;}
+        }
+        .download{
+            color:$btncolor; text-indent: 26px; position: relative; line-height: 28px; padding-top: 8px; width: auto;
+            &::after{@include sprite; background-position:-268px -20px; width: 12px; height: 16px; top: 14px; left: 5px; position: absolute;}
+        }
+        a{line-height: 34px; width: 143px; float: right;}
+        .cancelBtn{@include cancelBtn; margin-right: 20px;}
+        .saveBtn{@include colorBtn; line-height: 36px;}
+    }
+    .labelCheck{
+        padding-top: 10px; margin-bottom: 16px;
+        >*{line-height: 16px; float: left; margin-right: 10px;}
+        .radio{padding-left: 28px; margin-right: 35px; cursor: pointer;}
+    }
+    .labelText{line-height: 30px;}
+    .pickupList{
+        margin-bottom: 29px; height: 255px; overflow: auto; overflow-x: hidden;
+        li{
+            border: #dfdfdf 1px solid; padding: 10px 20px; position: relative; margin-bottom: 10px; cursor: pointer;
+            p{line-height: 14px;}
+            p strong{line-height: 22px;}
+            .tel{float: right;}
+            &::after{@include sprite; background-position: -2px -220px; width: 18px; height: 18px; position: absolute; bottom: 0; right: 0; display: none;}
+            &.cur::after{display: block;}
+            &.cur{border:$btncolor 1px solid;}
+        }
+        &::-webkit-scrollbar{display: none;}
+    }
+}
+.popup.prefer-addAdr{
+    .inputBox{
+        .inputName span{float: none; color: #666;}
+    }
+}
+.popup.prefer-addAdr-return{
+    .content{height: 608px; margin-top: -304px;}
+    .inputBox{
+        .inputName span{float: none; color: #666;}
+    }
+}
+.popup.prefer-deliver{
+    .basic{margin-bottom: 9px;}
+    .content{height: 600px; margin-top: -300px;}
+    .btns{padding-top: 8px;}
+    .sendBlock .labelTwo .selectOptions{top: 32px;}
+    .labelCheck.circle{padding-top: 5px;}
+    .pickupList p{padding: 3px 0;}
+}
+.popup.prefer-sku-updata,.popup.prefer-sku{
+    .content{width: 735px; min-height:471px; margin-left: -367px; margin-top: -235px; height:471px;}
+    .topErroMsg{margin-bottom: 4px;}
+    .btns{padding-top: 0;}
+    .btns.files{
+        margin-bottom: 196px;
+        .longText{width: 100%; font-weight: bold; font-size: 14px;}
+        .filetype{margin-right: 400px;}
+        .gray{color: #999; width: 210px; line-height: 36px; float: left;}
+        .selectFileBtn{
+            position: relative; width: 128px; line-height: 34px; @include cancelBtn; float: left;
+            input{position: absolute; left: 0; top: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;}
+        }
+        .selectFileBtnHidden{opacity: 0;}
+        .fileName{line-height: 36px; padding-left: 110px; float: left; width: 354px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}
+    }
+    .labelMulti{
+        >*{float: left;}
+        .fr{float: right;}
+        .type1,.type4,.type5{
+            width: 120px;
+            &.fl{margin-right: 10px;}
+            &.fr{margin-left: 10px;}
+        }
+        .type2{width: 330px;}
+        .type3{width:334px;
+            textarea{height: 160px; width: 100%; line-height: 20px; padding: 10px; resize: none; border: #dfdfdf 1px solid; font-size: 12px;}
+        }
+        .type2{
+            &.battery{width:360px;}
+            &.input{width:120px;margin-right:10px;}
+        }
+        .type5 .inputName span{
+            position: relative; width: auto;
+            &::after{@include sprite; background-position: -284px -20px; width: 14px; height: 14px; position: absolute; right: -20px; top: 5px;}
+        }
+        .type6{
+            width: 328px;
+        }
+        .battery{
+            position: relative;
+            .selectBox{width: 161px; margin-bottom: 4px;}
+            .batteryTips{color: #666; position: relative; padding-left: 20px; line-height: 20px; white-space: nowrap; margin-bottom: 4px;}
+            .batteryTips::after{@include sprite; width: 16px; height: 16px; background-position: -102px -221px; position: absolute; top: 0; left: 0;}
+            .batteryLink{@include lightblueBtn; color: $btncolor; position: absolute; top:24px; left: 172px; width: 120px; line-height: 30px; text-align: center;}
+        }
+    }
+    .inputName span{float: left;}
+}
+.popup.prefer-sku-updata{
+    .content{width: 735px; height: 397px; min-height: 397px; margin-left: -368px; margin-top: -200px;}
+    .btns.files{margin-bottom: 206px;}
+    .saveBtn{
+        position: relative;
+        input{width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0; cursor: pointer;}
+    }
+}
+.popup.prefer-sku.style1{
+    .content{min-height: 391px; margin-top: -195px;}
+    .onlinein1{width: 105px; margin-right:10px;}
+    textarea{height: 137px;}
+    .battery{
+        .batteryLink,.batteryTips{display: none;}
+    }
+}
+.popup.prefer-sku.style2{
+    .battery{
+        .batteryTips{display: none;}
+        .type3 textarea{height: 196px;}
+    }
+}
+.popup.prefer-sku.style3{
+    .batteryLink{display: none!important;}
+}
+.popup.prefer-sku{
+    .btns{padding-top: 10px;}
+}
+//取消授权 add by fchao
+.popup.revokeAuthority{
+  display:block;
+    .close{right:20px;top:20px;}
+  .content{text-align:center;padding:50px 56px;width:566px;height:266px;min-height:266px;margin-left:-283px;margin-top:-133px;
+    .revokeMsg{
+       h2{font-size:22px;color:#333333;margin-bottom: 20px;font-weight:bold;}
+      p{color:#666666;line-height:20px;margin-top:5px;
+        .relieve{color: #004ecb;}
+        .noOperation{color: #333333;}
+      }
+      .popBtn{margin-top: 50px;width:250px;margin-left:240px;
+        a{width:108px;color:#fff;height:38px;line-height: 38px;display:inline-block;text-decoration: none;}
+        .cancel{@include lightBtn;display:inline-block;color:#333333}
+        .submit{background:#0049ce;margin-left:20px;}
+      }
+    }
+  }
+}
+
+// add by gena
+.popup.control{
+    .content{padding:0 20px;}
+    a.close{display:none;}
+    .popup-title{font-size:18px;text-align:left;line-height: 60px;border-bottom:1px solid #dfdfdf;}
+    .popup-foot{
+        .btn-confirm{@include colorBtn;margin:20px 0;padding:0 24px;line-height:36px;width:auto;}
+    }
+}
+// 设置子账号，绑定eBayID，添加子账号 add by gena
+.popup.setaccount{
+    display:block;
+    .content{width:628px;min-height:532px;margin-top:-266px;padding:0 20px;margin-left:-314px;}
+    .content-container{
+        .setaccount-title{font-size:18px;text-align:left;line-height: 60px;border-bottom:1px solid #dfdfdf;}
+        .setaccount-tips{line-height: 33px;font-size:14px;}
+        .navbar{
+            margin-top:24px;
+            p{
+                float:left;margin-right:12px;color:#666;font-size:12px;line-height:24px;margin-top:0;
+                &:last-child{margin-right:0;}
+                span{margin-right:6px;}
+                input{color:#666;padding-left:8px;border:1px solid #dfdfdf;height:30px;}
+                &.navbar-email{
+                    input{width:220px;}
+                }
+                &.navbar-account{
+                    input{width:87px;}
+                }
+                &.navbar-department{
+                    input{width:87px;}
+                }
+            }
+        }
+        .btns{
+            text-align: right;margin:25px 0 20px 0;
+            .btn{
+                padding:0 40px;margin:0 10px;line-height:36px;
+                &.reset{@include cancelBtn;}
+                &.save{@include colorBtn;}
+            }
+        }
+        .setaccout-content{position:relative;height:100%;margin-top:10px;}
+        .setting{
+            width:260px;
+            h4{font-size:12px;font-weight: 700;line-height:22px;color:#000;.bold{font-weight:lighter;}}
+            .setting-navbar{
+                line-height:22px;
+                li{float:left;width:49%;line-height:22px;position:relative;
+                    &:first-child::after{
+                        position:absolute;top:4px;right:0;height:100%;
+                        content:'';display:inline-block;border:1px solid #dfdfdf;height:12px;
+                    }
+                    &:last-child{padding-left:15px;}
+                }
+                a{display:inline-block;height:100%;color:#999999;font-weight: 700;font-size:12px;text-decoration: none;text-align: center;position:relative;
+                    &.cur{color:#000;
+                        &::after{width:100%;height:3px;background:$btncolor;content:'';display:inline-block;position:absolute;left:0;bottom:0;}
+                    }
+                }
+            }
+            .scrollBlock{
+                border:1px solid $bordercolor;
+                overflow: auto; height: 305px;
+                &::-webkit-scrollbar{width: 10px;}
+                &::-webkit-scrollbar-tra ck{width:10px; background: #f5f5f5;}
+                &::-webkit-scrollbar-thumb{width:10px; background: #e5e5e5;}
+                div.radio{
+                    height:38px;line-height: 36px;border-bottom:1px solid $bordercolor;padding-left:13px;color:#666666;
+                    &:nth-child(even){background:#fafafa;}
+                    &:nth-child(odd){background:#fff;}
+                }
+            }
+        }
+        .setaccount-right{
+            margin-left:65px;
+            .js-checkbox{
+                -moz-user-select: none;
+                -khtml-user-select: none;
+                user-select: none;
+            }
+        }
+        .setaccount-center{
+           @include sprite;position:absolute;top:50%;left:300px;background-position:-189px 0;width:22px;height:13px;
+        }
+    }
+}
+.popup.setaccount.operator-manager{
+    .content{height:543px;margin-top:-271.5px;}
+}
+.popup.setaccount.operator-manager .setaccount-center{left:280px;}
+/*20170829-0137-robin-add*/
+.popup.prefer-addAdr{
+    .labelTwo.short .selectOptions{top: 32px;}
+}
+.popup{
+    &.logistics-info-list{
+        .content{
+            width:568px;min-height:466px;height:466px;margin-left:-284px;margin-top:-233px;padding:20px; padding-top:50px;
+            .logistics-content{
+                border: 1px solid #dfdfdf;height:384px;
+                .base-info{
+                    height:48px;line-height:48px;background:#fafafa;border-bottom: 1px solid #dfdfdf;
+                    p{
+                        padding-left:30px;
+                        span:first-child{color:#999;}
+                        em{color:#999;}
+                    }
+                    .tracking{width: 100px; white-space: nowrap;overflow: hidden; text-overflow: ellipsis; display: inline-block; vertical-align: top;}
+                }
+                .list{
+                    padding:18px 10px 18px 30px;
+                    p{padding-bottom:12px;}
+                    ul{
+                        height:280px;overflow:hidden;overflow-y:auto;
+                        li{
+                            height:20px;line-height:20px;
+                            span{width:340px;}
+                            span:first-child{width:124px}
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*账户管理----添加账户管理*/
+.popup.addAdmin .content{
+    width: 603px;height:409px;  min-height: 420px;
+    .close{top:20px;right:20px;}
+    .addAdTit{margin:20px 20px 0;padding-bottom:20px;font-size:18px;line-height: 22px;border-bottom: 1px solid #dddddd}
+    .juriList{margin: 30px 20px;
+        .adminId{font-size: 12px;color:#333333;}
+        .groupInput{position: relative;margin-top: 10px;
+            input{width:552px;height:30px;line-height: 30px;border:1px solid #d0d0d0;padding: 0 90px 0 15px;}
+            span{position: absolute;right: 20px;line-height:29px;color:#333333;font-weight: bold;}
+        }
+        .groupInput.erro{
+            input{border-color: $erroColor;}
+        }
+        .priManagement{margin-top: 20px;font-size:12px;}
+        .allOption{font-size:12px;
+            &>li{float: left;margin-top: 20px;}
+            &>li{padding:0 30px 0 40px;border-right: 1px solid #dddddd; }
+            &>li:first-child{padding-left:0}
+            &>li:last-child{padding-right:0;border:none;}
+            .icon{@include sprite;width:15px;height:15px;margin-right: 5px;}
+             i.icon{background-position: -106px 0;}
+            & .cur i.icon{background-position: -122px 0;}
+            p{font-weight: bold; cursor: pointer;}
+            .line{height: 1px; margin: 20px 0; width: 100%; background: #ddd;}
+            .singleOption{
+                li{margin-top: 20px; cursor: pointer;}
+            }
+            .singleOption2{ width:233px;
+                li{float: left;}
+                li:nth-child(odd){margin-right:15px;}
+            }
+        }
+        .popBtn{margin-top: 40px;text-align: right;
+            a{text-decoration:none;width:108px;height:35px;display:inline-block;line-height: 35px;text-align: center;border:1px solid #dddddd}
+            .cancel{background:#f9f9f9}
+            .submit{background:#0049ce;color:#fff;margin-left: 20px;}
+        }
+    }
+}
+
+/*账户管理---编辑授权*/
+.popup.setaccount.exitIsAccount{
+    display:none;
+    .isPrimaryAccount{color:#0065d1;
+        span{color:#333333;}
+    }
+    .content{
+        margin-top:-266px;
+        .btns{font-size:12px;
+            .allSelect{position:relative;padding:0 20px;line-height: 36px;float: left;margin-left: 35px;
+                background: -webkit-linear-gradient(#fff, #f0efef);
+                background: -moz-linear-gradient(#fff, #f0efef);
+                background: -o-linear-gradient(#fff, #f0efef);
+                background: linear-gradient(#fff, #f0efef);
+                text-decoration: none;
+                border: #dfdfdf 1px solid;
+                cursor: pointer;
+            }
+            .allSelect i{width:15px;height:15px;position:absolute;top: 50%; margin-top: -7.5px;left:-26px;display:inline-block;@include sprite;}
+            .allSelect i.icon{background-position: -106px 0;}
+            .allSelect i.icon.cur{background-position: -122px 0;}
+            .save.revoke{padding:0 28px;}
+        }
+    }
+
+}
+.page-wrapper .popup.personalAddOperatorCompleted{
+    display: block;
+    p{margin: 0;}
+    .content{
+        width: 566px; min-height: 266px; margin-left: -283px; margin-top: -133px; padding: 57px 20px 0;
+        .mainTitle{font-weight: bold; font-size: 22px; margin-left: 247px; line-height: 36px; position: relative; margin-bottom: 14px;}
+        .mainTitle::after{position: absolute; left: -63px; top: 0; @include sprite; width: 43px; height: 36px; background-position: -47px -33px; background-size: 200px;}
+        .text{
+            font-size: 14px; text-align: center; line-height: 24px; margin-bottom: 40px;
+            span{color: $btncolor;}
+            a{font-weight: bold;text-decoration: underline;}
+        }
+    }
+    .blueBtn{margin-left: 20px;}
+}
+.popup.msgPopup{
+    .content{
+        height: 300px; min-height: 300px; margin-top: -150px; padding:46px; display: table;
+        .msg{text-align: center; line-height: 20px; vertical-align: middle; display: table-cell;}
+        .registNow{@include colorBtn; width: 108px; height: 32px; position: absolute; left: 50%; margin-left: -54px; bottom: 20px; line-height: 32px; display: none;}
+    }
+}
+.popup.msgPopup.style1{
+    .registNow{display: block;}
+    .close{display: none;}
+}
+.popup.popup-deliver-stauts,.popup.popup-prefer-sku-repeat{
+    .content{padding: 0 20px 10px; height: 334px; min-height: 334px; margin-top: -167px; width: 600px; margin-left: -300px;}
+    .mainTitle{line-height: 56px; border-bottom: #dfdfdf 1px solid; font-size: 18px; margin-bottom: 70px;}
+    .stautsText{
+        line-height: 46px; font-size: 18px; text-align: center;
+        span{font-size: 24px; font-weight: bold; vertical-align: bottom; margin-right: 3px;}
+        .success{color: #0065d1;}
+        .failed{color: #666;}
+    }
+    .batteryText{font-size: 12px; text-align: center; color: #666;}
+    .btnArr{
+        position: absolute; bottom: 10px; right: 20px; width: 560px;
+        .fr{margin-left:20px;}
+        .batteryBtn{@include lightblueBtn; width: 105px; height: 36px; color:#0065d1; text-align: center; line-height: 36px;}
+    }
+}
+.popup.popup-deliver-stauts .batteryBtn{width:144px !important;}
+.popup.popup-prefer-sku-repeat{
+    display: block;
+    .content{width: 735px; height: 397px; min-height: 397px; margin-left: -368px; margin-top: -200px;}
+    .btnArr{bottom: 20px; width: 695px;}
+    .btnArr a{font-size: 12px;}
+}
+
+// 确认弹出框
+.popup.confirm{
+    .content{width:400px;height:160px;min-height:160px;margin-left:-200px;margin-top:-80px;padding:20px;text-align: center;}
+    .popup-body{height:60px;overflow-x: hidden;width:100%;word-wrap:break-word;padding-top:30px;font-size:14px;color:#333;}
+    .popup-footer{
+        margin-top:20px;text-align:center;
+        .btn{padding:0 42px;line-height: 36px;font-size:12px;text-decoration:none;display:inline-block;
+            &.cancel{@include lightBtn;margin-right:20px;display:inline-block;}
+            &.save,&.ok{background:#0c4ecb;color:#fff;}
+        }
+    }
+}
+.toast{
+    position: fixed;opacity:1;left:50%;margin-left:-150px;bottom:150px;padding:2px 20px;width:300px;text-align:center;background:rgba(0,0,0,0.7);color:#fff;line-height: 30px;transition: 0.3s all ease-in-out;border-radius:20px;z-index:99999;
+    &.hide1{opacity: 0;}
+}
+.popup.add-sdk .loading::before{top:50% !important;}

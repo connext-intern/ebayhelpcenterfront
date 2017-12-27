@@ -1,0 +1,69 @@
+<!-- 申请开发者ID -->
+<!-- <div class='popup apply-dev-id' v-show="pop.openPopApplyDev">
+  <div class='mask'></div>
+  <div class='content-container'>
+    <div class="title">
+      <em v-on:click="pop.openPopApplyDev=0;"></em>
+      <h2 lg="appliyToDevID"></h2>
+    </div>
+    <div class="message-box">
+      <ul>
+        <li>
+          <span lg="devID"></span><em>：</em>
+          <span class="id-num">{{applyDeveloperID.developerId}}</span>
+          <span class="private">Private</span>
+        </li>
+        <li>
+          <span class="text" lg="secret"></span><em>：</em>
+          <span>{{applyDeveloperID.secret}}</span>
+        </li>
+        <li><span>&nbsp;</span><span><a href="javascript:;" lg="resetSecret" v-on:click="resetSecret($event);"></a></span></li>
+      </ul>
+    </div>
+    <div class="btn-container">
+      <button class="btn confirm" v-on:click="isAppliID=1,pop.openPopApplyDev=0;" lg="confirm"></button>
+      <button class="btn cancel" v-on:click="pop.openPopApplyDev=0;" lg="cancel"></button>
+    </div>
+  </div>
+</div> -->
+<div class='popup datum-msg applyDevId' v-show="pop.openPopApplyDev">
+  <div class='mask'></div>
+  <div class='content-container'>
+    <div class="title">
+      <h2 lg="agree-policy"></h2>
+      <em v-on:click="pop.openPopApplyDev=0;"></em>
+    </div>
+    <div class="message-box">
+      <div class="inner">
+        <p>Notice</p>
+        <p>The following information is intended for programmmers and advanced users only.If you just want to use LiveJournal
+          to keep your journal,great! Normal users do not have to worry about this stuff.</p>
+        <p>That said,the content below is split up into two sections:information on how to customize the look of LiveJournal
+          pages,and information on writing LiveJournal clients to the LiveJournal server.</p>
+        <p>LiveJoutnal Code Repository</p>
+        <p>To see the backend that makes LiveJoutnal tick,and to see the innards of a few of thie available clients,go to the
+          Code page.</p>
+        <p>The following information is intended for programmmers and advanced users only.If you just want to use LiveJournal
+          to keep your journal,great! Normal users do not have to worry about this stuff.</p>
+        <p>That said,the content below is split up into two sections:information on how to customize the look of LiveJournal
+          pages,and information on writing LiveJournal clients to the LiveJournal server.</p>
+        <p>LiveJoutnal Code Repository</p>
+        <p>To see the backend that makes LiveJoutnal tick,and to see the innards of a few of thie available clients,go to the
+          Code page.</p>
+        <p>The following information is intended for programmmers and advanced users only.If you just want to use LiveJournal
+          to keep your journal,great! Normal users do not have to worry about this stuff.</p>
+        <p>That said,the content below is split up into two sections:information on how to customize the look of LiveJournal
+          pages,and information on writing LiveJournal clients to the LiveJournal server.</p>
+        <p>LiveJoutnal Code Repository</p>
+        <p>To see the backend that makes LiveJoutnal tick,and to see the innards of a few of thie available clients,go to the
+          Code page.</p>
+        <p>That said,the content below is split up into two sections:information on how to customize the look of LiveJournal
+          pages,and information on writing LiveJournal clients to the LiveJournal server.</p>
+        <p>LiveJoutnal Code Repository</p>
+        <p>To see the backend that makes LiveJoutnal tick,and to see the innards of a few of thie available clients,go to the
+          Code page.</p>
+          <p class="btn"><a class="agree" lg="agree" href="javascript:;" v-on:click="isAgreeAuth=1;pop.openPopApplyDev=0;"></a></p>
+      </div>
+    </div>
+  </div>
+</div>

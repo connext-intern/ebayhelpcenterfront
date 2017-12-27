@@ -1,0 +1,14 @@
+﻿{
+    "code":"00",
+    "message":"获取已设置的打印偏好",
+    "result":{
+          "itemId":true,
+          "skuNo":true,
+          "nameZh":true,
+          "nameEn":false,
+          "property":true,
+          "quantity":true,
+          "sellerId":true,
+          "buyerId":true
+      }
+}

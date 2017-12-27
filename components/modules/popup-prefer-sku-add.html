@@ -1,0 +1,33 @@
+<div class='popup prefer-sku-add'>
+    <div class='mask'></div>
+    <div class='content'>
+        <a href='javascript:;' class='close sprite'></a>
+        <p class='popTitle'>上传SKU预设<span>*为必填项</span></p>
+        <p class="topErroMsg"><span v-if='showErroMsg' lg='errorMessage'></span></p>
+        <ul class="labelMulti cf">
+            <li v-for='(itemValue,itemKey) in skuPopInputArr' v-bind:class='[itemValue.type,itemValue.float]'>
+                <div class='inputBox basic' v-if='itemValue.type=="type1" || itemValue.type=="type2" || itemValue.type=="type5"' data-vail=''>
+                    <p class="inputName" v-if='itemValue.titleLg.length>0'><span v-bind:lg='itemValue.titleLg'></span></p>
+                    <div class="input"><input maxlength='50' v-bind:lg='itemValue.inputLg' v-model='itemValue.model'/></div>
+                </div>
+                <div class='inputBox basic' v-if=' itemValue.type=="type3"' data-vail=''>
+                    <p class="inputName" v-if='itemValue.titleLg.length>0'><span v-bind:lg='itemValue.titleLg'></span></p>
+                    <div class="input"><textarea maxlength='50' v-model='itemValue.model'></textarea></div>
+                </div>
+                <div class='selectBox basic' v-if='itemValue.type=="type4"'>
+                    <p class="selectName" v-if='itemValue.titleLg.length>0'><span v-bind:lg='itemValue.titleLg'></span></p>
+                    <div class='selectVal js-tips'>666</div>
+                    <ul class='selectOptions'>
+                        <li>555</li>
+                        <li>555</li>
+                        <li>555</li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <div class="btns cf">
+            <a class="saveBtn" href="javascript:;">保存</a>
+            <a class="cancelBtn" href="javascript:;">取消</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,106 @@
+﻿{
+    "code": "00",
+    "message": "admin物流产品列表",
+    "result": {
+        "totalPages": "20",
+        "totalCounts": "200",
+        "dataList": [
+            {
+                "sysId": "1",
+                "transportId": "49586590789056870680",
+                "transportName": "物流服务名称1",
+                "updateTime": "2017/09/01",
+                "transportDesc": "物流产品描述",
+                "isEnabled":0
+            },
+            {
+                "sysId": "1",
+                "transportId": "49586590789056870680",
+                "transportName": "物流服务名称2",
+                "updateTime": "2017/09/01",
+                "transportDesc": "物流产品描述",                 
+                "isEnabled":0
+            },
+            {
+                "sysId": "1",
+                "transportId": "49586590789056870680",
+                "transportName": "物流服务名称3",
+                "updateTime": "2017/09/01",
+                "transportDesc": "物流产品描述",                 
+                "isEnabled":0
+            },
+            {
+                "sysId": "1",
+                "transportId": "49586590789056870681",
+                "transportName": "物流服务名称4",
+                "updateTime": "2017/09/01",
+                "transportDesc": "物流产品描述",                 
+                "isEnabled":0
+            },
+            {
+                "sysId": "1",
+                "transportId": "49586590789056870682",
+                "transportName": "物流服务名称5",
+                "updateTime": "2017/09/01",
+                "transportDesc": "物流产品描述",                 
+                "isEnabled":0
+            },
+            {
+                "sysId": "1",
+                "transportId": "49586590789056870682",
+                "transportName": "物流服务名称66666",
+                "updateTime": "2017/09/01",
+                "transportDesc": "物流产品描述",                 
+                "isEnabled":0
+            },
+            {
+                "sysId": "1",
+                "transportId": "49586590789056870683",
+                "transportName": "物流服务名称6",
+                "updateTime": "2017/09/01",
+                "transportDesc": "物流产品描述",                 
+                "isEnabled":0
+            },
+            {
+                "sysId": "1",
+                "transportId": "49586590789056870684",
+                "transportName": "物流服务名称7",
+                "updateTime": "2017/09/01",
+                "transportDesc": "物流产品描述",                 
+                "isEnabled":0
+            },
+            {
+                "sysId": "1",
+                "transportId": "49586590789056870685",
+                "transportName": "物流服务名称8",
+                "updateTime": "2017/09/01",
+                "transportDesc": "物流产品描述",                 
+                "isEnabled":0
+            },
+            {
+                "sysId": "1",
+                "transportId": "49586590789056870686",
+                "transportName": "物流服务名称",
+                "updateTime": "2017/09/01",
+                "transportDesc": "物流产品描述",                 
+                "isEnabled":0
+            },
+            {
+                "sysId": "1",
+                "transportId": "49586590789056870687",
+                "transportName": "物流服务名称",
+                "updateTime": "2017/09/01",
+                "transportDesc": "物流产品描述",                 
+                "isEnabled":0
+            },
+            {
+                "sysId": "1",
+                "transportId": "49586590789056870688",
+                "transportName": "物流服务名称",
+                "updateTime": "2017/09/01",
+                "transportDesc": "物流产品描述",                 
+                "isEnabled":0
+            }
+        ]
+    }
+}

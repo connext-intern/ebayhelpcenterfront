@@ -1,0 +1,15 @@
+﻿{
+    "code":"00",
+    "message":"根据第三方开发者id查询开发者信息",
+    "result":{
+        "developerId":"开发者ID",
+        "secret":"秘钥",
+        "developerType":"开发者类型（private/public）",
+        "contactName":"联系人姓名",
+        "contactPhone":"联系人电话",
+        "contactEmail":"联系人邮箱",
+        "applicationName":"eBay IS System V1.0",
+        "applicationDescription":"应用描述",
+        "company":"Shanghai Connext Information Technology Co., Ltd"
+    }
+}

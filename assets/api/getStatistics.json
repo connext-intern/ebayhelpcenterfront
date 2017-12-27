@@ -1,0 +1,118 @@
+﻿{
+    "code": "00",
+    "message": "获取数据统计",
+    "result": {
+        "statisticsLines": {
+            "dataList": [
+                {
+                    "date": "2017-07-26",
+                    "userName": "eBay_guest_0000099999@ebay.com",
+                    "packageCount": "99",
+                    "currency": "CNY",
+                    "totalCost": "9,999.00"
+                },
+                {
+                    "date": "2017-07-27",
+                    "userName": "eBay_guest_0000099999@ebay.com",
+                    "packageCount": "99",
+                    "currency": "CNY",
+                    "totalCost": "9,999.00"
+                },
+                {
+                    "date": "2017-07-28",
+                    "userName": "eBay_guest_0000099999@ebay.com",
+                    "packageCount": "99",
+                    "currency": "HKD",
+                    "totalCost": "9,999.00"
+                },
+                {
+                    "date": "2017-07-29",
+                    "userName": "eBay_guest_0000099999@ebay.com",
+                    "packageCount": "99",
+                    "currency": "TWD",
+                    "totalCost": "9,999.00"
+                },
+                {
+                    "date": "2017-08-01",
+                    "userName": "eBay_guest_0000099999@ebay.com",
+                    "packageCount": "99",
+                    "currency": "TWD",
+                    "totalCost": "9,999.00"
+                },
+                {
+                    "date": "2017-08-02",
+                    "userName": "eBay_guest_0000099999@ebay.com",
+                    "packageCount": "99",
+                    "currency": "HKD",
+                    "totalCost": "9,999.00"
+                },
+                {
+                    "date": "2017-08-03",
+                    "userName": "eBay_guest_0000099999@ebay.com",
+                    "packageCount": "99",
+                    "currency": "TWD",
+                    "totalCost": "9,999.00"
+                },
+                {
+                    "date": "2017-08-04",
+                    "userName": "eBay_guest_0000099999@ebay.com",
+                    "packageCount": "99",
+                    "currency": "TWD",
+                    "totalCost": "9,999.00"
+                },
+                {
+                    "date": "2017-08-05",
+                    "userName": "eBay_guest_0000099999@ebay.com",
+                    "packageCount": "99",
+                    "currency": "CNY",
+                    "totalCost": "9,999.00"
+                },
+                {
+                    "date": "2017-08-06",
+                    "userName": "eBay_guest_0000099999@ebay.com",
+                    "packageCount": "99",
+                    "currency": "CNY",
+                    "totalCost": "9,999.00"
+                },
+                {
+                    "date": "2017-08-07",
+                    "userName": "eBay_guest_0000099999@ebay.com",
+                    "packageCount": "99",
+                    "currency": "CNY",
+                    "totalCost": "9,999.00"
+                },
+                {
+                    "date": "2017-08-08",
+                    "userName": "eBay_guest_0000099999@ebay.com",
+                    "packageCount": "99",
+                    "currency": "CNY",
+                    "totalCost": "9,999.00"
+                },
+                {
+                    "date": "2017-08-09",
+                    "userName": "eBay_guest_0000099999@ebay.com",
+                    "packageCount": "99",
+                    "currency": "CNY",
+                    "totalCost": "9,999.00"
+                },
+                {
+                    "date": "2017-08-10",
+                    "userName": "eBay_guest_0000099999@ebay.com",
+                    "packageCount": "99",
+                    "currency": "CNY",
+                    "totalCost": "9,999.00"
+                },
+                {
+                    "date": "2017-08-11",
+                    "userName": "eBay_guest_0000099999@ebay.com",
+                    "packageCount": "99",
+                    "currency": "CNY",
+                    "totalCost": "9,999.00"
+                }
+            ],
+            "totalPages": "5",
+            "totalCounts": "50"
+        },
+        "totalPackageCount": "999"
+    }
+}

@@ -1,0 +1,21 @@
+﻿{
+  "code": "00",
+  "message": "获取费用汇总",
+  "result": [
+    {
+      "currency": "CNY",
+      "totalCost": "9,991",
+      "totalCharge": "9,999"
+    },
+    {
+      "currency": "HKD",
+      "totalCost": "10,999",
+      "totalCharge": "9,999"
+    },
+    {
+      "currency": "TWD",
+      "totalCost": "20,999",
+      "totalCharge": "9,999"
+    }
+  ]
+}

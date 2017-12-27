@@ -1,0 +1,10 @@
+﻿{
+    "code":"00",
+    "message":"SKU上传",
+    "result":{
+        "filename":"缓存的上传文件名",
+        "totalNo":"8",
+        "errorNo":"错误的数目",
+        "repeatNo":"3"
+    }
+}

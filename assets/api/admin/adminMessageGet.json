@@ -1,0 +1,50 @@
+﻿{
+    "code":"00",
+    "message":"站内信列表查询",
+    "result":{
+        "totalPages":"10",
+        "totalCounts":"99",
+        "dataList":[
+            {
+                "messageId":"msg001",
+                "messageNumber":"01",
+                "messageTitle":"运输配送业务管理方案运输配送业务管理方案",
+                "messageText":"站内信内容",
+                "sendObject":"all",
+                "uploadTime":"2017/08/27 19:00:00"
+            },
+            {
+                "messageId":"msg001",
+                "messageNumber":"02",
+                "messageTitle":"运输配送业务管理方案运输配送业务管理方案",
+                "messageText":"站内信内容",
+                "sendObject":"part",
+                "uploadTime":"2017/08/27 19:00:00"
+            },
+            {
+                "messageId":"msg001",
+                "messageNumber":"03",
+                "messageTitle":"运输配送业务管理方案运输配送业务管理方案",
+                "messageText":"站内信内容",
+                "sendObject":"part",
+                "uploadTime":"2017/08/27 19:00:00"
+            },
+            {
+                "messageId":"msg001",
+                "messageNumber":"04",
+                "messageTitle":"运输配送业务管理方案运输配送业务管理方案",
+                "messageText":"站内信内容",
+                "sendObject":"part",
+                "uploadTime":"2017/08/27 19:00:00"
+            },
+            {
+                "messageId":"msg001",
+                "messageNumber":"05",
+                "messageTitle":"运输配送业务管理方案运输配送业务管理方案",
+                "messageText":"站内信内容",
+                "sendObject":"part",
+                "uploadTime":"2017/08/27 19:00:00"
+            }
+        ]
+    }
+}

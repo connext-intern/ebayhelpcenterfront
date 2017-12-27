@@ -1,0 +1,12 @@
+﻿{
+    "result": {
+        "messageId": "22",
+        "messageNumber": null,
+        "messageTitle": "111",
+        "messageText": "<table width=\"826\" height=\"70\" cellspacing=\"0\" cellpadding=\"2\" bordercolor=\"#000000\" border=\"1\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td>\n\t\t\t\t<br />\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<br />\n\t\t\t</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>\n\t\t\t\t<br />\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<br />\n\t\t\t</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>\n\t\t\t\t<br />\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<br />\n\t\t\t</td>\n\t\t</tr>\n\t</tbody>\n</table>\n<br />",
+        "sendObject": "all",
+        "uploadTime": "2017-12-12"
+    },
+    "code": "00",
+    "message": "success"
+}

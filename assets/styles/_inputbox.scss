@@ -1,0 +1,16 @@
+/*
+<div class='inputBox basic' data-vail=''>
+    <p class="inputName"></p>
+    <div class="input"><input class='darkPlaceholder' maxlength='50'/></div>
+</div>
+*/
+.inputBox.basic{
+  .inputName{line-height: 24px; font-size: 12px; min-height: 24px;}
+  .inputName span{float: right;}
+  .input{width: 100%; position: relative;}
+  input{width:100%; line-height: 30px; height:32px; border: #dfdfdf 1px solid; padding: 0 10px; font-size: 12px;}
+  &.basic.erro{
+    input{border: $erroColor 1px solid;}
+    .input::after{@include sprite; width: 16px; height: 16px; position: absolute; right: 10px; top: 7px;}
+  }
+}

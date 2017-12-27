@@ -1,0 +1,98 @@
+﻿body,button,input,textarea{line-height:1; font-family:'Arial','微软雅黑',Helvetica,Verdana,sans-serif; font-size:14px;-webkit-font-smoothing: antialiased;word-wrap: break-word;word-break: break-all;}
+body,html{background-color:#f7f7f7;-webkit-text-size-adjust:none;height:100%}
+*{word-break: normal;}
+body.background{background-color:#f3f7fc;}
+input::-ms-clear { display: none; }
+/*common namespace:cClear,20170808,louis*/
+.cf{clear:both;zoom:1}
+.cf:before,.cf:after{content:"";display:block;overflow:hidden}
+.cf:after{clear:both}
+/*common namespace:cClear,20170808,louis*/
+.fl{float:left}
+.flForce{float: left !important;}
+.fr{float:right}
+.frForce{float: right !important;}
+.sandbox{display:none;}
+// gena common scroll baar
+::-webkit-scrollbar{width: 10px;}
+::-webkit-scrollbar-track{width:10px; background: #f5f5f5;}
+::-webkit-scrollbar-thumb{width:10px; background: #e5e5e5;}
+// gena
+.visible-show{visibility: visible;opacity: 1;}
+.visible-hide{visibility: hidden;opacity: 0;}
+[v-cloak] {display: none;}
+.show{display: inline-block!important;}
+.hide{display:none!important;}
+.fade{transition:all .2s ease-in;}
+.img100{width:100%;height:100%;}
+.errorMsg{position: relative !important;}
+.ml10{margin-left:10px;}
+.errorMsg,.red{color: #e42e35  !important;}
+.required.error{
+    input,.selectBox,textarea{border:1px solid #e42e35 !important;}
+    &.input-content,&.input-wrapper,.input-content{
+        span{display:none;}
+        &::after{
+        content: '';
+        vertical-align: middle;
+        display: inline-block;
+        background: url('../../assets/imgs/sprite.png') no-repeat;
+        font-size: 0;
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        right: 10px;
+        top: 7px;
+        }
+    }
+}
+.order-footer{margin-bottom:60px;}
+/*common namespace:button,20170808,louis*/
+.btn-common{display:block;text-align:center;min-width:128px;position:relative;background:#004ecb;color:#fff;padding:10px 0;cursor:pointer}
+.btn-gray{background:#333333}
+.btn-loading:after{background:url('../../assets/imgs/btn-loading.gif') no-repeat;height:16px;width:16px;display:inline-block;vertical-align:middle;margin:-2px 0 0 7px;content:''}
+/*common namespace:crumbs,20170808,louis*/
+.crumbs{position:absolute;right:30px;top:0;height:24px;line-height:30px;}
+.crumbs a{text-decoration: none;color:#333333;}
+.crumbs a:after{display:inline-block;content: '>';padding:0 6px;}
+.crumbs a:last-child{color:#004ecb;cursor: default;font-weight:bold}
+
+.crumbs a:last-child:after{content: ''}
+// add by gena 临时的 个人中心
+.crumbs a:last-child{color:#0049ce;font-weight: bold;}
+/*common namespace:common,20170809,louis*/
+.main{width:100%;min-height:560px;min-width: 1200px;}
+.page{width:1200px;margin:0 auto;display:none}
+/*common namespace:sprite,20170813,robin*/
+.sprite{background: url('../../../assets/imgs/sprite.png') no-repeat; display: block; font-size: 0;}
+.darkPlaceholder{
+  &::-webkit-input-placeholder {color:$textcolor;}
+  &:-moz-placeholder {color:$textcolor;}
+  &::-moz-placeholder {color:$textcolor;}
+  &:-ms-input-placeholder {color:$textcolor;}
+}
+/*common namespace:common,20170914,louis*/
+.commonLoad{
+    position:fixed;height:100%;width:100%;top:0;left:0;z-index:990;display:none;
+    .loadImg{position:absolute;left:50%;top:50%;width:64px;height:64px;margin-left:-32px;margin-top:-32px;background:url('../../../assets/imgs/loading.gif') center center no-repeat;}
+}
+.commonMask{display:none;filter:alpha(opacity=50);-moz-opacity:.5;opacity:.5;background:#000000;position:fixed;top:0;left:0;z-index:991;width:100%;height:100%;text-indent:-99em}
+.error tbody tr{text-align: center;border:transparent;}
+.layout{
+    height:100%;
+    .main{
+        position: relative;width:100%;
+        .page{
+            background:#fff;padding-left:200px;width:100%;
+            .page-wrapper{
+                width:1080px;margin:0 auto;min-height: 560px;padding:30px 40px;position:relative;
+            }
+        }
+    }
+    .main.admin{
+            min-height:700px;
+        .page{
+            min-height:700px;
+        }
+    }
+}

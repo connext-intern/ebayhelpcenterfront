@@ -1,0 +1,87 @@
+﻿{
+    "code": "00",
+    "message": "success",
+    "result": [
+        {
+            "id": "18",
+            "name": "交运偏好1",
+            "type": "CANVASSION",
+            "address": {
+                "id": "80000201",
+                "name": "交运偏好1",
+                "contactName": "马旭",
+                "companyName": "联蔚科技",
+                "countryCode": "440000",
+                "country": "中国大陆",
+                "provinceCode": "110000",
+                "province": "北京市",
+                "cityCode": "110100",
+                "city": "北京市",
+                "countyCode": "110101",
+                "county": "东城区",
+                "address1": "交运偏好1",
+                "address2": "交运偏好1交运偏好1",
+                "address3": "交运偏好1交运偏好1交运偏好1",
+                "zipcode": "210000",
+                "phone": "13999999999",
+                "type": "CANVASSION",
+                "isDefault": false
+            },
+            "pickupTime": "16:00-18:00",
+            "siteAddress": null,
+            "defaultAddress": "false"
+        },
+        {
+            "id": "40",
+            "name": "交运偏好2",
+            "type": "CANVASSION",
+            "address": {
+                "id": "80000344",
+                "name": "交运偏好2",
+                "contactName": "maxu",
+                "companyName": "connext",
+                "countryCode": "HK",
+                "country": "中国香港",
+                "provinceCode": "810000",
+                "province": "香港特别行政区",
+                "cityCode": "810100",
+                "city": "香港岛",
+                "countyCode": "810101",
+                "county": "中西区",
+                "address1": "香港岛101",
+                "address2": "2222",
+                "address3": "3333@",
+                "zipcode": "999077",
+                "phone": "13913913913",
+                "type": "CANVASSION",
+                "isDefault": false
+            },
+            "pickupTime": "13:00-14:00",
+            "siteAddress": null,
+            "defaultAddress": "false"
+        },
+        {
+            "id": "81",
+            "name": "卖家自送",
+            "type": "SELLER_SENDING",
+            "address": null,
+            "pickupTime": null,
+            "siteAddress": {
+                "id": "SID12345678",
+                "name": "测试001",
+                "country": "中国大陆",
+                "countryCode": "CN",
+                "province": "北京市",
+                "city": "北京市",
+                "cityCode": "110100",
+                "area": "110101",
+                "address1": "测试地址1",
+                "address2": "测试地址2",
+                "address3": "测试地址3",
+                "contactName": "联系人名称",
+                "contactTel": "13033312311"
+            },
+            "defaultAddress": "true"
+        }
+    ]
+}

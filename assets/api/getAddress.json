@@ -1,0 +1,25 @@
+﻿{
+    "code":"00",
+    "message":"获取地址信息",
+    "result": {
+        "id":"地址ID",
+        "name":"地址名称",
+        "contactName":"联系人姓名",
+        "companyName":"公司名称",
+        "country":"国家",
+        "countryCode":"国家编码",
+        "province":"省",
+        "provinceCode":"省份编码",
+        "city":"市",
+        "cityCode":"城市编码",
+        "county":"区县",
+        "countyCode":"区县编码",
+        "address1":"街道地址1",
+        "address2":"街道地址2",
+        "address3":"街道地址3",
+        "zipcode":"邮政编码",
+        "phone":"手机号",
+        "type":"发货地址:SEND;退货地址:RETURN;揽货地址:PICKUP",
+        "isDefault":"是否为默认地址"
+    }
+}

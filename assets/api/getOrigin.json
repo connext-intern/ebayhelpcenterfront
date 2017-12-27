@@ -1,0 +1,13 @@
+﻿{
+    "code":"00",
+    "message":"获取原产地",
+    "result":[
+        {"code":"国家/地区代码0", "description":"Andorra"},
+        {"code":"国家/地区代码1", "description":"United Arab Emirates"},
+        {"code":"国家/地区代码2", "description":"Congo, The Democratic Republic of the"},
+        {"code":"国家/地区代码3", "description":"South Georgia and the South Sandwich Islands"},
+        {"code":"国家/地区代码4", "description":"Heard Island and McDonald Islands"},
+        {"code":"国家/地区代码5", "description":"British Indian Ocean Territory"},
+        {"code":"国家/地区代码6", "description":"Democratic People's Republic of Korea"}
+    ]
+}

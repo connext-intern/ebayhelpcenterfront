@@ -1,0 +1,66 @@
+﻿{
+    "code": "00",
+    "message": "获取订单状态统计数据",
+    "result": [
+        {
+            "preferenceId": 1,
+            "preferenceName": "preferenceName1",
+            "packageCount": 1
+        },
+        {
+            "preferenceId": 2,
+            "preferenceName": "preferenceName2",
+            "packageCount": 2
+        },
+        {
+            "preferenceId": 3,
+            "preferenceName": "preferenceName3",
+            "packageCount": 3
+        },
+        {
+            "preferenceId": 4,
+            "preferenceName": "preferenceName4",
+            "packageCount": 4
+        },
+        {
+            "preferenceId": 5,
+            "preferenceName": "preferenceName5",
+            "packageCount": 5
+        },
+        {
+            "preferenceId": 6,
+            "preferenceName": "preferenceName6",
+            "packageCount": 6
+        },
+        {
+            "preferenceId": 7,
+            "preferenceName": "preferenceName7",
+            "packageCount": 7
+        },
+        {
+            "preferenceId": 8,
+            "preferenceName": "preferenceName8",
+            "packageCount": 8
+        },
+        {
+            "preferenceId": 9,
+            "preferenceName": "preferenceName9",
+            "packageCount": 9
+        },
+        {
+            "preferenceId": 10,
+            "preferenceName": "preferenceName10",
+            "packageCount": 10
+        },
+        {
+            "preferenceId": 11,
+            "preferenceName": "preferenceName11",
+            "packageCount": 11
+        },
+        {
+            "preferenceId": 12,
+            "preferenceName": "preferenceName12",
+            "packageCount": 12
+        }
+    ]
+}

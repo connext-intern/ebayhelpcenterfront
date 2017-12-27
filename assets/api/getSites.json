@@ -1,0 +1,19 @@
+﻿{
+    "code":"00",
+    "message":"获取卖家自送站点，只传国家，返回对应的城市list，传入国家城市，返回对应的自送站点list",
+    "result":{
+        "cityDtos":[
+            {"code":"城市code1", "name":"城市名称1"},
+            {"code":"城市code2", "name":"城市名称2"},
+            {"code":"城市code3", "name":"城市名称3"},
+            {"code":"城市code4", "name":"城市名称4"}
+        ],
+        "siteDtos":[
+            {"id":"站点ID001","name":"顺丰美国加尼福尼亚仓1","province":"JIANGSU","city":"SHANGHAI","area":"YANGPU","address1":"ROAD.PINGFU XXXXXX No.188","address2":"","address3":"","contactName":"jone","contactTel":"021-5567482","country":"中国大陆"},
+            {"id":"站点ID002","name":"顺丰美国加尼福尼亚仓2","province":"JIANGSU","city":"SHANGHAI","area":"YANGPU","address1":"ROAD.PINGFU XXXXXX No.188","address2":"","address3":"","contactName":"jone","contactTel":"021-5567482","country":"中国大陆"},
+            {"id":"站点ID003","name":"顺丰美国加尼福尼亚仓3","province":"JIANGSU","city":"SHANGHAI","area":"YANGPU","address1":"ROAD.PINGFU XXXXXX No.188","address2":"","address3":"","contactName":"jone","contactTel":"021-5567482","country":"中国大陆"},
+            {"id":"站点ID004","name":"顺丰美国加尼福尼亚仓4","province":"JIANGSU","city":"SHANGHAI","area":"YANGPU","address1":"ROAD.PINGFU XXXXXX No.188","address2":"","address3":"","contactName":"jone","contactTel":"021-5567482","country":"中国大陆"},
+            {"id":"站点ID005","name":"顺丰美国加尼福尼亚仓5","province":"JIANGSU","city":"SHANGHAI","area":"YANGPU","address1":"ROAD.PINGFU XXXXXX No.188","address2":"","address3":"","contactName":"jone","contactTel":"021-5567482","country":"中国大陆"}
+        ]
+    }
+}

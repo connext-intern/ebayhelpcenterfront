@@ -1,0 +1,12 @@
+﻿{
+    "code":"00",
+    "message":"根据邮编查询省市区",
+    "result":{
+        "countryCode":"国家编码",
+        "countryName":"国家名称",
+        "stateCode":"州编码",
+        "stateName":"州名称",
+        "cityCode":"城市编码",
+        "cityName":"城市名称"
+    }
+}

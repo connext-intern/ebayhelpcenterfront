@@ -1,0 +1,64 @@
+﻿{
+    "code": "00",
+    "message": "success",
+    "result": {
+        "totalPages": 1,
+        "totalCounts": 9,
+        "dataList": [
+            {
+                "policyId": "53",
+                "policyTitle": "test time",
+                "createTime": "2017-11-01 13:49:07",
+                "content": "dsfa"
+            },
+            {
+                "policyId": "11",
+                "policyTitle": "wewe",
+                "createTime": "2017-11-01 13:49:05",
+                "content": "we"
+            },
+            {
+                "policyId": "41",
+                "policyTitle": "添加物流文章1",
+                "createTime": "2017-11-01 10:51:01",
+                "content": "添加物流文章2"
+            },
+            {
+                "policyId": "39",
+                "policyTitle": "测试物流文章公告",
+                "createTime": "2017-11-01 10:50:57",
+                "content": "测试物流文章公告"
+            },
+            {
+                "policyId": "49",
+                "policyTitle": "添加物流文章（政策​）",
+                "createTime": "2017-11-01 10:50:55",
+                "content": "<h2 style=\"color:#333333;font-size:18px;font-family:Arial, 微软雅黑, Helvetica, Verdana, sans-serif;background-color:#FFFFFF;\">\n\t<h2 style=\"color:#333333;font-size:18px;font-family:Arial, 微软雅黑, Helvetica, Verdana, sans-serif;background-color:#FFFFFF;\">\n\t\t添加物流文章\n\t</h2>\n测试物流文章--类型政策<br />\n</h2>"
+            },
+            {
+                "policyId": "44",
+                "policyTitle": "添加物流文章4",
+                "createTime": "2017-11-01 10:50:48",
+                "content": "添加物流文章4"
+            },
+            {
+                "policyId": "46",
+                "policyTitle": "添加物流文章7",
+                "createTime": "2017-11-01 10:50:47",
+                "content": "添加物流文章7"
+            },
+            {
+                "policyId": "42",
+                "policyTitle": "添加物流文章2",
+                "createTime": "2017-11-02 17:57:07",
+                "content": "添加物流文章2"
+            },
+            {
+                "policyId": "20",
+                "policyTitle": "eee",
+                "createTime": "2017-11-01 13:49:09",
+                "content": "eeeddddddddddddd"
+            }
+        ]
+    }
+}

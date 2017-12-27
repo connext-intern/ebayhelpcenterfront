@@ -1,0 +1,62 @@
+﻿{
+    "result": {
+        "apiSuccess": 43,
+        "apiFailed": 22,
+        "pageDto": {
+            "dataList": [
+                {
+                    "devId": "1",
+                    "interceptName": "111",
+                    "successCount": 20,
+                    "failedCount": 10
+                },
+                {
+                    "devId": "1",
+                    "interceptName": "123",
+                    "successCount": 1,
+                    "failedCount": 1
+                },
+                {
+                    "devId": "1",
+                    "interceptName": "a",
+                    "successCount": 3,
+                    "failedCount": 3
+                },
+                {
+                    "devId": "1",
+                    "interceptName": "b",
+                    "successCount": 3,
+                    "failedCount": 0
+                },
+                {
+                    "devId": "2",
+                    "interceptName": "111",
+                    "successCount": 10,
+                    "failedCount": 2
+                },
+                {
+                    "devId": "2",
+                    "interceptName": "a",
+                    "successCount": 3,
+                    "failedCount": 0
+                },
+                {
+                    "devId": "2",
+                    "interceptName": "b",
+                    "successCount": 0,
+                    "failedCount": 3
+                },
+                {
+                    "devId": "3",
+                    "interceptName": "c",
+                    "successCount": 3,
+                    "failedCount": 3
+                }
+            ],
+            "totalPages": 1,
+            "totalCounts": 8
+        }
+    },
+    "code": "00",
+    "message": "success"
+}

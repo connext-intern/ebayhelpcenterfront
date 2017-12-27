@@ -1,0 +1,11 @@
+﻿{
+  "code": "00",
+  "message": "获取公告详情",
+  "result": {
+    "noticeId": "公告ID",
+    "noticeTitle": "物流动态易递宝(eDS)荷兰渠道平邮（含电和非含电）服务终止通知",
+    "noticeDate":"2017.09.18",
+    "content": "xxxx",
+    "isNew": true
+  }
+}

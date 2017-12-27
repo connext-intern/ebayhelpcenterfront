@@ -1,0 +1,106 @@
+﻿{
+    "code": "00",
+    "message": "管理员列表搜索",
+    "result": {
+        "totalPages": "5",
+        "totalCounts": "99",
+        "dataList": [
+            {
+                "adminId": "ebay_adminId001",
+                "adminStatus": "NOTACTIVE",
+                "createDate": "2017/08/27 19:00:00",
+                "email":"ebay_admin0099099991@ebay.com",
+                "roles": [
+                    {
+                        "code": "banner",
+                        "value": "广告位管理"
+                    },
+                    {
+                        "code": "text",
+                        "value": "文章管理"
+                    },
+                    {
+                        "code": "message",
+                        "value": "站内信管理"
+                    },
+                    {
+                        "code": "apiDocument",
+                        "value": "api文档管理"
+                    }
+                ]
+            },
+            {
+                "adminId": "ebay_adminId002",
+                "email":"ebay_admin0099099999@ebay.com",
+                "adminStatus": "DISABLE",
+                "createDate": "2017/08/27 19:00:00",
+                "roles": [
+                    {
+                        "code": "banner",
+                        "value": "广告位管理"
+                    },
+                    {
+                        "code": "logistics",
+                        "value": "物流服务"
+                    }
+                ]
+            },
+            {
+                "adminId": "ebay_adminId003",
+                "email":"ebay_admin0099099999@ebay.com",
+                "adminStatus": "ENABLE",
+                "createDate": "2017/08/27 19:00:00",
+                "roles": [
+                    {
+                        "code": "sdk",
+                        "value": "sdk管理"
+                    },
+                    {
+                        "code": "apiUse",
+                        "value": "api调用报告"
+                    }
+                ]
+            },
+            {
+                "adminId": "ebay_adminId004",
+                "email":"ebay_admin0099099999@ebay.com",
+                "adminStatus": "ENABLE",
+                "createDate": "2017/08/27 19:00:00",
+                "roles": [
+                    {
+                        "code": "text",
+                        "value": "文章管理"
+                    },
+                    {
+                        "code": "whiteList",
+                        "value": "白名单管理"
+                    },
+                    {
+                        "code": "message",
+                        "value": "站内信管理"
+                    },
+                    {
+                        "code": "devText",
+                        "value": "开发指南管理"
+                    },
+                    {
+                        "code": "apiDocument",
+                        "value": "api文档管理"
+                    }
+                ]
+            },
+            {
+                "adminId": "ebay_adminId005",
+                "email":"ebay_admin0099099999@ebay.com",
+                "adminStatus": "ENABLE",
+                "createDate": "2017/08/27 19:00:00",
+                "roles": [
+                    {
+                        "code": "sdk",
+                        "value": "sdk管理"
+                    }
+                ]
+            }
+        ]
+    }
+}

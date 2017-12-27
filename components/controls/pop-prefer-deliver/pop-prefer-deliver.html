@@ -1,0 +1,183 @@
+<div class='popup prefer-deliver'>
+    <div class='mask'></div>
+    <div class='content'>
+        <a href='javascript:;' class='close sprite' v-on:click='closePopup'></a>
+        <p class='popTitle'><em v-bind:lg='mainTitleLg'></em><span><b class="red">*</b><b lg='requiredText'></b></span></p>
+        <p class="topErroMsg"><span v-if='erroArr.length>0' v-bind:lg='errorMessage'></span></p>
+        <div class='inputBox basic' inputKey='name'>
+            <p class="inputName">
+                <template v-if="isexternal">
+                    <em><b lg='deliverName'></b><b class="red">*</b></em>
+                    <span v-bind:lg="isexternal?'address-tips6':'address-tips5'"></span>
+                </template>
+                <template v-else>
+                    <em><b lg='deliverName'></b><b class="red">*</b></em>
+                    <span lg='tipsForlocationLanguage'></span>
+                </template>
+            </p>
+            <div class="input" v-bind:title="modelManager.name.isErro&&modelManager.name.err"><input maxlength='20' /></div>
+        </div>
+        <div class="labelCheck cf checkBox circle">
+            <p><em lg='wayDelivery'></em><b class="red">*</b></p>
+            <p class="radio" v-bind:class='modelManager.type.radios[0]?"cur":""' v-on:click='fun_checkRadioClick("type",0)' lg='pickUp'></p>
+            <p class="radio" v-bind:class='modelManager.type.radios[1]?"cur":""' v-on:click='fun_checkRadioClick("type",1)' lg='sellers'></p>
+        </div>
+        <!-- << pickupBlock -->
+        <div class="pickupBlock" v-show='modelManager.type.radios[0]'>
+            <div class="labelTwo cf">
+                <div class='inputBox basic' inputKey='contactName'>
+                    <p class="inputName"><em lg='contactName'></em><b class="red">*</b></p>
+                    <div class="input" v-bind:title="modelManager.contactName.isErro&&modelManager.contactName.err"><input maxlength='20' /></div>
+                </div>
+                <div class='inputBox basic' inputKey='companyName'>
+                    <p class="inputName"><em lg='companyName'></em></p>
+                    <div class="input"><input maxlength='20' /></div>
+                </div>
+            </div>
+            <div class="labelFour cf">
+                <div class='selectBox basic' v-bind:class='modelManager.country.isErro?"erro":""'>
+                    <p class="selectName"><em lg='addressInfo'></em><b class="red">*</b></p>
+                    <div class='selectVal js-tips'>
+                        <span v-bind:lg='modelManager.country.index<=0?"settingCondition":""'></span> {{modelManager.country.index>0?modelManager.country.val:''}}
+                    </div>
+                    <ul class='selectOptions'>
+                        <li v-bind:class='modelManager.country.index<=0?"cur":""' v-on:click='fun_selectClick("country",0)' lg='settingCondition'></li>
+                        <li v-for='(itemValue,itemIndex) in modelManager.country.options' v-if='itemIndex>0' v-bind:class='modelManager.country.index==itemIndex?"cur":""'
+                            v-on:click='fun_selectClick("country",itemIndex)'>{{itemValue}}</li>
+                    </ul>
+                </div>
+                <div class='selectBox basic' v-bind:class='modelManager.province.isErro?"erro":""'>
+                    <p class="selectName"></p>
+                    <div class='selectVal js-tips'>
+                        <span v-bind:lg='modelManager.province.index<=0?"province":""'></span> {{modelManager.province.index>0?modelManager.province.val:''}}
+                    </div>
+                    <ul class='selectOptions'>
+                        <li v-bind:class='modelManager.province.index<=0?"cur":""' v-on:click='fun_selectClick("province",0)' lg='province'></li>
+                        <li v-for='(itemValue,itemIndex) in modelManager.province.options' v-if='itemIndex>0' v-bind:class='modelManager.province.index==itemIndex?"cur":""'
+                            v-on:click='fun_selectClick("province",itemIndex)'>{{itemValue}}</li>
+                    </ul>
+                </div>
+                <div class='selectBox basic' v-bind:class='modelManager.city.isErro?"erro":""'>
+                    <p class="selectName"></p>
+                    <div class='selectVal js-tips'>
+                        <span v-bind:lg='modelManager.city.index<=0?"city":""'></span> {{modelManager.city.index>0?modelManager.city.val:''}}
+                    </div>
+                    <ul class='selectOptions'>
+                        <li v-bind:class='modelManager.city.index<=0?"cur":""' v-on:click='fun_selectClick("city",0)' lg='city'></li>
+                        <li v-for='(itemValue,itemIndex) in modelManager.city.options' v-if='itemIndex>0' v-bind:class='modelManager.city.index==itemIndex?"cur":""'
+                            v-on:click='fun_selectClick("city",itemIndex)'>{{itemValue}}</li>
+                    </ul>
+                </div>
+                <div class='selectBox basic' v-bind:class='modelManager.county.isErro?"erro":""'>
+                    <p class="selectName"></p>
+                    <div class='selectVal js-tips'>
+                        <span v-bind:lg='modelManager.county.index<=0?"county":""'></span> {{modelManager.county.index>0?modelManager.county.val:''}}
+                    </div>
+                    <ul class='selectOptions'>
+                        <li v-bind:class='modelManager.county.index<=0?"cur":""' v-on:click='fun_selectClick("county",0)' lg='county'></li>
+                        <li v-for='(itemValue,itemIndex) in modelManager.county.options' v-if='itemIndex>0' v-bind:class='modelManager.county.index==itemIndex?"cur":""'
+                            v-on:click='fun_selectClick("county",itemIndex)'>{{itemValue}}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class='inputBox basic' inputKey='address1'>
+                <div class="input" v-bind:title="modelManager.address1.isErro&&modelManager.address1.err"><input class='darkPlaceholder' maxlength='50' lg='address1tips' /></div>
+            </div>
+            <div class='inputBox basic' inputKey='address2'>
+                <div class="input"><input maxlength='50' lg='address2tips' /></div>
+            </div>
+            <div class='inputBox basic' inputKey='address3'>
+                <div class="input"><input maxlength='50' lg='address3tips' /></div>
+            </div>
+            <div class="labelTwo cf">
+                <div class='inputBox basic' inputKey='zipcode'>
+                    <template v-if='modelManager.country.val=="chinaHk"'>
+                        <p class="inputName"><em lg='zipcode'></em>(<em lg='hkZipcode'></em>)</p>
+                    </template>
+                    <template v-else>
+                        <p class="inputName"><em lg='zipcode'></em><b class="red">*</b></p>
+                    </template>
+                    <div class="input" v-bind:title="modelManager.zipcode.isErro&&modelManager.zipcode.err"><input maxlength='10' /></div>
+                </div>
+                <div class='inputBox basic' inputKey='phone'>
+                    <p class="inputName"><em lg='phone'></em><b class="red">*</b></p>
+                    <div class="input" v-bind:title="modelManager.phone.isErro&&modelManager.phone.err"><input maxlength='20' /></div>
+                </div>
+            </div>
+            <div class="labelCheck cf checkBox circle">
+                <p><span lg='pickTime'></span><b class="red">*</b></p>
+                <p class="radio" v-bind:class='modelManager.pickupTime.selected==times.code?"cur":""' v-for="times in modelManager.pickupTime.val"
+                    v-on:click='setCheckBox("pickupTime",times)'>{{times.name}}</p>
+                <!-- 
+                    <p class="radio" v-bind:class='modelManager.pickupTime.radios[0]?"cur":""' v-on:click='fun_checkRadioClick("pickupTime",0)'>{{modelManager.pickupTime.val[0]}}</p>
+                    <p class="radio" v-bind:class='modelManager.pickupTime.radios[1]?"cur":""' v-on:click='fun_checkRadioClick("pickupTime",1)'>{{modelManager.pickupTime.val[1]}}</p>
+                    <p class="radio" v-bind:class='modelManager.pickupTime.radios[2]?"cur":""' v-on:click='fun_checkRadioClick("pickupTime",2)'>{{modelManager.pickupTime.val[2]}}</p>
+                    <p class="radio" v-bind:class='modelManager.pickupTime.radios[3]?"cur":""' v-on:click='fun_checkRadioClick("pickupTime",3)'>{{modelManager.pickupTime.val[3]}}</p>
+                -->
+            </div>
+            <div class="btns cf">
+                <template v-if="isexternal">
+                    <a class="cancelBtn flForce" href="javascript:;" v-on:click='prevClick' lg='prev-step'></a>
+                    <a class="saveBtn" href="javascript:;" v-on:click='saveClick' lg='save-continue'></a>
+                </template>
+                <template v-else>
+                    <div class="checkBox basic setDft" v-on:click='setDftClick'>
+                        <p class="radio" lg='setDftDeliver' v-bind:class='dftAddress?"cur":""'></p>
+                    </div>
+                    <a class="saveBtn" href="javascript:;" v-on:click='saveClick' lg='save'></a>
+                    <a class="cancelBtn" href="javascript:;" v-on:click='closePopup' lg='cancel'></a>
+                </template>
+            </div>
+        </div>
+        <!-- >> pickupBlock -->
+        <!-- << sendBlock -->
+        <div class="sendBlock" v-show='modelManager.type.radios[1]'>
+            <div class="labelTwo cf">
+                <div class='selectBox basic' v-bind:class='modelManager.sendCountry.isErro?"erro":""'>
+                    <div class='selectVal js-tips'>
+                        <span v-bind:lg='modelManager.sendCountry.index<=0?"settingCondition":""'></span> {{modelManager.sendCountry.index>0?modelManager.sendCountry.val:''}}
+                    </div>
+                    <ul class='selectOptions'>
+                        <li v-bind:class='modelManager.sendCountry.index<=0?"cur":""' v-on:click='fun_selectClick("sendCountry",0)' lg='settingCondition'></li>
+                        <li v-for='(itemValue,itemIndex) in modelManager.sendCountry.options' v-if='itemIndex>0' v-bind:class='modelManager.sendCountry.index==itemIndex?"cur":""'
+                            v-on:click='fun_selectClick("sendCountry",itemIndex)'>{{itemValue}}</li>
+                    </ul>
+                </div>
+                <div class='selectBox basic' v-bind:class='modelManager.sendCity.isErro?"erro":""'>
+                    <div class='selectVal js-tips'>
+                        <span v-bind:lg='modelManager.sendCity.index<=0?"city":""'></span>{{modelManager.sendCity.index>0?modelManager.sendCity.val:''}}
+                    </div>
+                    <ul class='selectOptions'>
+                        <li v-bind:class='modelManager.sendCity.index<=0?"cur":""' v-on:click='fun_selectClick("sendCity",0)' lg='city'></li>
+                        <li v-for='(itemValue,itemIndex) in modelManager.sendCity.options' v-if='itemIndex>0' v-bind:class='modelManager.sendCity.index==itemIndex?"cur":""'
+                            v-on:click='fun_selectClick("sendCity",itemIndex)'>{{itemValue}}</li>
+                    </ul>
+                </div>
+            </div>
+            <p><span class="labelText" lg='selectSendAdr'></span><em class="red">*</em><label v-show="sendSitesIndex<0&&erroArr.length>0"
+                    class="red ml10" lg="please-selectSendAdr"></label></p>
+            <ul class="pickupList">
+                <li v-for='(itemVlue,itemIndex) in sendSites' v-on:click='clickSiteFun(itemIndex)' v-bind:class='sendSitesIndex==itemIndex?"cur":""'>
+                    <p><b lg='siteName'></b>：<strong><span>{{itemVlue.name}}</span></strong></p>
+                    <p><b lg='contactName'></b>：<span>{{itemVlue.contactName}}</span><span class="tel"><b lg='contactPhone'></b>：{{itemVlue.contactTel}}</span></p>
+                    <p><b lg='addressInfo'></b>：{{itemVlue.country}} {{itemVlue.city}} {{itemVlue.area}} {{itemVlue.address1}}
+                        {{itemVlue.address2}} {{itemVlue.address3}}</p>
+                </li>
+            </ul>
+            <div class="btns cf">
+                <template v-if="isexternal">
+                    <a class="cancelBtn flForce" href="javascript:;" v-on:click='prevClick' lg='prev-step'></a>
+                    <a class="saveBtn" href="javascript:;" v-on:click='saveClick' lg='save-continue'></a>
+                </template>
+                <template v-else>
+                    <div class="checkBox basic setDft" v-on:click='setDftClick'>
+                        <p class="radio" lg='setDftDeliver' v-bind:class='dftAddress?"cur":""'></p>
+                    </div>
+                    <a class="saveBtn" href="javascript:;" v-on:click='saveClick' lg='save'></a>
+                    <a class="cancelBtn" href="javascript:;" v-on:click='closePopup' lg='cancel'></a>
+                </template>
+            </div>
+        </div>
+        <!-- >> sendBlock -->
+    </div>
+</div>

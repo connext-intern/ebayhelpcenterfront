@@ -1,0 +1,14 @@
+<div class='popup popup-prefer-sku-repeat' v-if='popRepeat.show>0'>
+    <div class='mask'></div>
+    <div class='content'>
+        <a href='javascript:;' class='close' v-on:click='dev_repeatSKU("cancel")'></a>
+        <p class='mainTitle' lg='updataSku'></p>
+        <p class='stautsText'><b lg='preferSkuText01'></b> <span class='failed'>{{popRepeat.total}}</span><b lg='records'></b></p>
+        <p class='stautsText'><b lg='preferSkuText02'></b> <span class='success'>{{popRepeat.repeat}}</span><b lg='preferSkuText03'></b></p>
+        <div class="btnArr cf">
+            <a class="blueBtn fr" href="javascript:;" lg='repeatAndUpdata' v-on:click='dev_repeatSKU("cover")'></a>
+            <a class="whiteBtn fr" href="javascript:;" lg='jumpAndUpdata' v-on:click='dev_repeatSKU("jumpover")'></a>
+            <a class="whiteBtn fl" href="javascript:;" lg='back' v-on:click='dev_repeatSKU("cancel")'></a>
+        </div>
+    </div>
+</div>

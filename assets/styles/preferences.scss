@@ -1,0 +1,218 @@
+.preferences{
+    h2{line-height: 20px; font-weight:bold; color:#000;}
+    .newDsc{line-height: 14px; font-size: 12px; margin-bottom: 8px;}
+    .highDsc{line-height: 60px; font-size: 12px; margin-bottom: 6px;}
+    .bulePageBtn{@include colorBtn; width: 168px; line-height: 36px; font-size: 12px;}
+    .preferOptionBlock{
+        width: 282px; padding-bottom: 24px;
+        .radio{
+            position: relative; padding-left: 26px; cursor: pointer;
+            .title{font-weight: bold; line-height: 16px;}
+            .text{line-height: 20px; font-size: 12px; color: #666; margin-bottom: 24px;}
+            &:after{@include sprite; background-position: -18px 0; width: 15px; height: 15px; position: absolute; top:0; left: 0;}
+        }
+        .radio.cur:after{background-position: -35px 0;}
+    }
+    .headBtnsBlock{
+        height: 32px;
+        a{font-size: 12px; line-height: 30px; @include lightBtn;}
+        >a{float: right; padding-left: 44px; padding-right: 26px; margin-left: 8px; position: relative;}
+        >a::after{@include sprite; width: 14px; height: 14px; position: absolute; left: 22px; top: 8px;}
+        .add:after{background-position: -53px -22px;}
+        .update:after{background-position: -73px -22px;}
+        .serchLabel{
+            float: right; font-size: 0; padding-right: 32px;
+            >*{display: inline-block; font-size: 12px; line-height: 30px; vertical-align: top;}
+            input{border: #dfdfdf 1px solid; border-right: none; width: 212px; padding-left: 12px;height:32px;}
+            a{width: 50px; text-align: center;}
+        }
+        .noListTips{float: right; line-height: 32px; font-size: 12px;}
+    }
+    .skuList{
+        li{
+            font-size: 0; padding-top: 8px; border-bottom: #e3e3e3 1px solid;
+            >*{display: inline-block; font-size: 12px; line-height: 24px; vertical-align: top; margin-right: 10px; cursor: default;}
+           .selecter{@include sprite; background-position: -106px 0; width: 14px; height: 14px;  margin-top: 4px; cursor: pointer;}
+           .num{width: 118px;}
+           .name{width: 220px;}
+           .price{width: 103px;}
+           .size{width: 88px;}
+           .weight{width: 68px;}
+           .local{width: 55px;}
+           .tariff{width: 66px;}
+           .battery{width: 75px; margin-right: 30px; text-align: center;}
+           .operation{width: auto;}
+        }
+        li.cur{
+            .selecter{background-position: -122px 0;}
+        }
+    }
+    .skuList.title li{
+        p{font-weight: bold; line-height: 40px;}
+        .selecter{margin-top: 12px;}
+    }
+    .skuList.active li{
+        padding-bottom: 16px;
+        .name .en{line-height: 14px;}
+        .size{line-height: 18px; margin-top: 2px;}
+        .operation{
+            position: relative;
+            .editBtn{color: $btncolor;}
+            .delBtn{@include sprite; background-position: -33px -21px; width: 12px; height: 16px; position: absolute; left: 70px; top: 2px;}
+        }
+        .remark{width: 100%; margin-left: 46px; position: relative; padding-top: 16px;}
+        .remark::after{@include sprite; background-position: -93px -22px; width: 14px; height: 14px; position: absolute; top: 18px; left: -16px;}
+    }
+    .skuList.delSelect li{
+      border-bottom:none; padding-bottom: 40px;
+      em{margin-top: 8px;}
+      .delSelected{text-decoration: none; cursor: pointer; line-height: 30px;}
+      .deleter{line-height: 30px; width: 86px; text-align: center; text-decoration: none; border: #dfdfdf 1px solid;}
+      .num{text-decoration: underline;}
+    }
+    .tabBlock{
+        font-size: 0; padding-top: 6px;
+        li{
+            margin-right: 60px; display: inline-block; position: relative; height: 26px;
+            p{ font-size: 18px; color: #666; cursor: pointer; }
+            &::after{content:''; position: absolute; top: 0; left: -30px; width: 1px; height: 18px; background-color: #dfdfdf;}
+        }
+        li.cur{
+            border-bottom: $btncolor 2px solid;
+            p{font-weight: bold; color: #333;}
+        }
+        li:first-child{
+            &::after{content:none;}
+        }
+    }
+    .adrBlock{
+        padding-top: 20px;
+        li{
+            border: #dfdfdf 1px solid; width: 320px; height: 270px; position: relative; float: left; padding-bottom: 30px; margin-right: 20px; margin-bottom: 20px;
+            .name{padding-right:68px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; line-height: 44px; border-bottom: #dfdfdf 1px solid; margin-bottom: 12px; font-weight: bold;}
+            .infos{padding: 0 8px;}
+            .info{
+                line-height: 20px; margin-bottom: 4px; font-size: 12px;
+                span{display: inline-block; vertical-align: top; width: 190px; margin-right: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+                .title{width: 96px; text-align: right;color: #999; margin-right: 6px;}
+            }
+            .info.adr span{max-height: 40px; white-space:normal;}
+            .bottoms{
+                padding: 8px; border-top: #dfdfdf 1px solid; position: absolute; bottom: 0; left: 0; width: 100%; background: #fff;
+                a{font-size: 12px; color: #666; padding: 0 12px; text-decoration:none;}
+                .dftBtn{border-right: #666 1px solid;}
+            }
+            .dftAdr{width: 56px; line-height: 22px; @include colorBtn; font-size: 12px; border-radius: 3px; position: absolute; top: 10px; right: 10px;}
+            .delBtn{@include sprite; background-position: -33px -21px; width: 12px; height: 16px; position: absolute; bottom: 8px; right: 14px;}
+        }
+        li:nth-child(3n){margin-right:0;}
+        li.cur{
+            border-width: 2px;
+        }
+        li.dft{
+            border: #0065d1 2px solid;
+        }
+    }
+    .printBlock{
+        display: inline-block; width: 255px; margin-right: 80px; vertical-align: top;
+        strong{line-height: 18px; margin-bottom: 12px; display: block;}
+        .infoList{
+            padding-bottom: 6px;@include cf;
+            .radio{
+                float: left; width: 125px; position: relative; font-size: 12px; line-height: 14px; margin-bottom: 16px;
+                // &::after{@include selectSquare; position: absolute; top: 0; left: 0;}
+            }
+        }
+        .infoList.business{
+            padding-top: 25px; border-top: #dfdfdf 1px solid; padding-bottom: 54px;
+            .radio{font-weight: bold;}
+        }
+        .buluBtn{@include colorBtn; width: 168px; line-height: 36px;
+        }
+    }
+    .printSample{
+        img{width:100%;}
+        transform-origin: 0 0; transform: scale(0.9);
+        position: relative; width: 566px; height: 566px; background: #fff;  display: inline-block;
+        .nav{
+            @include cf;font-size:12px;
+            li{float: left;     white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;}
+            li.leftS{width: 113.2px; height: 141.5px;}
+            li.logo{height: 56.6px;img{width: 339.6px;}span{font-size:18px;font-weight:700; text-align:center;width:113.2px;line-height:56px;}}
+            li.super{width: 452.8px; height: 84.9px;
+                p{line-height: 36px; font-size: 16px; text-indent: 10px; font-weight: bold; text-align: center;}
+            }
+            li.textid{width:182px;font-weight: 700; padding-left: 4px; margin-right: 20px;}
+            li.textid:last-child{margin-right: 0px !important; width: 139px !important;}
+        }
+        .grayBg{background: #efedee; width: 566px; padding-bottom: 12px; padding-left: 6px; padding-right: 6px;}
+        .grayBg .nav{ padding-left: 7px; padding-top: 19px; padding-bottom: 20px;}
+        .tableWrapper{height: 215px; overflow: hidden; float: left; border: 1px solid #d7d7d8; position: relative; background: #fff;}
+        .tableWrapper.hasMore::after{content: '......'; position: absolute; background: #fff; width: 389px; height: 9px; bottom: 0;left: 1px; text-align: center; line-height: 0;}
+        table{
+            background: #fff;
+            tr{vertical-align: top;}
+            th{border-left:1px solid #d7d7d8;font-size: 0;padding: 6px 0; border-bottom:1px solid #d7d7d8;}
+            th p{font-size: 10px; box-sizing: border-box; overflow: hidden; text-align:left;line-height:12px; padding: 0 3px;}
+        }
+        table tr:first-child th p{line-height: 20px;}
+        table tr:first-child th{padding: 0;}
+        table tr th:first-child{border-left: none;}
+        .adr{float: right; width: 164px;}
+        .adr .adrHeight{height: 84px;}
+        .reference{width: 566px;}
+        .referenceNum{font-size: 18px; text-indent: 10px; line-height: 30px; font-weight: bold;white-space: nowrap;
+            text-overflow: ellipsis; text-align: center;
+            overflow: hidden;}
+    }
+}
+.preferences-sku{
+    .headBtnsBlock>a{@include lightblueBtn;}
+    .headBtnsBlock .selectBox.basic{
+        float: right; width: 150px; margin-left: 8px;
+        .selectOptions{top: 32px;}
+    }
+    .skuListHeightBlock{min-height: 440px;}
+    .js-pager{margin: 0;}
+}
+.preferences-adr{
+    .newDsc{line-height: 30px; margin-bottom: 0;}
+}
+.preferences-deliver{
+    h2{margin-bottom: 10px;}
+    .headBtnsBlock{
+        
+        margin-bottom: 16px;
+        >a{float: left;}
+        .deliver{
+            font-size: 12px; color: #666; line-height: 32px; width: 186px; float: left;
+            span{font-size: 14px; color:$btncolor; padding: 0 2px;}
+        }
+    }
+    .adrBlock{
+        li.dft{border: $btncolor 2px solid;}
+        .deliver{
+            .dftAdr{width: 56px; line-height: 22px; @include colorBtn; font-size: 12px; border-radius: 3px; position: absolute; top: 8px; right: 10px;}
+            padding: 20px; padding-top: 36px;
+            p{font-size: 12px; line-height: 20px; @include oneline;}
+            .adrcopy{
+                p span{display: inline-block;}
+                p>span:first-child{width: 80px; text-align: right; color: #999; margin-right: 4px;}
+                .adr{padding-left: 82px;}
+                .adr>span:first-child{width: 0;}
+            }
+            .dHead{
+                color: #999; margin-bottom: 10px; line-height: 14px;
+                span{color: #333;}
+                .type{margin-right: 24px; font-weight: bold;}
+                .light{color: #999;}
+                .type:last-child{margin-right: 0;}
+            }
+            .dTitle{line-height: 30px; color: #999;}
+            .twoline{@include resetOneline; max-height: 40px; overflow: hidden;}
+        }
+    }
+    
+}

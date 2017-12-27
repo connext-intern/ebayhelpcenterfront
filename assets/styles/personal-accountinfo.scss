@@ -1,0 +1,26 @@
+.personal-center{
+    .page-wrapper{padding-top:30px;
+         h2{font-size:24px;margin-bottom: 20px}
+        p{font-size:12px;margin-top: 20px;
+            .auth{margin-left:15px;text-align:center;height:17px;color:#fff;line-height: 18px;display:inline-block;border-radius:9px;padding:1px 6px;}
+            .auth.no{background:#ed7276;}
+            .auth.yellow{background:#81b722}
+            .auth.cur{background:#82b511;}
+            .updatePas{color:#004ecb;text-decoration: underline;}
+            .upgradeAccound{color:#004ecb;text-decoration: underline;margin-left:16px;}
+            .view-cert{display:block;color:#999999;padding:5px 0 0 60px}
+
+        }
+        p.type{
+            .green{color:#81b722;}
+            .yellow{color:#81b722;}
+        }
+        .accountBlock{
+            .upgradeAccound,.view-cert,.updatePas{
+                cursor: pointer;
+            }
+        }
+        .gray{color: #999; margin-right: 15px;}
+        .perfectInfo{ width:168px;height:36px;text-decoration:none;line-height: 36px;text-align: center;background:#004ecb;color:#fff;display:inline-block;margin-top: 40px;}
+    }
+}

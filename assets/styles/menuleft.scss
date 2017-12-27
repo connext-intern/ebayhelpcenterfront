@@ -1,0 +1,54 @@
+/* add by gena
+* you can use following code if you have this function
+* @import personal-menuleft' in your css
+* <div data-htmlfile="/components/modules/personal-center-left.html"></div> in your html
+*/
+
+.menu-left{
+  position: absolute;height:100%;min-width:220px;width:200px;padding-top:30px;background:#f7f7f7;min-height:560px;z-index:9;
+  dl{
+    a{text-decoration: none;display:inline-block;position:relative;}
+    dt,dd{position:relative;width:100%;font-weight:700;line-height:40px;}
+    dt{
+      font-size:16px;padding-left:40px;
+      &::before{@include arrow;content:'-';left:0;top:50%;margin-top:-21px;padding-left:28px;}
+      &.hasmenu a::after{@include arrow;top:50%;right:-18px;margin-top:-6px;content:'';border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:9px solid #000;}
+    }
+    dd{
+      font-size:14px;padding-left:56px;
+    }
+    dd.line{
+      line-height:10px;padding-left:0;
+      a{
+        border-bottom: 1px solid #dfdfdf;margin:10px 20px;display:block;
+      }
+    }
+  }
+  .cur{
+        background:#fff;
+        &::before{position:absolute;left:0;content:'';display:inline-block;width:6px;height:24px;background:$btncolor;margin:8px 0;}
+        a{color:$btncolor;}
+  }
+  &.admin-menu{
+    background:#f3f7fc;padding-top:20px;width:224px;border-right:1px solid #dfdfdf;min-height:700px;
+    dl{
+      width:180px; margin:0 auto;background:#fff;margin-bottom:5px;border: 1px solid #e7eaef;
+      dt{
+        border-bottom: 1px solid #f2f2f2;padding-left:27px;font-weight:bold;font-size:14px;
+        &::before{padding-left:10px;color:#999;}
+        &.hasmenu a::after{display:none;}
+        &.hasmenu::after{@include sprite;width:12px;height:10px;background-position: -112px -27px;position:absolute;top:12px; right:15px;}
+      }
+      dd{
+        font-size:12px; padding-left:35px;line-height:38px;border-bottom: 1px solid #e8e8e8;margin:0 10px;width:160px;
+        span{color:#666;}
+        &:last-child{border-bottom:none;}
+        &.cur{
+          &:before{display:none;}
+          span{color:#004ecb;}
+        }
+      }
+      &:last-child{margin-bottom:0;}
+    }
+  }
+}

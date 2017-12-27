@@ -1,0 +1,13 @@
+<div class="menu-left" v-cloak>
+    <dl v-for="(item,index) in items" v-bind:class="{'cur':hignlight.index==index&&hignlight.subIndex===''}">
+        <dt v-bind:class="{'hasmenu':item.item&&item.item.length>0}">
+            <a v-bind:data-href="item.link" v-bind:lg="item.lg"></a>
+        </dt>
+        <dd v-if="item.item&&item.item.length>0" v-for="(subItem,cur) in item.item" v-bind:class="{'cur':hignlight.index==index&&hignlight.subIndex==cur,'line':subItem.line}">
+            <a v-bind:data-href="subItem.link" v-bind:href-param="subItem.linkParam">
+                <span v-bind:lg="subItem.lg"></span>
+                <span v-if="subItem.isNum">({{toThousands(subItem.num)}})</span>
+            </a>
+        </dd>
+    </dl>
+</div>

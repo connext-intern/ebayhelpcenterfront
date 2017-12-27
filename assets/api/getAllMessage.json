@@ -1,0 +1,18 @@
+﻿{
+    "code": "00",
+    "message": "success",
+    "result": {
+        "dataList": [
+            {
+                "id": "8",
+                "messageTitle": "test",
+                "messageDate": "2017-10-30 17:30:59",
+                "isRead": false,
+                "messageText": null,
+                "messageRole": "all"
+            }
+        ],
+        "totalPages": 1,
+        "totalCounts": 1
+    }
+}

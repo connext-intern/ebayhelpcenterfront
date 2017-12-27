@@ -1,0 +1,80 @@
+// <div class="ui-pager-container cf">
+// 				<ul class="fl">
+// 					<li class="js-page-prev ui-page ui-page-prev">上一页</li>
+// 					<li class="ui-page">1</li>
+// 					<li class="ui-page">2</li>
+// 					<li class="ui-page ui-pager-ellipse">...</li>
+// 					<li class="ui-page cur">5</li>
+// 					<li class="ui-page">6</li>
+// 					<li class="ui-page">7</li>
+// 					<li class="ui-page">8</li>
+// 					<li class="ui-page">9</li>
+// 					<li class="ui-pager-ellipse">...</li>
+// 					<li class="js-page-next ui-page ui-page-next">下一页</li>
+// 					<li class="ui-pager-toolbar">
+// 						共100页，到第<input class="ui-pager-count" type="text" value="1" />页<a class="ui-pager-go" href="javascript:;">确定</a>
+// 					</li>
+// 				</ul>
+// 				<div class="ui-pager-summary fr">
+// 					<span class="fl">每页显示</span>
+// 					<div class="js-select ui-select-pagesize">
+// 						<div class="select-val">5</div>
+// 						<select>
+// 								<option value="5">5</option>
+// 								<option value="10">10</option>
+// 						</select>
+// 					</div>
+// 					<span class="fr">条信息</span>
+// 				</div>
+// 			</div>
+.js-pager{width:100%;display:inline-block;margin:23px 0 0 0;}
+.ui-pager-container{
+    font-size:12px;font-family:Arial;width:100%;padding:0 1px;
+    ul{
+        li{
+            float:left;cursor:pointer;color:$textcolor;border:1px solid $bordercolor;line-height: 22px;padding:0 8px; 
+            &.cur{color:#fff;background:$btncolor;}
+            &.ui-pager-ellipse{border:transparent;}
+            &.ui-page-disabled{
+               background:$bordercolor;color:#fff;
+            }
+            &.ui-page-prev{
+                position:relative;padding-left:20px;font-family:'微软雅黑';
+                &::after{
+                    position: absolute;display:inline-block;width: 0;height: 0;padding-left:5px;
+                    left:0;top:5px;content:'';border-top:6px solid transparent;border-bottom:6px solid transparent;border-right:10px solid $btncolor;
+                }
+                &.ui-page-disabled{
+                    &::after{border-right:10px solid #fff;}
+                }
+            }
+            &.ui-page-next{ 
+                position:relative;padding-right:20px;font-family:'微软雅黑';
+                &::after{
+                    position: absolute;display:inline-block;width: 0;height: 0;padding-right:5px;
+                    right:0;top:5px;content:'';border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:10px solid $btncolor;
+                }
+                &.ui-page-disabled{
+                    &::after{border-left:10px solid #fff;}
+                }
+            }
+            &.ui-pager-toolbar{
+                border:transparent;margin-left:14px;font-family:'微软雅黑';cursor:default;
+                .ui-pager-count{
+                    vertical-align: middle;text-align: center;
+                    width:39px;height:24px;margin-left:2px;margin-right:5px;      
+                }
+                .ui-pager-go{
+                     @include colorBtn;
+                     margin-left:8px;padding:0 18px;
+                }
+            }
+        }
+    }
+    .ui-pager-summary{
+        line-height: 24px;
+        .ui-select-pagesize{
+            width:49px;height:22px;.select-val{text-align: center;}
+        }
+    }
+}

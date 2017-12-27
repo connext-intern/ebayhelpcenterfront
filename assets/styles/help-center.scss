@@ -1,0 +1,122 @@
+// 帮助中心 add by gena
+.help-center{
+  $bg:#fff4ec;
+  $border:#dfdfdf;
+  $text:#666;
+  .red{color:#e42e35;}
+  @mixin pl($left:0px){
+    padding-left:$left;
+  }
+  // search
+  .top-search-bar{
+    background: #f7f7f7;position: relative;
+    .bar{
+      margin:20px auto;padding:10px 0;width:50%;height:50px;text-align: center;position: relative;border:1px solid #dfdfdf;background:$bg;box-sizing:border-box;
+      .input-wrapper{
+        position: relative;display: inline-block;width:90%;
+        input{width:100%;padding:0 10px;height:30px;border: transparent;font-size:12px;}
+        em{
+          position: absolute;
+          width: 16px;
+          height: 16px;
+          background: url(/assets/imgs/sprite.png) no-repeat -136px -20px;
+          top: 6px;
+          right: 5px;
+          cursor: pointer;
+        }
+      }
+      a{width:8%;line-height:28px;display: inline-block;text-decoration: none;font-size:12px;}
+      .result{
+        width:90%;z-index:999;background:#fff;position: absolute;top:31px;display:none;
+        ul{border:1px solid $border;
+          li{line-height:24px;font-size:12px;text-align: left;padding-left:15px;
+            &:hover{background:#dfdfdf;cursor: pointer;}
+          }
+        }
+      }
+    }
+  }
+  // left menu
+  .menu-left{
+    background:#fff;margin:0;padding:0;height:auto !important;dd,dl,dt{margin:0;padding:0;font-weight: normal;}
+    h2{@include pl(30px);background:$bg;color:$text;font-size:16px;line-height: 36px;}
+    dl{
+      dd,dt{@include pl(30px);line-height:24px;font-size:12px;}
+      dt{background:#dfdfdf;position: relative;
+        &::before{content:'';margin:0;padding:0;right:20px;left:auto;@include sprite;width:7px;height:5px;background-position:-152px -153px;}
+      }
+      &.curr{
+        dt::before{width:7px;height:5px;background-position:-152px -145px;}
+      }
+      dd{display:none;}
+    }
+  }
+  // 主页部分
+  .page{
+    padding-left:230px !important;background:#fff;min-height:500px;
+    // 面包削
+   .top-search-bar{
+      background: #f7f7f7;position: relative;
+      .bar{
+        margin:20px auto;padding:10px 0;width:50%;height:50px;text-align: center;position: relative;border:1px solid #dfdfdf;background:$bg;box-sizing:border-box;
+        .input-wrapper{
+          position: relative;display: inline-block;width:90%;
+          input{width:100%;padding:0 10px;height:30px;border: transparent;font-size:12px;}
+          em{
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: url(/assets/imgs/sprite.png) no-repeat -136px -20px;
+            top: 6px;
+            right: 5px;
+            cursor: pointer;
+          }
+        }
+        a{width:8%;line-height:28px;display: inline-block;text-decoration: none;font-size:12px;}
+        .result{
+          width:90%;z-index:999;background:#fff;position: absolute;top:31px;display:none;
+          ul{border:1px solid $border;
+            li{line-height:24px;font-size:12px;text-align: left;padding-left:15px;
+              &:hover{background:#dfdfdf;cursor: pointer;}
+            }
+          }
+        }
+      }
+    }
+    nav{
+      background:#dfdfdf;font-size:12px;line-height:24px;padding-left:10px;
+    }
+    // 主体
+    article{
+      width:100%;padding:30px;
+      h3{font-size:18px;text-align:left;line-height: 24px;padding:20px 0;
+        &.line{border-bottom:1px solid $border;}
+      }
+      section{
+        padding:20px 30px;
+        p{font-size:12px;line-height: 36px;}
+        img{width:400px;height:auto;}
+      }
+    }
+  }
+  &.search{
+    width:80%;margin:0 auto;
+    .top-search-bar .bar{width:100%;
+      .input-wrapper{width:94%;}
+      a{width:5%;}
+    }
+    .page{padding:0 !important;
+      nav{
+        background:#dfdfdf;font-size:12px;line-height:24px;padding-left:10px;
+      }
+    }
+    .res{
+      margin-bottom:20px;
+      h4{line-height: 30px;
+        a{text-decoration: none;}
+      }
+      p{line-height: 18px;font-size:12px;color:#999;}
+    }
+    .js-pager{@include pl(30px);}
+  }
+}

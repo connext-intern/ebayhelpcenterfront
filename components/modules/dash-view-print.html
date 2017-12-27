@@ -1,0 +1,77 @@
+<div class='popup preferences print dash' v-bind:class="openerViewPrint==1?'show':''">
+    <div class='mask' v-on:click="openerViewPrint=0;"></div>
+    <div class='content'>
+        <div class='printSample'>
+            <ul class="nav">
+                <li class="leftS"><img src='../../../assets/imgs/printbox/print_order01.jpg'/></li>
+                <li class="logo"><img src='../../../assets/imgs/printbox/print_order02.jpg'/></li>
+                <li class="super"><img src='../../../assets/imgs/printbox/print_order03.jpg'/></li>
+                <li class="superNum">Super traking number:A00000000000000</li>
+            </ul>
+            <div class='grayBg'>
+                <ul class="nav">
+                    <li class='textid' v-show="item.buyerId">
+                        <span><b lg='buyerID'></b>：</span>
+                        <span>AAAAAAAAAA</span>
+                    </li>
+                    <li class='textid' v-show="item.sellerId">
+                        <span><b lg='sellersID'></b>：</span>
+                        <span>BBBBBBBBBBB</span>
+                    </li>
+                    <li class='textid'>
+                        <span><b lg='packageTotal'></b>：</span>
+                        <span>9999件</span>
+                    </li>
+                </ul>
+                <div class="cf">
+                    <div class="tableWrapper">
+                        <table>
+                            <tr>
+                                <th v-show="item.itemId"><p class="line1">Item ID</p></th>
+                                <th v-show="item.skuNo"><p class="line2" lg='SKUNumber'></p></th>
+                                <th v-show="item.nameZh"><p class="line3" lg='skuCnName'></p></th>
+                                <th v-show="item.nameEn"><p class="line4" lg='skuEnName'></p></th>
+                                <th v-show="item.quantity"><p class="line5" lg='quantity'></p></th>
+                                <th v-show="item.property"><p class="line6" lg='pdtProfile'></p></th>
+                            </tr>
+                            <tr>
+                                <th v-show="item.itemId"><p class="line1">0000000</p></th>
+                                <th v-show="item.skuNo"><p class="line2">0000000</p></th>
+                                <th v-show="item.nameZh"><p class="line3">苹果6</p></th>
+                                <th v-show="item.nameEn"><p class="line4">iphone6</p></th>
+                                <th v-show="item.quantity"><p class="line5">1台</p></th>
+                                <th v-show="item.property"><p class="line6">手机</p></th>
+                            </tr>
+                        </table>
+                    </div>
+                    <table class="adr">
+                        <tr>
+                            <th><p lg='deliverAdr'></p></th>
+                        </tr>
+                        <tr>
+                            <th class="adrHeight">
+                                <p>Jordan Lee</p>
+                                <p>CHINA SHANGHAI</p>
+                                <p>HJHDFDJKHKJDHGKJGK</p>
+                                <p>+86 021  186-2169-9899</p>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th><p lg='siteAdr'></p></th>
+                        </tr>
+                        <tr>
+                            <th class="adrHeight">
+                                <p>Jordan Lee</p>
+                                <p>CHINA SHANGHAI</p>
+                                <p>HJHDFDJKHKJDHGKJGK</p>
+                                <p>+86 021  186-2169-9899</p>
+                            </th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="reference"><img src='../../../assets/imgs/printbox/print_order04.jpg'/></div>
+            <p class='referenceNum'>Reference Number : AB0000000ABC</p>
+        </div>
+    </div>
+</div>

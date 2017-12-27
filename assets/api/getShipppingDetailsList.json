@@ -1,0 +1,40 @@
+﻿{
+    "code": "00",
+    "message": "success",
+    "result": {
+        "totalPages": 1,
+        "totalCounts": 5,
+        "dataList": [
+            {
+                "detailId": "47",
+                "detailTitle": "添加物流文章6",
+                "createTime": "2017-11-01 10:50:46",
+                "content": "添加物流文章6"
+            },
+            {
+                "detailId": "45",
+                "detailTitle": "添加物流文章5",
+                "createTime": "2017-11-02 17:57:11",
+                "content": "添加物流文章5"
+            },
+            {
+                "detailId": "43",
+                "detailTitle": "添加物流文章3",
+                "createTime": "2017-11-02 17:57:04",
+                "content": "添加物流文章3"
+            },
+            {
+                "detailId": "61",
+                "detailTitle": "测试物流文章2",
+                "createTime": "2017-11-01 16:26:20",
+                "content": "sda"
+            },
+            {
+                "detailId": "60",
+                "detailTitle": "测试物流文章",
+                "createTime": "2017-11-01 16:25:47",
+                "content": "sdad"
+            }
+        ]
+    }
+}

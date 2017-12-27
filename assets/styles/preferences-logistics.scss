@@ -1,0 +1,175 @@
+.preferences{
+    .logistics{
+        h2{font-size:18px; font-weight:bold;color:#000}
+        .btnGrayLinear{background:#ffffff;background:-moz-linear-gradient(top,#ffffff,#e6f2fe);background:-webkit-linear-gradient(top,bottom,#ffffff,#e6f2fe);background:-webkit-linear-gradient(top,#ffffff,#e6f2fe);background:-o-linear-gradient(top,#ffffff,#e6f2fe);background:-ms-linear-gradient(top,#ffffff,#e6f2fe);background:linear-gradient(to bottom,#ffffff,#e6f2fe);filter:progid:DXImageTransform.Microsoft.gradient(startColorStr=#ffffff,endColorStr=#e6f2fe,GradientType=1);-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff, endColorstr=#e6f2fe, GradientType=1)"}
+        .btn{border: 1px solid #dfdfdf;text-align:center;color:#333333;text-decoration: none;}
+        .btn.blue{background:#004ecb;color:#fff;}
+        input{width:100%;height:30px;border:1px solid #dfdfdf;padding:0 6px;}
+        /*下拉框样式设置*/
+        .selectBox{
+            width:100%;height:30px;line-height:30px;border: 1px solid #dfdfdf;cursor:pointer;position:relative;
+            .selectVal{padding:0 20px 0 6px; height:29px;line-height:29px;overflow:hidden;}
+            .selectIcon{@include sprite;width:12px;height:12px; background-position: -112px -26px;position:absolute;top:8px;right:6px;}
+            .selectOptions{
+                display:none;border: 1px solid #dfdfdf; border-top:none;width:auto;margin:0 -1px;background:#fff;
+                li{padding:0 10px;}
+                li.cur,li:hover{background:#e6eef7;color:#0065d1;}
+            }
+        }
+        .selectBox.cur{
+            .selectOptions{display:block;}
+        }
+        .selectBox.error{border-color:#e42e35;}
+        .input-group{
+            position:relative;
+            em{@include sprite;display:none;width:16px;height:16px;background-position: 0 0;position:absolute;right:5px;top:7px;}
+        }
+        .input-group.error{
+            input{border-color:#e42e35;}
+            em{display:block;}
+        }
+        // .logisticsContent.lastOne{
+        //     td.del a{display: none;}
+        // }
+        /*添加物流设置弹层*/
+        .popup.create-logistics-preferences{
+            display:block;font-size:12px;
+            .content{
+                min-height:600px;margin-top:-300px;width:680px;margin-left:-340px;
+                .title{position:absolute;top:20px;left:20px;font-size:18px;}
+                .title-des{
+                    position:absolute;right:55px;top:25px;color:#fc6020;
+                    span{color:#666;}
+                }
+                .close{top:20px;right:20px}
+                .content-container{
+                    margin:20px;border-top:1px solid #dfdfdf;margin-top:58px;padding-top:14px;
+                    .error-message{color:#e42e35;padding:5px 0;}
+                    .scrollBlock{
+                        overflow:auto;height:446px;
+                        .name{
+                            margin-top:10px;padding:10px 0;
+                            em{color:#fc6020;}
+                        }
+                        .name-input{width:590px;}
+                        /*条件设置*/
+                        .item-list{
+                            min-height:100px;position:relative;z-index:999999; margin-bottom: 40px; margin-top: 10px;
+                            .box{height:30px;margin:12px 0;position:relative;}
+                            .box>li{float:left;margin-right:8px;}
+                            .des{
+                                width:78px;height:28px;line-height:28px; float: left;
+                                em{color:#fc6020;}
+                            }
+                            .box>li.item{width:184px;}
+                            .box>li.symbol{width:140px;}
+                            .box>li.value{
+                                width:251px;
+                                input{font-size:12px;}
+                            }
+                            .add{
+                                width:64px; margin-left: 528px;
+                                a{display:block;height:28px; line-height:28px}
+                                a:before{@include sprite; width:17px;height:17px;background-position: -210px -19px;margin-right:3px;}
+                            }
+                            .box>li.del{width:auto;}
+                            .box>li.del a{
+                                display:block; line-height:28px; border: none;
+                                &:before{@include sprite;width:18px;height:22px;background-position: -136px -18px;position:relative;top:0;left:0;}
+                            }
+                            .box>li:last-child{margin-right:0;}
+                        }
+                        /*供应商*/
+                        .provider-list{
+                            ul{
+                                li{
+                                    float:left;margin-right:17px;width:186px;height:46px;line-height:46px;border: 1px solid #dfdfdf;text-align:center;font-size:14px;cursor:pointer;position:relative;margin-bottom:10px;
+                                    .icon{display:none;cursor: pointer;}
+                                    .icon:after{@include sprite;width:20px;height:20px;background-position: -231px -17px;}
+                                    .tips{display:none;}
+                                }
+                                li:nth-child(3n) {margin-right:0;}
+                                li.active{
+                                    border:2px solid #004ecb;color:#004ecb;position:relative;
+                                    &:after{@include sprite;width:18px;height:18px;background-position:-2px -220px;position:absolute;bottom:0;right:0;}
+                                }
+                                li.des{
+                                    .icon{display:inline-block;}
+                                }
+                                li.cur{
+                                    .tips{display:block;text-align:left;font-size:12px;line-height:18px;background:#fff;border: 1px solid #dfdfdf;padding:5px;position:relative;top:-1px;border-top:none;margin:0 -1px; }
+                                }
+                                li.disabled{
+                                    background:#f1f1f1;color:#bdbdbd;cursor: default;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            /*底部按钮*/
+            .control{
+                margin:18px 0 24px 0;
+                .btn{width:108px;height:36px;line-height:36px;text-align:center;margin-right:20px;}
+            }
+        }
+        /*页面内容*/
+        .info{
+            margin:15px 0;font-size:12px;
+            .des{padding:8px 0;margin-right:16px;color:#666666;}
+            .btn{padding:0 20px 0 10px;height:32px;line-height:32px}
+            .btn:before{@include sprite;width:19px;height:19px;background-position:-210px -19px;vertical-align: middle;margin-right:6px;}
+        }
+        table{
+            font-size:12px;
+            thead {
+                tr{
+                    border-bottom: 1px solid #e3e3e3;
+                    th{font-weight:bold;;padding:12px 0;}
+                    th.name{width:290px;}
+                    th.rule-conditions{width:550px;}
+                    th.operation{width:56px;}
+                    th.del{width:34px;}
+                    th.sort{width:52px;}
+                }
+            }
+            tbody{
+                tr{
+                    border-bottom:1px solid #dfdfdf;
+                    td{
+                        padding:10px 0;vertical-align: top;
+                        p{
+                            padding:5px 0;
+                        }
+                        a{
+                            padding:5px 0;display:inline-block;
+                        }
+                    }
+                    td.operation{
+                        a:hover{color:#004ecb;}
+                    }
+                    td.del{
+                        a{@include sprite;width:16px;height:18px;background-position: -32px -20px;}
+                    }
+                    td.sort{
+                        span{width:18px;height:18px;border: 1px solid #dfdfdf;display:inline-block;cursor: pointer;position:relative;}
+                        span.up:before{@include sprite;width:10px;height:10px; background-position: -237px 0;position:absolute;top:5px;left:4px}
+                        span.down:before{@include sprite;width:10px;height:10px; background-position: -251px 0;position:absolute;top:5px;left:4px}
+                        span:hover{
+                            border-color:#0065d1;background-color:#0065d1;
+                            &.up:before{background-position: -263px 0;}
+                            &.down:before{background-position: -278px 0;}
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+//物流服务
+.logistics-service{
+    .logistics-server-title{
+        font-size:18px; font-weight:bold;padding-bottom:20px;
+    }
+    .logistics-server-content{width:1000px}
+}

@@ -1,0 +1,17 @@
+<div class='popup remark' v-if="openerRemark==1">
+    <div class='mask'></div>
+    <div class='content'>
+        <div class="title">
+            <a href="javascript:;" class="close sprite" v-on:click="openerRemark=0;"></a>
+            <h2 lg="sellersRemark"></h2>
+        </div>
+        <div class="input-group">
+            <p class="error-message" lg="errorMessage"></p>
+            <textarea maxlength="250" v-on:input="setInput($event,'remark');" v-model="sellerRemark" ></textarea>
+        </div>
+        <div class="btn-container">
+            <button class="btn confirm" v-on:click="saveRemark($event);" lg="confirm"></button>
+            <button class="btn cancel" v-on:click="openerRemark=0;" lg="cancel"></button>
+        </div>
+    </div>
+</div>

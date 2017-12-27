@@ -1,0 +1,106 @@
+<header class="header-personal" v-cloak>
+    <div class="header-content cf">
+        <div class="logo fl">
+            <a data-href="dashboard" class="img">
+                <img src="../../assets/imgs/logo.png" alt="" />
+                <em class="sandbox">sandbox</em>
+            </a>
+            <a data-href="dashboard" class="system">IS SYSTEM</a>
+            <a class="order-management" lg="orderManagement" data-href="pendingOrder"></a>
+            <div class="help-center" href="javascript:;">
+                <p class="js-tips title" lg="helpCenter"></p>
+                <p class="tips list">
+                    <a href="javascript:;" v-for="(item,index) in help.select.data" v-bind:class="{'cur':index==help.select.index}" v-bind:lg="item.lg"
+                        v-bind:data-href="item.link"></a>
+                </p>
+            </div>
+
+        </div>
+        <ul class="right fr">
+            <li class="search">
+                <div class="logistics fl">
+                    <div class='selectBox basic fl'>
+                        <div class='selectVal js-tips' v-bind:lg="search.lg"></div>
+                        <div class='selectIcon'></div>
+                        <ul class='selectOptions tips'>
+                            <li v-for="(select,selectIndex) in search.data" v-bind:class="{'cur':selectIndex==search.index}" v-bind:lg="select.lg" v-on:click="selectList($event,selectIndex,select.lg,select.id);"></li>
+                        </ul>
+                    </div>
+                </div>
+                <input class="fl groupInput" type="text" />
+                <a href="javascript:;" class="icon fl" v-on:click="startSearch();"></a>
+            </li>
+
+            <template v-if="user.userType==mainAccount">
+                <li class="information"><a data-href="messages" class="icon"><span v-show="isMessage"></span></a></li>
+            </template>
+
+            <li class="language">
+                <a href="javascript:;" class="icon js-tips"></a>
+                <div class="languageInfo tips" v-bind:class="{'first':language=='zh-cn'}">
+                    <a href="javascript:;" v-for="(item,index) in languageItem" v-bind:data-id="item.id" v-bind:class="{'cur':item.id==language}">{{item.text}}</a>
+                </div>
+            </li>
+            <!--未认证是默认的class="no" lg='notCertified'-->
+            <!--已认证是在span上添加class="cur" lg='authenticated'-->
+            <!--认证中是在span上添加class="in" lg='inAuthenticated'-->
+            <li class="userName" v-bind:class="verifyState==1?'notCertified':''">
+                <div class="userTit js-tips"><i class="acountUser" v-bind:class="{'sub':user.userType==subAccount}">{{user.userName}}</i><span v-if="user.userType!=subAccount"
+                        v-bind:class="verifyState==1||verifyState==2?'no':verifyType==0?'cur':'in'" v-bind:lg="verifyState==1?'notCertified':verifyState==2?'inAuthenticated':verifyType==0?'authenticated':'authenticated'"></span>
+                    <a class="dropdown" href="javascript:;"></a>
+                </div>
+                <div class="popup userInfo tips" v-bind:class="{'verify':user.userType!=subAccount&&verifyState===0}">
+                    <!--<p class="close"></p>-->
+                    <div class="userContent cf">
+                        <div class="accountType fl">
+                            <p><a data-href="accountInfo">{{user.userName}}</a></p>
+                            <!--per个人 -->
+                            <!--copany 企业-->
+                            <p v-if="user.userType!=subAccount"><span lg="accountType"></span>：
+                                <span class="accountDiff" v-bind:class="verifyState==0?verifyType==0?'pre':'company':''" v-bind:lg="verifyState==0?verifyType==0?'perAccount':'busAccount':verifyState==1?'notCertified':'notCertified'">-</span>
+                                <a v-if="user.userType!=subAccount&&verifyState==0" class="lockInfo" lg="lockInfo" v-on:click='dev_getSsoUrl("jvverify")'
+                                    href="javascript:;"></a>
+                            </p>
+                        </div>
+                    </div>
+                    <!--未认证用户-->
+                    <p v-if="user.userType!=subAccount&&verifyState==1||user.userType!=subAccount&&verifyState==2" class="timelyCert" lg="timelyCert"></p>
+                    <!--个人btn 按钮颜色red-->
+                    <!--未认证 btn 按钮颜色 powder-->
+                    <!--已认证-->
+                    <template v-if='user.userType!=subAccount&&verifyState==0'>
+                        <a v-if='verifyType==0' lg='enterpriseUsers' class='yellow' href="javascript:;" v-on:click='dev_getSsoUrl("jvverify")'></a>
+                        <!-- <a v-if='verifyType==1' lg='gopersonalCenter' class='green' data-href='accountInfo'></a> -->
+                    </template>
+                    <!--未认证-->
+                    <template v-if='user.userType!=subAccount&&verifyState==1'>
+                        <a lg="immediateAuth" class="powder" v-on:click='dev_getSsoUrl("jvverify")' href="javascript:;"></a>
+                    </template>
+                    <!--认证中-->
+                    <template v-if='user.userType!=subAccount&&verifyState==2'>
+
+                    </template>
+                    <!-- <a v-bind:href="verifyState==0?verifyType==0?link.upgradeBusinessUser:link.accountInfo:link.immediatelyCertification" v-bind:lg="verifyState==1?'immediateAuth':verifyState==2?'certificationed':verifyState==0?verifyType==0?'enterpriseUsers':'personalCenter':'-'" v-bind:class="verifyState==1||verifyState==2?'powder':verifyType==0?'yellow':'blue'"></a> -->
+                    <!-- class="view-user-info -->
+                    <!-- &&verifyState==0&&verifyType==0 -->
+                    <a class="green" lg="gopersonalCenter" data-href="accountInfo"></a>
+                    <template v-if="user.userType==subAccount">
+                        <a class="user-preferences" lg="preferences" data-href="preferencesSku"></a>
+                    </template>
+                    <template v-else-if="isSandBox">
+                        <a class="user-preferences" lg="preferences" data-href="preferencesAdr"></a>
+                    </template>
+                    <template v-else>
+                        <a class="user-preferences" lg="preferences" data-href="preferencesOrderSource"></a>
+                    </template>
+
+                    <p class="btnExit cf"><a class="exit js-loginout" lg="exit" href="javascript:;"></a></p>
+                </div>
+            </li>
+            <!--li class="border exit"><a href="javascript:;" class="icon js-loginout" lg="exit"></a></li-->
+
+            <!-- <li class="border setUp"><a data-href="preferencesOrderSource" class="icon" lg="setUp"></a></li> -->
+        </ul>
+    </div>
+</header>
+<div data-htmlfile="/components/modules/popup-msg.html"></div>

@@ -1,0 +1,31 @@
+.messages-page,.shipping-page,.shipping-policies-page{
+    h2{font-size:18px;font-weight:bold;padding-bottom: 15px;}
+    table{
+        font-size:12px;
+        thead{
+            height:36px;line-height:36px;
+            th{font-weight:bold;}
+            th.name{width:675px;}
+        }
+        tbody{
+            tr{
+                height:30px;line-height:30px;border-bottom: 1px solid #dfdfdf;
+                td{
+                    color:#666666;
+                    a{text-decoration: none;}
+                }
+            }
+            tr.light{
+                td{font-weight:bold;}
+            }
+        }
+    }
+}
+.article-detail{
+    .page{
+        padding-top:32px;
+        .title{font-size:18px;font-weight:bold;color:#333;line-height:25px}
+        .time{font-weight:bold;color:#333;line-height:25px}
+        .content-wrapper{margin-top:20px;line-height:20px;}
+    }
+}

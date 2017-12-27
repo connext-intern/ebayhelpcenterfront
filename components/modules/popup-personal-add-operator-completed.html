@@ -1,0 +1,12 @@
+<div class='popup personalAddOperatorCompleted' v-if='popup_personalAddOperatorCompleted'>
+    <div class='mask'></div>
+    <div class='content'>
+        <a href='javascript:;' class='close sprite' v-on:click='popup_personalAddOperatorCompleted=false'></a>
+        <p class='mainTitle' lg='addSuccess'></p>
+        <p class="text"><b lg='alreadyAdd'></b> <span>{{operatorEntity.userName}}</span> <b lg='addoperatortip'></b> <a href="javascript:;" lg='addoperator' v-on:click='add_subuser'></a><br><b lg='addoperatortip2'></b></p>
+        <div class="btnArr cf">
+            <a class="blueBtn fr" href="javascript:;" v-on:click='popup_personalAddOperatorCompleted=false' lg='completed'></a>
+            <a class="whiteBtn fr" href="javascript:;" v-on:click='popup_personalAddOperatorCompleted=false' lg='cancel'></a>
+        </div>
+    </div>
+</div>

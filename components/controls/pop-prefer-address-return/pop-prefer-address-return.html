@@ -1,0 +1,82 @@
+<div class='popup prefer-addAdr-return'>
+    <div class='mask'></div>
+    <div class='content'>
+        <a href='javascript:;' class='close sprite' v-on:click='closePopup'></a>
+        <p class='popTitle'>
+            <em v-bind:lg='mainTitleLg'></em>
+            <span><b class="red">*</b><b lg='requiedEnglish'></b></span>
+        </p>
+        <p class="topErroMsg"><span v-if='erroArr.length>0' lg='errorMessage'></span></p>
+        <div class='inputBox basic' inputKey='name'>
+            <p class="inputName">
+                <em><b lg='addressName'></b><b class="red">*</b></em>
+                <template v-if="isexternal">
+                    <span v-bind:lg="isexternal?'address-tips4':'address-tips3'"></span>
+                </template>
+                <template v-else>
+                    <span lg='address-tips1'></span>
+                </template>
+            </p>
+            <div class="input"><input maxlength='50' /></div>
+        </div>
+        <div class="labelTwo cf">
+            <div class='inputBox basic' inputKey='contactName'>
+                <p class="inputName"><em lg='contactName'></em><b class="red">*</b></p>
+                <div class="input"><input maxlength='50' /></div>
+            </div>
+            <div class='inputBox basic' inputKey='companyName'>
+                <p class="inputName"><em lg='companyName'></em><b class="red">*</b></p>
+                <div class="input"><input maxlength='50' /></div>
+            </div>
+        </div>
+        <div class="labelTwo cf">
+            <div class='inputBox basic' inputKey='zipcode'>
+                <p class="inputName"><em lg='zipcode'></em><b class="red">*</b></p>
+                <div class="input"><input maxlength='10' /></div>
+            </div>
+            <div class='inputBox basic' inputKey='country'>
+                <p class="inputName"><b lg='settingCondition'></b><b class="red">*</b></p>
+                <div class="input"><input maxlength='50' disabled='disabled' /></div>
+            </div>
+        </div>
+        <div class="labelTwo cf">
+            <div class='inputBox basic' inputKey='province'>
+                <p class="inputName"><em lg='province'></em><b class="red">*</b></p>
+                <div class="input"><input maxlength='50' disabled='disabled' /></div>
+            </div>
+            <div class='inputBox basic' inputKey='city'>
+                <p class="inputName"><em lg='city'></em><b class="red">*</b></p>
+                <div class="input"><input maxlength='50' disabled='disabled' /></div>
+            </div>
+        </div>
+        <div class='inputBox basic' inputKey='address1'>
+            <div class="input"><input class='darkPlaceholder' maxlength='50' lg='address1tips'/></div>
+        </div>
+        <div class='inputBox basic' inputKey='address2'>
+            <div class="input"><input maxlength='50' lg='address2tips'/></div>
+        </div>
+        <div class='inputBox basic' inputKey='address3'>
+            <div class="input"><input maxlength='50' lg='address3tips'/></div>
+        </div>
+        <div class="labelTwo cf">
+            <div class='inputBox basic' inputKey='phone'>
+                <p class="inputName"><em lg='phone'></em><b class="red">*</b></p>
+                <div class="input"><input maxlength='20' /></div>
+            </div>
+        </div>
+        <div class="btns cf">
+            <template v-if="isexternal">
+                <a class="cancelBtn" href="javascript:;" v-on:click='prevClick' lg='prev-step'></a>
+                <a class="fr btn-confirm saveBtn" v-on:click='saveClick($event)' lg='save-continue'></a>
+                <a class="skipBtn" href="javascript:;" v-on:click='nextClick' lg='skip'></a>
+            </template>
+            <template v-else>
+                <div class="checkBox basic setDft">
+                    <p class="radio" v-bind:class='modelManager.isDefault.radios[0]?"cur":""' v-on:click='fun_checkRadioClick("isDefault",0)' lg='setDefaultAdr'></p>
+                </div>
+                <a class="saveBtn" href="javascript:;" v-on:click='saveClick($event)' lg='save'></a>
+                <a class="cancelBtn" href="javascript:;" v-on:click='closePopup' lg='cancel'></a>
+            </template>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,96 @@
+@mixin arrow{position: absolute;display:inline-block;width: 0;height: 0;}
+
+// how to use: color:$color
+$btncolor:#004ecb;
+$textcolor:#333333;
+$bordercolor:#e3e3e3;
+$erroColor:#e42e35;
+
+@mixin sprite{content:''; vertical-align: middle; display:inline-block;background: url('../../../assets/imgs/sprite.png') no-repeat; font-size: 0;}
+@mixin container{width:1200px;margin:0 auto;}
+@mixin colorBtn{background-color:$btncolor;color:#fff; text-decoration:none; display:inline-block; text-align: center; cursor: pointer;}
+@mixin cancelBtn{@include lightBtn;color:#333;border:1px solid $bordercolor; text-decoration:none; display:inline-block; text-align: center; cursor: pointer;}
+@mixin lightBtn{
+	background: -webkit-linear-gradient(#fff, #f0efef);
+	background: -moz-linear-gradient(#fff, #f0efef);
+	background: -o-linear-gradient(#fff, #f0efef);
+	background: linear-gradient(#fff, #f0efef);
+	display: block; text-decoration:none; border: #dfdfdf 1px solid; cursor: pointer;
+}
+@mixin lightblueBtn{
+	background: -webkit-linear-gradient(#fff, #dcedfd);
+	background: -moz-linear-gradient(#fff, #dcedfd);
+	background: -o-linear-gradient(#fff, #dcedfd);
+	background: linear-gradient(#fff, #dcedfd);
+	display: block; text-decoration:none; border: #dfdfdf 1px solid; cursor: pointer;
+}
+@mixin cf{clear:both;zoom:1;
+	&::before,&::after{content:"";display:block;overflow:hidden}
+	&::after{clear:both}
+}
+@mixin selectSquare{@include sprite; background-position:-106px 0; width: 14px; height: 14px; cursor: pointer;}
+@mixin oneline{white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}
+@mixin resetOneline{white-space: normal; text-overflow: clip; overflow: visible;}
+// how to use: @include transform(translate(5px,0));
+@mixin transform($transforms) {
+	   -moz-transform: $transforms;
+	     -o-transform: $transforms;
+	    -ms-transform: $transforms;
+	-webkit-transform: $transforms;
+          transform: $transforms;
+}
+
+// how to use: @include translate(5px,0);
+@mixin translate ($x, $y) {
+   @include transform(translate($x, $y));
+}
+
+// how to use: @include skew(30,0);
+@mixin skew ($x, $y) {
+   @include transform(skew(#{$x}deg, #{$y}deg));
+}
+// how to use: @include radius(5px);
+@mixin radius($radius) {
+	border-radius: $radius;
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+}
+// how to use: @include radius(5px);
+@mixin shadow($shadow) {
+	box-shadow: $shadow;
+	-webkit-box-shadow: $shadow;
+	-moz-box-shadow: $shadow;
+}
+// how to use: @include origin(0 0);
+@mixin origin($origin) {
+	transform-origin: $origin;
+	-webkit-transform-origin: $origin;
+	-moz-transform-origin: $origin;
+	-o-transform-origin: $origin;
+	-ms-transform-origin: $origin;
+}
+
+@mixin placehoder-color($color){
+	::-webkit-input-placeholder { color:$color; }
+::-moz-placeholder { color:$color; } /* firefox 19+ */
+:-ms-input-placeholder { color:$color; } /* Internet Explorer 10+ */
+:-moz-placeholder { color:$color; } /* firefox 14-18 */
+}
+
+@mixin loading($height:100px){
+	min-height: $height;position: relative;
+	&::before{
+		content:'';z-index:99999;
+		position:absolute;left:50%;top:$height/2;width:64px;height:64px;margin-left:-32px;margin-top:-32px;background:url('../../../assets/imgs/loading.gif') center center no-repeat;
+	}
+	// ::after{
+	// 	content:'';
+	// 	filter:alpha(opacity=50);-moz-opacity:.5;opacity:.5;background:#000000;position:fixed;top:0;left:0;z-index:991;width:100%;height:100%;text-indent:-99em
+	// }
+}
+// .commonLoad{
+// 	position:fixed;height:100%;width:100%;top:0;left:0;z-index:990;display:none;
+// 	.loadImg{position:absolute;left:50%;top:50%;width:64px;height:64px;margin-left:-32px;margin-top:-32px;background:url('../../../assets/imgs/loading.gif') center center no-repeat;}
+// }
+// .commonMask{display:none;filter:alpha(opacity=50);-moz-opacity:.5;opacity:.5;background:#000000;position:fixed;top:0;left:0;z-index:991;width:100%;height:100%;text-indent:-99em}
+.loading{@include loading();}

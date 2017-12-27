@@ -1,0 +1,19 @@
+﻿{
+    "code":"00",
+    "message":"获取订单状态统计数据",
+    "result":{
+        "pending":"19999",
+        "incomplete":"111111111",
+        "pendingSelect":"2",
+        "pendingApply":"3",
+        "pendingConfirm":"4",
+        "unavailableProduct":"5",
+        "pendingPickup":"99",
+        "delivered":"999",
+        "onShipping":"10",
+        "received":"5",
+        "exception":"6",
+        "deleted":"7",
+        "shippingException":8
+    }
+}

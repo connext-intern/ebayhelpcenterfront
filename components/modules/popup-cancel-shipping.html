@@ -1,0 +1,17 @@
+<!--取消物流单号 add by gena -->
+<div class='popup order popup-cancel-shipping' v-bind:class="isCancelShipping?'show':'hide'">
+    <div class='mask'></div>
+    <div class='content'>
+        <a href='javascript:;' class='close sprite' v-on:click="isCancelShipping=false;"></a>
+        <div class='content-container'>
+            <div class="popup-body">
+                <p class="title" lg="cancel-shipping"></p>
+                <p class="desc" lg="cancel-shipping-confirm"></p>
+            </div>
+            <div class="popup-foot cf">
+                <a href="javascript:;" class="fr btn save" lg="save" v-on:click="cancelPackage();isCancelShipping=false;"></a>
+                <a href="javascript:;" class="fr btn cancel" lg="cancel" v-on:click="isCancelShipping=false;"></a>
+            </div>
+        </div>
+    </div>
+</div>

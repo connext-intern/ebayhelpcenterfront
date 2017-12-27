@@ -1,0 +1,18 @@
+<!--取消授权-->
+<div class='popup revokeAuthority' v-show="isCancelAuthorize">
+    <div class='mask'></div>
+    <div class='content'>
+        <a href='javascript:;' v-on:click="isCancelAuthorize=false" class='close sprite'>关闭</a>
+        <div class="revokeMsg">
+            <h2 lg="cancelAuthorize"></h2>
+            <p><span lg="want-to-confirm"></span><span class="relieve"><span lg="unsplit-account"></span>eBayID:{{ eBayEntity
+                && eBayEntity.ebayId}}</span><span lg="unsplit-account1"></span></p>
+            <p><span lg="unsplit-account2"></span><span class="noOperation"><span lg="unsplit-account3"></span></span>。</p>
+            <p lg="unsplit-account4"></p>
+            <div class="popBtn">
+                <a href="javascript:;" v-on:click="isCancelAuthorize=false" class="cancel" lg="cancel"></a>
+                <a href="javascript:;" v-on:click="comfirm_authrize($event)" class="submit" lg="ensure"></a>
+            </div>
+        </div>
+    </div>
+</div>

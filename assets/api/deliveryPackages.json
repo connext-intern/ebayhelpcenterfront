@@ -1,0 +1,9 @@
+﻿{
+    "code":"00",
+    "message":"交运失败",
+    "result":{
+        "successCount":"3",
+        "failCount":"6",
+        "isNeedBatteryAuth":"1"
+    }
+}

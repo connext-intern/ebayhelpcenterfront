@@ -1,0 +1,19 @@
+<!--绑定ebayID提示 add by gena-->
+<div class='popup bindebayid control' v-bind:class="operator==7?'show':'hide'">
+    <div class='mask'></div>
+    <div class='content'>
+        <div class='content-container'>
+            <div class="popup-head">
+                <h2 class="popup-title" lg="bindid-title"></h2>
+            </div>
+            <div class="popup-body">
+                <div class="imgs"></div>
+                <p class="bindebayid-tips" lg="bind-ebayid-tips1"></p>
+                <p class="bindebayid-error"><a href="javascript:;" lg="bind-ebayid-tips2" v-on:click='goBindID'></a></p>
+            </div>
+            <div class="popup-foot cf">
+                <a class="fr btn-confirm js-saveBtn" lg="add-bindid" v-on:click="goBindID"></a>
+            </div>
+        </div>
+    </div>
+</div>

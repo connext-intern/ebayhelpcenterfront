@@ -1,0 +1,166 @@
+﻿{
+  "code": "00",
+  "message": "获取ebayID列表",
+  "result": {
+    "dataList": [
+      {
+        "bindId": "1001",
+        "ebayId": "eBay_001",
+        "authState": "VALID",
+        "assignedSubusers": [
+          {
+            "userId": "1001",
+            "userName": "eeeeeeeBay.management.com.cn"
+          }
+        ],
+        "bindTime": "2014-12-18"
+      },
+      {
+        "bindId": "1002",
+        "ebayId": "eBay_222",
+        "authState": "VALID",
+        "assignedSubusers": [
+          {
+            "userId": "1002",
+            "userName": "eeeeeeeBay.management.com.cn"
+          },
+          {
+            "userId": "1003",
+            "userName": "eeeeeeeBay.management.com.cn"
+          }
+        ],
+        "bindTime": "2014-12-18"
+      },
+      {
+        "bindId": "1003",
+        "ebayId": "eBay_223",
+        "authState": "VALID",
+        "assignedSubusers": [
+          {
+            "userId": "1004",
+            "userName": "eeeeeeeBay.management.com.cn"
+          }
+        ],
+        "bindTime": "2014-12-18"
+      },
+      {
+        "bindId": "1004",
+        "ebayId": "eBay_224",
+        "authState": "VALID",
+        "assignedSubusers": [
+          {
+            "userId": "1005",
+            "userName": "eeeeeeeBay.management.com.cn"
+          }
+        ],
+        "bindTime": "2014-12-18"
+      },
+      {
+        "bindId": "1005",
+        "ebayId": "eBay_335",
+        "authState": "VALID",
+        "assignedSubusers": [
+          {
+            "userId": "1006",
+            "userName": "eeeeeeeBay.management.com.cn"
+          },
+          {
+            "userId": "1007",
+            "userName": "eeeeeeeBay.management.com.cn"
+          }
+        ],
+        "bindTime": "2014-12-18"
+      },
+      {
+        "bindId": "1006",
+        "ebayId": "eBay_336",
+        "authState": "VALID",
+        "assignedSubusers": [
+          {
+            "userId": "1008",
+            "userName": "eeeeeeeBay.management.com.cn"
+          }
+        ],
+        "bindTime": "2014-12-18"
+      },
+      {
+        "bindId": "1007",
+        "ebayId": "eBay_337",
+        "authState": "VALID",
+        "assignedSubusers": [
+          {
+            "userId": "1009",
+            "userName": "eeeeeeeBay.management.com.cn"
+          }
+        ],
+        "bindTime": "2014-12-18"
+      },
+      {
+        "bindId": "1008",
+        "ebayId": "eBay_338",
+        "authState": "VALID",
+        "assignedSubusers": [
+          {
+            "userId": "1010",
+            "userName": "eeeeeeeBay.management.com.cn"
+          }
+        ],
+        "bindTime": "2014-12-18"
+      },
+      {
+        "bindId": "1009",
+        "ebayId": "eBay_339",
+        "authState": "EXPIRED",
+        "assignedSubusers": [
+          {
+            "userId": "1011",
+            "userName": "eeeeeeeBay.management.com.cn"
+          }
+        ],
+        "bindTime": "2014-12-18"
+      },
+      {
+        "bindId": "1010",
+        "ebayId": "eBay_443",
+        "authState": "EXPIRED",
+        "assignedSubusers": [
+          {
+            "userId": "1012",
+            "userName": "eeeeeeeBay.management.com.cn"
+          },
+          {
+            "userId": "1013",
+            "userName": "eeeeeeeBay.management.com.cn"
+          }
+        ],
+        "bindTime": "2014-12-18"
+      },
+      {
+        "bindId": "1011",
+        "ebayId": "eBay_444",
+        "authState": "EXPIRED",
+        "assignedSubusers": [
+          {
+            "userId": "1001",
+            "userName": "eeeeeeeBay.management.com.cn"
+          }
+        ],
+        "bindTime": "2014-12-18"
+      },
+      {
+        "bindId": "1012",
+        "ebayId": "eBay_445",
+        "authState": "EXPIRED",
+        "assignedSubusers": [
+          {
+            "userId": "1001",
+            "userName": "eeeeeeeBay.management.com.cn"
+          }
+        ],
+        "bindTime": "2014-12-18"
+      }
+    ],
+    "totalPages": 2,
+    "totalCounts": 12
+  }
+}

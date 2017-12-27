@@ -1,0 +1,133 @@
+<div class="popup preferences print control">
+	<div class='mask'></div>
+	<div class='content'>
+		<div class='content-container'>
+			<div class="popup-head">
+				<h2 class="popup-title"><span lg="print-rule"></span><span class="tips"></span>
+				</h2>
+			</div>
+			<div class="popup-body">
+				<div class="printBlock">
+					<p class="highDsc" lg="preferPrintTips1"></p>
+					<strong lg="pdtInfo"></strong>
+					<div class="infoList checkBox multi">
+						<div data-key="itemId" :class="{'cur':item.itemId}" class="js-checkbox radio">Item ID</div>
+						<div data-key="skuNo" :class="{'cur':item.skuNo}" class="js-checkbox radio" lg='SKUNumber'></div>
+						<div data-key="nameZh" :class="{'cur':item.nameZh}" class="js-checkbox radio" lg='skuCnName'></div>
+						<div data-key="nameEn" :class="{'cur':item.nameEn}" class="js-checkbox radio" lg='skuEnName'></div>
+						<div data-key="property" :class="{'cur':item.property}" class="js-checkbox radio" lg='pdtProfile'></div>
+						<div data-key="quantity" :class="{'cur':item.quantity}" class="js-checkbox radio" lg='quantity'>数量</div>
+					</div>
+					<div class="infoList checkBox business multi">
+						<div data-key="buyerId" :class="{'cur':item.buyerId}" class="js-checkbox radio" lg='buyerID'></div>
+						<div data-key="sellerId" :class="{'cur':item.sellerId}" class="js-checkbox radio" lg='sellersID'></div>
+					</div>
+				</div>
+				<div class='printSample'>
+					<ul class="nav">
+						<li class="leftS"><img src='../../../assets/imgs/printbox/print_order01.jpg' /></li>
+						<li class="logo"><img src='../../../assets/imgs/printbox/print_order02.jpg' /></li>
+						<li class="super"><img src='../../../assets/imgs/printbox/print_order03.jpg' /></li>
+						<li class="superNum">A00000000000000</li>
+					</ul>
+					<div class='grayBg'>
+						<ul class="nav">
+							<li class='textid' v-show="item.buyerId">
+								<span><b lg='buyerID'></b>：</span>
+								<span>AAAAAAAAAA</span>
+							</li>
+							<li class='textid' v-show="item.sellerId">
+								<span><b lg='sellersID'></b>：</span>
+								<span>BBBBBBBBBBB</span>
+							</li>
+							<li class='textid'>
+								<span><b lg='packageTotal'></b>：</span>
+								<span>9999件</span>
+							</li>
+						</ul>
+						<div class="cf">
+							<div class="tableWrapper">
+								<table>
+									<tr>
+										<th v-show="item.itemId">
+											<p class="line1">Item ID</p>
+										</th>
+										<th v-show="item.skuNo">
+											<p class="line2" lg='SKUNumber'></p>
+										</th>
+										<th v-show="item.nameZh">
+											<p class="line3" lg='skuCnName'></p>
+										</th>
+										<th v-show="item.nameEn">
+											<p class="line4" lg='skuEnName'></p>
+										</th>
+										<th v-show="item.quantity">
+											<p class="line5" lg='quantity'></p>
+										</th>
+										<th v-show="item.property">
+											<p class="line6" lg='pdtProfile'></p>
+										</th>
+									</tr>
+									<tr>
+										<th v-show="item.itemId">
+											<p class="line1">0000000</p>
+										</th>
+										<th v-show="item.skuNo">
+											<p class="line2">0000000</p>
+										</th>
+										<th v-show="item.nameZh">
+											<p class="line3">苹果6</p>
+										</th>
+										<th v-show="item.nameEn">
+											<p class="line4">iphone6</p>
+										</th>
+										<th v-show="item.quantity">
+											<p class="line5">1台</p>
+										</th>
+										<th v-show="item.property">
+											<p class="line6">手机</p>
+										</th>
+									</tr>
+								</table>
+							</div>
+							<table class="adr">
+								<tr>
+									<th>
+										<p lg='deliverAdr'></p>
+									</th>
+								</tr>
+								<tr>
+									<th class="adrHeight">
+										<p>Jordan Lee</p>
+										<p>CHINA SHANGHAI</p>
+										<p>HJHDFDJKHKJDHGKJGK</p>
+										<p>+86 021 186-2169-9899</p>
+									</th>
+								</tr>
+								<tr>
+									<th>
+										<p lg='siteAdr'></p>
+									</th>
+								</tr>
+								<tr>
+									<th class="adrHeight">
+										<p>Jordan Lee</p>
+										<p>CHINA SHANGHAI</p>
+										<p>HJHDFDJKHKJDHGKJGK</p>
+										<p>+86 021 186-2169-9899</p>
+									</th>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="reference"><img src='../../../assets/imgs/printbox/print_order04.jpg' /></div>
+					<p class='referenceNum'>Reference Number : AB0000000ABC</p>
+				</div>
+			</div>
+			<div class="popup-foot cf">
+				<a href="javascript:;" class="fl btn btnPrev" v-on:click="prev" lg="prev-step"></a>
+				<a href="javascript:;" class="fr btn bulePageBtn btn-confirm js-saveBtn" lg="save-continue" v-on:click="updatetPrintPreference"></a>
+			</div>
+		</div>
+	</div>
+</div>

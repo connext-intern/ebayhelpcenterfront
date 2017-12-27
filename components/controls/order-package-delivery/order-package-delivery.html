@@ -1,0 +1,41 @@
+<div class="module-wrap delivery">
+  <div class="module-title" v-bind:class="(item&&item.lackOfDeliveryInfo)?'error':''">
+    <h3 lg="deliveryInfo"></h3>
+    <p><span lg="wayDelivery"></span><em>：</em><span class="value" v-bind:lg="getDeliverType(deliveryInfo&&deliveryInfo.type)"></span></p>
+    <a class="btn" href="javascript:;" v-if="!isview&&!status.toBeShipped" v-on:click="clickCount++;" lg="deliveryMethod1"></a>
+  </div>
+  <div class="module-content">
+    <div class="module delivery-info">
+      <p>
+        <span lg="deliveryInfo"></span>
+        <em>：</em>
+        <span class="value">{{deliveryInfo&&deliveryInfo.name}}</span>
+      </p>
+      <p>
+        <span lg="pickTime"></span>
+        <em>：</em>
+        <span class="value">{{deliveryInfo&&deliveryInfo.pickupTime}}</span>
+      </p>
+    </div>
+    <div class="module  delivery-address">
+      <p>
+        <span class="title" lg="pickupAdr1"></span>
+        <em>：</em>
+        <span class="value">
+          <span class="contact-name"><em lg="contactName"></em>：{{deliveryInfo&&deliveryInfo.address&&deliveryInfo.address.contactName}}<span class="value-title"><em lg="companyName"></em>：{{deliveryInfo&&deliveryInfo.address&&deliveryInfo.address.companyName}}</span></span>
+        <p>
+          <span><strong class="phone"><em lg="phone"></em>：{{deliveryInfo&&deliveryInfo.address&&deliveryInfo.address.phone}}</strong></span>
+          <span>
+                  <em lg="address-info"></em>：{{deliveryInfo&&deliveryInfo.address&&deliveryInfo.address.country}} {{deliveryInfo&&deliveryInfo.address&&deliveryInfo.address.province}} {{deliveryInfo&&deliveryInfo.address&&deliveryInfo.address.city}} {{deliveryInfo&&deliveryInfo.address&&deliveryInfo.address.county}}
+                </span>
+          <span><em></em>&nbsp;&nbsp;&nbsp;&nbsp;{{deliveryInfo&&deliveryInfo.address&&deliveryInfo.address.address1}}</span>
+          <span><em></em>&nbsp;&nbsp;&nbsp;&nbsp;{{deliveryInfo&&deliveryInfo.address&&deliveryInfo.address.address2}}</span>
+          <span><em></em>&nbsp;&nbsp;&nbsp;&nbsp;{{deliveryInfo&&deliveryInfo.address&&deliveryInfo.address.address3}}</span>
+        </p>
+        </span>
+      </p>
+    </div>
+  </div>
+  <!--选择交运方式-->
+  <popup-select-delivery :item="item" @close="clickCount=0;" :operator="clickCount" @refresh="refresh" v-bind:class="clickCount?'show':'hide'"></popup-select-delivery>
+</div>

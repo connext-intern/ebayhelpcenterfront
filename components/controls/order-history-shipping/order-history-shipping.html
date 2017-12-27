@@ -1,0 +1,20 @@
+<div class="ui-tooltip-container history-list tips up" style="display:block;">
+  <a href='javascript:;' class='close sprite' v-on:click="close"></a>
+  <div class="ui-tooltip-content">
+    <div class="ui-tooltip-head" lg="hisLogisticsNumber"></div>
+    <div class="ui-tooltip-body">
+      <ul>
+        <li class="cf ui-tooltip-th">
+          <p class="fl col1" lg="logNumAppTime"></p>
+          <p class="fl col2" lg="logisticsSolutions"></p>
+          <p class="fl col3" lg="trackingNumber"></p>
+        </li>
+        <li class="cf" v-for="entity in list">
+          <p class="fl col1">{{entity.applyDate}}</p>
+          <p class="fl col2">{{entity.productName}}</p>
+          <p class="fl col3">{{entity.trackingNo}}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

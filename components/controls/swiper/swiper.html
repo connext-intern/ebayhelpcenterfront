@@ -1,0 +1,10 @@
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide" v-for="item in list">
+        <a target="_blank" v-bind:href="item.linkUrl||'javascript:;'">
+          <img v-bind:src="item.imageUrl" v-bind:alt="item.bannerName">
+        </a>
+    </div>
+  </div>
+  <div class="swiper-pagination"></div>
+</div>

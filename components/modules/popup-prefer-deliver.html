@@ -1,0 +1,137 @@
+<div class='popup prefer-deliver'>
+    <div class='mask'></div>
+    <div class='content'>
+        <a href='javascript:;' class='close sprite'></a>
+        <p class='popTitle'>添加交运偏好<span>*为必填项</span></p>
+        <p class="topErroMsg"><span v-if='showErroMsg' lg='errorMessage'></span></p>
+        <div class='inputBox basic' data-vail='requied'>
+            <p class="inputName">交运偏好名称*<span>注：揽收地址填写本地语言</span></p>
+            <div class="input"><input maxlength='50'/></div>
+        </div>
+        <div class="labelCheck cf checkBox circle">
+            <p>交运方式*</p>
+            <p class="radio cur">上门揽件</p>
+            <p class="radio">卖家自送</p>
+        </div>
+        <!-- << pickupBlock -->
+        <div class="pickupBlock">
+            <div class="labelTwo cf">
+                <div class='inputBox basic' data-vail='requied'>
+                    <p class="inputName">联系人姓名*</p>
+                    <div class="input"><input maxlength='50'/></div>
+                </div>
+                <div class='inputBox basic' data-vail='requied'>
+                    <p class="inputName">公司名称*</p>
+                    <div class="input"><input maxlength='50'/></div>
+                </div>
+            </div>
+            <div class="labelFour cf">
+                <div class='selectBox basic'>
+                    <p class="selectName">地址信息*</p>
+                    <div class='selectVal js-tips' v-bind:lg='selectBoxObj.adrContry.val'></div>
+                    <ul class='selectOptions'>
+                        <li v-for="(itemValue,itemIndex) in selectBoxObj.adrContry.options" 
+                            v-bind:class='selectBoxObj.adrContry.index==itemIndex?"cur":""'
+                            v-bind:lg='itemValue.lg' v-on:click='selectOption("adrContry",itemIndex,itemValue)'></li>
+                    </ul>
+                </div>
+                <div class='inputBox basic' data-vail=''>
+                    <p class="inputName"></p>
+                    <div class="input"><input class='darkPlaceholder' maxlength='50' lg='province'/></div>
+                </div>
+                <div class='inputBox basic' data-vail=''>
+                    <p class="inputName"></p>
+                    <div class="input"><input class='darkPlaceholder' maxlength='50' lg='city'/></div>
+                </div>
+                <div class='inputBox basic' data-vail=''>
+                    <p class="inputName"></p>
+                    <div class="input"><input class='darkPlaceholder' maxlength='50' lg='area'/></div>
+                </div>
+            </div>
+            <div class='inputBox basic' data-vail=''>
+                <div class="input"><input class='darkPlaceholder' maxlength='50' placeholder='街道地址1 （必填）'/></div>
+            </div>
+            <div class='inputBox basic' data-vail=''>
+                <div class="input"><input maxlength='50' placeholder='街道地址2 （选填）'/></div>
+            </div>
+            <div class='inputBox basic' data-vail=''>
+                <div class="input"><input maxlength='50' placeholder='街道地址3 （选填）'/></div>
+            </div>
+            <div class="labelTwo cf">
+                <div class='inputBox basic' data-vail=''>
+                    <p class="inputName">邮政编码*</p>
+                    <div class="input"><input maxlength='10'/></div>
+                </div>
+                <div class='inputBox basic' data-vail=''>
+                    <p class="inputName">手机号码*</p>
+                    <div class="input"><input maxlength='50'/></div>
+                </div>
+            </div>
+            <div class="labelCheck cf checkBox circle">
+                <p>揽件时间*</p>
+                <p class="radio cur">时间段1</p>
+                <p class="radio">时间段2</p>
+                <p class="radio">时间段3</p>
+                <p class="radio">时间段4</p>
+            </div>
+            <div class="btns cf">
+                <a class="saveBtn" href="javascript:;">保存</a>
+                <a class="cancelBtn" href="javascript:;">取消</a>
+            </div>
+        </div>
+        <!-- >> pickupBlock -->
+        <!-- << sendBlock -->
+        <div class="sendBlock">
+            <div class="labelTwo cf">
+                <div class='selectBox basic'>
+                    <div class='selectVal js-tips' v-bind:lg='selectBoxObj.adrContry.val'></div>
+                    <ul class='selectOptions'>
+                        <li v-for="(itemValue,itemIndex) in selectBoxObj.adrContry.options" 
+                            v-bind:class='selectBoxObj.adrContry.index==itemIndex?"cur":""'
+                            v-bind:lg='itemValue.lg' v-on:click='selectOption("adrContry",itemIndex,itemValue)'></li>
+                    </ul>
+                </div>
+                <div class='selectBox basic'>
+                    <div class='selectVal js-tips' v-bind:lg='selectBoxObj.adrContry.val'></div>
+                    <ul class='selectOptions'>
+                        <li v-for="(itemValue,itemIndex) in selectBoxObj.adrContry.options" 
+                            v-bind:class='selectBoxObj.adrContry.index==itemIndex?"cur":""'
+                            v-bind:lg='itemValue.lg' v-on:click='selectOption("adrContry",itemIndex,itemValue)'></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="labelText">选择自送点*</p>
+            <ul class="pickupList">
+                <li class="cur">
+                    <p><strong><span>顺丰美国加尼福尼亚仓</span><span class="tel">+86 021 6518 9989</span></strong></p>
+                    <p>CHINA SHANGHAI</p>
+                    <p>XUHUIQU PINGFULU  XXXXXX No.188</p>
+                </li>
+                <li>
+                    <p><strong><span>顺丰美国加尼福尼亚仓</span><span class="tel">+86 021 6518 9989</span></strong></p>
+                    <p>CHINA SHANGHAI</p>
+                    <p>XUHUIQU PINGFULU  XXXXXX No.188</p>
+                </li>
+                <li>
+                    <p><strong><span>顺丰美国加尼福尼亚仓</span><span class="tel">+86 021 6518 9989</span></strong></p>
+                    <p>CHINA SHANGHAI</p>
+                    <p>XUHUIQU PINGFULU  XXXXXX No.188</p>
+                </li>
+                <li>
+                    <p><strong><span>顺丰美国加尼福尼亚仓</span><span class="tel">+86 021 6518 9989</span></strong></p>
+                    <p>CHINA SHANGHAI</p>
+                    <p>XUHUIQU PINGFULU  XXXXXX No.188</p>
+                </li><li>
+                    <p><strong><span>顺丰美国加尼福尼亚仓</span><span class="tel">+86 021 6518 9989</span></strong></p>
+                    <p>CHINA SHANGHAI</p>
+                    <p>XUHUIQU PINGFULU  XXXXXX No.188</p>
+                </li>
+            </ul>
+            <div class="btns cf">
+                <a class="saveBtn" href="javascript:;">保存</a>
+                <a class="cancelBtn" href="javascript:;">取消</a>
+            </div>
+        </div>
+        <!-- >> sendBlock -->
+    </div>
+</div>

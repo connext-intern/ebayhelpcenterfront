@@ -1,0 +1,104 @@
+<!--包裹信息 add by louis-->
+<div class="package-logistics cf">
+    <div class="item-list" v-bind:class="isloading?'loading':''">
+        <!------单个包裹-------->
+        <table width="100%" v-for="(package,packageIndex) in pageList.dataList">
+            <thead>
+                <tr>
+                    <th class="trackingN-number">
+                        <div class="checkBox basic" v-if="type==statusData.toBeReceived"><em class="radio" v-bind:class="{'cur':package.isCheck}" v-on:click="setCheckBox($event,packageIndex);"></em></div>
+                        <p lg="trackingNumber"></p>
+                    </th>
+
+                    <th class="transaction-details" lg="transactionDetails"></th>
+                    <th class="operation-name" lg="operator-title"></th>
+                    <th v-if="resource==2" lg="charged-shipping-fee"></th>
+                    <th class="way-delivery" lg="wayDelivery"></th>
+                    <th class="is-liBattery" lg="isLiBattery"></th>
+                    <th class="operation" lg="operation"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="trackingN-number">
+                        <p>
+                            <span>{{package.trackingNumber}}</span>
+                            <template v-if="language=='en-us'">
+                                <span>{{package.trackingMethodNameEN}}</span>
+                            </template>
+                            <template v-else>
+                                <span>{{package.trackingMethodName}}</span>
+                            </template>
+                            <span v-if="type=='deliveryInquire'" v-bind:lg="package.status==statusData.onShipping?'transitd':package.status==statusData.delivered?'delivered':''"></span>
+                        </p>
+
+                    </td>
+                    <!-- <td class="trackingN-number">
+                        
+                    </td> -->
+                    <td class="transaction-details">
+                        <ul>
+                            <li v-for="(transaction,transactionIndex) in package.transactionList">
+                                <p class="name"><span>{{transaction.title}}</span> <span>({{transaction.itemId}})</span></p>
+                                <div class="format">
+                                    <p class="sku-number"><span lg="SKUNumber"></span><em>：</em><span>{{transaction.sku}}</span></p>
+                                    <p class="num"><span lg="quantity"></span><em>：</em><span>{{transaction.transactionPurchased}}</span></p>
+                                </div>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="newcol operation-name">
+                        <p>{{package.operationName||'-'}}</p>
+                    </td>
+                    <td class="newcol paid-cost" v-if="resource==2">
+                        <p>
+                            <template v-if="package.paidCost">{{package.paidCost}}</template>
+                            <template v-else>Not Available</template>
+                        </p>
+                    </td>
+                    <td class="way-delivery">
+                        <p v-if="package.deliveryInfo">{{package.deliveryInfo.name}}</p>
+                    </td>
+                    <td class="is-liBattery">
+                        <p v-bind:lg="package.electric?isBattery[0].lg:isBattery[1].lg"></p>
+                    </td>
+                    <td class="operation">
+                        <template v-if="isUnVeri">
+                        </template>
+                        <template v-else>
+                            <template v-if="type==statusData.toBeReceived">
+                                <div class="point-select">
+                                    <!-- <a href='javascript:;' lg='peintSheet' v-on:click='printPackage($event,[package.packageId])'></a> -->
+                                    <div class='selectBox cf basic'>
+                                        <div class='selectVal js-tips' v-bind:lg="package.printSelect.lg"></div>
+                                        <div class='selectIcon'></div>
+                                        <ul class='selectOptions tips'>
+                                            <li v-for="(select,selectIndex) in package.printSelect.data" v-bind:class="{'cur':selectIndex==package.printSelect.cur}"
+                                                v-bind:lg="select.lg" v-on:click="printPackage($event,[package.packageId],select.id,packageIndex);"></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </template>
+                            <template v-if="type=='deliveryInquire'">
+                                <a href="javascript:;" class="shipping-info" lg="shipping-info" v-on:click="showShippingInfo($event,package.trackingNumber);"></a>
+                            </template>
+                            <div class="row">
+                                <a href="javascript:;" v-if="package.supportReship" class="redeliver" lg="redeliver" v-on:click="showRedeliver($event,package.packageId);"></a>
+                                <a href="javascript:;" class="cancel" lg="cancel-package-delivery" v-show="package.supportCancel" v-on:click="cancelPackage($event,package.packageId);"></a>
+                            </div>
+                            <a href="javascript:;" v-if="resource==1" title="删除" class="del" v-on:click="deletePackages($event,[package.packageId]);"></a>
+                        </template>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p lg='nolistdata' v-show="pageList.dataList.length==0&&!isloading"></p>
+    <!--重新发货弹层-->
+    <pop-redeliver-confirm :id="redeliverConfirm.packageId" v-bind:class="redeliverConfirm.status?'show':'hide'" @saveredeliver="savereDeliver"
+        @close="redeliverConfirm.packageId=null;redeliverConfirm.status='';"></pop-redeliver-confirm>
+    <!--包裹物流详情弹层-->
+    <div v-if="type=='deliveryInquire'">
+        <pop-logistics-info ref="logisticsinfo" v-bind:class="logisticsInfo.status?'show':'hide'" @close="logisticsInfo.status='';"></pop-logistics-info>
+    </div>
+</div>

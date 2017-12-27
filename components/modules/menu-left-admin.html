@@ -1,0 +1,23 @@
+<div class="menu-left admin-menu" v-cloak>
+    <dl v-for="(item,index) in items" v-bind:class="{'cur':hignlight.index==index&&hignlight.subIndex===''}" v-if='item.show'>
+        <dt v-bind:class="{'hasmenu':item.item&&item.item.length>0}">
+            <template v-if='item.value'>
+                <a v-bind:data-href="item.link">{{item.value}}</a>
+            </template>
+            <template v-else>
+                <a v-bind:data-href="item.link" v-bind:lg="item.lg"></a>
+            </template>
+        </dt>
+        <dd v-for="(subItem,cur) in item.item" v-if="subItem.show&&item.item&&item.item.length>0" v-bind:class="{'cur':hignlight.index==index&&hignlight.subIndex==cur,'line':subItem.line}">
+            <a v-bind:data-href="subItem.link" v-bind:href-param="subItem.linkParam">
+                <template v-if='subItem.value'>
+                    <span>{{subItem.value}}</span>
+                </template>
+                <template v-else>
+                    <span v-bind:lg="subItem.lg"></span>
+                </template>
+                <span v-if="subItem.isNum">({{subItem.num}})</span>
+            </a>
+        </dd>
+    </dl>
+</div>

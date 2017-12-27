@@ -1,0 +1,176 @@
+// 开发者管理 add by gena
+.developers-manager {
+  .dev-manager {
+    h2.title {  font-size: 18px;  color: #333;  font-weight: bold;  }
+    .detail {
+      margin-bottom: 24px;
+      .redirect-dev-platform{font-size:12px;}
+      a.appliy-to-dev {  @include colorBtn;  padding: 0 49px;  line-height: 30px;  }
+      a.dev-private { background: #68bccb; font-size: 12px; border-radius: 20px; color: #fff; padding: 0 10px; line-height: 20px; display: inline-block; text-decoration: none;  margin-left: 22px;  }
+      a.yellow{background: #dbdb33;}
+      p {
+        font-size: 12px; margin: 0;
+        &.dev-id { margin-top: 15px; line-height: 32px; }
+        &.dev-secret { line-height: 32px; padding-left: 10px; }
+        &.btns {
+          a { color: $btncolor; font-size: 12px; padding-left: 60px; }
+        }
+      }
+    }
+    &.third {
+      .title { font-size: 14px; line-height: 33px; font-weight: bold; }
+      a.authorize-to-third { background:#333;color:#fff;display:inline-block; text-decoration: none; padding: 0 30px; line-height: 30px;}
+    }
+  }
+  .auth-third-developers-complete{
+    margin-top:40px;
+    p{font-size:14px;color:#666;}
+    table{
+      margin-top:20px;
+      tr{
+        border-bottom: 1px solid #dfdfdf;height:30px; line-height:30px;font-size:12px;
+        a{color:#0049ce;}
+      }
+      thead{
+        th{font-weight:bold;}
+        th.app-id{width:266px;}
+        th.app-name{width:184px;}
+        th.company{width:370px;}
+        th.operation{width:162px;}
+      }
+    }
+  }
+  /*开发者管理的所有弹层*/
+  .popup {
+    display: block;
+    .content-container {
+      position: absolute; left: 50%; top: 50%; background-color: #fff; padding: 19px; font-size: 12px;
+      .title {
+        height: 38px; border-bottom: 1px solid #DFDFDF; padding-bottom: 19px;
+        h2 { font-weight: bold; font-size: 22px; }
+        em.close { @include sprite; position: absolute; top: 22px; right: 19px; width: 18px; height: 18px; cursor: pointer; background-position: -2px -24px; }
+      }
+      input { border: 1px solid #dfdfdf; height: 30px; line-height: 30px; padding: 0 28px 0 6px; font-size: 12px; }
+      textarea { border: 1px solid #dfdfdf; resize: none; font-size: 12px; }
+    }
+    .btn-container {
+      position: absolute; bottom: 19px; right: 19px;
+      .btn {
+        width: 106px; height: 34px; text-align: center; line-height: 34px; float: right; cursor: pointer; font-size: 12px;
+        &.cancel { @include lightBtn }
+        &.confirm { background-color: #0048CE; border: 1px solid #0048CE; margin-left: 20px; color: #fff; }
+      }
+    }
+  }
+  /*申请开发者ID add by gufenghua*/
+  .popup.apply-dev-id {
+    .content-container {
+      width: 526px; height: 266px; margin-left: -263px; margin-top: -133px;
+      .message-box {
+        padding-top: 22px;
+        li {
+          height: 20px; margin-bottom: 11px; line-height: 20px;
+          .id-num { margin-right: 22px; }
+          .private { padding: 4px 10px; background-color: #6ABBCC; border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; color: #fff; }
+          .text { padding-left: 11px; }
+          a { color: #2671D6; padding-left: 60px; }
+        }
+      }
+    }
+  }
+  /*授权*/
+  .popup.popup-authorize-third-developer {
+    .content-container {
+      width: 602px; height: 288px; margin-left: -301px; margin-top: -144px;
+      .title {
+        span { position: absolute; right: 56px; top: 26px; }
+        h2 { font-weight: normal; font-size: 18px; }
+      }
+      .box {
+        p { padding: 20px 0; margin-top: 0; }
+        .erroMsg { color: #e42e35; display: block; padding-top: 10px; }
+        .search {
+          width: 558px; position: relative; cursor: pointer;
+          input { width: 456px; }
+          em { @include sprite; width: 20px; height: 20px; background-position: -135px -19px; position: absolute; top: 6px; left: 432px; cursor: pointer; }
+          span { width: 108px; height: 30px; line-height: 30px; background: #333333; text-align: center; color: #fff; position: absolute; top: 0; left: 456px;
+          }
+        }
+        .search.error {
+          em { cursor: default; background-position: 0 0; width: 18px; }
+          input {border-color: #e42e35; }
+        }
+        .result {
+            margin-top:8px;
+          p{
+              display: block;padding:5px 0;
+              span:last-child{color:#333333;}
+          }
+        }
+          .protocol{
+                position:absolute;bottom:25px; left:19px;
+              .error-checkbox{display:none;color:#e42e35;}
+              .error-checkbox.cur{display:block;}
+              .checkBox{
+                  cursor: pointer;
+                  span{margin-left:20px;color:#0065d1;text-decoration: underline;}
+              }
+          }
+      }
+    }
+  }
+  /*资料信息*/
+  .popup.datum-msg {
+    .content-container {
+      width: 526px; height: 546px; margin-left: -263px; margin-top: -273px;
+      .message-box { height: 420px; overflow: auto; margin-top: 18px;
+        .inner {
+          width: 464px;
+          p { line-height: 15px; margin-bottom: 15px; }
+        }
+      }
+    }
+    .btn-container {
+      right:auto;left:0;
+      .btn { width: auto; padding: 0; background: transparent;float:none;text-align:left;color:#0065d1;text-decoration: underline;border: none }
+    }
+    &.applyDevId{
+      z-index: 99999999;
+      .content-container {height: 500px;margin-top: -250px;}
+      p.btn{text-align: center;
+        .agree{@include colorBtn;padding:0 20px;line-height: 30px;}
+      }
+    }
+  }
+
+  /*申请第三方开发者*/
+  .popup.popup-apply-third-developer {
+    .content-container { width: 600px; height: 600px; margin-left: -300px; margin-top: -300px;
+      .title {
+        span { position: absolute; right: 56px; top: 26px; }
+        h2 { font-weight: normal; font-size: 18px; }
+      }
+        .id{height:30px;line-height:30px;width:100%;border: 1px solid #dfdfdf;padding-left:6px;background:#f2f2f2;}
+      .input-group { position: relative; }
+      .input-group em { display: none; }
+      .error-message { margin-top: 15px; color: #e42e35;display:block;}
+      .input-group.error {
+        em { @include sprite; width: 18px; height: 20px; position: absolute; top: 6px; right: 6px; background-position: 0 0; display: block; }
+        input, textarea {border-color: #e42e35;}
+      }
+      .box {
+        margin-top: 15px;
+        p {
+          margin-top: 10px;
+          input, textarea {width: 100%;}
+        }
+          p.label em{color:#e42e35;display:inline-block;}
+        li {
+          .name,.company-name {width: 276px;margin-right: 10px;}
+          .phone,.app-name {width: 276px;}
+          textarea {height: 110px;padding:6px;}
+        }
+      }
+    }
+  }
+}

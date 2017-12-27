@@ -1,0 +1,31 @@
+<div class='popup popup-authorize-third-developer' v-show="pop.openPopAuthorizeThirdDeveloper">
+    <div class='mask'></div>
+    <div class='content-container'>
+        <div class="title">
+            <em class="close" v-on:click="pop.openPopAuthorizeThirdDeveloper=0;"></em>
+            <span lg="required"></span>
+            <h2 lg="authorizeThirdPartyDeveloper"></h2>
+        </div>
+        <div class="box">
+            <span class="erroMsg" v-if="erroMsg.third" lg="errorMessage"></span>
+            <p lg="devID"></p>
+            <div class="input-group search" v-bind:class="{'error':erroMsg.third}">
+                <input type="text" v-on:input="onInput($event);" />
+                <span lg="inquire" v-on:click="getThirdPartyDeveloperByDeveloperId($event);"></span>
+                <em v-if="input.third" v-on:click="clearInput($event);"></em>
+            </div>
+            <div class="result" v-if="thirdDeveloperDeveloperId">
+                <p class="name"><span lg="appName"></span><em>：</em><span>{{thirdDeveloperDeveloperId.applicationName}}</span></p>
+                <p class="company"><span lg="companyName1"></span><em>：</em><span>{{thirdDeveloperDeveloperId.company}}</span></p>
+            </div>
+            <div class="protocol">
+                <p class="error-checkbox" lg="checkAuthorizeThirdPartyDeveloperProtocol"></p>
+                <div class="checkBox basic fl" v-on:click="pop.openPopApplyDev=1;"><em class="radio" v-bind:class="isAgreeAuth?'cur':''"></em><a href="javascript:;"><span><em>《</em><em lg="authorizeThirdPartyDeveloperProtocol"></em><em>》</em></span></a></div>
+            </div>
+        </div>
+        <div class="btn-container">
+            <button class="btn confirm" v-on:click="authorizeThirdPartyDeveloper($event);" lg="dAuthorization"></button>
+            <button class="btn cancel" v-on:click="pop.openPopAuthorizeThirdDeveloper=0;" lg="cancel"></button>
+        </div>
+    </div>
+</div>

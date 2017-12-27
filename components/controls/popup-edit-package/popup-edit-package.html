@@ -1,0 +1,39 @@
+<!--编辑包裹信息-->
+<div class='popup control package-info order'>
+  <div class='mask'></div>
+  <div class='content'>
+    <a href='javascript:;' class='close sprite' v-on:click="close"></a>
+    <div class='content-container'>
+      <div class="popup-head" lg="packageinfo-edit"></div>
+      <div class="popup-body">
+        <div class="errorMsg" lg="errorMessage" v-show="hasError()"></div>
+        <div class="cf">
+          <div class="input fl length required" v-bind:class="isClickSave&&(!params.packageLength||errors.packageLength)?'error':''">
+            <p class="input-title"><span lg="skuLength1"></span><em>*</em></p>
+            <p class="input-content" v-bind:title="errors.packageLength"><input class="input" type="text" maxlength="6" v-model="params.packageLength" /><span>CM</span></p>
+          </div>
+          <div class="input fl width required" v-bind:class="isClickSave&&(!params.packageWidth||errors.packageWidth)?'error':''">
+            <p class="input-title"><span lg="skuWidth1"></span><em>*</em></p>
+            <p class="input-content" v-bind:title="errors.packageWidth"><input type="text" maxlength="6" v-model="params.packageWidth" /><span>CM</span></p>
+          </div>
+          <div class="input fl height required" v-bind:class="isClickSave&&(!params.packageHeight||errors.packageHeight)?'error':''">
+            <p class="input-title"><span lg="skuHeight1"></span><em>*</em></p>
+            <p class="input-content" v-bind:title="errors.packageHeight"><input type="text" maxlength="6" v-model="params.packageHeight" /><span>CM</span></p>
+          </div>
+          <div class="input fl weight required" v-bind:class="isClickSave&&(!params.packageWeight||errors.packageWeight)?'error':''">
+            <p class="input-title"><span lg="packageWeight1"></span><em>*</em></p>
+            <p class="input-content" v-bind:title="errors.packageWeight"><input type="text" maxlength="10" v-model="params.packageWeight" lg="calc-by-system" /><span>g</span></p>
+          </div>
+        </div>
+        <div class="input remark">
+          <p class="input-title"><span lg="skuRemark"></span></p>
+          <p class="input-content"><textarea maxlength="500" v-model="params.sellerRemark"></textarea></p>
+        </div>
+      </div>
+      <div class="popup-foot cf">
+        <a class="btn save fr" href="javascript:;" lg="save" v-on:click="save"></a>
+        <a class="btn cancel fr" v-on:click="close" href="javascript:;" lg="cancel"></a>
+      </div>
+    </div>
+  </div>
+</div>

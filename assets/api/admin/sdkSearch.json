@@ -1,0 +1,82 @@
+﻿{
+    "code":"00",
+    "message": "sdk列表查询接口",
+    "result": {
+        "totalPages": "20",
+        "totalCounts": "200",
+        "dataList": [
+            {
+                "sdkId": "01",
+                "sdkType": ".Net",
+                "sdkVersion": "V2.0",
+                "sdkTitle": "Java SDK V2.0 Update",
+                "uploadTime": "2017/08/27 19:00:00",
+                "sdkDesc": "sdk描述",
+                "sdkURL": "sdk的链接"
+            },
+            {
+                "sdkId": "01",
+                "sdkType": "Java SDK",
+                "sdkVersion": "V2.0",
+                "sdkTitle": "Java SDK V2.0 Update",
+                "uploadTime": "2017/08/27 19:00:00",
+                "sdkDesc": "sdk描述",
+                "sdkURL": "sdk的链接"
+            },
+            {
+                "sdkId": "01",
+                "sdkType": "Java SDK",
+                "sdkVersion": "V2.0",
+                "sdkTitle": "Java SDK V2.0 Update",
+                "uploadTime": "2017/08/27 19:00:00",
+                "sdkDesc": "sdk描述",
+                "sdkURL": "sdk的链接"
+            },
+            {
+                "sdkId": "01",
+                "sdkType": "Java SDK",
+                "sdkVersion": "V2.0",
+                "sdkTitle": "Java SDK V2.0 Update",
+                "uploadTime": "2017/08/27 19:00:00",
+                "sdkDesc": "sdk描述",
+                "sdkURL": "sdk的链接"
+            },
+            {
+                "sdkId": "01",
+                "sdkType": "Java SDK",
+                "sdkVersion": "V2.0",
+                "sdkTitle": "Java SDK V2.0 Update",
+                "uploadTime": "2017/08/27 19:00:00",
+                "sdkDesc": "sdk描述",
+                "sdkURL": "sdk的链接"
+            },
+            {
+                "sdkId": "01",
+                "sdkType": "Java SDK",
+                "sdkVersion": "V2.0",
+                "sdkTitle": "Java SDK V2.0 Update",
+                "uploadTime": "2017/08/27 19:00:00",
+                "sdkDesc": "sdk描述",
+                "sdkURL": "sdk的链接"
+            },
+            {
+                "sdkId": "01",
+                "sdkType": "Java SDK",
+                "sdkVersion": "V2.0",
+                "sdkTitle": "Java SDK V2.0 Update",
+                "uploadTime": "2017/08/27 19:00:00",
+                "sdkDesc": "sdk描述",
+                "sdkURL": "sdk的链接"
+            },
+            {
+                "sdkId": "01",
+                "sdkType": "Java SDK",
+                "sdkVersion": "V2.0",
+                "sdkTitle": "Java SDK V2.0 Update",
+                "uploadTime": "2017/08/27 19:00:00",
+                "sdkDesc": "sdk描述",
+                "sdkURL": "sdk的链接"
+            }
+        ]
+    }
+}

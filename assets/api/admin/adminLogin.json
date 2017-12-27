@@ -1,0 +1,51 @@
+﻿{
+    "result": {
+        "token": "otXvBnfR1PlPv6GEAYiJDA==",
+        "roles": [
+            {
+                "code": "text",
+                "level": "2",
+                "value": "物流文章管理"
+            },
+            {
+                "code": "banner",
+                "level": "2",
+                "value": "广告位管理"
+            },{
+                "code": "message",
+                "level": "2",
+                "value": "站内信管理"
+            },{
+                "code": "sdk",
+                "level": "3",
+                "value": "SDK管理"
+            },
+            {
+                "code": "whiteList",
+                "level": "3",
+                "value": "白名单管理"
+            },{
+                "code": "devText",
+                "level": "3",
+                "value": "开发指南"
+            },
+            {
+                "code": "apiUse",
+                "level": "3",
+                "value": "API调用数据报告"
+            },{
+                "code": "dateExport",
+                "level": "4",
+                "value": "数据导出"
+            },
+            {
+                "code": "logistics",
+                "level": "5",
+                "value": "物流服务信息"
+            }
+        ],
+        "email": "ebay001@ebay.com"
+    },
+    "code": "00",
+    "message": "success"
+}

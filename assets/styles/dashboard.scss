@@ -1,0 +1,243 @@
+// dashboadd add by gena
+.main.dashboard{
+  background:#f7f7f7;margin-top:32px;
+  // dashboard中间部分待定#TODO
+  .dashboard-center{
+    // 最新动态
+    .latest-news{
+      width:100%;line-height: 40px;border:1px solid #e6e6e6;background-color:#fff;overflow: hidden;
+      .title{display:inline-block;background:#f6af00;padding:0 24px;color:#fff;}
+      .new-list{
+        display:inline-block;position:relative;width:600px;
+        li{
+          &::before{left:21px;margin-top:-2px;content:'';width:4px;height:4px;border-radius:50%;background:#000;position: absolute;top:50%;display:inline-block;}
+          position:absolute;top:-40px;transition:all .3s ease-in-out;height:40px;overflow:hidden;
+          &.cur{top:0;}
+          a{text-decoration: none;display: inline-block;padding-left: 32px;
+            &.new::after{@include sprite;background-position:-191px -45px;width:21px;height:7px;margin-left:10px;top:-2px;position: relative;}
+          }
+        }
+      }
+      .summary{display:inline-block;
+        .pages{width:72px;border-left:1px solid #e6e6e6;border-right:1px solid #e6e6e6;font-size:12px;color:#999;letter-spacing: 3px;text-align:center;
+          .cur{color:#333;font-weight: 700;}
+        }
+        .arrows{width:80px;
+          .arrow{
+            width:40px;float:left;text-align:center;
+            &::after{@include sprite;width:5px;height:8px;}
+            &.left::after{background-position: -231px -44px;}
+            &.left.cur::after{background-position: -226px -44px;}
+            &.right::after{background-position: -220px -44px;}
+            &.right.cur::after{background-position: -214px -44px;}
+          }
+        }
+      }
+    }
+    // 物流信息
+    .deliver-info{
+      border:1px solid #e6e6e6;margin-top:24px;background:#fff;
+      .col{
+        width:50%;padding:39px 22px 30px 22px;
+        &::after{content:'';display:inline-block;border-right:1px solid #e6e6e6;position:absolute;}
+        h3{font-size:14px;font-weight: 700;position:relative;padding-left:8px;
+          &::before{position:absolute;left:0;content:'';display:inline-block;width:4px;height:14px;background:$btncolor;}
+        }
+        ul{
+          margin-top:21px;height:95px;overflow:hidden;
+          li{
+            position: relative;
+            a{padding-left:10px;text-decoration: none;line-height: 25px;font-size:12px;width:344px;display: inline-block;}
+            &::before{content:'';width:4px;height:4px;border-radius:50%;background:#000;position: absolute;top:10px;display:inline-block;}
+          }
+        }
+        p.more{padding-left:12px;font-size:11px;margin-top:14px;a{color:#999;}}
+      }
+    }
+  }
+  // dashboard右边详情
+  .dashboard-right{
+    width:286px;margin-left:24px;
+    .order-summary{
+      height:120px;width:100%;border:1px solid #eee;margin-bottom:22px;
+      a{width:94px;height:100%;background:#fff;float:left;text-decoration: none;text-align:center;position:relative;
+        em,span,i{display:inline-block;width:100%;text-align: center;}
+        em{position:relative;@include sprite;width:34px;height:34px;margin-top:32px;font-size:30px;font-weight: 700;}
+        span{line-height:12px;padding-top:15px;padding-bottom:5px;font-size:12px;font-weight: 700;word-wrap: break-word;margin-bottom:24px;}
+        i{position:absolute;top:-17px;right:-16px;background:#e62628;font-size:14px;font-weight: 700;color:#fff;border-radius: 50%;width:32px;height:32px;line-height:32px;}
+        &.unhandler-order{
+          em{background-position: -190px -60px;}
+        }
+        &.wait-take{
+          em{background-position: -230px -60px;}
+        }
+        &.delivered{
+          em{background-position: -264px -60px;}
+        }
+        // &::after{position:absolute;top:16px;right:0;width:0;height:80px;content:'';border-right:1px solid #1d69c0;}
+      }
+    }
+    .account-summary{
+      border:1px solid #eee;background:#fff;padding:28px 12px 28px 17px;
+      a{text-decoration: none;}
+      div.each-currency{
+        width:100%;
+        p{padding-left:36px;}
+        p.currency{
+          position:relative;font-size:18px;
+          span{font-weight: 700;border-bottom:1px solid #efefef;padding-bottom:9px;display:inline-block;width:100%;}
+          &::before{@include sprite;width:32px;height:32px;display: inline-block;position:absolute;top:0;left:0;}
+        }
+        &.CNY{
+          .available-price::before,.disabled .price::before{content:'￥';}
+          .currency::before{background-position: -157px -20px;}
+        }
+        &.HKD{
+          .available-price::before,.disabled .price::before{content:'HK';}
+          .currency::before{background-position: -157px -55px;}
+        }
+        &.TWD{
+          .available-price::before,.disabled .price::before{content:'NT';}
+          .currency::before{background-position: -157px -89px;}
+        }
+        p.account-balance{font-size:12px;color:#666;font-weight: 700;padding-top:12px;padding-bottom:9px;}
+        p.available-price{text-align:right;font-weight:700;font-size:24px;color:#333;
+          &::before{color:#666;font-size:16px;padding-right:8px;}
+        }
+        p.disabled{text-align:right;color:#999;font-weight:700;line-height:21px;margin-bottom:14px;
+          .price{font-size:18px;
+            &::before{font-size:12px;padding-right:3px;}
+          }
+          span{font-size:12px;}
+        }
+      }
+      .btns{
+        margin-top:30px;
+          a{width:100%;height:100%;display:inline-block;font-size:12px;color:#fff;background:#f6af00;line-height:44px;text-align: center;text-decoration: none;font-weight: bold; margin-bottom: 12px;}
+      }
+    }
+  }
+  // popup
+  // popup 订单来源 add by gena
+  .popup.preferences{
+    h2{line-height: 24px;margin-top:24px;}
+    .content{width:736px;height:396px;min-height:396px;margin-left:-368px;margin-top:-198px;}
+    .popup-head{
+      .popup-title{font-weight:lighter;
+        .tips{font-size:12px;}
+      }
+      .remark{font-size:12px;font-weight:lighter;}
+    }
+    .popup-body{
+      margin-bottom:95px;
+      .preferOptionBlock{width:100%;}
+      // .radio:first-child{margin-right:57px;}
+    }
+  }
+  // popuo 添加默认发货地址 add by gena
+  .popup.prefer-addAdr{
+    a.close{display:none;}
+    .cancelBtn{float:left;}
+    .inputBox .inputName span{float:right;}
+    .btns{padding-top:8px;}
+  }
+
+  .popup.prefer-addAdr-return{
+    a.close{display:none;}
+    .inputBox .inputName span{float:right;}
+    .cancelBtn{float:left;}
+    .skipBtn{@include cancelBtn;margin-right:20px;}
+  }
+
+  // 打印偏好
+  .popup.preferences.print{
+      .content{width:683px;height:600px;min-height:600px;margin-left:-314.5px;margin-top:-300px;}
+      .popup-body{
+          margin:0;padding-top:34px;
+          .printBlock{
+            width:225px;margin:0; height: 406px;
+            .highDsc{margin-bottom: 20px; line-height: 14px;}
+          }
+          .printSample{
+            transform-origin: 0 130px; transform: scale(0.7); box-sizing: border-box; border: #dfdfdf 1px solid;
+             width: 568px; height: 568px; background: #fff; position: absolute; left: 248px; top: 92px;
+            .nav{
+                @include cf;font-size:12px;
+                li{float: left;     white-space: nowrap;
+                  text-overflow: ellipsis;
+                  overflow: hidden;}
+                li.leftS{width: 110px; height: 142px;img{width:100%;}}
+                li.logo{width: 456px; height: 51px;}
+                li.super{width: 456px; height: 55px; }
+                li.superNum{width: 456px; height: 36px; line-height: 36px; font-size: 16px; text-indent: 10px; font-weight: bold; text-align: center;}
+                li.textid{width:182px;font-weight: 700; padding-left: 4px; margin-right: 20px;}
+                li.textid:last-child{margin-right: 0px; width: 139px;}
+            }
+            .grayBg{background: #efedee; width: 566px; padding-bottom: 12px; padding-left: 6px; padding-right: 6px;}
+            .grayBg .nav{ padding-left: 7px; padding-top: 19px; padding-bottom: 20px;}
+            .tableWrapper{height: 215px; overflow: hidden; float: left; border: 1px solid #d7d7d8; position: relative; background: #fff;}
+            .tableWrapper.hasMore::after{content: '......'; position: absolute; background: #fff; width: 389px; height: 9px; bottom: 0;left: 1px; text-align: center; line-height: 0;}
+            table{
+                background: #fff;
+                tr{vertical-align: top;}
+                th{border-left:1px solid #d7d7d8;font-size: 0;padding: 6px 0; border-bottom:1px solid #d7d7d8;}
+                th p{font-size: 10px; box-sizing: border-box; overflow: hidden; text-align:left;line-height:12px; padding: 0 3px;}
+            }
+            table tr:first-child th p{line-height: 20px;}
+            table tr:first-child th{padding: 0;}
+            table tr th:first-child{border-left: none;}
+            .adr{float: right; width: 164px;}
+            .adr .adrHeight{height: 84px;}
+            .reference{width: 566px; height: 106px;img{width:100%;}}
+            .referenceNum{font-size: 18px; text-indent: 10px; line-height: 40px; font-weight: bold;white-space: nowrap;
+              text-overflow: ellipsis; text-align: center;
+              overflow: hidden;}
+          }
+          
+      }
+      .popup-foot{margin-top:20px;
+          .btn{
+              line-height: 36px;margin: 20px 0;
+              &.btnPrev{@include lightBtn;padding:0 35px;}
+              &.btnPreview{@include lightBtn;padding:0 40px;margin-right:20px;}
+          }
+      }
+  }
+  .preferences .printBlock .infoList .radio{width:107px !important;}
+  .popup.preferences.print.dash{
+    .content{width: 566px; height: 566px; margin-top: -283px; margin-left: -283px;}
+    .printSample{transform:scale(1);}
+  }
+  // 交运偏好
+  .popup.prefer-deliver{
+      a.close{display:none;}
+  }
+
+  // 物流偏好
+  .preferences .logistics .popup.create-logistics-preferences .content .close{display:none;}
+  .preferences .logistics .popup.create-logistics-preferences .control .btn.cancel{margin-left:20px;}
+  .preferences .logistics .popup.create-logistics-preferences .content .content-container .scrollBlock .item-list .des{width:100% !important;}
+
+  // 绑定ebayID提示 add by gena
+  .popup.bindebayid{
+      .content{width:734px;height:395px;min-height:395px;margin-top:-197.5px;margin-left:-367px;}
+      .popup-body{
+          text-align: center;
+          .imgs{@include sprite;margin-top:44px;margin-bottom: 17px;width:72px;height:72px;background-position:-196px -95px;margin-left:auto;margin-right:auto;}
+          .bindebayid-tips{line-height:29px;}
+          .bindebayid-error{line-height: 32px;margin-bottom:66px;
+              a{color:#0049ce;text-decoration: none;}
+
+          }
+      }
+  }
+  .popup.prefer-addAdr,.popup.prefer-deliver,.popup.prefer-sku-updata,.popup.prefer-sku,.popup.prefer-addAdr-return{
+    .popTitle{
+        line-height: 24px;margin-top:14px;
+        span{display:block;float:none;}
+    }
+    .btns{
+        padding-top:5px;
+    }
+  }
+}

@@ -1,0 +1,63 @@
+<!--指定接收对象 by gfh -->
+<div class='popup setaccount exitIsAccount sRT' v-show="subaccounts.length>0">
+  <div class='mask'></div>
+  <div class='content'>
+    <a href='javascript:;' v-on:click="subaccounts=[];" class='close sprite clo' lg="close"></a>
+    <div class='content-container'>
+      <h3 class="tit">指定接收对象</h3>
+      <div class="search-box cf">
+        <input type="text" name="" class="fl" placeholder="请准确输入IS账号 查询" />
+        <a href="javascript:;" class="search fl bg-linear-gra"><em></em></a>
+      </div>
+      <div class="cf">
+        <div class="setting setaccount-left fl">
+          <h4>全部账号</h4>
+          <div class="scrollBlock checkBox multi">
+            <div class="js-checkbox radio cur">eBay.management.com.cn</div>
+            <div class="js-checkbox radio">eBay.overseas management.com.cn</div>
+            <div class="js-checkbox radio cur">eBay.management.com.cn</div>
+            <div class="js-checkbox radio">eBay.overseas management.com.cn</div>
+            <div class="js-checkbox radio cur">eBay.management.com.cn</div>
+            <div class="js-checkbox radio">eBay.overseas management.com.cn</div>
+            <div class="js-checkbox radio cur">eBay.management.com.cn</div>
+            <div class="js-checkbox radio">eBay.overseas management.com.cn</div>
+            <div class="js-checkbox radio cur">eBay.management.com.cn</div>
+            <div class="js-checkbox radio">eBay.overseas management.com.cn</div>
+            <div class="js-checkbox radio cur">eBay.management.com.cn</div>
+            <div class="js-checkbox radio">eBay.overseas management.com.cn</div>
+            <div class="js-checkbox radio cur">eBay.management.com.cn</div>
+            <div class="js-checkbox radio">eBay.overseas management.com.cn</div>
+          </div>
+        </div>
+        <div class="setting setaccount-center">
+        </div>
+        <div class="setting setaccount-right fl">
+          <h4>
+            <span >已选账号</span>
+            <span class="bold" lg="click-to-remove"></span>
+          </h4>
+          <div class="scrollBlock checkBox multi">
+            <div class="js-checkbox disabled radio">eBay.management.com.cn </div>
+            <div class="js-checkbox disabled radio">eBay.overseas management.com.cn </div>
+            <div class="js-checkbox disabled radio">eBay.management.com.cn </div>
+            <div class="js-checkbox disabled radio">eBay.overseas management.com.cn </div>
+            <div class="js-checkbox disabled radio">eBay.management.com.cn </div>
+            <div class="js-checkbox disabled radio">eBay.overseas management.com.cn </div>
+            <div class="js-checkbox disabled radio">eBay.management.com.cn </div>
+            <div class="js-checkbox disabled radio">eBay.overseas management.com.cn </div>
+            <div class="js-checkbox disabled radio">eBay.management.com.cn </div>
+            <div class="js-checkbox disabled radio">eBay.overseas management.com.cn </div>
+            <div class="js-checkbox disabled radio">eBay.management.com.cn </div>
+            <div class="js-checkbox disabled radio">eBay.overseas management.com.cn </div>
+            <div class="js-checkbox disabled radio">eBay.management.com.cn </div>
+            <div class="js-checkbox disabled radio">eBay.overseas management.com.cn </div>
+          </div>
+        </div>
+      </div>
+      <div class="btns">
+        <a class="btn reset" href="javascript:;" v-on:click="resetSetAccount" lg="reset-data"></a>
+        <a class="btn save revoke" href="javascript:;">取消授权</a>
+      </div>
+    </div>
+  </div>
+</div>

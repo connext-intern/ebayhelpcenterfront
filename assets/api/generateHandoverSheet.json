@@ -1,0 +1,57 @@
+﻿{
+    "code":"00",
+    "message":"打印交接单-预览",
+    "result":[
+        {
+            "seller":"abcd",
+            "contact":"赵五",
+            "phone":"1590000000",
+            "address":"上海市闵行区华南路666号",
+            "isid":"10001",
+            "receiptId":"00000021",
+            "packageNum":"4",
+            "isBattery":"0",
+            "products":[
+                {"productName":"苹果ipone6", "type":"DDP", "packageNum":"1"},
+                {"productName":"苹果ipone6", "type":"DDP", "packageNum":"2"},
+                {"productName":"苹果ipone6", "type":"DPD", "packageNum":"1"}
+            ]
+        },
+        {
+            "seller":"abcd",
+            "contact":"李四",
+            "phone":"1590000000",
+            "address":"上海市闵行区华南路666号",
+            "isid":"10001",
+            "receiptId":"00000021",
+            "packageNum":"12",
+            "isBattery":"1",
+            "products":[
+                {"productName":"苹果ipone6苹果ipone6苹果ipone6苹果ipone6苹果ipone6苹果ipone6", "type":"DDP", "packageNum":"1"},
+                {"productName":"苹果ipone6", "type":"DDP", "packageNum":"2"},
+                {"productName":"苹果ipone6", "type":"DPD", "packageNum":"1"},
+                {"productName":"苹果ipone6苹果ipone6苹果ipone6苹果ipone6苹果ipone6苹果ipone6", "type":"DDP", "packageNum":"1"},
+                {"productName":"苹果ipone6", "type":"DDP", "packageNum":"2"},
+                {"productName":"苹果ipone6", "type":"DPD", "packageNum":"1"},
+                {"productName":"苹果ipone6苹果ipone6苹果ipone6苹果ipone6苹果ipone6苹果ipone6", "type":"DDP", "packageNum":"1"},
+                {"productName":"苹果ipone6", "type":"DDP", "packageNum":"2"},
+                {"productName":"苹果ipone6", "type":"DPD", "packageNum":"1"},
+                {"productName":"苹果ipone6苹果ipone6苹果ipone6苹果ipone6苹果ipone6苹果ipone6", "type":"DDP", "packageNum":"1"},
+                {"productName":"苹果ipone6", "type":"DDP", "packageNum":"2"},
+                {"productName":"苹果ipone6", "type":"DPD", "packageNum":"1"},
+                {"productName":"苹果ipone6苹果ipone6苹果ipone6苹果ipone6苹果ipone6苹果ipone6", "type":"DDP", "packageNum":"1"},
+                {"productName":"苹果ipone6", "type":"DDP", "packageNum":"2"},
+                {"productName":"苹果ipone6", "type":"DPD", "packageNum":"1"},
+                {"productName":"苹果ipone6苹果ipone6苹果ipone6苹果ipone6苹果ipone6苹果ipone6", "type":"DDP", "packageNum":"1"},
+                {"productName":"苹果ipone6", "type":"DDP", "packageNum":"2"},
+                {"productName":"苹果ipone6", "type":"DPD", "packageNum":"1"},
+                {"productName":"苹果ipone6苹果ipone6苹果ipone6苹果ipone6苹果ipone6苹果ipone6", "type":"DDP", "packageNum":"1"},
+                {"productName":"苹果ipone6", "type":"DDP", "packageNum":"2"},
+                {"productName":"苹果ipone6", "type":"DPD", "packageNum":"1"},
+                {"productName":"苹果ipone6苹果ipone6苹果ipone6苹果ipone6苹果ipone6苹果ipone6", "type":"DDP", "packageNum":"1"},
+                {"productName":"苹果ipone6", "type":"DDP", "packageNum":"2"},
+                {"productName":"苹果ipone6", "type":"DPD", "packageNum":"1"}
+            ]
+        }
+    ]
+}

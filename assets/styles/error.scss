@@ -1,0 +1,45 @@
+.error{background: #fff;position: relative;
+            
+        .errorContent{
+            margin:0 auto;height: 248px;position: absolute;top:50%;left:50%;margin-left:-330px;margin-top:-124px;
+            .icon{background: url('../../assets/imgs/error.png') no-repeat;content:"";width: 220px;height: 220px;display: inline-block;}
+        }
+        .page-invalid{width: 660px;
+            .icon-valid{background-position:-285px -248px;}
+            .prompt{margin-left: 70px;width: 360px;
+                .invalid{font-size:36px;color:#0063d1;margin-top:44px;margin-bottom:10px;}
+                .accessed{font-size: 18px;color:#323131;line-height:20px;}
+                .homeBtn{margin-top:33px;font-size: 12px;width: 150px;height: 40px;background:#fdfdfd;text-align:center;text-decoration:none;display:inline-block;line-height: 40px;border: 1px solid #dfdfdf;border-radius: 5px;;}
+            }
+        }
+        .page-404{
+            .icon404{background-position:0 0;}
+            .prompt{margin-left: 65px;width: 350px;
+                
+                .sorry{font-size:80px;color:#bac3d2;margin-top:17px;position: relative;}
+                .chsorry{position: absolute;font-size: 20px;left: 130px;color:#333333}
+                .exist{font-size: 18px;color:#323131;line-height:20px;margin-top:10px;}
+                .homeBtn{margin-top:35px;font-size: 12px;width: 150px;height: 40px;background:#fdfdfd;text-align:center;text-decoration:none;display:inline-block;line-height: 40px;border: 1px solid #dfdfdf;border-radius: 5px;;}
+            }
+        }
+        .page-503{
+            
+            .icon503{background-position:-288px 0;}
+            .prompt{margin-left: 65px;width: 365px;
+                .sorry{font-size:80px;color:#bac3d2;margin-top:17px;position: relative;}
+                .chsorry{position: absolute;font-size: 20px;left: 130px;color:#333333}
+                .server{font-size: 18px;color:#323131;line-height:20px;margin-top:10px;}
+                .homeBtn{margin-top:35px;font-size: 12px;width: 150px;height: 40px;background:#fdfdfd;text-align:center;text-decoration:none;display:inline-block;line-height: 40px;border: 1px solid #dfdfdf;border-radius: 5px;;}
+            }
+        }
+        .page-upgrade{width:815px;
+            
+            .icon-upgrade{background-position:-284px -248px;}
+            .prompt{margin-left: 65px;width: 526px;
+                .upgraded{font-size:36px;color:#0063d1;margin-top:17px;}
+                .services{font-size: 18px;color:#323131;line-height:20px;margin-top:10px;}
+                .homeBtn{margin-top:35px;font-size: 12px;width: 150px;height: 40px;background:#fdfdfd;text-align:center;text-decoration:none;display:inline-block;line-height: 40px;border: 1px solid #dfdfdf;border-radius: 5px;;}
+            }
+        }
+    
+}

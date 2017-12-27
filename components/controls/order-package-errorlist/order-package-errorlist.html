@@ -1,0 +1,66 @@
+<div class="module-wrap good error cf">
+  <template v-if='list.length>0'>
+    <div class="package-list" v-for="(entity,index) in list">
+      <div class="module-title error package-title cf">
+        <span lg="declareFailed"></span>
+        <ul class="name fr">
+          <li>
+            <span lg="buyerID"></span>
+            <em>：</em>
+            <span v-show="entity.transactionList.length>0">{{entity.transactionList[0].buyerUserId}}</span>
+          </li>
+          <li>
+            <span lg="sellersID"></span>
+            <em>：</em>
+            <span>{{entity.sellerId}}</span>
+          </li>
+        </ul>
+      </div>
+      <div class="module-content package-content">
+        <div class="module" v-for="item in entity.transactionList">
+          <div class="good-content cf">
+            <div class="good-info fl">
+              <div class="good-detail cf">
+                <div class="good-img fl">
+                  <img v-bind:src="item.imageLink" />
+                </div>
+                <div class="good-text fl">
+                  <div class="cf">
+                    <p class="key time fl"><span lg="costTime"></span><em>：</em><span class="value">{{item.createDate}}</span></p>
+                    <p class="fr"><span lg="transactionNumber"></span><em>：</em><span class="value">{{item.recordNumber}}</span></p>
+                  </div>
+                  <p class="good-name">
+                    <span class="value">{{item.title}}</span>
+                    <span>({{item.recordNumber}})</span>
+                  </p>
+                  <div class="text-detail">
+                    <p><span lg="SKUNumber"></span>：<span class="value">{{item.sku}}</span></p>
+                    <p><span lg="unitPrice"></span>：<span class="value">{{item.currency}} {{item.transactionPrice}}</span></p>
+                    <p><span lg="quantity"></span>：<span class="value">x{{item.transactionPurchased}}</span></p>
+                    <p v-for="(key,value) in getJson(item.transactionProperty)"><span>{{value}}</span>：<span class="value">{{key}}</span></p>
+                  </div>
+                </div>
+              </div>
+              <p class="good-remark">
+                <span lg="buyerRemark"></span>
+                <em>：</em>
+                <span class="value">{{item.buyerCheckoutMessage}}</span>
+              </p>
+            </div>
+            <table class="good-view fr">
+              <tr>
+                <td>
+                  <p>{{item.declarationComment}}</p>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+  <template v-else>
+    <p lg='nolistdata'></p>
+  </template>
+
+</div>

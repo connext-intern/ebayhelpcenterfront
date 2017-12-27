@@ -1,0 +1,100 @@
+// for en-us version add by gena
+body.en-us{
+    .popup.preferences{.popup-body{margin-bottom:30px !important;}}
+    .order .package .item-list .box .title .status li{padding:0 3px!important;}
+    .order .package .item-list .box .title .user li{padding:0 2px !important;}
+    .popup.revokeAuthority .content .revokeMsg .popBtn{margin-top:30px !important;}
+    .order .package .item-list .box .title .checkBox{width:20px !important;}
+    .order .package .item-list .box .title .status{margin-left:5px !important;}
+    .order .package .item-list .box .content .product .item .left{width:28px !important;}
+    .order .package .item-list .box .content .product.type{width:733px !important;}
+    .order .package .item-list .box .content .right.type{width:265px !important;}
+    .order .icon:before{margin-right:0 !important;}
+    .order .package .item-list .box .content .right ul.sub-val li.operation .del{bottom:0px !important;}
+    .order .package-logistics table thead tr th, .order .package-logistics table tbody tr th{line-height: 14px !important;padding:4px 0;}
+    .order .package-logistics table thead tr th.trackingN-number .checkBox, .order .package-logistics table thead tr td.trackingN-number .checkBox, .order .package-logistics table tbody tr th.trackingN-number .checkBox, .order .package-logistics table tbody tr td.trackingN-number .checkBox{top:11px !important;}
+    .order .package-logistics table thead tr th.way-delivery, .order .package-logistics table thead tr td.way-delivery, .order .package-logistics table tbody tr th.way-delivery, .order .package-logistics table tbody tr td.way-delivery{width:80px !important;}
+    .order .package-logistics table thead tr th.operation, .order .package-logistics table thead tr td.operation, .order .package-logistics table tbody tr th.operation, .order .package-logistics table tbody tr td.operation{width:170px !important;.selectVal{padding:0 30px 0 6px;}}
+    .popup.popup-deliver-stauts .batteryBtn{width:220px !important;}
+    header.header-personal .header-content ul.right li.userName .userInfo .userContent .accountType p, header.header-admin .header-content ul.right li.userName .userInfo .userContent .accountType p{height:auto;}
+    header.header-personal .header-content ul.right li.userName .userInfo .userContent .accountType p a, header.header-admin .header-content ul.right li.userName .userInfo .userContent .accountType p a{display:block;padding:0 !important;}
+    .personal-center .page-wrapper .tab .tab_02 tr .wh07{width:244px !important;}
+    .menu-left{width:244px !important;}
+    .preferences .menu-left{width:285px !important;}
+    .layout .main.preferences .page{padding-left:300px !important;}
+    .preferences .highDsc{line-height: 24px !important;}
+    .personal-center .page-wrapper .bindingId .bindTitle .addEbayId{width:148px !important;}
+    .statistics-wrapper table.summary-table tr td.collaspe a, .finance-summary table.summary-table tr td.collaspe a{width:117px !important;}
+    .statistics-wrapper table.summary-table tr td.t1, .finance-summary table.summary-table tr td.t1{width:5.5% !important;}
+    .statistics-wrapper table.summary-table tr td.t2, .finance-summary table.summary-table tr td.t2{width:10.5% !important;}
+    .statistics-wrapper table.summary-table tr td.t3, .finance-summary table.summary-table tr td.t3,
+    .statistics-wrapper table.summary-table tr td.t4, .finance-summary table.summary-table tr td.t4,
+    .statistics-wrapper table.summary-table tr td.t5, .finance-summary table.summary-table tr td.t5{width:9.5% !important;}
+    .statistics-wrapper table.summary-table tr td.split, .finance-summary table.summary-table tr td.split{width:34px !important;}
+    .statistics-wrapper table.summary-table tr td.t7, .finance-summary table.summary-table tr td.t7{width:18.5% !important;}
+    .statistics-wrapper table.summary-table tr td.t8, .finance-summary table.summary-table tr td.t8{width:9% !important;}
+    .statistics-wrapper table.summary-table tr td.t9, .finance-summary table.summary-table tr td.t9{width:21% !important;}
+    .statistics-wrapper table.summary-table tr td.collaspe a, .finance-summary table.summary-table tr td.collaspe a{margin-left:-112px !important;}
+    .preferences-deliver .adrBlock .deliver .adrcopy p > span:first-child{width:auto !important;}
+    .main.style-account .registerGuild .jumpToMailBtn{width:400px !important;}
+    .main.style-account .soloBlock .loginNow{width:200px !important;}
+    header.header-personal .header-content ul.right li.search .logistics, header.header-admin .header-content ul.right li.search .logistics{width:120px !important;}
+    header.header-personal .header-content ul.right li.search .logistics .selectBox, header.header-admin .header-content ul.right li.search .logistics .selectBox{width:120px !important;}
+    header.header-personal .header-content ul.right li.search .groupInput, header.header-admin .header-content ul.right li.search .groupInput{width:170px !important;}
+    .order .package-logistics table tbody tr td.operation .selectBox{width:100% !important;}
+    .main.order .pedding .status-filter li{margin-right:2px !important;}
+    .main.order .pedding .status-filter li a{padding:3px 5px !important;}
+    header.header-personal .header-content .logo .help-center .list, header.header-admin .header-content .logo .help-center .list{width:160px !important;}
+    .personal-center .page-wrapper .tab .tab_01 th.authStatus{width:155px !important;}
+    .personal-center .page-wrapper .tab .tab_01 th.authStatus:after{left:155px !important;}
+    .personal-center .page-wrapper .tab .tab_01 th.authStatus .authConttent{width:165px !important;}
+    .personal-center .page-wrapper .tab .tab_01 th.authStatus .authConttent li a{width:144px !important;}
+    .personal-center .page-wrapper .tab .tab_01 tr .wh5{width:375px !important;}
+    .personal-center .page-wrapper .tab .tab_02 tr .wh04{width:200px !important;}
+    .preferences .preferOptionBlock{width:500px !important;}
+    .preferences .skuList.delSelect li .deleter{width:160px !important;}
+    .preferences .headBtnsBlock .serchLabel input{width:270px !important;}
+    .preferences .skuList.title li p{line-height: 20px !important;}
+    .preferences .skuList.title li .selecter{margin-top:0 !important;}
+    .preferences .skuList li .num{width:57px !important;}
+    .preferences .skuList li .size{width:115px !important;}
+    .preferences .skuList li .battery{width:115px !important;}
+    .preferences .adrBlock li .dftAdr{width:102px !important;}
+    header.header-personal .header-content ul.right li.userName .userTit span, header.header-admin .header-content ul.right li.userName .userTit span{width:80px !important;}
+    header.header-personal .header-content ul.right li.userName .dropdown:after, header.header-admin .header-content ul.right li.userName .dropdown:after{margin-top:-2px !important;right:6px !important;}
+    .popup.prefer-sku-updata .labelMulti .battery .batteryLink, .popup.prefer-sku .labelMulti .battery .batteryLink{width:185px !important;}
+    .inputBox.basic .inputName{line-height:12px !important;}
+    .preferences .logistics .popup.create-logistics-preferences .content .content-container .scrollBlock .item-list .des{width:200px !important;}
+    .order .page-wrapper .popup.edit-order .transfor .batteryLink{width:200px !important;}
+    .order .page-wrapper .popup.package-info div.input{margin-right:2px !important;}
+    .developers-manager .popup.popup-authorize-third-developer .btn-container .btn.confirm{width:130px !important;}
+    .main.order .pedding .footer-order .footer-order-content .selectBox.selectdelvery{width:210px !important;}
+    .order .footer-order .footer-order-content{padding:9px 0;width:92%;margin:0 auto;}
+    header.header-personal .header-content ul.right li.userName .userInfo .yellow, header.header-admin .header-content ul.right li.userName .userInfo .yellow{letter-spacing: -0.4px;}
+    header.header-personal .header-content ul.right li.userName .userInfo .yellow::before, header.header-admin .header-content ul.right li.userName .userInfo .yellow::before,
+    header.header-personal .header-content ul.right li.userName .userInfo .green::before, header.header-admin .header-content ul.right li.userName .userInfo .green::before,
+    header.header-personal .header-content ul.right li.userName .userInfo .powder::before, header.header-admin .header-content ul.right li.userName .userInfo .powder::before,
+    header.header-personal .header-content ul.right li.userName .userInfo .user-preferences::before, header.header-admin .header-content ul.right li.userName .userInfo .user-preferences::before{margin-left:5px !important;margin-right:5px !important;}
+    header.header-personal .header-content ul.right li.userName .userInfo .timelyCert, header.header-admin .header-content ul.right li.userName .userInfo .timelyCert{height:auto !important;}
+    .main.style-account .accountRightBlock .termArr .userTerm,
+    .main.style-account .accountRightBlock .termArr .privateTerm{width:100% !important;}
+    .main.style-account .userTerm .erroMsg,
+    .main.style-account .privateTerm .erroMsg{position:initial;transform:none; -ms-transform:none; -moz-transform:none; -webkit-transform:none; -o-transform:none;}
+    // .printBoxDeliver .printSample .infoBlock{width:100% !important;}
+    // .printBoxDeliver .printSample .infoBlock li{float:none;}
+    .printBoxDeliver .printSample .infoBlock li span{width:160px;}
+    .printBoxDeliver .printSample .infoBlock:first-child li span{width:140px;}
+    .printBoxDeliver .printSample .packageLister li p:nth-child(2){width:38%;}
+    .printBoxDeliver .printSample .packageLister li p:nth-child(3){width:26%;}
+    .printBoxDeliver .printSample .packageLister .line2{left:47%;}
+    .preferences .adrBlock li{height:280px !important;}
+    .preferences-deliver .adrBlock .deliver .dHead label{display:block;float:left;}
+    .preferences .printBlock{width:360px !important;margin-right:40px !important;}
+    .preferences .printBlock .infoList .radio{width:180px !important;}
+    .popup.popup-prefer-sku-repeat .btnArr .blueBtn{width:140px !important;}
+    .popup.setaccount .content-container .navbar p.navbar-email input{width:145px !important;}
+    .order .package .item-list .box .content .product{width:811px !important;}
+    .order .package .item-list .box .content .right{width:187px !important;}
+    .popup.logistics-info-list .content .logistics-content .base-info{line-height: 24px !important;}
+    .dashboard .preferences .printBlock .infoList .radio{width:100% !important;}
+}

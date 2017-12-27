@@ -1,0 +1,114 @@
+﻿{
+  "code": "00",
+  "message": "获取操作员列表",
+  "result": {
+    "dataList": [
+      {
+        "userId": "1001",
+        "name": "刘一",
+        "department": "营销部",
+        "userName": "robin@ebay.com.cn",
+        "bindEbayCount": "2",
+        "state": "DISABLED"
+      },
+      {
+        "userId": "1002",
+        "name": "陈二",
+        "department": "营销部",
+        "userName": "robin@ebay.com.cn",
+        "bindEbayCount": "2",
+        "state": "ENABLED"
+      },
+      {
+        "userId": "1003",
+        "name": "张三",
+        "department": "营销部",
+        "userName": "robin@ebay.com.cn",
+        "bindEbayCount": "2",
+        "state": "ENABLED"
+      },
+      {
+        "userId": "1004",
+        "name": "李四",
+        "department": "营销部",
+        "userName": "robin@ebay.com.cn",
+        "bindEbayCount": "2",
+        "state": "ENABLED"
+      },
+      {
+        "userId": "1005",
+        "name": "王五",
+        "department": "营销部",
+        "userName": "robin@ebay.com.cn",
+        "bindEbayCount": "2",
+        "state": "ENABLED"
+      },
+      {
+        "userId": "1006",
+        "name": "赵六",
+        "department": "营销部",
+        "userName": "robin@ebay.com.cn",
+        "bindEbayCount": "2",
+        "state": "ENABLED"
+      },
+      {
+        "userId": "1007",
+        "name": "孙七",
+        "department": "营销部",
+        "userName": "robin@ebay.com.cn",
+        "bindEbayCount": "2",
+        "state": "ENABLED"
+      },
+      {
+        "userId": "1008",
+        "name": "周八",
+        "department": "营销部",
+        "userName": "robin@ebay.com.cn",
+        "bindEbayCount": "2",
+        "state": "ENABLED"
+      },
+      {
+        "userId": "1009",
+        "name": "吴九",
+        "department": "营销部",
+        "userName": "robin@ebay.com.cn",
+        "bindEbayCount": "2",
+        "state": "DISABLED"
+      },
+      {
+        "userId": "1010",
+        "name": "郑十",
+        "department": "营销部",
+        "userName": "robin@ebay.com.cn",
+        "bindEbayCount": "2",
+        "state": "ENABLED"
+      },
+      {
+        "userId": "1011",
+        "name": "genasu",
+        "department": "部门",
+        "userName": "robin@ebay.com.cn",
+        "bindEbayCount": "2",
+        "state": "DISABLED"
+      },
+      {
+        "userId": "1012",
+        "name": "genasu",
+        "department": "部门",
+        "userName": "robin@ebay.com.cn",
+        "bindEbayCount": "2",
+        "state": "ENABLED"
+      },
+      {
+        "userId": "1013",
+        "name": "genasu",
+        "department": "部门",
+        "userName": "robin@ebay.com.cn",
+        "bindEbayCount": "2",
+        "state": ""
+      }
+    ],
+    "totalPages": "33",
+    "totalCounts": 20
+  }
+}

@@ -1,0 +1,30 @@
+﻿{
+  "code": "00",
+  "message": "获取轮播图列表",
+  "result": [
+    {
+      "bannerId": "1",
+      "bannerName": "1",
+      "imageUrl": "../../assets/images/banner/banner1.jpg",
+      "linkUrl": ""
+    },
+    {
+      "bannerId": "2",
+      "bannerName": "2",
+      "imageUrl": "../../assets/images/banner/banner1.jpg",
+      "linkUrl": "http://www.baidu.com"
+    },
+    {
+      "bannerId": "3",
+      "bannerName": "3",
+      "imageUrl": "../../assets/images/banner/banner1.jpg",
+      "linkUrl": "http://www.baidu.com"
+    },
+    {
+      "bannerId": "4",
+      "bannerName": "4",
+      "imageUrl": "../../assets/images/banner/banner1.jpg",
+      "linkUrl": "http://www.baidu.com"
+    }
+  ]
+}

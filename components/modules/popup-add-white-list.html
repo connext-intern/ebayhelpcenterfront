@@ -1,0 +1,46 @@
+<!--白名单-->
+<div class='popup add-white-list' v-bind:class="clickAdd?'show':'hide'">
+    <div class='mask'></div>
+    <div class='content container'>
+        <div class="pop-title">
+            <h3>添加白名单</h3>
+            <a href="javascript:;" v-on:click="closeAdd();"></a>
+        </div>
+        <p class="errorMsg" v-show="errors.currDevID">请完善以下信息</p>
+        <div class="section">
+            <p class="p-id">开发者ID</p>
+            <div class="search cf">
+                <div class="input-wrapper fl required" v-bind:title="errors.currDevID" v-bind:class="(clickAddSearch||clickAdd)&&errors.currDevID?'error':''">
+                    <input type="text" name="" maxlength="60" v-model="currDevID" />
+                    <em v-on:click="currDevID='';" v-bind:class="currDevID?'show':'hide'"></em>
+                </div>
+                <a href="javascript:;" class="btn-search fl" v-on:click="whiteListSearchOne">查询</a>
+            </div>
+            <div v-show="!!currWhiteEntity">
+                <p>
+                    <span>联系人姓名：</span>
+                    <span>{{currWhiteEntity&&currWhiteEntity.linkMan}}</span>
+                    <span class="linkman-email">联系人邮箱：</span>
+                    <span>{{currWhiteEntity&&currWhiteEntity.linkEmail}}</span>
+                </p>
+                <p><span>联系人电话：</span>
+                    <span>{{currWhiteEntity&&currWhiteEntity.linkTel}}</span>
+                </p>
+                <p class="indent"><span>应用名称：</span>
+                    <span>{{currWhiteEntity&&currWhiteEntity.appName}}</span>
+                </p>
+                <p class="indent"><span>公司名称：</span>
+                    <span>{{currWhiteEntity&&currWhiteEntity.companyName}}</span>
+                </p>
+                <div class="">
+                    <p class="descri indent fl">应用描述：</p>
+                    <p class="descri-text">{{currWhiteEntity&&currWhiteEntity.appDescription}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="btn-wrapper cf">
+            <a href="javascript:;" class="confirm fr" v-on:click="whiteListAdd">添加至白名单</a>
+            <a href="javascript:;" class="cancel fr" v-on:click="closeAdd">取消</a>
+        </div>
+    </div>
+</div>

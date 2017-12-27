@@ -1,0 +1,11 @@
+﻿{
+  "code": "00",
+  "message": "获取所有币种账户信息",
+  "result": [{
+      "currency": "CNY",
+      "avaliable": "999,999",
+      "blocked": "999,999",
+      "total": 1
+    }
+  ]
+}

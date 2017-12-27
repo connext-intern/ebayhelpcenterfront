@@ -1,0 +1,28 @@
+<div class="popup preferences control">
+  <div class='mask'></div>
+  <div class='content'>
+    <div class='content-container'>
+      <div class="popup-head">
+        <h2 class="popup-title"><span lg="pre-order-source"></span>（<span class="tips" lg="need-required"></span>）
+          <p class="remark" lg="pre-order-tips1"></p>
+        </h2>
+      </div>
+      <div class="popup-body">
+        <p class="highDsc" lg="prefer-order-tips1"></p>
+        <div class="checkBox preferOptionBlock cf">
+          <div data-key="AUTO" class="fl radio" v-bind:class='orderSource=="AUTO"?"cur":""'>
+            <p class="title" lg="prefer-order-tips2"></p>
+            <p class="text" lg="prefer-order-tips3"></p>
+          </div>
+          <div data-key="API" class="fl radio" v-bind:class='orderSource=="API"?"cur":""'>
+            <p class="title" lg="prefer-order-tips4"></p>
+            <p class="text" lg="prefer-order-tips5"></p>
+          </div>
+        </div>
+      </div>
+      <div class="popup-foot cf">
+        <a class="fr bulePageBtn btn-confirm js-saveBtn" v-on:click="save" lg="save-continue"></a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<!--删除子账号-->
+<div class='popup subAccount' v-show="isDeleteUser">
+    <div class='mask'></div>
+    <div class='content'>
+        <a href='javascript:;' v-on:click="isDeleteUser=false;" class='close sprite'></a>
+        <div class="revokeMsg">
+            <h2 lg="delete_subuser"></h2>
+            <p><span lg="want-to-confirm"></span><span class="relieve"><span lg="delete_subuser"></span>:{{operatorEntity.userName}}</span><span lg="is"></span>？ </p>
+            <p><span lg="tips-delete-subuser"></span><span class="noOperation"><span lg="confirm-remove-relate-ebayid"></span></span>。</p>
+            <div class="popBtn"><a href="javascript:;"  v-on:click="isDeleteUser=false;" class="cancel" lg="cancel"></a><a href="javascript:;" v-on:click="confirm_deletesubuser" class="submit" lg="ensure"></a></div>
+        </div>
+    </div>
+</div>

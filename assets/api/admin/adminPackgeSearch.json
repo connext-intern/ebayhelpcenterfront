@@ -1,0 +1,188 @@
+﻿{
+    "code":"00",
+    "message":"包裹列表查询",
+    "result":{
+        "totalPages":"10",
+        "totalCounts":"99",
+        "dataList":[
+            {
+                "packageId":"包裹ID1",
+                "sendDate":"2017/08/27 19:00:00",
+                "sellerId":"ebay_seller_009999",
+                "trackingMethodName":"物流方案A",
+                "trackingNumber":"3487395793",
+                "transactionList":[],
+                "status":"Declared_Failed"
+            },
+            {
+                "packageId":"包裹ID2",
+                "sendDate":"2017/08/27 19:00:00",
+                "sellerId":"ebay_seller_009999",
+                "trackingMethodName":"物流方案B",
+                "trackingNumber":"3487395793",
+                "transactionList":null,
+                "status":"Package_Info_Lack"
+            },
+            {
+                "packageId":"包裹ID3",
+                "sendDate":"2017/08/27 19:00:00",
+                "sellerId":"ebay_seller_009999",
+                "trackingMethodName":"物流方案C",
+                "trackingNumber":"3487395793",
+                "transactionList":[
+                    {
+                        "transactionId":"交易ID",
+                        "recordNumber":"订单编号",
+                        "title":"Homestar好事达现代简约书桌 学习桌简易电脑桌笔记本桌书房客厅家具2682(供应商直送)",
+                        "transactionPurchased":"2",
+                        "buyerUserId":"ebay_buyer009999",
+                        "itemId":"327433548"
+                    }
+                ],
+                "status":"No_Useful_Shipping"
+            },
+            {
+                "packageId":"包裹ID4",
+                "sendDate":"2017/08/27 19:00:00",
+                "sellerId":"ebay_seller_009999",
+                "trackingMethodName":"物流方案D",
+                "trackingNumber":"3487395793",
+                "transactionList":[
+                    {
+                        "transactionId":"交易ID",
+                        "recordNumber":"订单编号",
+                        "title":"Homestar好事达现代简约书桌 学习桌简易电脑桌笔记本桌书房客厅家具2682(供应商直送)",
+                        "transactionPurchased":"2",
+                        "buyerUserId":"ebay_buyer009999",
+                        "itemId":"327433548"
+                    }
+                ],
+                "status":"Applied_Tracking_Code"
+            },
+            {
+                "packageId":"包裹ID4",
+                "sendDate":"2017/08/27 19:00:00",
+                "sellerId":"ebay_seller_009999",
+                "trackingMethodName":"物流方案D",
+                "trackingNumber":"3487395793",
+                "transactionList":[
+                    {
+                        "transactionId":"交易ID",
+                        "recordNumber":"订单编号",
+                        "title":"Homestar好事达现代简约书桌 学习桌简易电脑桌笔记本桌书房客厅家具2682(供应商直送)",
+                        "transactionPurchased":"2",
+                        "buyerUserId":"ebay_buyer009999",
+                        "itemId":"327433548"
+                    }
+                ],
+                "status":"Selected_Shipping"
+            },
+            {
+                "packageId":"包裹ID4",
+                "sendDate":"2017/08/27 19:00:00",
+                "sellerId":"ebay_seller_009999",
+                "trackingMethodName":"物流方案D",
+                "trackingNumber":"3487395793",
+                "transactionList":[
+                    {
+                        "transactionId":"交易ID",
+                        "recordNumber":"订单编号",
+                        "title":"Homestar好事达现代简约书桌 学习桌简易电脑桌笔记本桌书房客厅家具2682(供应商直送)",
+                        "transactionPurchased":"2",
+                        "buyerUserId":"ebay_buyer009999",
+                        "itemId":"327433548"
+                    }
+                ],
+                "status":"To_Be_Shipped"
+            },
+            {
+                "packageId":"包裹ID4",
+                "sendDate":"2017/08/27 19:00:00",
+                "sellerId":"ebay_seller_009999",
+                "trackingMethodName":"物流方案D",
+                "trackingNumber":"3487395793",
+                "transactionList":[
+                    {
+                        "transactionId":"交易ID",
+                        "recordNumber":"订单编号",
+                        "title":"Homestar好事达现代简约书桌 学习桌简易电脑桌笔记本桌书房客厅家具2682(供应商直送)",
+                        "transactionPurchased":"2",
+                        "buyerUserId":"ebay_buyer009999",
+                        "itemId":"327433548"
+                    }
+                ],
+                "status":"To_Be_Received"
+            },
+            {
+                "packageId":"包裹ID4",
+                "sendDate":"2017/08/27 19:00:00",
+                "sellerId":"ebay_seller_009999",
+                "trackingMethodName":"物流方案D",
+                "trackingNumber":"3487395793",
+                "transactionList":[
+                    {
+                        "transactionId":"交易ID",
+                        "recordNumber":"订单编号",
+                        "title":"Homestar好事达现代简约书桌 学习桌简易电脑桌笔记本桌书房客厅家具2682(供应商直送)",
+                        "transactionPurchased":"2",
+                        "buyerUserId":"ebay_buyer009999",
+                        "itemId":"327433548"
+                    }
+                ],
+                "status":"On_Shipping"
+            },
+            {
+                "packageId":"包裹ID4",
+                "sendDate":"2017/08/27 19:00:00",
+                "sellerId":"ebay_seller_009999",
+                "trackingMethodName":"物流方案D",
+                "trackingNumber":"3487395793",
+                "transactionList":[
+                    {
+                        "transactionId":"交易ID",
+                        "recordNumber":"订单编号",
+                        "title":"Homestar好事达现代简约书桌 学习桌简易电脑桌笔记本桌书房客厅家具2682(供应商直送)",
+                        "transactionPurchased":"2",
+                        "buyerUserId":"ebay_buyer009999",
+                        "itemId":"327433548"
+                    }
+                ],
+                "status":"Delivered"
+            },
+            {
+                "packageId":"包裹ID4",
+                "sendDate":"2017/08/27 19:00:00",
+                "sellerId":"ebay_seller_009999",
+                "trackingMethodName":"物流方案D",
+                "trackingNumber":"3487395793",
+                "transactionList":[
+                    {
+                        "transactionId":"交易ID",
+                        "recordNumber":"订单编号",
+                        "title":"Homestar好事达现代简约书桌 学习桌简易电脑桌笔记本桌书房客厅家具2682(供应商直送)",
+                        "transactionPurchased":"2",
+                        "buyerUserId":"ebay_buyer009999",
+                        "itemId":"327433548"
+                    },
+                    {
+                        "transactionId":"交易ID",
+                        "recordNumber":"订单编号",
+                        "title":"Homestar好事达现代简约书桌 学习桌简易电脑桌笔记本桌书房客厅家具2682(供应商直送)",
+                        "transactionPurchased":"2",
+                        "buyerUserId":"ebay_buyer009999",
+                        "itemId":"327433548"
+                    },
+                    {
+                        "transactionId":"交易ID",
+                        "recordNumber":"订单编号",
+                        "title":"Homestar好事达现代简约书桌 学习桌简易电脑桌笔记本桌书房客厅家具2682(供应商直送)",
+                        "transactionPurchased":"2",
+                        "buyerUserId":"ebay_buyer009999",
+                        "itemId":"327433548"
+                    }
+                ],
+                "status":"Deleted"
+            }
+        ]
+    }
+}

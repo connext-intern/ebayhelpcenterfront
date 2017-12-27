@@ -1,0 +1,39 @@
+<!--指定子账号 add by gena-->
+<div class='popup setaccount exitIsAccount' v-bind:class='showPop>0?"show":"hide"'>
+        <div class='mask'></div>
+        <div class='content'>
+            <a href='javascript:;' class='close sprite' lg="close" v-on:click='showPop=0'></a>
+            <div class='content-container'>
+                <h3 class="setaccount-title">指定接收对象</h3>
+                <div class='inputBox basic'>
+                    <div class="input"><input class='darkPlaceholder' maxlength='50' placeholder="请准确输入IS账号 查询" v-model='fiiterInput'/></div>
+                    <a href="javascript:;" class="searchBtn" v-on:click='popFitter'></a>
+                </div>
+                <div class="cf">
+                    <div class="setting setaccount-left fl">
+                        <h4>全部账号</h4>
+                        <div class="scrollBlock checkBox multi">
+                            <div class="js-checkbox radio" v-for="(item,index) in unselectedbaylist" :class="{'cur':ebaylist[item.isid]}" v-on:click="setActive(item)" >{{item.email}}</div>
+                        </div>
+                    </div>
+                    <div class="setting setaccount-center"></div>
+                    <div class="setting setaccount-right fl">
+                        <h4><span>已选账号</span><span class="bold" lg="click-to-remove"></span></h4>
+                        <div class="scrollBlock checkBox multi">
+                            <div class="js-checkbox disabled radio" v-for="(item,index) in selectedbaylist" v-on:click="setDisabled(item)">{{item.email}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="btns">
+                    <!-- <a class="btn allSelect" href="javascript:;" v-on:click="selectAll"><i class="icon" v-bind:class="isAll?'cur':''"></i>全选</a> -->
+                    <a class="btn reset" href="javascript:;" lg="reset-data" v-on:click='clearSelected'></a>
+                    <template v-if='showPop==1'>
+                        <a class="btn save revoke" href="javascript:;" v-on:click='dev_adminMessageSend'>发送</a>
+                    </template>
+                    <template v-if='showPop==2'>
+                        <a class="btn save revoke" href="javascript:;" v-on:click='popSave'>保存</a>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </div>

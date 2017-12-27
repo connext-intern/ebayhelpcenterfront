@@ -1,0 +1,1910 @@
+/* 避免因图片过大而造成页面滚动条(login): */
+
+body.full-screen {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.admin {
+  /* reset & common style by gfh start */
+  .top10 {
+    top: 10px !important;
+  }
+
+  span,
+  em,
+  i,
+  s {
+    font-style: normal;
+    text-decoration: none;
+  }
+  .cf:after {
+    content: '';
+    display: block;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+    clear: both;
+  }
+  .cf {
+    *zoom: 1;
+  }
+  .fl {
+    float: left;
+  }
+  .fr {
+    float: right;
+  }
+  .errorMsg {
+    color: #e42e35;
+    position: relative;
+    top: -10px;
+  }
+  // .required.error {
+  //   input,
+  //   .selectBox,
+  //   textarea {
+  //     border: 1px solid red !important;
+  //   }
+  .page-wrapper {
+    .title {
+      margin-bottom: 5px;
+    }
+  }
+// }
+  .bg-linear-gra {
+    background: linear-gradient(#fefefe, #f6f6f6);
+    background: -o-linear-gradient(#fefefe, #f6f6f6);
+    background: -moz-linear-gradient(#fefefe, #f6f6f6);
+    background: -webkit-linear-gradient(#fefefe, #f6f6f6);
+  }
+  .add-btn {
+    display: block;
+    width: 132px;
+    height: 30px;
+    border: 1px solid #ccc;
+    background: linear-gradient(#feffff, #e2f0ff);
+    background: -o-linear-gradient(#feffff, #e2f0ff);
+    background: -moz-linear-gradient(#feffff, #e2f0ff);
+    background: -webkit-linear-gradient(#feffff, #e2f0ff);
+    text-align: center;
+    line-height: 30px;
+    font-size: 12px;
+    color: #333;
+    float: right;
+    margin: 0;
+    text-decoration: none;
+    cursor: pointer;
+    em {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      background: url(/assets/imgs/sprite.png) no-repeat -211px -20px;
+      margin-right: 5px;
+      vertical-align: text-top;
+    }
+  }
+  .select-icon {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-left: 10px;
+    line-height: 14px;
+    cursor: pointer;
+    background: url(/assets/imgs/sprite.png) no-repeat -106px 0;
+  }
+  .cur {
+    .select-icon {
+      cursor: pointer;
+      background: url(/assets/imgs/sprite.png) no-repeat -122px 0;
+    }
+  }
+  .slct-page {
+    .del-item {
+      width: 140px;
+      padding-left: 1px;
+      margin-top: 28px;
+      a {
+        display: inline-block;
+        width: 80px;
+        height: 32px;
+        border: 1px solid #ccc;
+        font-size: 12px;
+        color: #333;
+        text-decoration: none;
+        line-height: 32px;
+        text-align: center;
+        margin-left: 17px;
+        background: linear-gradient(#fefefe, #f4f4f4);
+        background: -o-linear-gradient(#fefefe, #f4f4f4);
+        background: -moz-linear-gradient(#fefefe, #f4f4f4);
+        background: -webkit-linear-gradient(#fefefe, #f4f4f4);
+      }
+    }
+    .js-pager {
+      width: 820px;
+      height: 40px;
+      margin-top: 30px;
+    }
+  }
+  .translate {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    @include translate(-50%, -50%);
+  }
+  .translate-x {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    @include translate(-50%, 0);
+  }
+  .translate-y {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    @include translate(0, -50%);
+  }
+  select::-ms-expand {
+    /*清除ie的默认选择框样式清除，隐藏下拉箭头*/
+    display: none;
+  }
+  h2 {
+    font-size: 18px;
+    color: #333;
+    line-height: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  .cnt-table {
+    border: 1px solid #ccc;
+    font-size: 12px;
+    tr {
+      border-bottom: 1px solid #ccc;
+    }
+    .order-num {
+      width: 32px;
+      text-align: center;
+    }
+    thead {
+      tr {
+        height: 36px;
+        background-color: #f7f7f7;
+        line-height: 36px;
+        font-weight: 700;
+        color: #333;
+      }
+    }
+    tbody {
+      tr {
+        .select {
+          width: 25px;
+          text-align: center;
+        }
+      }
+    }
+  }
+  .popup {
+    .content {
+      margin-left: -295px;
+      margin-top: -200px;
+      padding: 20px;
+      font-size: 12px;
+      position: relative;
+      box-sizing: border-box;
+      .title {
+        .close {
+          right: 20px;
+          top: 20px;
+        }
+      }
+      .pop-title {
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 16px;
+        position: relative;
+        margin-bottom: 30px;
+        h3 {
+          font-size: 18px;
+        }
+        a {
+          position: absolute;
+          width: 22px;
+          height: 22px;
+          right: 0;
+          top: 0;
+          background: url(/assets/imgs/sprite.png) no-repeat 0 -22px;
+          cursor: pointer;
+        }
+      }
+      .btn-wrapper {
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+        a {
+          display: block;
+          width: 108px;
+          height: 36px;
+          text-decoration: none;
+          text-align: center;
+          line-height: 36px;
+          font-size: 12px;
+        }
+        a.confirm {
+          background-color: #0049ce;
+          color: #fff;
+        }
+        a.cancel {
+          border: 1px solid #ccc;
+          color: #787878;
+          box-sizing: border-box;
+          @include lightBtn;
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+  /* reset & common style by gfh end */
+  /* 登录页 by gfh start */
+  .login-img {
+    background: url(/assets/imgs/admin-login-bg.jpg) no-repeat;
+    background-size:cover;
+    width: 100%; height: 100%; position: absolute;
+  }
+
+  .login {
+    .login-wrapper {
+      width: 480px;
+      padding: 20px;
+      background-color: #fff;
+      @include radius(2px);
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      @include translate(-50%, -50%);
+      .logo {
+        float: left;
+        display: block;
+        width: 86px;
+        height: 35px;
+        background: #fff url(/assets/imgs/logo.png) no-repeat 0 0;
+      }
+      .title {
+        .sys {
+          float: left;
+          font-size: 24px;
+          color: #666;
+          margin-top: 8px;
+          margin-left: 15px;
+        }
+        .manage {
+          float: right;
+          font-size: 22px;
+          color: #333;
+          margin-top: 8px;
+        }
+      }
+      .section {
+        width: 100%;
+        border: 1px solid #dfdfdf;
+        box-sizing: border-box;
+        margin-top: 30px;
+        padding: 0 10px;
+        span {
+          color: #666;
+        }
+        .email {
+          
+          line-height: 40px;
+          em {
+            float: right;
+          }
+        }
+        input {
+          width: 244px;
+          height: 36px;
+          line-height: 36px;
+          border: 0px;
+          margin-left: 10px;
+          vertical-align: baseline;
+          /* 去掉input框的黄色底色 */
+          @include shadow(0 0 0px 1000px white inset);
+          background: none;
+          outline: none;
+        }
+        .pwd {
+          border-top: 1px solid #dfdfdf;
+          line-height: 38px;
+        }
+        .yzCode{
+          
+          span{width: 56px;display: inline-block;
+            text-align: justify;
+            vertical-align: top;
+            overflow: hidden;
+            height: 38px;}
+          i{display:inline-block;width:100%;height:0;}
+          border-top: 1px solid #dfdfdf;
+          line-height: 38px;
+          input{width: 223px;}
+          img{width: 79px; height: 40px;}
+          em{font-size: 12px; cursor: pointer; text-decoration: underline;}
+        }
+      }
+      .enter {
+        margin-top: 30px;
+        .enter-btn {
+          display: block;
+          width: 160px;
+          height: 40px;
+          float: right;
+          line-height: 40px;
+          text-align: center;
+          background-color: #3366da;
+          color: #fff;
+          font-size: 15px;
+          text-decoration: none;
+          outline: none;
+          border: 0px;
+        }
+        a {
+          text-decoration: none;
+          color: #959595;
+          font-size: 12px;
+          margin-left: 14px;
+          line-height: 30px;
+        }
+      }
+    }
+  }
+  &.page-forgetPassword{
+    .buluBtn{width:220px;}
+  }
+  .footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    text-align: right;
+    background-color: #000;
+    opacity: .5;
+    filter: alpha(opacity=50);
+    span {
+      color: #646466;
+      font-size: 11px;
+      line-height: 40px;
+      margin-right: 30px;
+    }
+  }
+  /* 登录页 by gfh end */
+  /* 包裹查询 by gfh start */
+  .package-info-query {
+    padding: 10px 40px 0 40px;
+    .upper-half {
+      table {
+        border: 1px solid #ddd;
+        tbody {
+          .last-ipt {
+            margin-right: 10px;
+          }
+        }
+        input {
+          width: 236px;
+          height: 30px;
+          margin-left: 10px;
+          padding: 0 10px;
+          border: 1px solid #ccc;
+          font-size: 10px;
+        }
+        p {
+          margin-top: 7px;
+          margin-left: 10px;
+          font-size: 13px;
+          line-height: 20px;
+        }
+        .selectBox {
+          width: 236px;
+          margin-left: 10px;
+          .selectOptions {
+            top: 32px;
+          }
+        }
+        .input-wrapper {
+          input {
+            width: 101px;
+            padding: 0 0 0 5px;
+          }
+          div {
+            float: left;
+          }
+          .date {
+            margin: 0;
+          }
+          .dash {
+            line-height: 28px;
+            margin: 0 5px;
+          }
+          .input-out {
+            position: relative;
+            span {
+              position: absolute;
+              width: 16px;
+              height: 14px;
+              top: 8px;
+              right: 6px;
+              background: url(/assets/imgs/sprite.png) no-repeat -78px -222px;
+              cursor: pointer;
+            }
+          }
+          .input-out:last-child{
+            input{margin-left: 0;}
+          }
+        }
+        .search-btn {
+          display: block;
+          width: 236px;
+          height: 30px;
+          float: right;
+          margin: 10px 12px 13px 0;
+          line-height: 30px;
+          text-align: center;
+          background-color: #333;
+          color: #fff;
+          font-size: 13px;
+          text-decoration: none;
+          outline: none;
+          border: 0px;
+        }
+      }
+    }
+    .lower-half {
+      h3 {
+        font-size: 15px;
+        font-weight: 700;
+        color: #333;
+        line-height: 34px;
+        margin-top: 6px;
+      }
+      table {
+        border: 1px solid #ddd;
+        margin-bottom: 30px;
+        thead {
+          background-color: #f7f7f7;
+          border-bottom: 1px solid #ccc;
+          height: 34px;
+          td {
+            line-height: 34px;
+            font-size: 13px;
+            font-weight: 700;
+            padding-left: 14px;
+          }
+        }
+        tbody {
+          .msg-cnt-wrapper {
+            margin-bottom: 15px;
+          }
+          .last-td-for-p {
+            p {
+              margin: 0;
+            }
+          }
+          tr {
+            border-bottom: 1px solid #ccc;
+            .warning {
+              display: none;
+            }
+          }
+          tr.war {
+            .warning {
+              display: block;
+              color: #ff5f00;
+              font-weight: 700;
+              margin-bottom: 10px;
+            }
+          }
+          td {
+            padding-left: 14px;
+            padding-top: 14px;
+          }
+          span {
+            font-size: 13px;
+            color: #999;
+          }
+          em {
+            font-size: 13px;
+            font-weight: 700;
+            color: #333;
+            word-break: break-all;
+          }
+          a {
+            color: blue;
+            font-size: 13px;
+            margin-left: 65px;
+            line-height: 40px;
+          }
+          p {
+            margin-right: 38px;
+            font-size: 12px;
+            line-height: 18px;
+          }
+          .text {
+            line-height: 13px;
+          }
+          i {
+            font-style: normal;
+            font-size: 12px;
+            color: #333;
+            line-height: 20px;
+          }
+          .num-wrapper {
+            width:220px;
+            margin-top: 5px;
+            .txnid{    width: 110px;
+              display: inline-block;
+              vertical-align: top;}
+          }
+          .num {
+            float: right;
+            line-height: 18px;
+          }
+          .id-wrapper p {
+            margin-right: 0px;
+            margin-bottom: 10px;
+          }
+          .date-time {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+  /* 包裹查询 by gfh end */
+  /* 广告位管理 by gfh start */
+  .ad-slot-management {
+    .title p {
+      font-size: 12px;
+      color: #999;
+      margin-top: 6px;
+      margin-left: 35px;
+    }
+    table {
+      border: 1px solid #ccc;
+      font-size: 12px;
+      thead {
+        height: 36px;
+        border-bottom: 1px solid #ccc;
+        background-color: #f7f7f7;
+        font-size: 12px;
+        font-weight: 700;
+        color: #333;
+        line-height: 36px;
+      }
+      tbody {
+        tr {
+          height: 56px;
+          border-bottom: 1px solid #ccc;
+        }
+        .select {
+          width: 25px;
+          text-align: center;
+        }
+        .to-link {
+          width: 286px;
+          p {
+            width: 286px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+        .edit {
+          color: #3f7cda;
+          text-decoration: underline;
+          margin-right: 15px;
+        }
+        .delete {
+          color: #b6b6b6;
+          margin-right: 22px;
+        }
+        .down,
+        .up {
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          border: 1px solid #e3e3e3;
+          box-sizing: border-box;
+          vertical-align: middle;
+          position: relative;
+        }
+        .down em,
+        .up em {
+          position: absolute;
+          width: 7px;
+          height: 8px;
+          background: url(/assets/imgs/sprite.png) no-repeat;
+          left: 6px;
+          top: 5px;
+        }
+        .down {
+          margin-left: 15px;
+          margin-right: 5px;
+          em {
+            background-position: -253px 0;
+          }
+        }
+        .down:hover {
+          border: none;
+          background-color: #0062d4;
+          em {
+            background-position: -280px 0;
+          }
+        }
+        .up {
+          em {
+            background-position: -239px 0;
+          }
+        }
+        .up:hover {
+          border: none;
+          background-color: #0062d4;
+          em {
+            background-position: -264px 0;
+          }
+        }
+      }
+      .order-num {
+        width: 32px;
+        text-align: center;
+      }
+      .p-title {
+        margin-left: 56px;
+        margin-right: 52px;
+      }
+      .p-date {
+        margin-left: 58px;
+        margin-right: 30px;
+      }
+    }
+    /* 广告位管理之弹出层 by gfh start */
+    .add-ad-slot {
+      display: block;
+      .container {
+        width: 738px;
+        min-height: 400px;
+        .section {
+          font-size: 12px;
+          input {
+            width: 100%;
+            height: 30px;
+            padding: 0 10px;
+            margin-bottom: 7px;
+          }
+          p {
+            margin-bottom: 3px;
+          }
+        }
+        .lower-wrapper {
+          margin-top: 10px;
+          font-size: 12px;
+          text-align: center;
+          .sample {
+            width: 280px;
+            height: 157px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            padding: 10px;
+            float: left;
+            div {
+              background-color: #efefef;
+              text-align: center;
+              font-size: 12px;
+              color: #333;
+            }
+            .w181 {
+              width: 181px;
+            }
+            .w86 {
+              width: 86px;
+              height: 35px;
+              line-height: 35px;
+            }
+            .w68 {
+              width: 68px;
+            }
+            .box-adsense {
+              height: 61px;
+              line-height: 61px;
+            }
+            .box-order {
+              height: 41px;
+              line-height: 41px;
+            }
+            .box-notice {
+              height: 26px;
+              line-height: 26px;
+            }
+            .box-balance {
+              height: 85px;
+              line-height: 85px;
+            }
+            .mgn-bottom {
+              margin-bottom: 6px;
+            }
+            .mgn-right {
+              margin-right: 9px;
+            }
+            .cur {
+              background-color: #c0d2f3;
+              color: #0049ce;
+              font-weight: 600;
+            }
+          }
+          .button-area {
+            float: right;
+            .add-pic {
+              @include lightblueBtn;
+              width: 109px;
+              height: 63px;
+              padding-top: 34px;
+              position: relative;
+              text-align: center;
+              margin-bottom: 66px;
+              box-sizing: border-box;
+              em {
+                position: absolute;
+                left: 47px;
+                top: 12px;
+                width: 15px;
+                height: 15px;
+                background: url(/assets/imgs/sprite.png) no-repeat -211px -20px;
+              }
+            }
+            .btn {
+              display: block;
+              width: 108px;
+              height: 36px;
+              background-color: #0049ce;
+              line-height: 36px;
+              text-align: center;
+              color: #fff;
+              outline: none;
+              border: 0;
+              text-decoration: none;
+            }
+          }
+          
+        }
+      }
+    }
+    /* 广告位管理之弹出层 by gfh end */
+  }
+  /* 广告位管理 by gfh end */
+  /* 物流文章管理和站内信管理和开发指南 by gfh start */
+  .station-letter-management-edit{
+    .popup.setaccount.exitIsAccount{
+      .content{
+        .inputBox{
+          margin-bottom: 8px; font-size: 0;
+          .input{width: 540px; display: inline-block;}
+          input{border-right: none;}
+          .searchBtn{width: 44px;@include lightBtn; display: inline-block; height: 30px; vertical-align: top; position: relative;}
+          .searchBtn::after{position: absolute; top: 6px; left: 13px; @include sprite; background-position: -3px -118px; width: 17px; height: 17px;}
+        }
+      }
+    }
+  }
+  .sdk-management,
+  .development-guide,
+  .station-letter-management,
+  .logistics-article-management {
+    .popup.setaccount.exitIsAccount{
+      display: block;
+      .content{
+        height: 600px; min-height: 600px; margin-top: -300px;
+        .scrollBlock{height: 370px;}
+        .btns .btn{width: 108px; padding: 0;}
+        .inputBox{
+          margin-bottom: 8px; font-size: 0;
+          .input{width: 540px; display: inline-block;}
+          input{border-right: none;}
+          .searchBtn{width: 44px;@include lightBtn; display: inline-block; height: 30px; vertical-align: top; position: relative;}
+          .searchBtn::after{position: absolute; top: 6px; left: 13px; @include sprite; background-position: -3px -118px; width: 17px; height: 17px;}
+        }
+        .inputBox.erro .input::after{display: none;}
+      }
+    }
+    table {
+      border: 1px solid #CCC;
+      font-size: 12px;
+      .t-center {
+        text-align: center;
+      }
+      .t-color {
+        color: #3f7ed7 !important;
+      }
+      .sdk-type {
+        margin-left: 74px;
+      }
+      .order-num {
+        width: 32px;
+        text-align: center;
+      }
+      thead tr {
+        height: 34px;
+        background-color: #f7f7f7;
+        border-bottom: 1px solid #ccc;
+        font-weight: 700;
+      }
+      tbody {
+        tr {
+          height: 53px;
+          border-bottom: 1px solid #ccc;
+        }
+        .select {
+          width: 25px;
+          text-align: center;
+        }
+        .p-title em {
+          display: inline-block;
+          width: 31px;
+          height: 16px;
+          border-radius: 3px;
+          background-color: #0065d1;
+          color: #fff;
+          line-height: 16px;
+          text-align: center;
+          margin-left: 12px;
+        }
+        .p-send {
+          text-align: center;
+        }
+        .set-notice {
+          color: #246fd7;
+          margin-right: 16px;
+        }
+        .edit {
+          color: #5a5a5a;
+        }
+        .delete {
+          color: #a0a0a0;
+        }
+        a {
+          margin-right: 16px;
+        }
+      }
+      .p-title {
+        padding:5px;line-height:22px;
+        margin-left: 16px;
+        margin-right: 64px;
+      }
+      .p-title-sdk {
+        margin-left: 16px;
+      }
+      .p-date {
+        margin-left: 100px;
+        margin-right: 70px;
+      }
+    }
+  }
+  /* 物流文章管理和站内信管理和开发指南 by gfh end */
+  /* SDK管理之弹出层 by gfh start */
+  .add-sdk {
+    .container {
+      width: 600px;
+      min-height: 407px;
+      .section {
+        .selectBox {
+          width: 132px;
+          height: 32px;
+          .selectOptions {
+            top: 32px;
+          }
+        }
+        .type-file {
+          margin-bottom: 30px;
+          a.add-btn {
+            margin-left: 20px;
+            float: left;
+            position: relative;
+            input[type="file"] {
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              top: 0;
+              right: 0;
+              border: 0;
+              padding: 0;
+              margin: 0;
+              cursor: pointer;
+              border: solid 1px #ddd;
+              opacity: 0;
+            }
+            &.error{&::after{content:'请选择文件';color:#e42e35;width:150px;position: absolute; height:30px;line-height: 30px;display: inline-block;cursor: none;}}
+          }
+          .fileName{    float: left;    overflow: hidden;
+            height: 30px;
+            width: 240px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            line-height: 32px;height: 32px;
+            margin-left: 20px;}
+        }
+        .des-wrapper {
+          font-size: 12px;
+          h4 {
+            margin-bottom: 10px;
+          }
+          textarea {
+            width: 560px;
+            height: 163px;
+            border: 1px solid #ccc;
+            padding: 5px;
+            outline: none;
+            resize: none;
+          }
+        }
+      }
+    }
+  }
+  /* SDK管理之弹出层 by gfh end */
+  /* 添加物流文章和添加开发指南和添加站内信 by gfh start */
+  .station-letter-management-edit,
+  .development-guide-edit,
+  .logistics-article-management-edit {
+    p {
+      font-size: 12px;
+      color: #333;
+      margin-bottom: 9px;
+    }
+    .input-wrapper {
+      width: 600px;
+      height: 30px;
+      border: 1px solid #ccc;
+      font-size: 12px;
+      color: #a8a8a8;
+      line-height: 28px;
+      margin-bottom: 20px;
+      input {
+        border: none;
+        width: 555px;
+        height: 28px;
+        vertical-align: text-top;
+        padding: 0 10px;
+        line-height: 28px;
+        font-size: 12px;
+      }
+      em {
+        color: #5a5a5a;
+        font-weight: 700;
+      }
+      i {
+        font-style: normal;
+      }
+    }
+    .selectBox {
+      .selectOptions {
+        top: 32px;
+      }
+    }
+    .p-log-art {
+      margin-top: 20px;
+    }
+    .article-content {
+      width: 600px;
+      height: 240px;
+      margin-bottom: 20px;
+    }
+    .set-notice {
+      font-size: 12px;
+      color: #333;
+      margin-bottom: 34px;
+      span {
+        vertical-align: top;
+        margin-left: 14px;
+      }
+    }
+    .btn {
+      display: inline-block;
+      width: 108px;
+      height: 36px;
+      background-color: #0049ce;
+      text-align: center;
+      line-height: 36px;
+      color: #fff;
+      font-size: 12px;
+      outline: none;
+      border: 0;
+      text-decoration: none;
+    }
+    .radio-wrapper {
+      width: 600px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #333;
+      em {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        background: url(/assets/imgs/sprite.png) no-repeat -18px 0;
+        vertical-align: middle;
+        cursor: pointer;
+      }
+      .cur {
+        em {
+          background: url(/assets/imgs/sprite.png) no-repeat -35px 0;
+        }
+      }
+      span {
+        vertical-align: middle;
+        margin-left: 12px;
+        margin-right: 50px;
+      }
+    }
+  }
+  /* 添加物流文章和添加开发指南和添加站内信 by gfh end */
+  /* 白名单管理 by gfh start */
+  .white-list-management {
+    .title {
+      position: relative;
+      .add-btn {
+        margin-top: -4px;
+      }
+    }
+    .search-box-wrapper {
+      width: 460px;
+      height: 30px;
+      @include radius(3px);
+      margin-top: -4px;
+      font-size: 12px;
+      .selectBox {
+        width: 84px;
+        height: 30px;
+        border: 1px solid #ccc;
+        border-right: none;
+        @include radius(3px 0 0 3px);
+        .selectVal {
+          height: 30px;
+          border: none;
+        }
+        .selectOptions {
+          top: 29px;
+        }
+      }
+      input {
+        width: 326px;
+        height: 30px;
+        line-height: 30px;
+        border: none;
+        border: 1px solid #ccc;
+        padding: 0 10px;
+      }
+      a.search {
+        display: block;
+        width: 48px;
+        height: 28px;
+        border: 1px solid #ccc;
+        border-left: none;
+        @include radius(0 3px 3px 0);
+        position: relative;
+        em {
+          position: absolute;
+          width: 17px;
+          height: 17px;
+          left: 17px;
+          top: 6px;
+          background: url(/assets/imgs/sprite.png) no-repeat -3px -118px;
+        }
+      }
+    }
+    table {
+      tbody {
+        tr {
+          height: 53px;
+          p {
+            padding: 5px 0;
+          }
+        }
+      }
+      .linkman-name {
+        text-align: center;
+      }
+      .operate {
+        text-align: center;
+        margin-right: 40px;
+        a {
+          color: #a8a8a8;
+        }
+      }
+      .app-name-des {
+        padding: 7px 0;
+        span.appli-name {
+          display: inline-block;
+          width: 170px;
+          max-height: 48px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          vertical-align: middle;
+          line-height: 16px;
+          margin-right: 12px;
+        }
+        .check-des-wrapper {
+          display: inline-block;
+          vertical-align: middle;
+          position: relative;
+          a.check-des {
+            color: #a8a8a8;
+          }
+          .des {
+            display: none;
+            position: absolute;
+            width: 300px;
+            height: 200px;
+            border: 1px solid #ccc;
+            top: 24px;
+            left: -64px;
+            z-index: 999;
+            background-color: #fff;
+            padding: 10px;
+            h5.des-title {
+              margin-bottom: 20px;
+            }
+            max-height: 140px;
+            overflow: auto;
+            font-size: 12px;
+            line-height: 16px;
+            .des-content {
+              word-break: break-all;
+              word-wrap: break-word;
+            }
+          }
+          .des:before,
+          .des:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            left: 77px;
+            border-width: 10px;
+            border-style: solid;
+          }
+          .des:before {
+            top: -21px;
+            border-color: transparent transparent #ccc transparent;
+          }
+          .des:after {
+            top: -20px;
+            border-color: transparent transparent #fff transparent;
+          }
+          &.cur .des {
+            display: block;
+          }
+        }
+      }
+      .p-title {
+        margin-left: 16px;
+      }
+      .p-telenum {
+        margin-left: 37px;
+        margin-right: 24px;
+      }
+    }
+
+    /* 白名单管理之添加白名单弹层 start */
+    .add-white-list {
+      .container {
+        width: 600px;
+        min-height: 407px;
+        p {
+          color: #999;
+          line-height: 26px;
+        }
+        .section {
+          p.p-id {
+            color: #333;
+          }
+          p.indent {
+            text-indent: 12px;
+          }
+          p.descri-text {
+            margin-left: 76px;
+          }
+          p {
+            s {
+              color: #333;
+            }
+            span.linkman-email {
+              margin-left: 112px;
+            }
+          }
+          .search {
+            .input-wrapper {
+              position: relative;
+              margin-bottom: 15px;
+              input {
+                border: none;
+                width: 450px;
+                height: 30px;
+                border: 1px solid #ccc;
+                border-right: none;
+                padding: 0 10px;
+                color: #333;
+                font-size: 12px;
+                line-height: 28px;
+              }
+              em {
+                position: absolute;
+                width: 16px;
+                height: 16px;
+                background: url(/assets/imgs/sprite.png) no-repeat -136px -20px;
+                top: 6px;
+                right: 12px;
+                cursor: pointer;
+              }
+            }
+            a.btn-search {
+              display: block;
+              width: 110px;
+              height: 30px;
+              background-color: #333;
+              line-height: 30px;
+              text-decoration: none;
+              text-align: center;
+              color: #fff;
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+    /* 白名单管理之添加白名单弹层 end */
+  }
+  /* 白名单管理 by gfh end */
+  /* API调用数据报告 by gfh start */
+  .api-data-report {
+    .title {
+      .p-count {
+        margin-top: 7px;
+        margin-left: 32px;
+        font-size: 12px;
+        span {
+          color: #8a8a8a;
+        }
+        .t-blue {
+          color: #0065d1;
+          font-weight: 700;
+        }
+        .t-gray {
+          color: #333;
+          font-weight: 700;
+        }
+      }
+      a.add-btn {
+        em {
+          background: url(/assets/imgs/sprite.png) no-repeat -173px -145px;
+        }
+      }
+      .select-btn-wrapper {
+        margin-top: -5px;
+        a.add-btn {
+          width: 94px;
+          margin-left: 16px;
+        }
+        .selectBox {
+          width: 128px;
+          .selectOptions {
+            top: 32px;
+          }
+        }
+      }
+    }
+    .cnt-table {
+      tbody {
+        tr {
+          height: 54px;
+        }
+      }
+      .developer-id {
+        margin-left: 22px;
+        margin-right: 166px;
+      }
+      .p-success {
+        margin-left: 170px;
+        margin-right: 102px;
+        text-align: center;
+      }
+      .p-fail {
+        margin-right: 40px;
+        text-align: center;
+      }
+    }
+  }
+  /* API调用数据报告 by gfh end */
+  /* 指定接收对象弹层 start */
+  .sRT {
+    .content {
+      h3.tit {
+        font-size: 18px;
+        text-align: left;
+        line-height: 18px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #dfdfdf
+      }
+      a.clo {
+        top: 20px;
+        right: 20px;
+      }
+      .content-container {
+        .search-box {
+          border: 1px solid #ccc;
+          @include radius(3px);
+          margin: 20px 0 18px 0;
+          input {
+            width: 538px;
+            height: 28px;
+            line-height: 28px;
+            border: none;
+            padding: 0 10px;
+            @include radius(3px 0 0 3px);
+          }
+          a.search {
+            display: block;
+            width: 47px;
+            height: 28px;
+            border-left: 1px solid #ccc;
+            @include radius(0 3px 3px 0);
+            position: relative;
+            em {
+              position: absolute;
+              width: 17px;
+              height: 17px;
+              left: 17px;
+              top: 6px;
+              background: url(/assets/imgs/sprite.png) no-repeat -3px -118px;
+            }
+          }
+        }
+      }
+    }
+  }
+  /* 指定接收对象弹层 end */
+  /* 数据导出 by gfh start */
+  .data-output {
+    .select-area {
+      p {
+        margin-bottom: 10px;
+      }
+      .select-type {
+        margin-right: 28px;
+        .selectBox {
+          width: 230px;
+          height: 32px;
+          .selectOptions {
+            top: 32px;
+          }
+        }
+      }
+      .select-time {
+        .input-wrapper {
+          input {
+            width: 100px;
+            height: 30px;
+            padding: 0 0 0 5px;
+            font-size: 12px;
+            border: none;
+          }
+          div {
+            float: left;
+          }
+          .date {
+            margin: 0;
+          }
+          .dash {
+            line-height: 28px;
+          }
+          .input-out {
+            border: 1px solid #ddd;
+            position: relative;
+            span {
+              position: absolute;
+              width: 16px;
+              height: 14px;
+              top: 8px;
+              right: 6px;
+              background: url(/assets/imgs/sprite.png) no-repeat -78px -222px;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+    a.output {
+      display: block;
+      width: 108px;
+      height: 36px;
+      text-decoration: none;
+      text-align: center;
+      line-height: 36px;
+      font-size: 12px;
+      background-color: #0049ce;
+      color: #fff;
+      font-weight: 600;
+      margin-top: 30px;
+    }
+  }
+  /* 数据导出 by gfh end */
+  /* 物流服务信息 by gfh start */
+  .logistics-service-info {
+    .cnt-table {
+      tbody {
+        tr {
+          height: 58px;
+          p,
+          li {
+            line-height: 26px;
+          }
+          li.cur {
+            color: #0062d4;
+            font-weight: 600;
+          }
+          a.cur {
+            color: #0062d4;
+          }
+          ul {
+            padding: 7px 0;
+          }
+        }
+      }
+      .p-logis-id {
+        margin: 0 82px 0 14px;
+      }
+      .p-logis-date {
+        margin: 0 150px 0 136px;
+      }
+      .p-logis-dcpt {
+        margin-right: 110px;
+      }
+    }
+  }
+  /* 物流服务信息 by gfh end */
+  /* 物流服务信息描述 by gfh start */
+  .logistics-service-info-detail {
+    table {
+      font-size: 12px;
+      margin-bottom: 40px;
+      thead {
+        tr {
+          height: 36px;
+          font-weight: 700;
+        }
+      }
+      .logis-sev-name {
+        margin: 0 104px 0 54px;
+      }
+    }
+    .context-wrapper {
+      font-size: 12px;
+      h4 {
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+      .context {
+        min-height: 600px;
+        padding: 20px;
+        font-size: 12px;
+        line-height: 18px;
+        background-color: #eee;
+        p {
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+  /* 物流服务信息描述 by gfh end */
+  /* IS账号管理弹出层调整样式 by gfh start */
+  .setaccount {
+    .content-container {
+      .setaccount-title {
+        line-height: 18px;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+      }
+      .isPrimaryAccount {
+        font-weight: 700;
+      }
+    }
+    .content {
+      .close {
+        top: 20px;
+        right: 20px;
+      }
+    }
+  }
+  /* IS账号管理弹出层调整样式 by gfh end */
+  /* 管理员管理之添加管理员弹层样式调整 by gfh start */
+  .addAdmin {
+    .content {
+      .addAdTit {
+        margin: 0 0 30px 0;
+        padding-bottom: 20px;
+        font-size: 18px;
+        line-height: 18px;
+        border-bottom: 1px solid #ddd;
+      }
+      .juriList {
+        margin: 0;
+      }
+    }
+  }
+  /* 管理员管理之添加管理员弹层样式调整 by gfh end */
+  //物流文章管理
+  .admin-manager-page {
+    .popup.addAdmin {
+      display: block;
+    }
+    .Tit h2 {
+      font-size: 18px;
+      line-height: 34px;
+      color: #333333;
+      display: inline-block;
+      font-weight: bold;
+    }
+    .Tit .addAdmin {
+      width: 134px;
+      height: 32px;
+      line-height: 32px;
+      float: right;
+      text-decoration: none;
+      font-size: 12px;
+      display: inline-block;
+      border: 1px solid #dddddd;
+      text-align: center;
+      position: relative;
+      ;
+      background: -moz-linear-gradient(top, #fdfeff 0%, #e8f3ff 100%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fdfeff), color-stop(100%, #e8f3ff));
+      background: -webkit-linear-gradient(top, #fdfeff 0%, #e8f3ff 100%);
+      background: -o-linear-gradient(top, #fdfeff 0%, #e8f3ff 100%);
+      background: -ms-linear-gradient(top, #fdfeff 0%, #e8f3ff 100%);
+      background: linear-gradient(to bottom, #fdfeff 0%, #e8f3ff 100%);
+      .cricle {
+        width: 15px;
+        height: 15px;
+        display: inline-block;
+        @include sprite;
+        background-position: -211px -20px;
+        ;
+        position: relative;
+        left: 0;
+        top: 0;
+        margin-right: 8px;
+      }
+    }
+    table {
+      border: 1px solid #dfdfdf;
+      margin-top: 20px;
+    }
+    table tr th {
+      background: #f7f7f7;
+      padding: 10px 0;
+      font-weight: bold;
+      font-size: 12px;
+    }
+    table .wNo1 {
+      text-align: center;
+    }
+    table .wNo1 {
+      width: 36px;
+    }
+    table .wNo2 {
+      width: 328px;
+    }
+    table .wNo3 {
+      width: 168px;
+    }
+    table .wNo4 {
+      width: 204px;
+    }
+    table .wNo5 {
+      width: 147px;
+    }
+    table tr td {
+      padding: 18px 0;
+      border-top: 1px solid #dfdfdf;
+      position: relative;
+      font-size: 12px;
+    }
+    table tr td i {
+      width: 15px;
+      height: 15px;
+      position: absolute;
+      left: 10px;
+      display: inline-block;
+      @include sprite;
+    }
+    table tr td i.icon {
+      background-position: -106px 0;
+    }
+    table tr.cur td i.icon {
+      background-position: -122px 0;
+    }
+    table tr td.operation a {
+      margin-right: 15px;
+    }
+    table tr td.operation a.tdExit {
+      color: #0062d4;
+    }
+    table tr td.operation a.tdDisable {
+      color: #333333;
+    }
+    table tr td.operation a.tdDelete {
+      color: #999999;
+    }
+  }
+  .admin-is-page {
+    .popup.setaccount {
+      display: block;
+    }
+    .Tit {
+      h2 {
+        font-size: 18px;
+        line-height: 32px;
+        color: #333333;
+        display: inline-block;
+        font-weight: bold;
+      }
+      .accSearch {
+        float: right;
+        width: 462px;
+        border-left: none;
+        line-height: normal;
+        position: relative;
+        .logistics {
+          cursor: pointer;
+          position: relative;
+          width: 85px;
+          height: 32px;
+          /*padding-left: 12px;*/
+          border: 1px solid #dfdfdf;
+          border-left-top-radius: 5px;
+          border-left-bottom-radius: 5px;
+          span {
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            font-size: 12px;
+            display: inline-block;
+            background: #fdfdfd;
+          }
+          .bottom {
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            margin-top: -2px;
+            z-index: 2;
+            border: none;
+            .bottom-arrow1,
+            .bottom-arrow2 {
+              width: 0;
+              height: 0;
+              display: block;
+              position: absolute;
+              left: 0;
+              top: 0;
+              z-index: 5;
+              border-bottom: 5px transparent dashed;
+              border-left: 5px transparent dashed;
+              border-right: 5px transparent dashed;
+              border-top: 5px white solid;
+              overflow: hidden;
+            }
+            .bottom-arrow1 {
+              top: 1px;
+              border-top: 5px #787878 solid;
+            }
+            .bottom-arrow2 {
+              border-top: 5px white solid;
+            }
+          }
+        }
+        .groupInput {
+          width: 324px;
+          height: 32px;
+          line-height: 32px;
+          border: none;
+          border-top: 1px solid #dfdfdf;
+          border-bottom: 1px solid #dfdfdf;
+          padding: 0 10px;
+        }
+        .selectOptions{top:32px;}
+        .selectVal{border:transparent;}
+        .logisticsList {
+          display: none;
+          cursor: pointer;
+          position: absolute;
+          top: 32px;
+          width: 75px;
+          height: auto;
+          z-index: 9;
+          text-align: center;
+          a {
+            width: 98%;
+            background: #fff;
+            height: 30px;
+            line-height: 30px;
+            text-decoration: none;
+            ;
+            border: 1px solid #dfdfdf;
+            border-bottom: none;
+            display: inline-block
+          }
+          a:first-child {
+            border-top: none;
+          }
+          a:last-child {
+            border-bottom: 1px solid #dfdfdf;
+          }
+        }
+        &>a.icon {
+          text-align: center;
+          width: 50px;
+          height: 30px;
+          position: relative;
+          background: #fdfdfd;
+          border: 1px solid #dfdfdf;
+          border-right-top-radius: 5px;
+          border-right-bottom-radius: 5px;
+        }
+        &>.icon:before {
+          @include sprite;
+          width: 25px;
+          height: 25px;
+          padding-top: 3px;
+          background-position: 0 -112px;
+        }
+      }
+    }
+
+    table {
+      border: 1px solid #dfdfdf;
+      margin-top: 20px;
+    }
+    table tr th {
+      background: #f7f7f7;
+      padding: 10px 0;
+      font-weight: bold;
+      font-size: 12px;
+    }
+    table .wNo1,
+    table .wNo3 {
+      text-align: center;
+    }
+    table .wNo1 {
+      width: 36px;
+    }
+    table .wNo2 {
+      width: 150px;
+      padding-left: 20px;
+    }
+    table .wNo3 {
+      width: 330px;
+    }
+    table .wNo4 {
+      width: 133px;
+    }
+    table tr td {
+      padding: 18px 0;
+      border-top: 1px solid #dfdfdf;
+      position: relative;
+      font-size: 12px;
+    }
+    table tr td i {
+      width: 15px;
+      height: 15px;
+      position: absolute;
+      left: 10px;
+      top: 17px;
+      display: inline-block;
+      @include sprite;
+    }
+    table tr td i.icon {
+      background-position: -106px 0;
+    }
+    table tr.cur td i.icon {
+      background-position: -122px 0;
+    }
+    table tr td a.tdExitJur {
+      color: #0062d4;
+    }
+  }
+  .ad-slot-management {
+    .popup {
+      &.add-ad-slot {
+        .error-message {
+          color: #e42e35;
+          position: absolute;
+          top: 60px;
+          left: 20px;
+        }
+        .button-area {
+          input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 109px;
+            height: 63px;
+            opacity: 0;
+            cursor: pointer;
+          }
+        }
+        
+        .thu {
+          width: 270px;
+          height: 103px;
+          overflow: hidden;
+          margin-left: 30px;
+          img {
+            width: 100%
+          }
+        }
+        .input-group {
+          position: relative;
+          em {
+            @include sprite;
+            display: none;
+            width: 16px;
+            height: 16px;
+            background-position: 0 0;
+            position: absolute;
+            right: 5px;
+            top: 7px;
+          }
+        }
+        .section input {
+          border: 1px solid #dfdfdf;
+          padding: 0 25px 0 10px;
+        }
+        .error {
+          input,
+          a.add-pic {
+            border-color: #e42e35
+          }
+          em {
+            display: block;
+          }
+        }
+        .button-area.error{ 
+          .add-pic{border: #ff5f00 1px solid;}
+        }
+      }
+    }
+  }
+  .logistics-article-management-edit {
+    .error {
+      border-color: #e42e35;
+    }
+  }
+  .station-letter-management-readonly{
+    .input-wrapper input:disabled{
+      background-color:rgba(0,0,0,0);
+    }
+    .article-content{
+      .textarea{width: 100%; min-height: 220px;height: 240px;resize: none;display: block;
+        border: 1px solid #CCCCCC;
+        background-color: #FFF;
+        overflow: auto;
+        margin: 0;
+        padding: 5px;margin-bottom:20px;}
+    }
+
+  }
+  
+}
+
+.page.station-letter-management,
+.page.logistics-article-management,
+.page.development-guide{
+  .p-title{width:400px;}
+}
+.fileerror{color:#e42e35;padding:5px 0;}

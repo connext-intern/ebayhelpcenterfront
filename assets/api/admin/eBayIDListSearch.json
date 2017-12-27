@@ -1,0 +1,70 @@
+﻿{
+    "code": "00",
+    "message": "查询绑定ebayId列表接口",
+    "result": [
+        {
+            "ebayId": "eBay.management.com.cn1",
+            "eiasToken": 1
+        },
+        {
+            "ebayId": "eBay.management.com.cn1",
+            "eiasToken": 2
+        },
+        {
+            "ebayId": "eBay.management.com.cn2",
+            "eiasToken": 3
+        },
+        {
+            "ebayId": "eBay.management.com.cn3",
+            "eiasToken": 4
+        },
+        {
+            "ebayId": "eBay.management.com.cn4",
+            "eiasToken": 5
+        },
+        {
+            "ebayId": "eBay.management.com.cn5",
+            "eiasToken": 6
+        },
+        {
+            "ebayId": "eBay.management.com.cn6",
+            "eiasToken": 7
+        },
+        {
+            "ebayId": "eBay.management.com.cn8",
+            "eiasToken": 8
+        },
+        {
+            "ebayId": "eBay.management.com.cn9",
+            "eiasToken": 9
+        },
+        {
+            "ebayId": "eBay.management.com.cn11",
+            "eiasToken": 11
+        },
+        {
+            "ebayId": "eBay.management.com.cn12",
+            "eiasToken": 12
+        },
+        {
+            "ebayId": "eBay.management.com.cn13",
+            "eiasToken": 13
+        },
+        {
+            "ebayId": "eBay.management.com.cn14",
+            "eiasToken": 14
+        },
+        {
+            "ebayId": "eBay.management.com.cn15",
+            "eiasToken": 15
+        },
+        {
+            "ebayId": "eBay.management.com.cn16",
+            "eiasToken": 16
+        },
+        {
+            "ebayId": "eBay.management.com.cn17",
+            "eiasToken": 17
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+﻿{
+    "code": "00",
+    "message": "文章详情查询接口",
+    "result": {
+        "articleId": "文章id",
+        "articleType": "policy",
+        "articleTitle": "运输配送业务管理方案运输配送业务管理方案",
+        "articleText": "<p>文章内容</p>",
+        "notice": false,
+        "newIs":false,
+        "uploadTime": "2017/08/27 19:00:00"
+    }
+}

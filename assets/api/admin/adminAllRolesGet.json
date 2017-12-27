@@ -1,0 +1,56 @@
+﻿{
+    "code": "00",
+    "message": "获取所有权限列表的接口",
+    "result": [
+        {
+            "level": "2",
+            "code": "banner",
+            "value": "广告位管理"
+        },
+        {
+            "level": "3",
+            "code": "text",
+            "value": "文章管理"
+        },
+        {
+            "level": "2",
+            "code": "whiteList",
+            "value": "白名单管理"
+        },
+        {
+            "level": "2",
+            "code": "message",
+            "value": "站内信管理"
+        },
+        {
+            "level": "3",
+            "code": "devText",
+            "value": "开发指南管理"
+        },
+        {
+            "level": "3",
+            "code": "apiDocument",
+            "value": "api文档管理"
+        },
+        {
+            "level": "3",
+            "code": "sdk",
+            "value": "sdk管理"
+        },
+        {
+            "level": "3",
+            "code": "apiUse",
+            "value": "api调用报告"
+        },
+        {
+            "level": "4",
+            "code": "DateExport",
+            "value": "数据导出"
+        },
+        {
+            "level": "5",
+            "code": "logistics",
+            "value": "物流服务"
+        }
+    ]
+}

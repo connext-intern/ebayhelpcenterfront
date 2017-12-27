@@ -1,0 +1,265 @@
+header{position:relative;z-index:999}
+header.header-account{
+  background-color:#f7f7f7;height:70px;width:100%;padding:17.5px 0;
+  .header-content{
+    @include container;position:relative;
+    ul.navbar{list-style: none;
+      li{float:left;padding:0 10px;position:relative;
+        &.language::before{@include sprite;width:16px;height:16px;background-position: -53px 0;margin-right:9px;position:relative;top:8px;margin-bottom:12px}
+        a{font-size:12px;display:inline-block;line-height:35px;color:$textcolor;text-decoration: none;
+          &.dropdown::after{@include sprite;width:9px;height:7px;background-position: -73px -5px;margin-left:14px;position:absolute;top:12px;right:15px;}
+        }
+        a.dropdown{position:absolute;top:0;left:0;width:122px;text-align:center}
+      }
+      li.language{position:absolute;top:0;right:0;border: 1px solid #f7f7f7;width:124px;}
+      li.language.cur{
+        border-color:#dfdfdf;background-color:#fff;
+        a.dropdown{border-bottom: 1px solid #dfdfdf;}
+        a.dropdown:after{background-position: -235px -5px;}
+        .dropdown-menu{display:block}
+      }
+    }
+    ul.dropdown-menu{
+      text-align: center;margin-top:5px;display:none;
+      li{float:none;border-bottom: 1px solid #dfdfdf;margin:0 10px;}
+      li:last-child{border-bottom:none;}
+    }
+    .logo{
+       width:86px;height:35px;
+       img{width:100%;height:auto;}
+    }
+  }
+}
+header.header-personal,header.header-admin{
+  background-color:#fff;height:50px;width:100%;border-bottom:1px solid #f0f0f0;
+  .header-content{min-width: 1250px;
+    .logo{margin-left:5px;padding-top:8px;
+      a{cursor: pointer;font-size:14px;height:35px;line-height: 35px;display:inline-block;float:left;padding:0 15px 5px 15px;margin:0 5px; text-decoration:none;}
+      .img{padding-right:10px;margin:0;margin-left:5px;}
+        .system{font-size:18px;padding:0 20px 8px 0;margi:0 20px 0 0;}
+      .order-management.cur{
+        color:#0065d1;font-weight:bold; border-bottom: 2px solid #0065d1;
+      }
+      .help-center{
+        border: 1px solid #fff;display:inline-block;position:relative;font-size:14px;height:50px;line-height: 48px;padding:0 15px 8px 15px;margin:0 5px; margin-top: -8px; border-bottom: none;
+        .title{cursor: pointer;padding:0 14px;}
+        .title.cur{border-bottom:2px solid #0065d1;color:#0065d1;font-weight: bold;}
+        .list{
+          display:none;position:absolute;top:48px;left:0;background: #fff;border: 1px solid #dfdfdf;margin:0 -1px; width: 127px; padding: 8px 6px; 
+          a{font-size:12px;text-align: left;padding:0;margin:0;display:block;width:100%; text-indent: 23px;}
+          a:last-child{border-bottom: none;}
+          a:hover{background:#e6eef7;color:#0065d1}
+        }
+        &::after{content:''; position: absolute; width: 115px; height: 1px; background: #fff; bottom: -1px; left: 0; display: none;}
+        &.cur::after{display: block;}
+        &.cur{
+          border-color:#dfdfdf;border-bottom: 1px solid #dfdfdf;
+          .list{display:block; }
+        }
+      }
+    }
+    ul.right{font-size:14px;
+        li {float: left; position: relative;display: inline-block;width: 60px;
+          height: 50px;line-height: 50px;border-left: 1px solid #f0f0f0;
+          a { width: 100%; height: 100%;display: block;
+            &:before { position: absolute;top: 50%;left: 50%;margin-top: -12.5px;margin-left: -12.5px; }
+          }
+          &.border { border: none;}
+          .languageInfo {position: relative;right: 24px;display: none; border: 1px solid #dfdfdf;margin: 0 -25px;border-top: none; background: #fff;z-index:1;
+            a {text-decoration: none;text-align: center;display: block;height: 40px;line-height: 40px;border-bottom: 1px solid #dfdfdf;position:relative;z-index:1}
+            a.cur {background: #e6eef7; color: #0065d1;}
+            a:last-child {border-bottom: none;}
+            &:before {content: "";position: absolute;width: 60px;height: 1px;background: #fff; top: -1px; right: 0; }
+          }
+          &.userName.cur{
+            .userInfo{display:block}
+          }
+          &.userName { width: 230px;border: none;position: relative;color: #fff;
+            .userTit {
+              cursor: pointer;width: 100%;height: 100%;background: #0065d1;color: #fff;padding-left: 40px; position: relative;
+              span { padding:3px 5px;margin-left:3px; width:50px; text-align: center; height: 17px;line-height: 18px;font-size: 12px;display: inline-block;border-radius: 18px;}
+              span.no { background: #e32930;}
+              span.cur {background: #82b511;}
+              span.in {background: #7eb801;}
+              .acountUser {font-style: normal;position: relative;top: 10px;overflow: hidden;width: 95px; height: 30px;line-height: 30px;display: inline-block;text-overflow: ellipsis;white-space: nowrap; }
+              .acountUser.sub{width:158px;}
+            }
+
+            .userInfo {display: none; width:290px;height: auto;position: absolute;padding-bottom:20px;left: -60px;top: 50px;background: #fff;text-align: center; border: 1px solid #dfdfdf;border-top:none;
+              /*&::before{@include arrow;top:-13px;left:15px;content:'';
+                border-left:12px solid transparent;border-right:12px solid transparent;
+               border-bottom:14px solid #fff;
+               }*/
+                &.verify{padding-bottom:0;}
+              .close {
+                cursor: pointer;width: 15px; height: 15px;display: inline-block;position: absolute;right: 15px; top: 0;
+                &:before {@include sprite;width: 15px;height: 15px; background-position: -4px -25px;
+                }
+              }
+              .userContent {
+                padding: 20px 10px 0px;
+                .useHhead {
+                  width: 50px;height: 50px;display: inline-block;position: relative;
+                  &:before { @include sprite;width: 50px;display: inline-block;height: 50px;background-position: 0px -171px;border-radius: 25px;-webkit-border-radius: 27.5px;-moz-border-radius: 27.5px;}
+                  p {
+                    position: absolute; width: 50px;height: 50px; top: -3px;
+                    img { width: 100%;border-radius: 27.5px;-webkit-border-radius: 27.5px; -moz-border-radius: 27.5px;}
+                  }
+                }
+                .accountType {
+                  margin-right: 10px;width:96%;font-size: 13px;margin-left: 13px;
+                  p {line-height: 20px; text-align: left; height: 28px;overflow: hidden;white-space: nowrap;
+                    &:first-child {font-weight: bold;}
+                    span { text-align: left;margin-left: 0;color: #888888;}
+                      a{text-decoration: none;padding:5px 0;}
+                    //个人账户
+                    .accountDiff.pre { color: #81b722; }
+                    //企业
+                    .accountDiff.company {color: #81b722; }
+                  }
+                }
+              }
+              .btnExit { height: 30px;line-height: 30px; position: relative;margin:20px 0;}
+              .btnExit i {width: 180px;height: 1px;position: absolute;left:22px;top: 50%; background: #f0f0f0;display: inline-block; text-align: left; }
+              .btnExit a.exit {width: auto;height: auto;position: absolute;right: 36px;color: #666666;cursor: pointer;}
+              .btnExit a.exit:hover {color: #0065d1;}
+              .timelyCert {line-height: 20px;height: 20px;font-size: 12px;}
+              //个人账户
+              .yellow {position:relative;text-align: left;text-align: left; font-weight: 700; border: 1px solid #ff9000; width: 240px;height: 35px;line-height: 35px;display: inline-block;background: #fff2d7;color: #ff9000;text-decoration: none;
+                &::before{@include sprite;position:relative;top:auto;left:auto;margin:auto;width:18px;height:18px;background-position: -56px -245px;margin-left: 11px;margin-right: 16px;}
+                &::after{@include sprite;width:4px;height:8px;right:12px;background-position: -124px -149px;position: absolute;top:50%;margin-top:-4px;}
+              }
+              //未认证
+              .powder {position:relative;text-align: left;border: 1px solid #e63e44;width: 240px; height: 35px;line-height: 35px; display: inline-block;background: #fcf0e8;color: #e63e44;text-decoration: none;
+                &::before{@include sprite;position:relative;top:auto;left:auto;margin:auto;width:18px;height:18px;background-position: -28px -245px;margin-left: 11px;margin-right: 16px;}
+                &::after{@include sprite;width:4px;height:8px;right:12px;background-position: -124px -149px;position: absolute;top:50%;margin-top:-4px;}
+              }
+              //企业
+              .blue {text-align: left;font-weight: 700;border: 1px solid #0065d1;width: 240px; height: 35px;line-height: 35px;display: inline-block;background: #ecf5ff;color: #0065d1;text-decoration: none;}
+              .green{position:relative;text-align: left;font-weight: 700;border: 1px solid #c6e1fe;width: 240px; height: 35px;line-height: 35px;display: inline-block;background: #ecf4ff;color: #0065d1;text-decoration: none;
+                &::before{@include sprite;position:relative;top:auto;left:auto;margin:auto;width:18px;height:18px;background-position: -2px -245px;margin-left: 11px;margin-right: 16px;}
+                &::after{@include sprite;width:4px;height:8px;right:12px;background-position: -124px -149px;position: absolute;top:50%;margin-top:-4px;}
+              }
+              .user-preferences{position:relative;text-align: left;font-weight: 700;border: 1px solid #dfdfdf;width: 240px; height: 35px;line-height: 35px;display: inline-block;background: #fff;color: #222222;text-decoration: none;
+                &::before{@include sprite;position:relative;top:auto;left:auto;margin:auto;width:18px;height:18px;background-position:-131px -117px;margin-left: 11px;margin-right: 16px;}
+                &::after{@include sprite;width:4px;height:8px;right:12px;background-position: -124px -149px;position: absolute;top:50%;margin-top:-4px;}
+              }
+              .lockInfo {display:inline-block;width:auto;font-size:12px; vertical-align: top; height: 20px;line-height: 20px;color: #666666;text-decoration: underline !important;padding: 0 15px !important;}
+              .lockInfo:hover{color:#0048ce;}
+                .view-user-info{height:26px;line-height:25px;font-size:12px;vertical-align: top; display:inline-block;width:auto;color:#666;padding:8px 4px;}
+                .view-user-info:hover{color:#0048ce;}
+            }
+
+            &:before { @include sprite;position: absolute;width: 25px; height: 25px;left:15px;top: 50%; z-index: 2;margin-top: -12.5px;background-position: -90px -114px;}
+            &.userName a.dropdown { width: auto;height: auto;}
+            & .dropdown:after {@include sprite;position: absolute;top: 50%;margin-top: -5px;right:15px;width: 10px;height: 10px;background-position: -137px -153px;}
+            & .dropdown.top:after{ background-position: -137px -153px;}
+
+          }
+        }
+      li.search{width:348px;border-left:none;line-height: normal;margin-right: 15px;padding-top: 8px;position:relative;
+        .logistics{cursor:pointer;position:relative;width:75px;height:32px;border:1px solid #dfdfdf;border-left-top-radius: 5px;border-left-bottom-radius: 5px;
+          .selectBox{
+            width:75px;
+            .selectVal{
+              border: none;padding:0;padding-left:6px;
+              &:after{right:9px;}
+            }
+            .selectOptions{
+              top:31px;left:-1px;
+              li{float: none;width:100%;height:30px;line-height:30px;}
+            }
+          }
+          span{width:100%;height:30px;line-height:30px;font-size:12px;display: inline-block;background:#fdfdfd; }
+              .bottom{width:10px; height:10px;position:absolute;right:8px;top:50%;margin-top: -2px;
+                z-index: 2;border:none;
+                .bottom-arrow1,.bottom-arrow2{width:0; height:0; display:block; position:absolute;left:0;
+                  top:0;z-index: 5;border-bottom:5px transparent dashed; border-left:5px transparent dashed;
+                  border-right:5px transparent dashed;border-top:5px white solid; overflow:hidden;
+                }
+                .bottom-arrow1{top:1px; border-top:5px #787878 solid; }
+                .bottom-arrow2{border-top:5px white solid;}
+              }
+        }
+        .groupInput{width:220px;height:32px;line-height: 32px;border:none;border-top:1px solid #dfdfdf;border-bottom:1px solid #dfdfdf;padding:0 10px;}
+        .logisticsList{display:none;cursor:pointer;position:absolute;top:42px;width:75px;height:30px;line-height: 30px;text-align: center;
+            a{width:100%;background:#fff;text-decoration: none;;border:1px solid #dfdfdf;border-bottom:none;display:inline-block}
+            a:first-child{border-top:none;}
+            a:last-child{border-bottom:1px solid #dfdfdf;}
+        }
+      }
+      li.search a.icon{width:50px;height:30px;position:relative;background:#fdfdfd;border:1px solid #dfdfdf;border-right-top-radius: 5px;border-right-bottom-radius: 5px;}
+      li.search .icon:before{@include sprite;width:25px;height:25px;background-position:0 -114px;}
+      li.information .icon:before{@include sprite;width:25px;height:25px;background-position:-59px -116px;}
+      li.information .icon:hover:before{background-position:-76px -142px;}
+      li.information .icon{
+        span{display:block;font-size:10px;color:#fff;text-align:center;border-radius:10px;position:absolute;width:10px;height:10px;background:#e32930;line-height:12px;display:inline-block;top:10px;right:18px;}
+      }
+      li.language .icon:before{@include sprite;width:25px;height:25px;background-position:-28px -117px;}
+      li.language .icon:hover:before{background-position:-49px -142px;}
+      li.language.cur{
+        .languageInfo{
+          display:block;
+          &.first:before{display:none;}
+        }
+      }
+      //li.exit .icon{width:100%;background:#0059b8;color:#fff;text-align: center;border:none;text-decoration: none;}
+      li.setUp .icon{background:#333333;border:none}
+      li.setUp .icon:before{@include sprite;width:20px;height:20px;background-position:-131px -117px;margin-left: -10px;margin-top:-10px;}
+    }
+  }
+}
+//admin
+header{
+      &.header-admin{
+            height:50px;background:#ffffff;@include shadow(0px 0px 5px rgba(0,0,0,.2));border-bottom: none;position:relative;
+              &:before{width:9px;height:50px;background:#0062d4;content:'';position:absolute;top:0;left:0}
+              .loginout{
+                  background:#0062d4;
+                  a{
+                      color:#fff;text-decoration: none;text-align:center;
+                  }
+              }
+              .header-content ul.right li.userName{
+                  border-left: 1px solid #dfdfdf;
+                  .userTit{
+                      background:#fff;color:#333;cursor: default;
+                      .acountUser{width:180px;}
+                  }
+              }
+            .header-content{
+              ul.right{
+                li.userName{
+                  &:before{  background-position: -2px -241px;}
+                }
+              }
+            }
+      }
+}
+/*development*/
+header.header-development{
+  background-color:#333333;height:55px;width:100%;padding:12px 0;min-width: 1200px;
+  .header-content{width:1200px;margin: 0 auto;
+    .logo{
+        .logisticsPlatform{font-size:20px;color:#aaaaaa;text-decoration: none;position: relative;top:2px;}
+    }
+    .right{
+        li {
+          font-size: 14px;line-height: 35px;
+          a {cursor:pointer;color: #aaaaaa;padding:0 30px;border-right:1px dashed #aaaaaa;text-decoration: none;}
+          &.cur>a{color: #fff;}
+          &:last-child>a{border-right:none;}
+        }
+    }
+  }
+}
+/*header-admin-forgetPsd*/
+header.header-admin-forgetPsd{
+    .header-content{
+        .logo {margin-left: 5px;padding-top: 8px;
+        a { cursor: pointer;font-size: 14px; height: 35px;line-height: 35px;display: inline-block;
+          float: left; padding: 0 15px 8px 15px;margin: 0 5px; text-decoration: none; }
+          .system { font-size: 18px;padding: 0 20px 8px 0;}
+        }
+    }
+}

@@ -1,0 +1,42 @@
+// radio add by gena
+.js-checkbox{
+    position: relative;cursor: pointer;
+    font-size:12px;
+    &::before{
+        @include sprite;margin-right:11px;
+        background-position: -106px 0; width: 14px; height: 14px; display:inline-block;vertical-align: middle;
+     }
+     &.cur{
+       &::before{background-position: -122px 0;}
+     }
+     &.disabled{
+       &::before{background-position: -217px 0;}
+     }
+}
+
+.js-radio{
+    position: relative;cursor: pointer;
+    font-size:12px;
+    &::before{
+        @include sprite;margin-right:11px;
+        background-position: -18px 0; width: 15px; height: 15px;display:inline-block;vertical-align: middle; position:relative;left:0;top:-2px;
+     }
+     &.cur{
+       &::before{background-position: -35px 0;}
+     }
+}
+
+.checkBox.basic{
+  .radio{
+    position: relative;
+    &::after{@include sprite; background-position:-106px 0; width: 14px; height: 14px; position: absolute; top: 0px; left: 0;}
+    &.cur::after{background-position: -122px 0;}
+  }
+}
+.checkBox.circle{
+  .radio{
+    position: relative;
+    &::after{@include sprite; background-position:-18px 0; width: 15px; height: 15px; position: absolute; top: 0px; left: 0;}
+    &.cur::after{background-position: -35px 0;}
+  }
+}

@@ -1,0 +1,74 @@
+<div class='popup popup-apply-third-developer' v-show="pop.openPopApplyThirdDeveloper">
+    <div class='mask'></div>
+    <div class='content-container'>
+        <div class="title">
+            <em class="close" v-on:click="pop.openPopApplyThirdDeveloper=0;"></em>
+            <span lg="required"></span>
+            <h2 lg="applyThirdPartyDeveloper"></h2>
+        </div>
+        <p class="error-message" v-if="erroMsg.apply" lg="errorMessage"></p>
+        <ul class="box">
+            <li class="developer-id input-group">
+                <p><label lg="thirdPartyDeveloperID"></label></p>
+                <p class="id">{{applyDeveloperID.developerId}}</p>
+            </li>
+            <li class="cf">
+                <div class="fl name">
+                    <p class="label"><label lg="contactName"></label><em>*</em></p>
+                    <p class="input-group">
+                        <input type="text" data-title="err1" data-reg="requied" v-on:input="onInput($event,'apply');" />
+                        <em></em>
+                    </p>
+                </div>
+                <div class="fl phone">
+                    <p class="label"><label lg="contactPhone"></label><em>*</em></p>
+                    <p class="input-group">
+                        <input type="text" data-title="err5" data-reg="tel" v-on:input="onInput($event,'apply');" />
+                        <em></em>
+                    </p>
+                </div>
+            </li>
+            <li class="email">
+                <p class="label"><label lg="contactEmail"></label><em>*</em></p>
+                <p class="input-group">
+                    <input type="text" data-title="err6" data-reg="email" v-on:input="onInput($event,'apply');" />
+                    <em></em>
+                </p>
+            </li>
+            <li class="cf">
+                <div class="company-name fl">
+                    <p class="label"><label lg="companyName"></label><em>*</em></p>
+                    <p class="input-group">
+                        <input type="text" data-title="err1" data-reg="requied" v-on:input="onInput($event,'apply');" />
+                        <em></em>
+                    </p>
+                </div>
+                <div class="app-name fl">
+                    <p class="label"><label lg="appName"></label><em>*</em></p>
+                    <p class="input-group">
+                        <input type="text" data-title="err1" data-reg="requied" v-on:input="onInput($event,'apply');" />
+                        <em></em>
+                    </p>
+                </div>
+            </li>
+            <li class="app-link">
+                <p class="label"><label lg="applicationLink"></label><em>*</em></p>
+                <p class="input-group">
+                    <input type="text" data-title="err1" data-reg="requied" v-on:input="onInput($event,'apply');" />
+                    <em></em>
+                </p>
+            </li>
+            <li class="app-des">
+                <p class="label"><label lg="appDes"></label><em>*</em></p>
+                <p class="input-group">
+                    <textarea data-reg="requied" data-title="err1" v-on:input="onInput($event,'apply');"></textarea>
+                    <em></em>
+                </p>
+            </li>
+        </ul>
+        <div class="btn-container">
+            <button class="btn confirm" lg="sendApplication" v-on:click="applyThirdPartyDeveloper($event);"></button>
+            <button class="btn cancel" lg="cancel" v-on:click="pop.openPopApplyThirdDeveloper=0;"></button>
+        </div>
+    </div>
+</div>

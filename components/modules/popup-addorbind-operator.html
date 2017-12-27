@@ -1,0 +1,63 @@
+<!--添加或绑定eBayID add by gena-->
+<div class='popup setaccount operator-manager' v-show="operator">
+    <div class='mask'></div>
+    <div class='content'>
+        <a href='javascript:;' class='close sprite' v-on:click="operator=0;"></a>
+        <div class='content-container'>
+            <!--subuser-add-->
+            <template>
+                <h3 v-if="operator==1" class="setaccount-title" lg="subuser-add"></h3>
+                <h3 v-else-if="operator==2" class="setaccount-title" lg="bindid-title"></h3>
+            </template>
+            <div class="errorMsg" lg="errorMessage" style="top:10px;" v-show="hasError()"></div>
+            <div class="navbar cf">
+                <p class="navbar-email required" v-bind:class="isClickSave&&errors.userName?'error':''">
+                    <span><b lg="email"></b><em class="red">*</em></span>
+                    <template v-if="operator==1">
+                        <input type="text" v-bind:readonly="operator==5?true:false" v-model="operatorEntity.userName" />
+                    </template>
+                    <template v-if="operator==2">
+                        <input type="text" v-bind:readonly="operator==5?true:false" v-model="operatorEntity.userName" disabled="disabled"/>
+                    </template>
+                </p>
+                <p class="navbar-account required" v-bind:class="isClickSave&&errors.name?'error':''">
+                    <span><b lg="subaccount-name"></b><em class="red">*</em></span>
+                    <input type="text" v-model="operatorEntity.name" />
+                </p>
+                <p class="navbar-department">
+                    <span lg="department"></span>
+                    <input type="text" v-model="operatorEntity.department" />
+                </p>
+            </div>
+            <div class="setaccout-content cf">
+                <div class="setting setaccount-left fl">
+                    <ul class="setting-navbar cf">
+                        <li v-on:click="switch_ebaylist(0)">
+                            <a v-bind:class="is_show_all_eBayID?'':'cur'" href="javascript:;" lg="unbind-subuseraccount"></a>
+                        </li>
+                        <li v-on:click="switch_ebaylist(1)">
+                            <a v-bind:class="is_show_all_eBayID?'cur':''" href="javascript:;" lg="all-ebayid"></a>
+                        </li>
+                    </ul>
+                    <div class="scrollBlock checkBox multi">
+                        <div v-show="!is_show_all_eBayID" class="js-checkbox radio" :class="{'cur':item.isbinded}" v-on:click="setActive(item,index)"
+                            v-for="(item,index) in unselectedbaylist">{{item.ebayId}}</div>
+                        <div v-show="is_show_all_eBayID" class="js-checkbox radio" :class="{'cur':item.isbinded}" v-on:click="setActive(item,index)"
+                            v-for="(item,index) in list_ebay">{{item.ebayId}}</div>
+                    </div>
+                </div>
+                <div class="setting setaccount-center">
+                </div>
+                <div class="setting setaccount-right fl">
+                    <h4><span lg="selected-ebayid"></span><span class="bold" lg="dbclick-to-remove"></span></h4>
+                    <div class="scrollBlock checkBox multi">
+                        <div class="js-checkbox disabled radio" v-for="(item,index) in selectedbaylist" v-on:dblclick="setDisabled(item)">{{item.ebayId}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="btns">
+                <a class="btn reset" v-on:click="reset" lg="reset-data" href="javascript:;"></a>
+                <a class="btn save" v-on:click="save_subuser" href="javascript:;" lg="save"></a>
+            </div>
+        </div>
+    </div>

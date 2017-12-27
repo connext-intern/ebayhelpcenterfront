@@ -1,0 +1,45 @@
+<!-- 添加SDK弹层 by gfh start -->
+<div class='popup add-sdk' v-bind:class="clickAdd?'show':'hide'">
+  <div class='mask'></div>
+  <div class='content container' v-bind:class="isloading?'loading':''">
+    <div class="pop-title">
+      <template>
+        <h3 v-if="currEntity.sdkId">更新SDK</h3>
+        <h3 v-else>添加SDK</h3>
+      </template>
+      <a href="javascript:;" v-on:click="closeAdd"></a>
+    </div>
+    <div class="section">
+      <div class="errorMsg" v-show="hasError()">请完善下列信息</div>
+
+      <div class="type-file cf required" v-bind:class="errors.sdkType?'error':''">
+        <div class="selectBox basic fl">
+          <div class="selectVal js-tips">{{sdkType.text}}</div>
+          <ul class="selectOptions tips">
+            <li v-bind:class="currEntity.sdkType?'':'cur'">- 请选择SDK类型 -</li>
+            <li v-for="skdtype in sdkTypes" v-on:click="selectSdkType(skdtype)">{{skdtype.text}}</li>
+          </ul>
+        </div>
+        <form id="uploadForm" class="fl">
+          <a href="javascript:;" class="add-btn fl" v-bind:class="errors.sdkTitle?'error':''">
+                <em></em>
+                <span>点击上传文件</span>
+                <input type="hidden" name="sdkId" v-bind:value="currEntity.sdkId" />
+                <input type="file" name="sdkFile" />
+              </a>
+          <p class="fileName">{{currEntity.sdkTitle}}</p>
+        </form>
+      </div>
+
+      <div class="des-wrapper fl required" v-bind:class="errors.sdkDesc?'error':''">
+        <h4>SDK描述</h4>
+        <textarea name="" v-model="currEntity.sdkDesc"></textarea>
+      </div>
+    </div>
+    <div class="btn-wrapper cf">
+      <a href="javascript:;" class="confirm fr" v-on:click="sdkSave">提交</a>
+      <a href="javascript:;" class="cancel fr" v-on:click="closeAdd">取消</a>
+    </div>
+  </div>
+</div>
+<!-- 添加SDK弹层 by gfh end -->

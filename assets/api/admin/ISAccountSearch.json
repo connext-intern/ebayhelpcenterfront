@@ -1,0 +1,13 @@
+﻿{
+    "code": "00",
+    "message": "API调用次数查询",
+    "result": {
+        "totalPages": "1",
+        "totalCounts": "1",
+        "dataList": [{
+            "isid": "isId0",
+            "email": "ebay_admin00000@ebay.com",
+            "ebayNumber": "99"
+        }]
+    }
+}

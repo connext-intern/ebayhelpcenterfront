@@ -1,0 +1,17 @@
+<!--重新发货再次确认-->
+<div class="popup redeliver-confirm">
+    <div class='mask'></div>
+    <div class='content'>
+        <div class="title">
+            <a href="javascript:;" class="close sprite" v-on:click="close();"></a>
+        </div>
+        <div class="des">
+            <p class="title" lg="redeliver"></p>
+            <p class="des" lg="redeliverDes"></p>
+        </div>
+        <div class="btn-container">
+            <button class="btn confirm" v-on:click="saveRedeliver();" lg="ensure"></button>
+            <button class="btn cancel" v-on:click="close();" lg="cancel"></button>
+        </div>
+    </div>
+</div>

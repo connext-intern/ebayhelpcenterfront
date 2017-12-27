@@ -1,0 +1,100 @@
+<!--添加物流偏好 add by louis-->
+<div class='popup create-logistics-preferences logistics' v-show="operator">
+    <div class='mask'></div>
+    <div class='content'>
+        <p class="title" v-bind:lg="title"></p>
+        <p class="title-des">*<span lg="requiredText"></span></p>
+        <a href='javascript:;' class='close sprite' v-on:click="operator=0;"></a>
+        <div class='content-container'>
+            <p class="error-message" v-if="errorMessageLogs" lg="errorMessage"></p>
+            <div class="scrollBlock logistics-settings multi">
+                <p class="name"><span lg="logisticsPreferencesName"></span><em>*</em>（<span lg="logisticsPreferencesNameDes"></span>）</p>
+                <div class="input-group name-input">
+                    <input type="text" :value="logsName" maxlength="20" v-on:blur="setNameInput($event);" v-on:input="domEvent($event,'change','name');">
+                    <em></em>
+                </div>
+                <!--物流条件-->
+                <div class="item-list">
+                    <p class="des"><span lg="setPreferences"></span><em>*</em></p>
+                    <ul class="box cf" v-for="(box,index) in logsList" v-bind:style="{zIndex:logsList.length-index}">
+                        <!-- <li class="des"><span lg="setPreferences"></span><em>*</em></li> -->
+                        <li class="item">
+                            <div class='selectBox cf'>
+                                <div class='selectVal js-tips' v-bind:lg="logsList[index].logsLg"></div>
+                                <div class='selectIcon'></div>
+                                <ul class='selectOptions tips'>
+                                    <li v-for="(select,selectIndex) in logsList[index].logsItem" v-bind:class="{'cur':selectIndex==logsList[index].logsHiglight}"
+                                        v-bind:lg="select.lg" v-bind:data-id="select.id" v-on:click="setLogsItem(index,selectIndex);"></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="symbol">
+                            <div class='selectBox cf'>
+                                <div class='selectVal js-tips' v-bind:lg="logsList[index].symbolLg"></div>
+                                <div class='selectIcon'></div>
+                                <ul class='selectOptions tips'>
+                                    <li v-for="(select,selectIndex) in logsList[index].symbolItem" v-bind:class="{'cur':selectIndex==logsList[index].symbolHiglight}"
+                                        v-bind:lg="select.lg" v-bind:data-id="select.id" v-on:click="setSymbolItem(index,selectIndex);"></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="value input-group">
+                            <div v-if="logsList[index].logsHiglight!=5&&logsList[index].logsHiglight!=3">
+                                <input type="text" v-bind:value="logsList[index].value" lg="customize" v-on:blur="setInput($event,index);" v-on:input="domEvent($event,'change','value',index);"
+                                />
+                                <em></em>
+                            </div>
+                            <div class='selectBox cf' v-if="logsList[index].logsHiglight==5||logsList[index].logsHiglight==3" v-bind:class="{'logs-select-deliver':logsList[index].logsHiglight==5,'logs-select':logsList[index].logsHiglight==3}">
+                                <div class='selectVal js-tips'>{{logsList[index].valueLg}}</div>
+                                <div class='selectIcon'></div>
+                                <ul class='selectOptions tips'>
+                                    <li v-for="(select,selectIndex) in logsList[index].value" v-bind:class="{'cur':selectIndex==logsList[index].valueHiglight}"
+                                        v-bind:data-id="select.id" v-on:click="setValueItem($event,index,selectIndex);">{{select.lg}}</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="del" v-if="logsList.length>1">
+                            <a href="javascript:;" class="btn" v-on:click="deleteLogItem(index);"></a>
+                        </li>
+                    </ul>
+                    <div class="add">
+                        <a href="javascript:;" class="btn btnGrayLinear" lg="add" v-on:click="creatLogItem(0);"></a>
+                    </div>
+                </div>
+                <!--物流方案（物流商）-->
+                <div class="provider-list">
+                    <p class="name"><span lg="logisticsSolutions"></span><em>*</em></p>
+                    <p class="error-message" v-if="errorMessageProduct" lg="errorLogisticsProduct"></p>
+                    <ul class="cf">
+                        <li v-for="(item,index) in providerList" v-bind:class="{'des':!item.isAvailable,'active':providerActive==index,'disabled':!item.isAvailable}"
+                            v-bind:data-id="item.id" v-on:click="chooseProvider($event,index);" v-bind:style="{zIndex:providerList.length-index}">
+
+                            <template v-if="language=='en-us'">
+                                {{item.nameEn}}
+                            </template>
+                            <template v-else>
+                                {{item.nameZh}}
+                            </template>
+
+
+                            <span class="icon js-tips"></span>
+                            <p class="tips">{{item.unavailableReason}}</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--底部按钮-->
+        <div class="control cf">
+            <template v-if="item">
+                <a class="btn blue save fr" href="javascript:;" lg="save-continue" v-on:click="saveShippingPreference($event);"></a>
+                <a class="btn btnGrayLinear cancel fl" href="javascript:;" lg="prev-step" v-on:click="prevStep"></a>
+                <a class="btn btnGrayLinear skip fr" href="javascript:;" lg="skip" v-on:click="skip"></a>
+            </template>
+            <template v-else>
+                <a class="btn blue save fr" href="javascript:;" lg="save" v-on:click="saveShippingPreference($event);"></a>
+                <a class="btn btnGrayLinear cancel fr" href="javascript:;" lg="cancel" v-on:click="operator=0;"></a>
+            </template>
+        </div>
+    </div>
+</div>

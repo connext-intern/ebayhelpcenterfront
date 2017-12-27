@@ -1,0 +1,15 @@
+﻿{
+    "code":"00",
+    "message":"申请开发者ID",
+    "result":{
+        "developerId":"857775888996888905",
+        "secret":"658465784685787697968497806680679860",
+        "developerType":"public",
+        "contactName":"联系人姓名",
+        "contactPhone":"联系人电话",
+        "contactEmail":"联系人邮箱",
+        "applicationName":"应用名称",
+        "applicationDescription":"应用描述",
+        "company":"公司名称"
+    }
+}

@@ -1,0 +1,39 @@
+<!--选择物流方式-->
+<div class="popup shipping-products">
+  <div class='mask'></div>
+  <div class='content'>
+    <div class="title">
+      <a href="javascript:;" class="close sprite" v-on:click="close"></a>
+      <h2 lg="botchSelectedLogisticsProgram1"></h2>
+    </div>
+    <div class="logistics-info">
+      <p><span lg="logisticsProgramPopDes"></span>：</p>
+      <div class="list">
+        <ul v-if="operator">
+          <li v-bind:class="entity.productId==(currProd&&currProd.productId)?'cur':''" v-on:click="selectProd(entity)" v-for="entity in list">
+            <template v-if="language=='en-us'">
+                {{entity.productEnName}}
+            </template>
+            <template v-else>
+                {{entity.productZhName}}
+            </template>
+          </li>
+        </ul>
+        <ul v-else>
+            <li v-bind:class="entity.id==(currProd&&currProd.id)?'cur':''" v-on:click="selectProd(entity)" v-for="entity in list">
+              <template v-if='language=="en-us"'>
+                {{entity.nameEn}}
+              </template>
+              <template v-else>
+                {{entity.nameZh}}
+              </template>
+            </li>
+          </ul>
+      </div>
+    </div>
+    <div class="btn-container">
+      <button class="btn confirm" lg="save" v-on:click="save"></button>
+      <button class="btn cancel" lg="cancel" v-on:click="close"></button>
+    </div>
+  </div>
+</div>

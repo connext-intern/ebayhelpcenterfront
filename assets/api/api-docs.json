@@ -1,0 +1,4383 @@
+﻿{
+	"swagger": "2.0",
+	"info": {
+		"description": "eBay国际物流平台商户接口",
+		"version": "1.0.0",
+		"title": "eBay国际物流平台商户接口",
+		"license": {
+			
+		}
+	},
+	"host": "localhost:8080",
+	"basePath": "/",
+	"tags": [{
+		"name": "open-api-controller",
+		"description": "the Open API"
+	}],
+	"paths": {
+		"/v1/api/AddAddressPreference": {
+			"post": {
+				"tags": ["OpenApi"],
+				"summary": "新增地址信息",
+				"description": "用于根据ItemID及TransactionID查询一个物品的包裹跟踪号。如果该订单使用过重新发货，则只返回最近获取的跟踪号。",
+				"operationId": "AddAddressPreference",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"name": "Authorization",
+					"in": "header",
+					"description": "Bearer xxxxxxxx",
+					"required": true,
+					"type": "string"
+				},
+				{
+					"in": "body",
+					"name": "addAddressPreferenceRequest",
+					"description": "addAddressPreferenceRequest",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/AddAddressPreferenceRequest"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"$ref": "#/definitions/AddAddressPreferenceResponses"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"206": {
+						"description": "部分处理成功，需要根据响应data部分resultCode分析",
+						"schema": {
+							"$ref": "#/definitions/AddAddressPreferenceResponses"
+						}
+					},
+					"400": {
+						"description": "错误的参数，需要检查请求参数是否正确"
+					},
+					"401": {
+						"description": "认证失败，需要检查凭证是否正确"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "资源不存在，需要检查URI是否正确"
+					},
+					"405": {
+						"description": "资源的方法不支持，需要检查Http method是否正确"
+					},
+					"406": {
+						"description": "请求接收的数据类型不支持，需要检查Accept请求头"
+					},
+					"415": {
+						"description": "请求数据格式不正确，需要检查Content-Type请求头"
+					},
+					"500": {
+						"description": "业务处理错误，需要根据子错误代码分析"
+					},
+					"503": {
+						"description": "服务不可用，服务器目前无法使用（由于超载或停机维护），通常只是暂时状态。"
+					}
+				},
+				"x-exp": {
+					".Net": "TaobaoClient client1 =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"JAVA": "TaobaoClient client2 =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"httpBoxUrl": "http://gw.api.ebay.com/router/rest",
+					"httpUrl": "http://gw.api.ebay.com/router/rest",
+					"httpsBoxUrl": "https://gw.api.ebay.com/router/rest",
+					"httpsUrl": "https://gw.api.ebay.com/router/rest"
+				}
+			}
+		},
+		"/v1/api/AddConsignPreference": {
+			"post": {
+				"tags": ["OpenApi"],
+				"summary": "新增交运偏好",
+				"description": "用于保存用户交运信息预设，交运方式可选择上门揽收或卖家自送，上门揽收预设包括揽收地址和揽收时间段等信息，卖家自送预设包括自送站点等信息。",
+				"operationId": "AddConsignPreference",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"name": "Authorization",
+					"in": "header",
+					"description": "Bearer xxxxxxxx",
+					"required": true,
+					"type": "string"
+				},
+				{
+					"in": "body",
+					"name": "addConsignPreferenceRequest",
+					"description": "addConsignPreferenceRequest",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/AddConsignPreferenceRequest"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"$ref": "#/definitions/AddConsignPreferenceResponses"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"206": {
+						"description": "部分处理成功，需要根据响应data部分resultCode分析",
+						"schema": {
+							"$ref": "#/definitions/AddConsignPreferenceResponses"
+						}
+					},
+					"400": {
+						"description": "错误的参数，需要检查请求参数是否正确"
+					},
+					"401": {
+						"description": "认证失败，需要检查凭证是否正确"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "资源不存在，需要检查URI是否正确"
+					},
+					"405": {
+						"description": "资源的方法不支持，需要检查Http method是否正确"
+					},
+					"406": {
+						"description": "请求接收的数据类型不支持，需要检查Accept请求头"
+					},
+					"415": {
+						"description": "请求数据格式不正确，需要检查Content-Type请求头"
+					},
+					"500": {
+						"description": "业务处理错误，需要根据子错误代码分析"
+					},
+					"503": {
+						"description": "服务不可用，服务器目前无法使用（由于超载或停机维护），通常只是暂时状态。"
+					}
+				},
+				"x-exp": {
+					".Net": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"JAVA": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"httpBoxUrl": "http://gw.api.ebay.com/router/rest",
+					"httpUrl": "http://gw.api.ebay.com/router/rest",
+					"httpsBoxUrl": "https://gw.api.ebay.com/router/rest",
+					"httpsUrl": "https://gw.api.ebay.com/router/rest"
+				}
+			}
+		},
+		"/v1/api/AddPackage": {
+			"post": {
+				"tags": ["OpenApi"],
+				"summary": "指定物流服务上传包裹",
+				"description": "eBay国际物流平台用户通过调用该方法上传需要发货的包裹信息，eBay国际物流平台返回申请到的包裹追踪号。 每次呼叫只限上传一个包裹，一个包裹可以包含多个物品。每个物品都必须为在eBay 成交的物品。",
+				"operationId": "AddPackage",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"name": "Authorization",
+					"in": "header",
+					"description": "Bearer xxxxxxxx",
+					"required": true,
+					"type": "string"
+				},
+				{
+					"in": "body",
+					"name": "addPackageRequest",
+					"description": "addPackageRequest",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/AddPackageRequest"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"$ref": "#/definitions/AddPackageResponses"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"206": {
+						"description": "部分处理成功，需要根据响应data部分resultCode分析",
+						"schema": {
+							"$ref": "#/definitions/AddPackageResponses"
+						}
+					},
+					"400": {
+						"description": "错误的参数，需要检查请求参数是否正确"
+					},
+					"401": {
+						"description": "认证失败，需要检查凭证是否正确"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "资源不存在，需要检查URI是否正确"
+					},
+					"405": {
+						"description": "资源的方法不支持，需要检查Http method是否正确"
+					},
+					"406": {
+						"description": "请求接收的数据类型不支持，需要检查Accept请求头"
+					},
+					"415": {
+						"description": "请求数据格式不正确，需要检查Content-Type请求头"
+					},
+					"500": {
+						"description": "业务处理错误，需要根据子错误代码分析"
+					},
+					"503": {
+						"description": "服务不可用，服务器目前无法使用（由于超载或停机维护），通常只是暂时状态。"
+					}
+				},
+				"x-exp": {
+					".Net": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"JAVA": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"httpBoxUrl": "http://gw.api.ebay.com/router/rest",
+					"httpUrl": "http://gw.api.ebay.com/router/rest",
+					"httpsBoxUrl": "https://gw.api.ebay.com/router/rest",
+					"httpsUrl": "https://gw.api.ebay.com/router/rest"
+				}
+			}
+		},
+		"/v1/api/AddPackageWithoutService": {
+			"post": {
+				"tags": ["OpenApi"],
+				"summary": "无指定物流服务上传包裹",
+				"description": "eBay国际物流平台用户通过调用该方法上传需要发货的包裹信息，eBay国际物流平台将返回可用的物流服务和预估运费。 每次呼叫只限上传一个包裹，一个包裹可以包含多个物品。每个物品都必须为在eBay 成交的物品。",
+				"operationId": "AddPackageWithoutService",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"name": "Authorization",
+					"in": "header",
+					"description": "Bearer xxxxxxxx",
+					"required": true,
+					"type": "string"
+				},
+				{
+					"in": "body",
+					"name": "addPackageWithoutServiceRequest",
+					"description": "addPackageWithoutServiceRequest",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/AddPackageWithoutServiceRequest"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"$ref": "#/definitions/AddPackageWithoutServiceResponsesData"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"206": {
+						"description": "部分处理成功，需要根据响应data部分resultCode分析",
+						"schema": {
+							"$ref": "#/definitions/AddPackageWithoutServiceResponsesData"
+						}
+					},
+					"400": {
+						"description": "错误的参数，需要检查请求参数是否正确"
+					},
+					"401": {
+						"description": "认证失败，需要检查凭证是否正确"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "资源不存在，需要检查URI是否正确"
+					},
+					"405": {
+						"description": "资源的方法不支持，需要检查Http method是否正确"
+					},
+					"406": {
+						"description": "请求接收的数据类型不支持，需要检查Accept请求头"
+					},
+					"415": {
+						"description": "请求数据格式不正确，需要检查Content-Type请求头"
+					},
+					"500": {
+						"description": "业务处理错误，需要根据子错误代码分析"
+					},
+					"503": {
+						"description": "服务不可用，服务器目前无法使用（由于超载或停机维护），通常只是暂时状态。"
+					}
+				},
+				"x-exp": {
+					".Net": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"JAVA": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"httpBoxUrl": "http://gw.api.ebay.com/router/rest",
+					"httpUrl": "http://gw.api.ebay.com/router/rest",
+					"httpsBoxUrl": "https://gw.api.ebay.com/router/rest",
+					"httpsUrl": "https://gw.api.ebay.com/router/rest"
+				}
+			}
+		},
+		"/v1/api/AssignService": {
+			"post": {
+				"tags": ["OpenApi"],
+				"summary": "指定包裹物流服务",
+				"description": "批量对eBay国际物流平台中已存在的包裹ID，指定物流服务，返回物流单号。",
+				"operationId": "AssignService",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"name": "Authorization",
+					"in": "header",
+					"description": "Bearer xxxxxxxx",
+					"required": true,
+					"type": "string"
+				},
+				{
+					"in": "body",
+					"name": "assignServiceRequest",
+					"description": "assignServiceRequest",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/AssignServiceRequest"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"$ref": "#/definitions/AssignServiceResponses"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"206": {
+						"description": "部分处理成功，需要根据响应data部分resultCode分析",
+						"schema": {
+							"$ref": "#/definitions/AssignServiceResponses"
+						}
+					},
+					"400": {
+						"description": "错误的参数，需要检查请求参数是否正确"
+					},
+					"401": {
+						"description": "认证失败，需要检查凭证是否正确"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "资源不存在，需要检查URI是否正确"
+					},
+					"405": {
+						"description": "资源的方法不支持，需要检查Http method是否正确"
+					},
+					"406": {
+						"description": "请求接收的数据类型不支持，需要检查Accept请求头"
+					},
+					"415": {
+						"description": "请求数据格式不正确，需要检查Content-Type请求头"
+					},
+					"500": {
+						"description": "业务处理错误，需要根据子错误代码分析"
+					},
+					"503": {
+						"description": "服务不可用，服务器目前无法使用（由于超载或停机维护），通常只是暂时状态。"
+					}
+				},
+				"x-exp": {
+					".Net": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"JAVA": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"httpBoxUrl": "http://gw.api.ebay.com/router/rest",
+					"httpUrl": "http://gw.api.ebay.com/router/rest",
+					"httpsBoxUrl": "https://gw.api.ebay.com/router/rest",
+					"httpsUrl": "https://gw.api.ebay.com/router/rest"
+				}
+			}
+		},
+		"/v1/api/CancelPackages": {
+			"post": {
+				"tags": ["OpenApi"],
+				"summary": "取消包裹信息",
+				"description": "用于取消在交运前的订单。交运后的订单无法取消。",
+				"operationId": "CancelPackages",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"name": "Authorization",
+					"in": "header",
+					"description": "Bearer xxxxxxxx",
+					"required": true,
+					"type": "string"
+				},
+				{
+					"in": "body",
+					"name": "cancelPackagesRequest",
+					"description": "cancelPackagesRequest",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/CancelPackagesRequest"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"$ref": "#/definitions/CancelPackagesResponses"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"206": {
+						"description": "部分处理成功，需要根据响应data部分resultCode分析",
+						"schema": {
+							"$ref": "#/definitions/CancelPackagesResponses"
+						}
+					},
+					"400": {
+						"description": "错误的参数，需要检查请求参数是否正确"
+					},
+					"401": {
+						"description": "认证失败，需要检查凭证是否正确"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "资源不存在，需要检查URI是否正确"
+					},
+					"405": {
+						"description": "资源的方法不支持，需要检查Http method是否正确"
+					},
+					"406": {
+						"description": "请求接收的数据类型不支持，需要检查Accept请求头"
+					},
+					"415": {
+						"description": "请求数据格式不正确，需要检查Content-Type请求头"
+					},
+					"500": {
+						"description": "业务处理错误，需要根据子错误代码分析"
+					},
+					"503": {
+						"description": "服务不可用，服务器目前无法使用（由于超载或停机维护），通常只是暂时状态。"
+					}
+				},
+				"x-exp": {
+					".Net": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"JAVA": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"httpBoxUrl": "http://gw.api.ebay.com/router/rest",
+					"httpUrl": "http://gw.api.ebay.com/router/rest",
+					"httpsBoxUrl": "https://gw.api.ebay.com/router/rest",
+					"httpsUrl": "https://gw.api.ebay.com/router/rest"
+				}
+			}
+		},
+		"/v1/api/ConfirmPackages": {
+			"post": {
+				"tags": ["OpenApi"],
+				"summary": "确认并交运包裹信息",
+				"description": "用于确认订单，确认订单成功之后，订单会上传到物流商的系统当中。",
+				"operationId": "ConfirmPackages",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"name": "Authorization",
+					"in": "header",
+					"description": "Bearer xxxxxxxx",
+					"required": true,
+					"type": "string"
+				},
+				{
+					"in": "body",
+					"name": "confirmPackagesRequest",
+					"description": "confirmPackagesRequest",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/ConfirmPackagesRequest"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"$ref": "#/definitions/ConfirmPackagesResponses"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"206": {
+						"description": "部分处理成功，需要根据响应data部分resultCode分析",
+						"schema": {
+							"$ref": "#/definitions/ConfirmPackagesResponses"
+						}
+					},
+					"400": {
+						"description": "错误的参数，需要检查请求参数是否正确"
+					},
+					"401": {
+						"description": "认证失败，需要检查凭证是否正确"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "资源不存在，需要检查URI是否正确"
+					},
+					"405": {
+						"description": "资源的方法不支持，需要检查Http method是否正确"
+					},
+					"406": {
+						"description": "请求接收的数据类型不支持，需要检查Accept请求头"
+					},
+					"415": {
+						"description": "请求数据格式不正确，需要检查Content-Type请求头"
+					},
+					"500": {
+						"description": "业务处理错误，需要根据子错误代码分析"
+					},
+					"503": {
+						"description": "服务不可用，服务器目前无法使用（由于超载或停机维护），通常只是暂时状态。"
+					}
+				},
+				"x-exp": {
+					".Net": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"JAVA": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"httpBoxUrl": "http://gw.api.ebay.com/router/rest",
+					"httpUrl": "http://gw.api.ebay.com/router/rest",
+					"httpsBoxUrl": "https://gw.api.ebay.com/router/rest",
+					"httpsUrl": "https://gw.api.ebay.com/router/rest"
+				}
+			}
+		},
+		"/v1/api/DeletePackages": {
+			"post": {
+				"tags": ["OpenApi"],
+				"summary": "删除包裹信息",
+				"description": "用于删除在交运前的订单。交运后的订单无法删除。",
+				"operationId": "DeletePackages",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"name": "Authorization",
+					"in": "header",
+					"description": "Bearer xxxxxxxx",
+					"required": true,
+					"type": "string"
+				},
+				{
+					"in": "body",
+					"name": "cancelPackagesRequest",
+					"description": "cancelPackagesRequest",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/DeletePackagesRequest"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"$ref": "#/definitions/DeletePackagesResponses"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"206": {
+						"description": "部分处理成功，需要根据响应data部分resultCode分析",
+						"schema": {
+							"$ref": "#/definitions/DeletePackagesResponses"
+						}
+					},
+					"400": {
+						"description": "错误的参数，需要检查请求参数是否正确"
+					},
+					"401": {
+						"description": "认证失败，需要检查凭证是否正确"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "资源不存在，需要检查URI是否正确"
+					},
+					"405": {
+						"description": "资源的方法不支持，需要检查Http method是否正确"
+					},
+					"406": {
+						"description": "请求接收的数据类型不支持，需要检查Accept请求头"
+					},
+					"415": {
+						"description": "请求数据格式不正确，需要检查Content-Type请求头"
+					},
+					"500": {
+						"description": "业务处理错误，需要根据子错误代码分析"
+					},
+					"503": {
+						"description": "服务不可用，服务器目前无法使用（由于超载或停机维护），通常只是暂时状态。"
+					}
+				},
+				"x-exp": {
+					".Net": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"JAVA": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"httpBoxUrl": "http://gw.api.ebay.com/router/rest",
+					"httpUrl": "http://gw.api.ebay.com/router/rest",
+					"httpsBoxUrl": "https://gw.api.ebay.com/router/rest",
+					"httpsUrl": "https://gw.api.ebay.com/router/rest"
+				}
+			}
+		},
+		"/v1/api/FetchToken": {
+			"post": {
+				"tags": ["OpenApi"],
+				"summary": "登录认证",
+				"description": "使用Basic认证",
+				"operationId": "OAuth",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"name": "Authorization",
+					"in": "header",
+					"description": "Basic dGhpcmRwYXJ0eTp0aGlyZHBhcnR5",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"$ref": "#/definitions/FetchTokenResponses"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"206": {
+						"description": "部分处理成功，需要根据响应data部分resultCode分析",
+						"schema": {
+							"$ref": "#/definitions/FetchTokenResponses"
+						}
+					},
+					"400": {
+						"description": "错误的参数，需要检查请求参数是否正确"
+					},
+					"401": {
+						"description": "认证失败，需要检查凭证是否正确"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "资源不存在，需要检查URI是否正确"
+					},
+					"405": {
+						"description": "资源的方法不支持，需要检查Http method是否正确"
+					},
+					"406": {
+						"description": "请求接收的数据类型不支持，需要检查Accept请求头"
+					},
+					"415": {
+						"description": "请求数据格式不正确，需要检查Content-Type请求头"
+					},
+					"500": {
+						"description": "业务处理错误，需要根据子错误代码分析"
+					},
+					"503": {
+						"description": "服务不可用，服务器目前无法使用（由于超载或停机维护），通常只是暂时状态。"
+					}
+				},
+				"x-exp": {
+					".Net": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"JAVA": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"httpBoxUrl": "http://gw.api.ebay.com/router/rest",
+					"httpUrl": "http://gw.api.ebay.com/router/rest",
+					"httpsBoxUrl": "https://gw.api.ebay.com/router/rest",
+					"httpsUrl": "https://gw.api.ebay.com/router/rest"
+				}
+			}
+		},
+		"/v1/api/GetActualCost": {
+			"post": {
+				"tags": ["OpenApi"],
+				"summary": "获取包裹实际运费",
+				"description": "获取账户明细流水（按包裹查实际结算费用，支持批量）。",
+				"operationId": "GetActualCost",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"name": "Authorization",
+					"in": "header",
+					"description": "Bearer xxxxxxxx",
+					"required": true,
+					"type": "string"
+				},
+				{
+					"in": "body",
+					"name": "getActualCostRequest",
+					"description": "getActualCostRequest",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/GetActualCostRequest"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"$ref": "#/definitions/GetActualCostResponses"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"206": {
+						"description": "部分处理成功，需要根据响应data部分resultCode分析",
+						"schema": {
+							"$ref": "#/definitions/GetActualCostResponses"
+						}
+					},
+					"400": {
+						"description": "错误的参数，需要检查请求参数是否正确"
+					},
+					"401": {
+						"description": "认证失败，需要检查凭证是否正确"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "资源不存在，需要检查URI是否正确"
+					},
+					"405": {
+						"description": "资源的方法不支持，需要检查Http method是否正确"
+					},
+					"406": {
+						"description": "请求接收的数据类型不支持，需要检查Accept请求头"
+					},
+					"415": {
+						"description": "请求数据格式不正确，需要检查Content-Type请求头"
+					},
+					"500": {
+						"description": "业务处理错误，需要根据子错误代码分析"
+					},
+					"503": {
+						"description": "服务不可用，服务器目前无法使用（由于超载或停机维护），通常只是暂时状态。"
+					}
+				},
+				"x-exp": {
+					".Net": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"JAVA": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"httpBoxUrl": "http://gw.api.ebay.com/router/rest",
+					"httpUrl": "http://gw.api.ebay.com/router/rest",
+					"httpsBoxUrl": "https://gw.api.ebay.com/router/rest",
+					"httpsUrl": "https://gw.api.ebay.com/router/rest"
+				}
+			}
+		},
+		"/v1/api/GetAddressPreferenceList": {
+			"post": {
+				"tags": ["OpenApi"],
+				"summary": "获取地址信息列表",
+				"description": "获取已保存的地址信息列表。",
+				"operationId": "GetAddressPreferenceList",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"name": "Authorization",
+					"in": "header",
+					"description": "Bearer xxxxxxxx",
+					"required": true,
+					"type": "string"
+				},
+				{
+					"in": "body",
+					"name": "getAddressPreferenceListRequest",
+					"description": "getAddressPreferenceListRequest",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/GetAddressPreferenceListRequest"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"$ref": "#/definitions/GetAddressPreferenceListResponses"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"206": {
+						"description": "部分处理成功，需要根据响应data部分resultCode分析",
+						"schema": {
+							"$ref": "#/definitions/GetAddressPreferenceListResponses"
+						}
+					},
+					"400": {
+						"description": "错误的参数，需要检查请求参数是否正确"
+					},
+					"401": {
+						"description": "认证失败，需要检查凭证是否正确"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "资源不存在，需要检查URI是否正确"
+					},
+					"405": {
+						"description": "资源的方法不支持，需要检查Http method是否正确"
+					},
+					"406": {
+						"description": "请求接收的数据类型不支持，需要检查Accept请求头"
+					},
+					"415": {
+						"description": "请求数据格式不正确，需要检查Content-Type请求头"
+					},
+					"500": {
+						"description": "业务处理错误，需要根据子错误代码分析"
+					},
+					"503": {
+						"description": "服务不可用，服务器目前无法使用（由于超载或停机维护），通常只是暂时状态。"
+					}
+				},
+				"x-exp": {
+					".Net": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"JAVA": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"httpBoxUrl": "http://gw.api.ebay.com/router/rest",
+					"httpUrl": "http://gw.api.ebay.com/router/rest",
+					"httpsBoxUrl": "https://gw.api.ebay.com/router/rest",
+					"httpsUrl": "https://gw.api.ebay.com/router/rest"
+				}
+			}
+		},
+		"/v1/api/GetConsignPreferenceList": {
+			"post": {
+				"tags": ["OpenApi"],
+				"summary": "更新交运偏好",
+				"description": "更新用户交运偏好信息。",
+				"operationId": "GetConsignPreferenceList",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"name": "Authorization",
+					"in": "header",
+					"description": "Bearer xxxxxxxx",
+					"required": true,
+					"type": "string"
+				},
+				{
+					"in": "body",
+					"name": "getConsignPreferenceListRequest",
+					"description": "getConsignPreferenceListRequest",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/GetConsignPreferenceListRequest"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"$ref": "#/definitions/GetConsignPreferenceListResponses"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"206": {
+						"description": "部分处理成功，需要根据响应data部分resultCode分析",
+						"schema": {
+							"$ref": "#/definitions/GetConsignPreferenceListResponses"
+						}
+					},
+					"400": {
+						"description": "错误的参数，需要检查请求参数是否正确"
+					},
+					"401": {
+						"description": "认证失败，需要检查凭证是否正确"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "资源不存在，需要检查URI是否正确"
+					},
+					"405": {
+						"description": "资源的方法不支持，需要检查Http method是否正确"
+					},
+					"406": {
+						"description": "请求接收的数据类型不支持，需要检查Accept请求头"
+					},
+					"415": {
+						"description": "请求数据格式不正确，需要检查Content-Type请求头"
+					},
+					"500": {
+						"description": "业务处理错误，需要根据子错误代码分析"
+					},
+					"503": {
+						"description": "服务不可用，服务器目前无法使用（由于超载或停机维护），通常只是暂时状态。"
+					}
+				},
+				"x-exp": {
+					".Net": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"JAVA": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"httpBoxUrl": "http://gw.api.ebay.com/router/rest",
+					"httpUrl": "http://gw.api.ebay.com/router/rest",
+					"httpsBoxUrl": "https://gw.api.ebay.com/router/rest",
+					"httpsUrl": "https://gw.api.ebay.com/router/rest"
+				}
+			}
+		},
+		"/v1/api/GetDropoffSiteList": {
+			"post": {
+				"tags": ["OpenApi"],
+				"summary": "获取包裹实际运费",
+				"description": "获取账户明细流水（按包裹查实际结算费用，支持批量）。",
+				"operationId": "GetDropoffSiteList",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"name": "Authorization",
+					"in": "header",
+					"description": "Bearer xxxxxxxx",
+					"required": true,
+					"type": "string"
+				},
+				{
+					"in": "body",
+					"name": "getDropoffSiteListRequest",
+					"description": "getDropoffSiteListRequest",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/GetDropoffSiteListRequest"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"$ref": "#/definitions/GetDropoffSiteListResponses"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"206": {
+						"description": "部分处理成功，需要根据响应data部分resultCode分析",
+						"schema": {
+							"$ref": "#/definitions/GetDropoffSiteListResponses"
+						}
+					},
+					"400": {
+						"description": "错误的参数，需要检查请求参数是否正确"
+					},
+					"401": {
+						"description": "认证失败，需要检查凭证是否正确"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "资源不存在，需要检查URI是否正确"
+					},
+					"405": {
+						"description": "资源的方法不支持，需要检查Http method是否正确"
+					},
+					"406": {
+						"description": "请求接收的数据类型不支持，需要检查Accept请求头"
+					},
+					"415": {
+						"description": "请求数据格式不正确，需要检查Content-Type请求头"
+					},
+					"500": {
+						"description": "业务处理错误，需要根据子错误代码分析"
+					},
+					"503": {
+						"description": "服务不可用，服务器目前无法使用（由于超载或停机维护），通常只是暂时状态。"
+					}
+				},
+				"x-exp": {
+					".Net": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"JAVA": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"httpBoxUrl": "http://gw.api.ebay.com/router/rest",
+					"httpUrl": "http://gw.api.ebay.com/router/rest",
+					"httpsBoxUrl": "https://gw.api.ebay.com/router/rest",
+					"httpsUrl": "https://gw.api.ebay.com/router/rest"
+				}
+			}
+		},
+		"/v1/api/GetHandoverSheet": {
+			"post": {
+				"tags": ["OpenApi"],
+				"summary": "获取交接单打印详情",
+				"description": "获取交接单信息，用于打印。",
+				"operationId": "GetHandoverSheet",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"name": "Authorization",
+					"in": "header",
+					"description": "Bearer xxxxxxxx",
+					"required": true,
+					"type": "string"
+				},
+				{
+					"in": "body",
+					"name": "getHandoverSheetRequest",
+					"description": "getHandoverSheetRequest",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/GetHandoverSheetRequest"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"$ref": "#/definitions/GetHandoverSheetResponses"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"206": {
+						"description": "部分处理成功，需要根据响应data部分resultCode分析",
+						"schema": {
+							"$ref": "#/definitions/GetHandoverSheetResponses"
+						}
+					},
+					"400": {
+						"description": "错误的参数，需要检查请求参数是否正确"
+					},
+					"401": {
+						"description": "认证失败，需要检查凭证是否正确"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "资源不存在，需要检查URI是否正确"
+					},
+					"405": {
+						"description": "资源的方法不支持，需要检查Http method是否正确"
+					},
+					"406": {
+						"description": "请求接收的数据类型不支持，需要检查Accept请求头"
+					},
+					"415": {
+						"description": "请求数据格式不正确，需要检查Content-Type请求头"
+					},
+					"500": {
+						"description": "业务处理错误，需要根据子错误代码分析"
+					},
+					"503": {
+						"description": "服务不可用，服务器目前无法使用（由于超载或停机维护），通常只是暂时状态。"
+					}
+				},
+				"x-exp": {
+					".Net": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"JAVA": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"httpBoxUrl": "http://gw.api.ebay.com/router/rest",
+					"httpUrl": "http://gw.api.ebay.com/router/rest",
+					"httpsBoxUrl": "https://gw.api.ebay.com/router/rest",
+					"httpsUrl": "https://gw.api.ebay.com/router/rest"
+				}
+			}
+		},
+		"/v1/api/GetItemPackageId": {
+			"post": {
+				"tags": ["OpenApi"],
+				"summary": "查询物品包裹ID",
+				"description": "用于根据ItemID及TransactionID查询一个物品的包裹跟踪号。如果该订单使用过重新发货，则只返回最近获取的跟踪号。",
+				"operationId": "GetItemPackageId",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"name": "Authorization",
+					"in": "header",
+					"description": "Bearer xxxxxxxx",
+					"required": true,
+					"type": "string"
+				},
+				{
+					"in": "body",
+					"name": "getItemPackageIdRequest",
+					"description": "getItemPackageIdRequest",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/GetItemPackageIdRequest"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"$ref": "#/definitions/GetItemPackageIdResponses"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"206": {
+						"description": "部分处理成功，需要根据响应data部分resultCode分析",
+						"schema": {
+							"$ref": "#/definitions/GetItemPackageIdResponses"
+						}
+					},
+					"400": {
+						"description": "错误的参数，需要检查请求参数是否正确"
+					},
+					"401": {
+						"description": "认证失败，需要检查凭证是否正确"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "资源不存在，需要检查URI是否正确"
+					},
+					"405": {
+						"description": "资源的方法不支持，需要检查Http method是否正确"
+					},
+					"406": {
+						"description": "请求接收的数据类型不支持，需要检查Accept请求头"
+					},
+					"415": {
+						"description": "请求数据格式不正确，需要检查Content-Type请求头"
+					},
+					"500": {
+						"description": "业务处理错误，需要根据子错误代码分析"
+					},
+					"503": {
+						"description": "服务不可用，服务器目前无法使用（由于超载或停机维护），通常只是暂时状态。"
+					}
+				},
+				"x-exp": {
+					".Net": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"JAVA": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"httpBoxUrl": "http://gw.api.ebay.com/router/rest",
+					"httpUrl": "http://gw.api.ebay.com/router/rest",
+					"httpsBoxUrl": "https://gw.api.ebay.com/router/rest",
+					"httpsUrl": "https://gw.api.ebay.com/router/rest"
+				}
+			}
+		},
+		"/v1/api/GetLabel": {
+			"post": {
+				"tags": ["OpenApi"],
+				"summary": "获取面单打印详情",
+				"description": "用于打印详情单，呼叫成功后会返回标签流。",
+				"operationId": "GetLabel",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"name": "Authorization",
+					"in": "header",
+					"description": "Bearer xxxxxxxx",
+					"required": true,
+					"type": "string"
+				},
+				{
+					"in": "body",
+					"name": "getLabelRequest",
+					"description": "getLabelRequest",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/GetLabelRequest"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"$ref": "#/definitions/GetLabelResponses"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"206": {
+						"description": "部分处理成功，需要根据响应data部分resultCode分析",
+						"schema": {
+							"$ref": "#/definitions/GetLabelResponses"
+						}
+					},
+					"400": {
+						"description": "错误的参数，需要检查请求参数是否正确"
+					},
+					"401": {
+						"description": "认证失败，需要检查凭证是否正确"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "资源不存在，需要检查URI是否正确"
+					},
+					"405": {
+						"description": "资源的方法不支持，需要检查Http method是否正确"
+					},
+					"406": {
+						"description": "请求接收的数据类型不支持，需要检查Accept请求头"
+					},
+					"415": {
+						"description": "请求数据格式不正确，需要检查Content-Type请求头"
+					},
+					"500": {
+						"description": "业务处理错误，需要根据子错误代码分析"
+					},
+					"503": {
+						"description": "服务不可用，服务器目前无法使用（由于超载或停机维护），通常只是暂时状态。"
+					}
+				},
+				"x-exp": {
+					".Net": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"JAVA": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"httpBoxUrl": "http://gw.api.ebay.com/router/rest",
+					"httpUrl": "http://gw.api.ebay.com/router/rest",
+					"httpsBoxUrl": "https://gw.api.ebay.com/router/rest",
+					"httpsUrl": "https://gw.api.ebay.com/router/rest"
+				}
+			}
+		},
+		"/v1/api/GetPackageDetail": {
+			"post": {
+				"tags": ["OpenApi"],
+				"summary": "获取包裹详情",
+				"description": "用于获取包裹的详细信息。",
+				"operationId": "GetPackageDetail",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"name": "Authorization",
+					"in": "header",
+					"description": "Bearer xxxxxxxx",
+					"required": true,
+					"type": "string"
+				},
+				{
+					"in": "body",
+					"name": "getPackageDetailRequest",
+					"description": "getPackageDetailRequest",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/GetPackageDetailRequest"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"$ref": "#/definitions/GetPackageDetailResponses"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"206": {
+						"description": "部分处理成功，需要根据响应data部分resultCode分析",
+						"schema": {
+							"$ref": "#/definitions/GetPackageDetailResponses"
+						}
+					},
+					"400": {
+						"description": "错误的参数，需要检查请求参数是否正确"
+					},
+					"401": {
+						"description": "认证失败，需要检查凭证是否正确"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "资源不存在，需要检查URI是否正确"
+					},
+					"405": {
+						"description": "资源的方法不支持，需要检查Http method是否正确"
+					},
+					"406": {
+						"description": "请求接收的数据类型不支持，需要检查Accept请求头"
+					},
+					"415": {
+						"description": "请求数据格式不正确，需要检查Content-Type请求头"
+					},
+					"500": {
+						"description": "业务处理错误，需要根据子错误代码分析"
+					},
+					"503": {
+						"description": "服务不可用，服务器目前无法使用（由于超载或停机维护），通常只是暂时状态。"
+					}
+				},
+				"x-exp": {
+					".Net": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"JAVA": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"httpBoxUrl": "http://gw.api.ebay.com/router/rest",
+					"httpUrl": "http://gw.api.ebay.com/router/rest",
+					"httpsBoxUrl": "https://gw.api.ebay.com/router/rest",
+					"httpsUrl": "https://gw.api.ebay.com/router/rest"
+				}
+			}
+		},
+		"/v1/api/GetPackageStatus": {
+			"post": {
+				"tags": ["OpenApi"],
+				"summary": "获取包裹详情",
+				"description": "用于获取包裹的详细信息。",
+				"operationId": "GetPackageStatus",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"name": "Authorization",
+					"in": "header",
+					"description": "Bearer xxxxxxxx",
+					"required": true,
+					"type": "string"
+				},
+				{
+					"in": "body",
+					"name": "getPackageStatusRequest",
+					"description": "getPackageStatusRequest",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/GetPackageStatusRequest"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"$ref": "#/definitions/GetPackageStatusResponses"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"206": {
+						"description": "部分处理成功，需要根据响应data部分resultCode分析",
+						"schema": {
+							"$ref": "#/definitions/GetPackageStatusResponses"
+						}
+					},
+					"400": {
+						"description": "错误的参数，需要检查请求参数是否正确"
+					},
+					"401": {
+						"description": "认证失败，需要检查凭证是否正确"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "资源不存在，需要检查URI是否正确"
+					},
+					"405": {
+						"description": "资源的方法不支持，需要检查Http method是否正确"
+					},
+					"406": {
+						"description": "请求接收的数据类型不支持，需要检查Accept请求头"
+					},
+					"415": {
+						"description": "请求数据格式不正确，需要检查Content-Type请求头"
+					},
+					"500": {
+						"description": "业务处理错误，需要根据子错误代码分析"
+					},
+					"503": {
+						"description": "服务不可用，服务器目前无法使用（由于超载或停机维护），通常只是暂时状态。"
+					}
+				},
+				"x-exp": {
+					".Net": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"JAVA": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"httpBoxUrl": "http://gw.api.ebay.com/router/rest",
+					"httpUrl": "http://gw.api.ebay.com/router/rest",
+					"httpsBoxUrl": "https://gw.api.ebay.com/router/rest",
+					"httpsUrl": "https://gw.api.ebay.com/router/rest"
+				}
+			}
+		},
+		"/v1/api/GetServiceList": {
+			"post": {
+				"tags": ["OpenApi"],
+				"summary": "获取物流服务列表",
+				"description": "获取所有的物流服务列表。",
+				"operationId": "GetServiceList",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"name": "Authorization",
+					"in": "header",
+					"description": "Bearer xxxxxxxx",
+					"required": true,
+					"type": "string"
+				},
+				{
+					"in": "body",
+					"name": "getServiceListRequest",
+					"description": "getServiceListRequest",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/GetServiceListRequest"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"$ref": "#/definitions/GetServiceListResponses"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"206": {
+						"description": "部分处理成功，需要根据响应data部分resultCode分析",
+						"schema": {
+							"$ref": "#/definitions/GetServiceListResponses"
+						}
+					},
+					"400": {
+						"description": "错误的参数，需要检查请求参数是否正确"
+					},
+					"401": {
+						"description": "认证失败，需要检查凭证是否正确"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "资源不存在，需要检查URI是否正确"
+					},
+					"405": {
+						"description": "资源的方法不支持，需要检查Http method是否正确"
+					},
+					"406": {
+						"description": "请求接收的数据类型不支持，需要检查Accept请求头"
+					},
+					"415": {
+						"description": "请求数据格式不正确，需要检查Content-Type请求头"
+					},
+					"500": {
+						"description": "业务处理错误，需要根据子错误代码分析"
+					},
+					"503": {
+						"description": "服务不可用，服务器目前无法使用（由于超载或停机维护），通常只是暂时状态。"
+					}
+				},
+				"x-exp": {
+					".Net": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"JAVA": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"httpBoxUrl": "http://gw.api.ebay.com/router/rest",
+					"httpUrl": "http://gw.api.ebay.com/router/rest",
+					"httpsBoxUrl": "https://gw.api.ebay.com/router/rest",
+					"httpsUrl": "https://gw.api.ebay.com/router/rest"
+				}
+			}
+		},
+		"/v1/api/GetTrackingDetail": {
+			"post": {
+				"tags": ["OpenApi"],
+				"summary": "获取交接单打印详情",
+				"description": "获取交接单信息，用于打印。",
+				"operationId": "GetTrackingDetail",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"name": "Authorization",
+					"in": "header",
+					"description": "Bearer xxxxxxxx",
+					"required": true,
+					"type": "string"
+				},
+				{
+					"in": "body",
+					"name": "getTrackingDetailRequest",
+					"description": "getTrackingDetailRequest",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/GetTrackingDetailRequest"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"$ref": "#/definitions/GetTrackingDetailResponses"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"206": {
+						"description": "部分处理成功，需要根据响应data部分resultCode分析",
+						"schema": {
+							"$ref": "#/definitions/GetTrackingDetailResponses"
+						}
+					},
+					"400": {
+						"description": "错误的参数，需要检查请求参数是否正确"
+					},
+					"401": {
+						"description": "认证失败，需要检查凭证是否正确"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "资源不存在，需要检查URI是否正确"
+					},
+					"405": {
+						"description": "资源的方法不支持，需要检查Http method是否正确"
+					},
+					"406": {
+						"description": "请求接收的数据类型不支持，需要检查Accept请求头"
+					},
+					"415": {
+						"description": "请求数据格式不正确，需要检查Content-Type请求头"
+					},
+					"500": {
+						"description": "业务处理错误，需要根据子错误代码分析"
+					},
+					"503": {
+						"description": "服务不可用，服务器目前无法使用（由于超载或停机维护），通常只是暂时状态。"
+					}
+				},
+				"x-exp": {
+					".Net": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"JAVA": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"httpBoxUrl": "http://gw.api.ebay.com/router/rest",
+					"httpUrl": "http://gw.api.ebay.com/router/rest",
+					"httpsBoxUrl": "https://gw.api.ebay.com/router/rest",
+					"httpsUrl": "https://gw.api.ebay.com/router/rest"
+				}
+			}
+		},
+		"/v1/api/RecreatePackage": {
+			"post": {
+				"tags": ["OpenApi"],
+				"summary": "重新发货",
+				"description": "用于重新发货。重新发货成功之后会返回一个新的跟踪号，并且订单会移动到待交运文件夹里面。只有交运后的订单才能使用此功能。所有包裹，最多重发三次。",
+				"operationId": "RecreatePackage",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"name": "Authorization",
+					"in": "header",
+					"description": "Bearer xxxxxxxx",
+					"required": true,
+					"type": "string"
+				},
+				{
+					"in": "body",
+					"name": "recreatePackageRequest",
+					"description": "recreatePackageRequest",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/RecreatePackageRequest"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"$ref": "#/definitions/RecreatePackageResponses"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"206": {
+						"description": "部分处理成功，需要根据响应data部分resultCode分析",
+						"schema": {
+							"$ref": "#/definitions/RecreatePackageResponses"
+						}
+					},
+					"400": {
+						"description": "错误的参数，需要检查请求参数是否正确"
+					},
+					"401": {
+						"description": "认证失败，需要检查凭证是否正确"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "资源不存在，需要检查URI是否正确"
+					},
+					"405": {
+						"description": "资源的方法不支持，需要检查Http method是否正确"
+					},
+					"406": {
+						"description": "请求接收的数据类型不支持，需要检查Accept请求头"
+					},
+					"415": {
+						"description": "请求数据格式不正确，需要检查Content-Type请求头"
+					},
+					"500": {
+						"description": "业务处理错误，需要根据子错误代码分析"
+					},
+					"503": {
+						"description": "服务不可用，服务器目前无法使用（由于超载或停机维护），通常只是暂时状态。"
+					}
+				},
+				"x-exp": {
+					".Net": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"JAVA": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"httpBoxUrl": "http://gw.api.ebay.com/router/rest",
+					"httpUrl": "http://gw.api.ebay.com/router/rest",
+					"httpsBoxUrl": "https://gw.api.ebay.com/router/rest",
+					"httpsUrl": "https://gw.api.ebay.com/router/rest"
+				}
+			}
+		},
+		"/v1/api/UpdateAddressPreference": {
+			"post": {
+				"tags": ["OpenApi"],
+				"summary": "更新地址信息",
+				"description": "根据地址ID，更新地址信息，包括发货地址和退货地址。",
+				"operationId": "UpdateAddressPreference",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"name": "Authorization",
+					"in": "header",
+					"description": "Bearer xxxxxxxx",
+					"required": true,
+					"type": "string"
+				},
+				{
+					"in": "body",
+					"name": "updateAddressPreferenceRequest",
+					"description": "updateAddressPreferenceRequest",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/UpdateAddressPreferenceRequest"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"$ref": "#/definitions/UpdateAddressPreferenceResponses"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"206": {
+						"description": "部分处理成功，需要根据响应data部分resultCode分析",
+						"schema": {
+							"$ref": "#/definitions/UpdateAddressPreferenceResponses"
+						}
+					},
+					"400": {
+						"description": "错误的参数，需要检查请求参数是否正确"
+					},
+					"401": {
+						"description": "认证失败，需要检查凭证是否正确"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "资源不存在，需要检查URI是否正确"
+					},
+					"405": {
+						"description": "资源的方法不支持，需要检查Http method是否正确"
+					},
+					"406": {
+						"description": "请求接收的数据类型不支持，需要检查Accept请求头"
+					},
+					"415": {
+						"description": "请求数据格式不正确，需要检查Content-Type请求头"
+					},
+					"500": {
+						"description": "业务处理错误，需要根据子错误代码分析"
+					},
+					"503": {
+						"description": "服务不可用，服务器目前无法使用（由于超载或停机维护），通常只是暂时状态。"
+					}
+				},
+				"x-exp": {
+					".Net": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"JAVA": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"httpBoxUrl": "http://gw.api.ebay.com/router/rest",
+					"httpUrl": "http://gw.api.ebay.com/router/rest",
+					"httpsBoxUrl": "https://gw.api.ebay.com/router/rest",
+					"httpsUrl": "https://gw.api.ebay.com/router/rest"
+				}
+			}
+		},
+		"/v1/api/UpdateConsignPreference": {
+			"post": {
+				"tags": ["OpenApi"],
+				"summary": "更新交运偏好",
+				"description": "更新用户交运偏好信息。",
+				"operationId": "UpdateConsignPreference",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"name": "Authorization",
+					"in": "header",
+					"description": "Bearer xxxxxxxx",
+					"required": true,
+					"type": "string"
+				},
+				{
+					"in": "body",
+					"name": "updateConsignPreferenceRequest",
+					"description": "updateConsignPreferenceRequest",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/UpdateConsignPreferenceRequest"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"$ref": "#/definitions/UpdateConsignPreferenceResponses"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"206": {
+						"description": "部分处理成功，需要根据响应data部分resultCode分析",
+						"schema": {
+							"$ref": "#/definitions/UpdateConsignPreferenceResponses"
+						}
+					},
+					"400": {
+						"description": "错误的参数，需要检查请求参数是否正确"
+					},
+					"401": {
+						"description": "认证失败，需要检查凭证是否正确"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "资源不存在，需要检查URI是否正确"
+					},
+					"405": {
+						"description": "资源的方法不支持，需要检查Http method是否正确"
+					},
+					"406": {
+						"description": "请求接收的数据类型不支持，需要检查Accept请求头"
+					},
+					"415": {
+						"description": "请求数据格式不正确，需要检查Content-Type请求头"
+					},
+					"500": {
+						"description": "业务处理错误，需要根据子错误代码分析"
+					},
+					"503": {
+						"description": "服务不可用，服务器目前无法使用（由于超载或停机维护），通常只是暂时状态。"
+					}
+				},
+				"x-exp": {
+					".Net": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"JAVA": "TaobaoClient client =  new DefaultTaobaoClient(url, appkey, secret);\n\rUserBuyerGetRequest req = newUserBuyerGetRequest();\n\rreq.setFields(\"nick,sex\");\n\rUserBuyerGetResponse rsp = client.execute(req, sessionKey);\n\rSystem.out.println(rsp.getBody());",
+					"httpBoxUrl": "http://gw.api.ebay.com/router/rest",
+					"httpUrl": "http://gw.api.ebay.com/router/rest",
+					"httpsBoxUrl": "https://gw.api.ebay.com/router/rest",
+					"httpsUrl": "https://gw.api.ebay.com/router/rest"
+				}
+			}
+		}
+	},
+	"definitions": {
+		"AddAddressPreferenceRequest": {
+			"type": "object",
+			"required": ["data",
+			"ebayId",
+			"messageId",
+			"timestamp"],
+			"properties": {
+				"data": {
+					"$ref": "#/definitions/AddAddressPreferenceRequestData"
+				},
+				"ebayId": {
+					"type": "string",
+					"description": "卖家eBay账户"
+				},
+				"messageId": {
+					"type": "string",
+					"description": "消息ID"
+				},
+				"timestamp": {
+					"type": "integer",
+					"format": "int64",
+					"description": "时间戳"
+				}
+			}
+		},
+		"AddAddressPreferenceRequestData": {
+			"type": "object",
+			"required": ["city",
+			"contact",
+			"countryCode",
+			"mobile",
+			"name",
+			"province",
+			"street1",
+			"type"],
+			"properties": {
+				"city": {
+					"type": "string",
+					"description": "市"
+				},
+				"company": {
+					"type": "string",
+					"description": "公司名称"
+				},
+				"contact": {
+					"type": "string",
+					"description": "联系人姓名"
+				},
+				"countryCode": {
+					"type": "string",
+					"description": "国家或地区"
+				},
+				"district": {
+					"type": "string",
+					"description": "区县，非香港台湾地区必填"
+				},
+				"mobile": {
+					"type": "string",
+					"description": "手机号"
+				},
+				"name": {
+					"type": "string",
+					"description": "地址名称"
+				},
+				"postcode": {
+					"type": "string",
+					"description": "邮政编码"
+				},
+				"province": {
+					"type": "string",
+					"description": "省"
+				},
+				"street1": {
+					"type": "string",
+					"description": "街道地址1"
+				},
+				"street2": {
+					"type": "string",
+					"description": "街道地址2"
+				},
+				"street3": {
+					"type": "string",
+					"description": "街道地址3"
+				},
+				"type": {
+					"type": "integer",
+					"format": "int32",
+					"description": "地址类型，可用值：0 - 发货地址;1 - 退货地址"
+				}
+			}
+		},
+		"AddAddressPreferenceResponses": {
+			"type": "object",
+			"required": ["data",
+			"status"],
+			"properties": {
+				"data": {
+					"type": "string",
+					"description": "地址ID"
+				},
+				"status": {
+					"$ref": "#/definitions/ResponsesStatus"
+				}
+			}
+		},
+		"AddConsignPreferenceRequest": {
+			"type": "object",
+			"required": ["data",
+			"ebayId",
+			"messageId",
+			"timestamp"],
+			"properties": {
+				"data": {
+					"$ref": "#/definitions/AddConsignPreferenceRequestData"
+				},
+				"ebayId": {
+					"type": "string",
+					"description": "卖家eBay账户"
+				},
+				"messageId": {
+					"type": "string",
+					"description": "消息ID"
+				},
+				"timestamp": {
+					"type": "integer",
+					"format": "int64",
+					"description": "时间戳"
+				}
+			}
+		},
+		"AddConsignPreferenceRequestData": {
+			"type": "object",
+			"required": ["name",
+			"type"],
+			"properties": {
+				"dropoffSiteId": {
+					"type": "string",
+					"description": "自送站点ID,当交运方式为卖家自送时必填"
+				},
+				"name": {
+					"type": "string",
+					"description": "交运偏好名称"
+				},
+				"pickupAddress": {
+					"$ref": "#/definitions/PickupAddressRequest"
+				},
+				"pickupTime": {
+					"type": "integer",
+					"format": "int32",
+					"description": "揽收时间段:1 - 10:00~13:00; 2 - 13:00~16:00; 3 - 16:00~19:00; 4 - 19:00~22:00;当交运方式为上门揽收时必填"
+				},
+				"type": {
+					"type": "integer",
+					"format": "int32",
+					"description": "交运方式，可用值:0 - 上门揽收;1 - 卖家自送"
+				}
+			}
+		},
+		"AddConsignPreferenceResponses": {
+			"type": "object",
+			"required": ["data",
+			"status"],
+			"properties": {
+				"data": {
+					"type": "string",
+					"description": "交运偏好ID"
+				},
+				"status": {
+					"$ref": "#/definitions/ResponsesStatus"
+				}
+			}
+		},
+		"AddPackageRequest": {
+			"type": "object",
+			"required": ["data",
+			"ebayId",
+			"messageId",
+			"timestamp"],
+			"properties": {
+				"data": {
+					"$ref": "#/definitions/PackageInfoRequest"
+				},
+				"ebayId": {
+					"type": "string",
+					"example": "xxxxxxxxxxxx",
+					"description": "卖家eBay账户"
+				},
+				"messageId": {
+					"type": "string",
+					"example": "xxxxxxxxxxxx",
+					"description": "消息ID"
+				},
+				"timestamp": {
+					"type": "integer",
+					"format": "int64",
+					"example": 12312321313113,
+					"description": "时间戳"
+				}
+			}
+		},
+		"AddPackageResponses": {
+			"type": "object",
+			"required": ["data",
+			"status"],
+			"properties": {
+				"data": {
+					"$ref": "#/definitions/AddPackageResponsesData"
+				},
+				"status": {
+					"$ref": "#/definitions/ResponsesStatus"
+				}
+			}
+		},
+		"AddPackageResponsesData": {
+			"type": "object",
+			"required": ["packageId",
+			"trackingNumber"],
+			"properties": {
+				"packageId": {
+					"type": "string",
+					"description": "包裹ID"
+				},
+				"trackingNumber": {
+					"type": "string",
+					"description": "包裹跟踪号"
+				}
+			},
+			"description": "包裹返回参数"
+		},
+		"AddPackageWithoutServiceRequest": {
+			"type": "object",
+			"properties": {
+				"data": {
+					"$ref": "#/definitions/PackageInfoWithoutServiceRequest"
+				},
+				"ebayId": {
+					"type": "string",
+					"description": "卖家eBay账户"
+				},
+				"messageId": {
+					"type": "string",
+					"description": "消息ID"
+				},
+				"timestamp": {
+					"type": "integer",
+					"format": "int64",
+					"description": "时间戳"
+				}
+			}
+		},
+		"AddPackageWithoutServiceResponsesData": {
+			"type": "object",
+			"required": ["availableServiceList",
+			"packageId"],
+			"properties": {
+				"availableServiceList": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/AvailableServiceResponses"
+					}
+				},
+				"packageId": {
+					"type": "string",
+					"description": "包裹ID"
+				}
+			},
+			"description": "包裹返回参数"
+		},
+		"AddressInfoResponses": {
+			"type": "object",
+			"required": ["addressId",
+			"city",
+			"contact",
+			"countryCode",
+			"mobile",
+			"name",
+			"province",
+			"street1",
+			"type"],
+			"properties": {
+				"addressId": {
+					"type": "string",
+					"description": "地址ID"
+				},
+				"city": {
+					"type": "string",
+					"description": "市"
+				},
+				"company": {
+					"type": "string",
+					"description": "公司名称"
+				},
+				"contact": {
+					"type": "string",
+					"description": "联系人姓名"
+				},
+				"countryCode": {
+					"type": "string",
+					"description": "国家或地区"
+				},
+				"district": {
+					"type": "string",
+					"description": "区县，非香港台湾地区必填"
+				},
+				"mobile": {
+					"type": "string",
+					"description": "手机号"
+				},
+				"name": {
+					"type": "string",
+					"description": "地址名称"
+				},
+				"postcode": {
+					"type": "string",
+					"description": "邮政编码"
+				},
+				"province": {
+					"type": "string",
+					"description": "省"
+				},
+				"street1": {
+					"type": "string",
+					"description": "街道地址1"
+				},
+				"street2": {
+					"type": "string",
+					"description": "街道地址2"
+				},
+				"street3": {
+					"type": "string",
+					"description": "街道地址3"
+				},
+				"type": {
+					"type": "integer",
+					"format": "int32",
+					"description": "地址类型，可用值：0 - 发货地址;1 - 退货地址"
+				}
+			},
+			"description": "地址信息"
+		},
+		"AssignServiceRequest": {
+			"type": "object",
+			"required": ["data",
+			"ebayId",
+			"messageId",
+			"timestamp"],
+			"properties": {
+				"data": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/AssignServiceRequestData"
+					}
+				},
+				"ebayId": {
+					"type": "string",
+					"description": "卖家eBay账户"
+				},
+				"messageId": {
+					"type": "string",
+					"description": "消息ID"
+				},
+				"timestamp": {
+					"type": "integer",
+					"format": "int64",
+					"description": "时间戳"
+				}
+			}
+		},
+		"AssignServiceRequestData": {
+			"type": "object",
+			"required": ["packageId",
+			"serviceId"],
+			"properties": {
+				"packageId": {
+					"type": "string",
+					"description": "包裹ID"
+				},
+				"serviceId": {
+					"type": "string",
+					"description": "物流服务ID"
+				}
+			},
+			"description": "指定包裹服务"
+		},
+		"AssignServiceResponses": {
+			"type": "object",
+			"required": ["data",
+			"status"],
+			"properties": {
+				"data": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/AssignServiceResponsesData"
+					}
+				},
+				"status": {
+					"$ref": "#/definitions/ResponsesStatus"
+				}
+			}
+		},
+		"AssignServiceResponsesData": {
+			"type": "object",
+			"required": ["message",
+			"packageId",
+			"resultCode",
+			"trackingNumber"],
+			"properties": {
+				"message": {
+					"type": "string",
+					"description": "指定结果消息"
+				},
+				"packageId": {
+					"type": "string",
+					"description": "包裹ID"
+				},
+				"resultCode": {
+					"type": "integer",
+					"format": "int64",
+					"description": "指定结果"
+				},
+				"trackingNumber": {
+					"type": "string",
+					"description": "指定成功时返回包裹跟踪号"
+				}
+			},
+			"description": "指定结果"
+		},
+		"AvailableServiceResponses": {
+			"type": "object",
+			"required": ["currencyCode",
+			"estimateCost",
+			"serviceId",
+			"serviceNameEn",
+			"serviceNameZh"],
+			"properties": {
+				"currencyCode": {
+					"type": "string",
+					"description": "预估运费币种"
+				},
+				"estimateCost": {
+					"type": "number",
+					"description": "预估运费金额"
+				},
+				"serviceId": {
+					"type": "string",
+					"description": "物流服务ID"
+				},
+				"serviceNameEn": {
+					"type": "string",
+					"description": "物流服务名称（英文）"
+				},
+				"serviceNameZh": {
+					"type": "string",
+					"description": "物流服务名称（中文）"
+				}
+			},
+			"description": "可用物流服务"
+		},
+		"CancelPackagesRequest": {
+			"type": "object",
+			"required": ["data",
+			"ebayId",
+			"messageId",
+			"timestamp"],
+			"properties": {
+				"data": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"ebayId": {
+					"type": "string",
+					"description": "卖家eBay账户"
+				},
+				"messageId": {
+					"type": "string",
+					"description": "消息ID"
+				},
+				"timestamp": {
+					"type": "integer",
+					"format": "int64",
+					"description": "时间戳"
+				}
+			}
+		},
+		"CancelPackagesResponses": {
+			"type": "object",
+			"required": ["data",
+			"status"],
+			"properties": {
+				"data": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CancelPackagesResponsesData"
+					}
+				},
+				"status": {
+					"$ref": "#/definitions/ResponsesStatus"
+				}
+			}
+		},
+		"CancelPackagesResponsesData": {
+			"type": "object",
+			"required": ["message",
+			"packageId",
+			"resultCode"],
+			"properties": {
+				"message": {
+					"type": "string",
+					"description": "指定结果消息"
+				},
+				"packageId": {
+					"type": "string",
+					"description": "包裹ID"
+				},
+				"resultCode": {
+					"type": "integer",
+					"format": "int64",
+					"description": "指定结果"
+				}
+			},
+			"description": "确认结果"
+		},
+		"ConfirmPackagesRequest": {
+			"type": "object",
+			"required": ["data",
+			"ebayId",
+			"messageId",
+			"timestamp"],
+			"properties": {
+				"data": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"ebayId": {
+					"type": "string",
+					"description": "卖家eBay账户"
+				},
+				"messageId": {
+					"type": "string",
+					"description": "消息ID"
+				},
+				"timestamp": {
+					"type": "integer",
+					"format": "int64",
+					"description": "时间戳"
+				}
+			}
+		},
+		"ConfirmPackagesResponses": {
+			"type": "object",
+			"required": ["data",
+			"status"],
+			"properties": {
+				"data": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ConfirmPackagesResponsesData"
+					}
+				},
+				"status": {
+					"$ref": "#/definitions/ResponsesStatus"
+				}
+			}
+		},
+		"ConfirmPackagesResponsesData": {
+			"type": "object",
+			"required": ["message",
+			"packageId",
+			"resultCode"],
+			"properties": {
+				"message": {
+					"type": "string",
+					"description": "指定结果消息"
+				},
+				"packageId": {
+					"type": "string",
+					"description": "包裹ID"
+				},
+				"resultCode": {
+					"type": "integer",
+					"format": "int64",
+					"description": "指定结果"
+				}
+			},
+			"description": "确认结果"
+		},
+		"ConsignPreferenceInfoResponses": {
+			"type": "object",
+			"required": ["consignPreferenceId",
+			"name",
+			"pickupAddress",
+			"type"],
+			"properties": {
+				"consignPreferenceId": {
+					"type": "string",
+					"description": "交运偏好ID"
+				},
+				"dropoffSiteId": {
+					"type": "string",
+					"description": "自送站点ID,当交运方式为卖家自送时必填"
+				},
+				"name": {
+					"type": "string",
+					"description": "交运偏好名称"
+				},
+				"pickupAddress": {
+					"$ref": "#/definitions/PickupAddressResponses"
+				},
+				"pickupTime": {
+					"type": "integer",
+					"format": "int32",
+					"description": "揽收时间段:1 - 10:00~13:00; 2 - 13:00~16:00; 3 - 16:00~19:00; 4 - 19:00~22:00;当交运方式为上门揽收时必填"
+				},
+				"type": {
+					"type": "integer",
+					"format": "int32",
+					"description": "交运方式，可用值:0 - 上门揽收;1 - 卖家自送"
+				}
+			},
+			"description": "交运偏好"
+		},
+		"DeletePackagesRequest": {
+			"type": "object",
+			"required": ["data",
+			"ebayId",
+			"messageId",
+			"timestamp"],
+			"properties": {
+				"data": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"ebayId": {
+					"type": "string",
+					"description": "卖家eBay账户"
+				},
+				"messageId": {
+					"type": "string",
+					"description": "消息ID"
+				},
+				"timestamp": {
+					"type": "integer",
+					"format": "int64",
+					"description": "时间戳"
+				}
+			}
+		},
+		"DeletePackagesResponses": {
+			"type": "object",
+			"required": ["data",
+			"status"],
+			"properties": {
+				"data": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/DeletePackagesResponsesData"
+					}
+				},
+				"status": {
+					"$ref": "#/definitions/ResponsesStatus"
+				}
+			}
+		},
+		"DeletePackagesResponsesData": {
+			"type": "object",
+			"required": ["message",
+			"packageId",
+			"resultCode"],
+			"properties": {
+				"message": {
+					"type": "string",
+					"description": "指定结果消息"
+				},
+				"packageId": {
+					"type": "string",
+					"description": "包裹ID"
+				},
+				"resultCode": {
+					"type": "integer",
+					"format": "int64",
+					"description": "指定结果"
+				}
+			},
+			"description": "确认结果"
+		},
+		"DirectionsResponses": {
+			"type": "object",
+			"required": ["from",
+			"to"],
+			"properties": {
+				"from": {
+					"type": "string",
+					"description": "起始国家代码"
+				},
+				"to": {
+					"type": "string",
+					"description": "目标国家代码"
+				}
+			},
+			"description": "路向信息"
+		},
+		"DropoffSiteInfoResponses": {
+			"type": "object",
+			"required": ["city",
+			"contact",
+			"district",
+			"dropoffSiteId",
+			"mobile",
+			"name",
+			"province",
+			"street1"],
+			"properties": {
+				"city": {
+					"type": "string",
+					"description": "市"
+				},
+				"contact": {
+					"type": "string",
+					"description": "联系人"
+				},
+				"district": {
+					"type": "string",
+					"description": "区县"
+				},
+				"dropoffSiteId": {
+					"type": "string",
+					"description": "站点ID"
+				},
+				"mobile": {
+					"type": "string",
+					"description": "联系电话"
+				},
+				"name": {
+					"type": "string",
+					"description": "站点名称"
+				},
+				"province": {
+					"type": "string",
+					"description": "省"
+				},
+				"street1": {
+					"type": "string",
+					"description": "街道地址1"
+				},
+				"street2": {
+					"type": "string",
+					"description": "街道地址2"
+				},
+				"street3": {
+					"type": "string",
+					"description": "街道地址3"
+				}
+			},
+			"description": "物流服务分页信息"
+		},
+		"FetchTokenResponses": {
+			"type": "object",
+			"required": ["expireDate",
+			"token"],
+			"properties": {
+				"expireDate": {
+					"type": "string",
+					"format": "date",
+					"example": "2017-10-12T08:08:04 +0800",
+					"description": "有效期（12个月）"
+				},
+				"token": {
+					"type": "string",
+					"example": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyIiwic2NvcGVzIjpbIlJPTEVfQURNSU4iLCJST0xFX1VTRVIiXSwiaXNzIjoieHVjaGVuIiwiaWF0IjoxNTAxNzI3MDcxLCJleHAiOjE1MDE3NTU4NzF9.6wC3vchd2u5LM_ZI-5al0eJV8LMWiLoEQDCssFX1CeFvnjGpwW_-i8pMLemXp3QJPwB_8fmDRsYowrkja3IT3w",
+					"description": "令牌"
+				}
+			}
+		},
+		"GetActualCostRequest": {
+			"type": "object",
+			"required": ["data",
+			"ebayId",
+			"messageId",
+			"timestamp"],
+			"properties": {
+				"data": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"ebayId": {
+					"type": "string",
+					"description": "卖家eBay账户"
+				},
+				"messageId": {
+					"type": "string",
+					"description": "消息ID"
+				},
+				"timestamp": {
+					"type": "integer",
+					"format": "int64",
+					"description": "时间戳"
+				}
+			}
+		},
+		"GetActualCostResponses": {
+			"type": "object",
+			"required": ["data",
+			"status"],
+			"properties": {
+				"data": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/GetActualCostResponsesData"
+					}
+				},
+				"status": {
+					"$ref": "#/definitions/ResponsesStatus"
+				}
+			}
+		},
+		"GetActualCostResponsesData": {
+			"type": "object",
+			"required": ["amount",
+			"billingTime",
+			"currencyCode",
+			"trackingNumber"],
+			"properties": {
+				"amount": {
+					"type": "number",
+					"description": "交易金额"
+				},
+				"billingTime": {
+					"type": "string",
+					"format": "date",
+					"description": "交易时间"
+				},
+				"currencyCode": {
+					"type": "string",
+					"description": "货币符号：CNY，HKD，TWD"
+				},
+				"remark": {
+					"type": "string",
+					"description": "备注"
+				},
+				"trackingNumber": {
+					"type": "string",
+					"description": "包裹跟踪号"
+				}
+			}
+		},
+		"GetAddressPreferenceListRequest": {
+			"type": "object",
+			"required": ["data",
+			"ebayId",
+			"messageId",
+			"timestamp"],
+			"properties": {
+				"data": {
+					"$ref": "#/definitions/GetAddressPreferenceListRequestData"
+				},
+				"ebayId": {
+					"type": "string",
+					"description": "卖家eBay账户"
+				},
+				"messageId": {
+					"type": "string",
+					"description": "消息ID"
+				},
+				"timestamp": {
+					"type": "integer",
+					"format": "int64",
+					"description": "时间戳"
+				}
+			}
+		},
+		"GetAddressPreferenceListRequestData": {
+			"type": "object",
+			"required": ["pageNumber",
+			"pageSize"],
+			"properties": {
+				"pageNumber": {
+					"type": "integer",
+					"format": "int32",
+					"description": "页码，默认值：1"
+				},
+				"pageSize": {
+					"type": "integer",
+					"format": "int32",
+					"description": "分页大小，默认值：100，最大值1000"
+				}
+			}
+		},
+		"GetAddressPreferenceListResponses": {
+			"type": "object",
+			"required": ["data",
+			"status"],
+			"properties": {
+				"data": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/GetAddressPreferenceListResponsesData"
+					}
+				},
+				"status": {
+					"$ref": "#/definitions/ResponsesStatus"
+				}
+			}
+		},
+		"GetAddressPreferenceListResponsesData": {
+			"type": "object",
+			"required": ["addressList",
+			"pageNumber",
+			"pageSize",
+			"toalPageNumber",
+			"totalCount"],
+			"properties": {
+				"addressList": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/AddressInfoResponses"
+					}
+				},
+				"pageNumber": {
+					"type": "integer",
+					"format": "int32",
+					"description": "当前页码"
+				},
+				"pageSize": {
+					"type": "integer",
+					"format": "int32",
+					"description": "当前分页大小"
+				},
+				"toalPageNumber": {
+					"type": "integer",
+					"format": "int32",
+					"description": "总页数"
+				},
+				"totalCount": {
+					"type": "integer",
+					"format": "int32",
+					"description": "总记录数"
+				}
+			},
+			"description": "地址分页信息"
+		},
+		"GetConsignPreferenceListRequest": {
+			"type": "object",
+			"required": ["data",
+			"ebayId",
+			"messageId",
+			"timestamp"],
+			"properties": {
+				"data": {
+					"$ref": "#/definitions/GetConsignPreferenceListRequestData"
+				},
+				"ebayId": {
+					"type": "string",
+					"description": "卖家eBay账户"
+				},
+				"messageId": {
+					"type": "string",
+					"description": "消息ID"
+				},
+				"timestamp": {
+					"type": "integer",
+					"format": "int64",
+					"description": "时间戳"
+				}
+			}
+		},
+		"GetConsignPreferenceListRequestData": {
+			"type": "object",
+			"required": ["pageNumber",
+			"pageSize"],
+			"properties": {
+				"pageNumber": {
+					"type": "integer",
+					"format": "int32",
+					"description": "页码，默认值：1"
+				},
+				"pageSize": {
+					"type": "integer",
+					"format": "int32",
+					"description": "分页大小，默认值：100，最大值1000"
+				}
+			}
+		},
+		"GetConsignPreferenceListResponses": {
+			"type": "object",
+			"required": ["data",
+			"status"],
+			"properties": {
+				"data": {
+					"$ref": "#/definitions/GetConsignPreferenceListResponsesData"
+				},
+				"status": {
+					"$ref": "#/definitions/ResponsesStatus"
+				}
+			}
+		},
+		"GetConsignPreferenceListResponsesData": {
+			"type": "object",
+			"required": ["consignPreferenceList",
+			"pageNumber",
+			"pageSize",
+			"toalPageNumber",
+			"totalCount"],
+			"properties": {
+				"consignPreferenceList": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ConsignPreferenceInfoResponses"
+					}
+				},
+				"pageNumber": {
+					"type": "integer",
+					"format": "int32",
+					"description": "当前页码"
+				},
+				"pageSize": {
+					"type": "integer",
+					"format": "int32",
+					"description": "当前分页大小"
+				},
+				"toalPageNumber": {
+					"type": "integer",
+					"format": "int32",
+					"description": "总页数"
+				},
+				"totalCount": {
+					"type": "integer",
+					"format": "int32",
+					"description": "总记录数"
+				}
+			},
+			"description": "地址分页信息"
+		},
+		"GetDropoffSiteListRequest": {
+			"type": "object",
+			"required": ["data",
+			"ebayId",
+			"messageId",
+			"timestamp"],
+			"properties": {
+				"data": {
+					"$ref": "#/definitions/GetDropoffSiteListRequestData"
+				},
+				"ebayId": {
+					"type": "string",
+					"description": "卖家eBay账户"
+				},
+				"messageId": {
+					"type": "string",
+					"description": "消息ID"
+				},
+				"timestamp": {
+					"type": "integer",
+					"format": "int64",
+					"description": "时间戳"
+				}
+			}
+		},
+		"GetDropoffSiteListRequestData": {
+			"type": "object",
+			"required": ["pageNumber",
+			"pageSize"],
+			"properties": {
+				"pageNumber": {
+					"type": "integer",
+					"format": "int32",
+					"description": "页码，默认值：1"
+				},
+				"pageSize": {
+					"type": "integer",
+					"format": "int32",
+					"description": "分页大小，默认值：100，最大值1000"
+				}
+			}
+		},
+		"GetDropoffSiteListResponses": {
+			"type": "object",
+			"required": ["data",
+			"status"],
+			"properties": {
+				"data": {
+					"$ref": "#/definitions/GetDropoffSiteListResponsesData"
+				},
+				"status": {
+					"$ref": "#/definitions/ResponsesStatus"
+				}
+			}
+		},
+		"GetDropoffSiteListResponsesData": {
+			"type": "object",
+			"required": ["consignPreferenceList",
+			"pageNumber",
+			"pageSize",
+			"toalPageNumber",
+			"totalCount"],
+			"properties": {
+				"consignPreferenceList": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/DropoffSiteInfoResponses"
+					}
+				},
+				"pageNumber": {
+					"type": "integer",
+					"format": "int32",
+					"description": "当前页码"
+				},
+				"pageSize": {
+					"type": "integer",
+					"format": "int32",
+					"description": "当前分页大小"
+				},
+				"toalPageNumber": {
+					"type": "integer",
+					"format": "int32",
+					"description": "总页数"
+				},
+				"totalCount": {
+					"type": "integer",
+					"format": "int32",
+					"description": "总记录数"
+				}
+			},
+			"description": "物流服务分页信息"
+		},
+		"GetHandoverSheetRequest": {
+			"type": "object",
+			"required": ["data",
+			"ebayId",
+			"messageId",
+			"timestamp"],
+			"properties": {
+				"data": {
+					"type": "array",
+					"description": "要打印交接单的包裹跟踪号列表，至少一个",
+					"items": {
+						"type": "string"
+					}
+				},
+				"ebayId": {
+					"type": "string",
+					"description": "卖家eBay账户"
+				},
+				"messageId": {
+					"type": "string",
+					"description": "消息ID"
+				},
+				"timestamp": {
+					"type": "integer",
+					"format": "int64",
+					"description": "时间戳"
+				}
+			}
+		},
+		"GetHandoverSheetResponses": {
+			"type": "object",
+			"required": ["data",
+			"status"],
+			"properties": {
+				"data": {
+					"type": "string",
+					"description": "PDF交接单流"
+				},
+				"status": {
+					"$ref": "#/definitions/ResponsesStatus"
+				}
+			}
+		},
+		"GetItemPackageIdRequest": {
+			"type": "object",
+			"required": ["data",
+			"ebayId",
+			"messageId",
+			"timestamp"],
+			"properties": {
+				"data": {
+					"$ref": "#/definitions/GetItemPackageIdRequestData"
+				},
+				"ebayId": {
+					"type": "string",
+					"description": "卖家eBay账户"
+				},
+				"messageId": {
+					"type": "string",
+					"description": "消息ID"
+				},
+				"timestamp": {
+					"type": "integer",
+					"format": "int64",
+					"description": "时间戳"
+				}
+			}
+		},
+		"GetItemPackageIdRequestData": {
+			"type": "object",
+			"required": ["itemId",
+			"transactionId"],
+			"properties": {
+				"itemId": {
+					"type": "string",
+					"description": "eBay物品号"
+				},
+				"transactionId": {
+					"type": "string",
+					"description": "eBay交易号"
+				}
+			},
+			"description": "物品信息"
+		},
+		"GetItemPackageIdResponses": {
+			"type": "object",
+			"required": ["data",
+			"status"],
+			"properties": {
+				"data": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/GetItemPackageIdResponsesData"
+					}
+				},
+				"status": {
+					"$ref": "#/definitions/ResponsesStatus"
+				}
+			}
+		},
+		"GetItemPackageIdResponsesData": {
+			"type": "object",
+			"required": ["packageId",
+			"trackingNumber"],
+			"properties": {
+				"packageId": {
+					"type": "string",
+					"description": "包裹ID"
+				},
+				"trackingNumber": {
+					"type": "string",
+					"description": "新的包裹跟踪号"
+				}
+			}
+		},
+		"GetLabelRequest": {
+			"type": "object",
+			"required": ["data",
+			"ebayId",
+			"messageId",
+			"timestamp"],
+			"properties": {
+				"data": {
+					"$ref": "#/definitions/GetLabelRequestData"
+				},
+				"ebayId": {
+					"type": "string",
+					"description": "卖家eBay账户"
+				},
+				"messageId": {
+					"type": "string",
+					"description": "消息ID"
+				},
+				"timestamp": {
+					"type": "integer",
+					"format": "int64",
+					"description": "时间戳"
+				}
+			}
+		},
+		"GetLabelRequestData": {
+			"type": "object",
+			"required": ["pageSize",
+			"trackingNumber"],
+			"properties": {
+				"pageSize": {
+					"type": "string",
+					"description": "标签格式，可用值： 0 - 适用于打印A4 格式标签,1 - 适用于打印4寸 的热敏标签纸格式标签 "
+				},
+				"trackingNumber": {
+					"type": "string",
+					"description": "包裹跟踪号"
+				}
+			}
+		},
+		"GetLabelResponses": {
+			"type": "object",
+			"required": ["data",
+			"status"],
+			"properties": {
+				"data": {
+					"type": "string",
+					"description": "PDF文件流"
+				},
+				"status": {
+					"$ref": "#/definitions/ResponsesStatus"
+				}
+			}
+		},
+		"GetPackageDetailRequest": {
+			"type": "object",
+			"required": ["data",
+			"ebayId",
+			"messageId",
+			"timestamp"],
+			"properties": {
+				"data": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"ebayId": {
+					"type": "string",
+					"description": "卖家eBay账户"
+				},
+				"messageId": {
+					"type": "string",
+					"description": "消息ID"
+				},
+				"timestamp": {
+					"type": "integer",
+					"format": "int64",
+					"description": "时间戳"
+				}
+			}
+		},
+		"GetPackageDetailResponses": {
+			"type": "object",
+			"required": ["data",
+			"status"],
+			"properties": {
+				"data": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/GetPackageDetailResponsesData"
+					}
+				},
+				"status": {
+					"$ref": "#/definitions/ResponsesStatus"
+				}
+			}
+		},
+		"GetPackageDetailResponsesData": {
+			"type": "object",
+			"required": ["consignPreferenceId",
+			"itemList",
+			"packageId",
+			"serviceId",
+			"shipFromAddressId",
+			"shipToAddress"],
+			"properties": {
+				"consignPreferenceId": {
+					"type": "string",
+					"description": "交运偏好ID"
+				},
+				"incoterms": {
+					"type": "integer",
+					"format": "int64",
+					"description": "国贸条规，可用值:0 - DDP(卖家承担关税) 1 - DDU(买家承担关税) 为空时默认值为DDU"
+				},
+				"itemList": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ItemResponses"
+					}
+				},
+				"packageId": {
+					"type": "string",
+					"description": "包裹ID"
+				},
+				"returnAddressId": {
+					"type": "string",
+					"description": "退货地址ID"
+				},
+				"serviceId": {
+					"type": "string",
+					"description": "物流服务ID"
+				},
+				"shipFromAddressId": {
+					"type": "string",
+					"description": "发货地址ID"
+				},
+				"shipToAddress": {
+					"$ref": "#/definitions/ShipToAddressResponses"
+				}
+			},
+			"description": "包裹信息"
+		},
+		"GetPackageStatusRequest": {
+			"type": "object",
+			"required": ["data",
+			"ebayId",
+			"messageId",
+			"timestamp"],
+			"properties": {
+				"data": {
+					"type": "string",
+					"description": "包裹ID"
+				},
+				"ebayId": {
+					"type": "string",
+					"description": "卖家eBay账户"
+				},
+				"messageId": {
+					"type": "string",
+					"description": "消息ID"
+				},
+				"timestamp": {
+					"type": "integer",
+					"format": "int64",
+					"description": "时间戳"
+				}
+			}
+		},
+		"GetPackageStatusResponses": {
+			"type": "object",
+			"required": ["data",
+			"status"],
+			"properties": {
+				"data": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/GetPackageStatusResponsesData"
+					}
+				},
+				"status": {
+					"$ref": "#/definitions/ResponsesStatus"
+				}
+			}
+		},
+		"GetPackageStatusResponsesData": {
+			"type": "object",
+			"required": ["packageId",
+			"packageStatus"],
+			"properties": {
+				"note": {
+					"type": "string",
+					"description": "补充信息"
+				},
+				"packageId": {
+					"type": "string",
+					"description": "包裹ID"
+				},
+				"packageStatus": {
+					"type": "integer",
+					"format": "int64",
+					"description": "包裹当前状态，返回值： 0 - 信息不完整;1 - 待选择物流服务;2 - 待申请运单号;3 - 待交运;4 - 无可用物流服务;5 - 预申报未通过;6 - 待取件;7 - 揽收成功;8 - 运输中;9 - 已妥投;10 - 投递失败;11 - 已删除;99 - 包裹异常"
+				}
+			}
+		},
+		"GetServiceListRequest": {
+			"type": "object",
+			"required": ["data",
+			"ebayId",
+			"messageId",
+			"timestamp"],
+			"properties": {
+				"data": {
+					"$ref": "#/definitions/GetServiceListRequestRequestData"
+				},
+				"ebayId": {
+					"type": "string",
+					"description": "卖家eBay账户"
+				},
+				"messageId": {
+					"type": "string",
+					"description": "消息ID"
+				},
+				"timestamp": {
+					"type": "integer",
+					"format": "int64",
+					"description": "时间戳"
+				}
+			}
+		},
+		"GetServiceListRequestRequestData": {
+			"type": "object",
+			"required": ["pageNumber",
+			"pageSize"],
+			"properties": {
+				"pageNumber": {
+					"type": "integer",
+					"format": "int32",
+					"description": "页码，默认值：1"
+				},
+				"pageSize": {
+					"type": "integer",
+					"format": "int32",
+					"description": "分页大小，默认值：100，最大值1000"
+				}
+			}
+		},
+		"GetServiceListResponses": {
+			"type": "object",
+			"required": ["data",
+			"status"],
+			"properties": {
+				"data": {
+					"$ref": "#/definitions/GetServiceListResponsesData"
+				},
+				"status": {
+					"$ref": "#/definitions/ResponsesStatus"
+				}
+			}
+		},
+		"GetServiceListResponsesData": {
+			"type": "object",
+			"required": ["consignPreferenceList",
+			"pageNumber",
+			"pageSize",
+			"toalPageNumber",
+			"totalCount"],
+			"properties": {
+				"consignPreferenceList": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ServiceInfoResponses"
+					}
+				},
+				"pageNumber": {
+					"type": "integer",
+					"format": "int32",
+					"description": "当前页码"
+				},
+				"pageSize": {
+					"type": "integer",
+					"format": "int32",
+					"description": "当前分页大小"
+				},
+				"toalPageNumber": {
+					"type": "integer",
+					"format": "int32",
+					"description": "总页数"
+				},
+				"totalCount": {
+					"type": "integer",
+					"format": "int32",
+					"description": "总记录数"
+				}
+			},
+			"description": "物流服务分页信息"
+		},
+		"GetTrackingDetailRequest": {
+			"type": "object",
+			"required": ["data",
+			"ebayId",
+			"messageId",
+			"timestamp"],
+			"properties": {
+				"data": {
+					"type": "string",
+					"description": "包裹跟踪号"
+				},
+				"ebayId": {
+					"type": "string",
+					"description": "卖家eBay账户"
+				},
+				"messageId": {
+					"type": "string",
+					"description": "消息ID"
+				},
+				"timestamp": {
+					"type": "integer",
+					"format": "int64",
+					"description": "时间戳"
+				}
+			}
+		},
+		"GetTrackingDetailResponses": {
+			"type": "object",
+			"required": ["data",
+			"status"],
+			"properties": {
+				"data": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/GetTrackingDetailResponsesData"
+					}
+				},
+				"status": {
+					"$ref": "#/definitions/ResponsesStatus"
+				}
+			}
+		},
+		"GetTrackingDetailResponsesData": {
+			"type": "object",
+			"required": ["descriptionEn",
+			"descriptionZh",
+			"eventTime",
+			"location",
+			"status"],
+			"properties": {
+				"descriptionEn": {
+					"type": "string",
+					"description": "英文描述"
+				},
+				"descriptionZh": {
+					"type": "string",
+					"description": "中文描述"
+				},
+				"eventTime": {
+					"type": "string",
+					"format": "date",
+					"description": "时间"
+				},
+				"location": {
+					"type": "string",
+					"description": "包裹所在地"
+				},
+				"status": {
+					"type": "string",
+					"description": "物流跟踪状态"
+				}
+			},
+			"description": "物流跟踪"
+		},
+		"ItemRequest": {
+			"type": "object",
+			"required": ["buyerId",
+			"itemId",
+			"postedQty",
+			"sku",
+			"transactionId"],
+			"properties": {
+				"buyerId": {
+					"type": "string",
+					"description": "eBay买家ID"
+				},
+				"currencyCode": {
+					"type": "string",
+					"description": "货币符号,默认为USD"
+				},
+				"email": {
+					"type": "string",
+					"description": "买家eBay电邮"
+				},
+				"itemId": {
+					"type": "string",
+					"description": "eBay物品号"
+				},
+				"itemTitle": {
+					"type": "string",
+					"description": "eBay商品标题"
+				},
+				"message": {
+					"type": "string",
+					"description": "买家eBay留言"
+				},
+				"note": {
+					"type": "string",
+					"description": "附注"
+				},
+				"orderId": {
+					"type": "string",
+					"description": "eBay合并订单时生成的一个新的Order ID"
+				},
+				"payPalEmail": {
+					"type": "string",
+					"description": "买家PayPal电邮地址"
+				},
+				"payPalMessage": {
+					"type": "string",
+					"description": "买家PayPal留言"
+				},
+				"paymentDate": {
+					"type": "string",
+					"format": "date",
+					"example": "2017-10-12T08:08:04 +0800",
+					"description": "买家付款日期"
+				},
+				"postedQty": {
+					"type": "integer",
+					"format": "int64",
+					"description": "寄货数量，不能为0"
+				},
+				"receivedAmount": {
+					"type": "number",
+					"description": "实际收到金额,必须大于0.01"
+				},
+				"siteId": {
+					"type": "integer",
+					"format": "int64",
+					"description": "站点ID"
+				},
+				"sku": {
+					"$ref": "#/definitions/SkuRequest"
+				},
+				"soldDate": {
+					"type": "string",
+					"format": "date",
+					"example": "2017-10-12T08:08:04 +0800",
+					"description": "卖出日期"
+				},
+				"soldPrice": {
+					"type": "string",
+					"format": "date",
+					"example": "2017-10-12T08:08:04 +0800",
+					"description": "卖出总价,必须大于0.01"
+				},
+				"soldQty": {
+					"type": "integer",
+					"format": "int64",
+					"description": "卖出数量"
+				},
+				"transactionId": {
+					"type": "string",
+					"description": "eBay交易号"
+				}
+			},
+			"description": "货品列表，至少一个"
+		},
+		"ItemResponses": {
+			"type": "object",
+			"required": ["buyerId",
+			"itemId",
+			"postedQty",
+			"sku",
+			"transactionId"],
+			"properties": {
+				"buyerId": {
+					"type": "string",
+					"description": "eBay买家ID"
+				},
+				"currencyCode": {
+					"type": "string",
+					"description": "货币符号,默认为USD"
+				},
+				"email": {
+					"type": "string",
+					"description": "买家eBay电邮"
+				},
+				"itemId": {
+					"type": "string",
+					"description": "eBay物品号"
+				},
+				"itemTitle": {
+					"type": "string",
+					"description": "eBay商品标题"
+				},
+				"message": {
+					"type": "string",
+					"description": "买家eBay留言"
+				},
+				"note": {
+					"type": "string",
+					"description": "附注"
+				},
+				"orderId": {
+					"type": "string",
+					"description": "eBay合并订单时生成的一个新的Order ID"
+				},
+				"payPalEmail": {
+					"type": "string",
+					"description": "买家PayPal电邮地址"
+				},
+				"payPalMessage": {
+					"type": "string",
+					"description": "买家PayPal留言"
+				},
+				"paymentDate": {
+					"type": "string",
+					"format": "date",
+					"example": "2017-10-12T08:08:04 +0800",
+					"description": "买家付款日期"
+				},
+				"postedQty": {
+					"type": "integer",
+					"format": "int64",
+					"description": "寄货数量，不能为0"
+				},
+				"receivedAmount": {
+					"type": "number",
+					"description": "实际收到金额,必须大于0.01"
+				},
+				"siteId": {
+					"type": "integer",
+					"format": "int64",
+					"description": "站点ID"
+				},
+				"sku": {
+					"$ref": "#/definitions/SkuResponses"
+				},
+				"soldDate": {
+					"type": "string",
+					"format": "date",
+					"example": "2017-10-12T08:08:04 +0800",
+					"description": "卖出日期"
+				},
+				"soldPrice": {
+					"type": "string",
+					"format": "date",
+					"example": "2017-10-12T08:08:04 +0800",
+					"description": "卖出总价,必须大于0.01"
+				},
+				"soldQty": {
+					"type": "integer",
+					"format": "int64",
+					"description": "卖出数量"
+				},
+				"transactionId": {
+					"type": "string",
+					"description": "eBay交易号"
+				}
+			},
+			"description": "货品列表，至少一个"
+		},
+		"PackageInfoRequest": {
+			"type": "object",
+			"required": ["consignPreferenceId",
+			"serviceId",
+			"shipFromAddressId",
+			"shipToAddress"],
+			"properties": {
+				"consignPreferenceId": {
+					"type": "string",
+					"description": "交运偏好ID"
+				},
+				"incoterms": {
+					"type": "integer",
+					"format": "int64",
+					"description": "国贸条规，可用值:0 - DDP(卖家承担关税) 1 - DDU(买家承担关税) 为空时默认值为DDU"
+				},
+				"itemList": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ItemRequest"
+					}
+				},
+				"returnAddressId": {
+					"type": "string",
+					"description": "退货地址ID"
+				},
+				"serviceId": {
+					"type": "string",
+					"description": "物流服务ID"
+				},
+				"shipFromAddressId": {
+					"type": "string",
+					"description": "发货地址ID"
+				},
+				"shipToAddress": {
+					"$ref": "#/definitions/ShipToAddressRequest"
+				}
+			},
+			"description": "包裹信息"
+		},
+		"PackageInfoWithoutServiceRequest": {
+			"type": "object",
+			"required": ["consignPreferenceId",
+			"itemList",
+			"shipFromAddressId",
+			"shipToAddress"],
+			"properties": {
+				"consignPreferenceId": {
+					"type": "string",
+					"description": "交运偏好ID"
+				},
+				"incoterms": {
+					"type": "integer",
+					"format": "int64",
+					"description": "国贸条规，可用值:0 - DDP(卖家承担关税) 1 - DDU(买家承担关税) 为空时默认值为DDU"
+				},
+				"itemList": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ItemRequest"
+					}
+				},
+				"shipFromAddressId": {
+					"type": "string",
+					"description": "发货地址ID"
+				},
+				"shipToAddress": {
+					"$ref": "#/definitions/ShipToAddressRequest"
+				}
+			},
+			"description": "包裹信息"
+		},
+		"PickupAddressRequest": {
+			"type": "object",
+			"required": ["city",
+			"contact",
+			"countryCode",
+			"mobile",
+			"name",
+			"province",
+			"street1"],
+			"properties": {
+				"city": {
+					"type": "string",
+					"description": "市"
+				},
+				"company": {
+					"type": "string",
+					"description": "公司名称"
+				},
+				"contact": {
+					"type": "string",
+					"description": "联系人姓名"
+				},
+				"countryCode": {
+					"type": "string",
+					"description": "国家或地区"
+				},
+				"district": {
+					"type": "string",
+					"description": "Conditional区县，非香港台湾地区必填"
+				},
+				"mobile": {
+					"type": "string",
+					"description": "手机号"
+				},
+				"name": {
+					"type": "string",
+					"description": "地址名称"
+				},
+				"postcode": {
+					"type": "string",
+					"description": "邮政编码"
+				},
+				"province": {
+					"type": "string",
+					"description": "省"
+				},
+				"street1": {
+					"type": "string",
+					"description": "街道地址1"
+				},
+				"street2": {
+					"type": "string",
+					"description": "街道地址2"
+				},
+				"street3": {
+					"type": "string",
+					"description": "街道地址3"
+				}
+			},
+			"description": "Conditional揽收地址,当交运方式为上门揽收时必填"
+		},
+		"PickupAddressResponses": {
+			"type": "object",
+			"required": ["city",
+			"contact",
+			"countryCode",
+			"mobile",
+			"name",
+			"province",
+			"street1"],
+			"properties": {
+				"city": {
+					"type": "string",
+					"description": "市"
+				},
+				"company": {
+					"type": "string",
+					"description": "公司名称"
+				},
+				"contact": {
+					"type": "string",
+					"description": "联系人姓名"
+				},
+				"countryCode": {
+					"type": "string",
+					"description": "国家或地区"
+				},
+				"district": {
+					"type": "string",
+					"description": "区县，非香港台湾地区必填"
+				},
+				"mobile": {
+					"type": "string",
+					"description": "手机号"
+				},
+				"name": {
+					"type": "string",
+					"description": "地址名称"
+				},
+				"postcode": {
+					"type": "string",
+					"description": "邮政编码"
+				},
+				"province": {
+					"type": "string",
+					"description": "省"
+				},
+				"street1": {
+					"type": "string",
+					"description": "街道地址1"
+				},
+				"street2": {
+					"type": "string",
+					"description": "街道地址2"
+				},
+				"street3": {
+					"type": "string",
+					"description": "街道地址3"
+				}
+			},
+			"description": "揽收地址,当交运方式为上门揽收时必填"
+		},
+		"RecreatePackageRequest": {
+			"type": "object",
+			"required": ["data",
+			"ebayId",
+			"messageId",
+			"timestamp"],
+			"properties": {
+				"data": {
+					"type": "string",
+					"description": "包裹ID"
+				},
+				"ebayId": {
+					"type": "string",
+					"description": "卖家eBay账户"
+				},
+				"messageId": {
+					"type": "string",
+					"description": "消息ID"
+				},
+				"timestamp": {
+					"type": "integer",
+					"format": "int64",
+					"description": "时间戳"
+				}
+			}
+		},
+		"RecreatePackageResponses": {
+			"type": "object",
+			"required": ["data",
+			"status"],
+			"properties": {
+				"data": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/RecreatePackageResponsesData"
+					}
+				},
+				"status": {
+					"$ref": "#/definitions/ResponsesStatus"
+				}
+			}
+		},
+		"RecreatePackageResponsesData": {
+			"type": "object",
+			"required": ["packageId",
+			"trackingNumber"],
+			"properties": {
+				"packageId": {
+					"type": "string",
+					"description": "包裹ID"
+				},
+				"trackingNumber": {
+					"type": "string",
+					"description": "新的包裹跟踪号"
+				}
+			}
+		},
+		"ResponsesStatus": {
+			"type": "object",
+			"required": ["message",
+			"messageId",
+			"resultCode",
+			"timestamp"],
+			"properties": {
+				"message": {
+					"type": "string",
+					"description": "响应消息"
+				},
+				"messageId": {
+					"type": "string",
+					"description": "消息ID"
+				},
+				"resultCode": {
+					"type": "string",
+					"description": "响应编码，详见附录响应编码说明"
+				},
+				"timestamp": {
+					"type": "integer",
+					"format": "int64",
+					"description": "时间戳"
+				}
+			},
+			"description": "返回结果"
+		},
+		"ServiceInfoResponses": {
+			"type": "object",
+			"required": ["descriptionEn",
+			"descriptionZh",
+			"directions",
+			"feeDescription",
+			"isSupportElec",
+			"maxLength",
+			"maxTotalLength",
+			"maxWeight",
+			"nameEn",
+			"nameZh",
+			"picture",
+			"prescription",
+			"serviceId"],
+			"properties": {
+				"descriptionEn": {
+					"type": "string",
+					"description": "物流服务描述（英文）"
+				},
+				"descriptionZh": {
+					"type": "string",
+					"description": "物流服务描述（中文）"
+				},
+				"directions": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/DirectionsResponses"
+					}
+				},
+				"feeDescription": {
+					"type": "string",
+					"description": "计费方式描述"
+				},
+				"incoterms": {
+					"type": "integer",
+					"format": "int32",
+					"description": "DDP/DDU方式:0 - DDP and DDU;1 -DDP;2 - DDU"
+				},
+				"isSupportElec": {
+					"type": "boolean",
+					"example": false,
+					"description": "是否支持带电"
+				},
+				"maxLength": {
+					"type": "number",
+					"description": "最大单边长（cm）"
+				},
+				"maxTotalLength": {
+					"type": "number",
+					"description": "三边之和上限（cm）"
+				},
+				"maxWeight": {
+					"type": "number",
+					"description": "最大承载重量（kg）"
+				},
+				"nameEn": {
+					"type": "string",
+					"description": "物流服务名称（英文）"
+				},
+				"nameZh": {
+					"type": "string",
+					"description": "物流服务名称（中文）"
+				},
+				"picture": {
+					"type": "string",
+					"description": "图片BASE64编码"
+				},
+				"prescription": {
+					"type": "string",
+					"description": "时效"
+				},
+				"serviceId": {
+					"type": "string",
+					"description": "物流服务ID"
+				}
+			},
+			"description": "物流服务"
+		},
+		"ShipToAddressRequest": {
+			"type": "object",
+			"required": ["city",
+			"contact",
+			"countryCode",
+			"mobile",
+			"postcode",
+			"province",
+			"street1"],
+			"properties": {
+				"city": {
+					"type": "string",
+					"description": "城市"
+				},
+				"company": {
+					"type": "string",
+					"description": "公司"
+				},
+				"contact": {
+					"type": "string",
+					"description": "联系人"
+				},
+				"countryCode": {
+					"type": "string",
+					"description": "国家代码"
+				},
+				"district": {
+					"type": "string",
+					"description": "区"
+				},
+				"mobile": {
+					"type": "string",
+					"description": "移动电话"
+				},
+				"postcode": {
+					"type": "string",
+					"description": "邮编"
+				},
+				"province": {
+					"type": "string",
+					"description": "省"
+				},
+				"street1": {
+					"type": "string",
+					"description": "街道地址1"
+				},
+				"street2": {
+					"type": "string",
+					"description": "街道地址2"
+				},
+				"street3": {
+					"type": "string",
+					"description": "街道地址3"
+				}
+			},
+			"description": "收货地址"
+		},
+		"ShipToAddressResponses": {
+			"type": "object",
+			"required": ["city",
+			"contact",
+			"countryCode",
+			"mobile",
+			"postcode",
+			"province",
+			"street1"],
+			"properties": {
+				"city": {
+					"type": "string",
+					"description": "城市"
+				},
+				"company": {
+					"type": "string",
+					"description": "公司"
+				},
+				"contact": {
+					"type": "string",
+					"description": "联系人"
+				},
+				"countryCode": {
+					"type": "string",
+					"description": "国家代码"
+				},
+				"district": {
+					"type": "string",
+					"description": "区"
+				},
+				"mobile": {
+					"type": "string",
+					"description": "移动电话"
+				},
+				"postcode": {
+					"type": "string",
+					"description": "邮编"
+				},
+				"province": {
+					"type": "string",
+					"description": "省"
+				},
+				"street1": {
+					"type": "string",
+					"description": "街道地址1"
+				},
+				"street2": {
+					"type": "string",
+					"description": "街道地址2"
+				},
+				"street3": {
+					"type": "string",
+					"description": "街道地址3"
+				}
+			},
+			"description": "收货地址"
+		},
+		"SkuRequest": {
+			"type": "object",
+			"required": ["height",
+			"isLiBattery",
+			"length",
+			"nameEn",
+			"nameZh",
+			"origin",
+			"price",
+			"skuNumber",
+			"weight",
+			"width"],
+			"properties": {
+				"height": {
+					"type": "number",
+					"description": "高度（cm）"
+				},
+				"isLiBattery": {
+					"type": "boolean",
+					"example": false,
+					"description": "是否带锂电池"
+				},
+				"length": {
+					"type": "number",
+					"description": "长度（cm）"
+				},
+				"nameEn": {
+					"type": "string",
+					"description": "英文申报名"
+				},
+				"nameZh": {
+					"type": "string",
+					"description": "中文申报名"
+				},
+				"origin": {
+					"type": "string",
+					"description": "原产地"
+				},
+				"price": {
+					"type": "number",
+					"description": "申报价格(单位：USD)"
+				},
+				"remark": {
+					"type": "string",
+					"description": "备注"
+				},
+				"skuNumber": {
+					"type": "string",
+					"description": "SKU编号"
+				},
+				"tariffCode": {
+					"type": "string",
+					"description": "关税代码"
+				},
+				"weight": {
+					"type": "string",
+					"description": "重量（单位：KG）"
+				},
+				"width": {
+					"type": "number",
+					"description": "宽度（cm）"
+				}
+			},
+			"description": "SKU信息"
+		},
+		"SkuResponses": {
+			"type": "object",
+			"required": ["height",
+			"isLiBattery",
+			"length",
+			"nameEn",
+			"nameZh",
+			"origin",
+			"price",
+			"skuNumber",
+			"weight",
+			"width"],
+			"properties": {
+				"height": {
+					"type": "number",
+					"description": "高度（cm）"
+				},
+				"isLiBattery": {
+					"type": "boolean",
+					"example": false,
+					"description": "是否带锂电池"
+				},
+				"length": {
+					"type": "number",
+					"description": "长度（cm）"
+				},
+				"nameEn": {
+					"type": "string",
+					"description": "英文申报名"
+				},
+				"nameZh": {
+					"type": "string",
+					"description": "中文申报名"
+				},
+				"origin": {
+					"type": "string",
+					"description": "原产地"
+				},
+				"price": {
+					"type": "number",
+					"description": "申报价格(单位：USD)"
+				},
+				"remark": {
+					"type": "string",
+					"description": "备注"
+				},
+				"skuNumber": {
+					"type": "string",
+					"description": "SKU编号"
+				},
+				"tariffCode": {
+					"type": "string",
+					"description": "关税代码"
+				},
+				"weight": {
+					"type": "string",
+					"description": "重量（单位：KG）"
+				},
+				"width": {
+					"type": "number",
+					"description": "宽度（cm）"
+				}
+			},
+			"description": "SKU信息"
+		},
+		"UpdateAddressPreferenceRequest": {
+			"type": "object",
+			"required": ["data",
+			"ebayId",
+			"messageId",
+			"timestamp"],
+			"properties": {
+				"data": {
+					"$ref": "#/definitions/UpdateAddressPreferenceRequestData"
+				},
+				"ebayId": {
+					"type": "string",
+					"description": "卖家eBay账户"
+				},
+				"messageId": {
+					"type": "string",
+					"description": "消息ID"
+				},
+				"timestamp": {
+					"type": "integer",
+					"format": "int64",
+					"description": "时间戳"
+				}
+			}
+		},
+		"UpdateAddressPreferenceRequestData": {
+			"type": "object",
+			"required": ["addressId",
+			"city",
+			"contact",
+			"countryCode",
+			"mobile",
+			"name",
+			"province",
+			"street1"],
+			"properties": {
+				"addressId": {
+					"type": "string",
+					"description": "地址ID"
+				},
+				"city": {
+					"type": "string",
+					"description": "市"
+				},
+				"company": {
+					"type": "string",
+					"description": "公司名称"
+				},
+				"contact": {
+					"type": "string",
+					"description": "联系人姓名"
+				},
+				"countryCode": {
+					"type": "string",
+					"description": "国家或地区"
+				},
+				"district": {
+					"type": "string",
+					"description": "区县，非香港台湾地区必填"
+				},
+				"mobile": {
+					"type": "string",
+					"description": "手机号"
+				},
+				"name": {
+					"type": "string",
+					"description": "地址名称"
+				},
+				"postcode": {
+					"type": "string",
+					"description": "邮政编码"
+				},
+				"province": {
+					"type": "string",
+					"description": "省"
+				},
+				"street1": {
+					"type": "string",
+					"description": "街道地址1"
+				},
+				"street2": {
+					"type": "string",
+					"description": "街道地址2"
+				},
+				"street3": {
+					"type": "string",
+					"description": "街道地址3"
+				}
+			}
+		},
+		"UpdateAddressPreferenceResponses": {
+			"type": "object",
+			"required": ["status"],
+			"properties": {
+				"status": {
+					"$ref": "#/definitions/ResponsesStatus"
+				}
+			}
+		},
+		"UpdateConsignPreferenceRequest": {
+			"type": "object",
+			"required": ["data",
+			"ebayId",
+			"messageId",
+			"timestamp"],
+			"properties": {
+				"data": {
+					"$ref": "#/definitions/UpdateConsignPreferenceRequestData"
+				},
+				"ebayId": {
+					"type": "string",
+					"description": "卖家eBay账户"
+				},
+				"messageId": {
+					"type": "string",
+					"description": "消息ID"
+				},
+				"timestamp": {
+					"type": "integer",
+					"format": "int64",
+					"description": "时间戳"
+				}
+			}
+		},
+		"UpdateConsignPreferenceRequestData": {
+			"type": "object",
+			"required": ["consignPreferenceId",
+			"name",
+			"type"],
+			"properties": {
+				"consignPreferenceId": {
+					"type": "string",
+					"description": "交运偏好ID"
+				},
+				"dropoffSiteId": {
+					"type": "string",
+					"description": "自送站点ID,当交运方式为卖家自送时必填"
+				},
+				"name": {
+					"type": "string",
+					"description": "交运偏好名称"
+				},
+				"pickupAddress": {
+					"$ref": "#/definitions/PickupAddressRequest"
+				},
+				"pickupTime": {
+					"type": "integer",
+					"format": "int32",
+					"description": "揽收时间段:1 - 10:00~13:00; 2 - 13:00~16:00; 3 - 16:00~19:00; 4 - 19:00~22:00;当交运方式为上门揽收时必填"
+				},
+				"type": {
+					"type": "integer",
+					"format": "int32",
+					"description": "交运方式，可用值:0 - 上门揽收;1 - 卖家自送"
+				}
+			},
+			"description": "交运偏好"
+		},
+		"UpdateConsignPreferenceResponses": {
+			"type": "object",
+			"required": ["status"],
+			"properties": {
+				"status": {
+					"$ref": "#/definitions/ResponsesStatus"
+				}
+			}
+		}
+	}
+}

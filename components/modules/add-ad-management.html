@@ -1,0 +1,45 @@
+<!-- 弹层 start -->
+<div class='popup add-ad-slot' v-if="openerAD==1">
+    <div class='mask'></div>
+    <div class='content container'>
+        <div class="pop-title">
+            <h3>添加广告位</h3>
+            <a href="javascript:;" v-on:click="openerAD=0;"></a>
+        </div>
+        <p class="error-message" v-if="errorMessage">请完善以下信息</p>
+        <div class="section">
+            <p>广告位名称</p>
+            <div class="input-group">
+                <input class="title" type="text" :value="ADData.bannerTitle" v-on:input="inputChange($event,'name');" />
+                <em></em>
+            </div>
+            <p>跳转链接</p>
+            <div class="input-group">
+                <input class="link" type="text" :value="ADData.bannerURL" v-on:input="inputChange($event,'link');" />
+                <em></em>
+            </div>
+        </div>
+        <div class="lower-wrapper cf">
+            <div class="sample">
+                <div class="fl w181 mgn-bottom box-adsense cur">广告位</div>
+                <div class="fr w68 mgn-bottom box-order">订单处理</div>
+                <div class="fr w68 box-balance">账户余额</div>
+                <div class="fl w181 mgn-bottom box-notice">最新公告</div>
+                <div class="fl w86 mgn-right">物流详情</div>
+                <div class="fl w86">物流政策</div>
+            </div>
+            <div class="thu fl" v-if="ADData.imageURL">
+                <img :src="ADData.imageURL" />
+            </div>
+            <div class="button-area">
+                <p class="fileerror"></p>
+                <a href="javascript:;" class="add-pic">
+                    <input type="file" v-on:change="fileChange($event);"/>
+                    <em></em><span>点击添加广告图片 </span>
+                </a>
+                <a href="javascript:;" class="btn" v-on:click="adminBannerSave($event);">保存</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 弹层 end -->

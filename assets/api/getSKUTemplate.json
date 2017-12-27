@@ -1,0 +1,5 @@
+﻿{
+    "code":"00",
+    "message":"下载SKU模板",
+    "result":{"csvTemplet":"https://www.baidu.com/","excelTemplet":"https://baijia.baidu.com/"}
+}

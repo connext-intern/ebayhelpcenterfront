@@ -1,0 +1,29 @@
+<div class='popup print' v-if="openerPrint==1">
+    <div class='mask'></div>
+    <div class='content'>
+        <div class="title">
+            <a href="javascript:;" class="close sprite" v-on:click="openerPrint=0;"></a>
+            <h2 lg="peintSheet"></h2>
+        </div>
+        <div class="print-info">
+            <p><span lg="choosed"></span> <em>5</em> <span lg="waitPrint"></span></p>
+            <div class="setting cf">
+                <p class="text fl"><span lg="choosePrint"></span><em>：</em></p>
+                <div class='selectBox basic fl'>
+                    <div class='selectVal js-tips' v-bind:lg="selectLg.popPrintLg"></div>
+                    <div class='selectIcon'></div>
+                    <ul class='selectOptions tips'>
+                        <li v-for="(select,selectIndex) in select.popPrint" v-bind:class="{'cur':selectIndex==selectHighlight.popPrintIndex}" v-bind:data-id="select.id">{{select.text}}</li>
+                    </ul>
+                </div>
+            </div>
+            <canvas class="firstView"></canvas>
+            <a class="click-view" href="javascript:;" lg="clickView" v-on:click="openerViewPrint=1;"></a>
+            <p class="des" lg="printDes"></p>
+        </div>
+        <div class="btn-container">
+            <button class="btn confirm" v-on:click="printCallFun" lg="save"></button>
+            <button class="btn cancel" v-on:click="openerPrint=0;" lg="cancel"></button>
+        </div>
+    </div>
+</div>

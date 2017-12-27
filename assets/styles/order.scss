@@ -1,0 +1,367 @@
+.order{
+    h2{font-size:18px;font-weight:bold;position:absolute;top:30px;left:40px;}
+    .search-des{
+        padding:10px 0 20px 0;
+        .num{color:#0065d1;font-weight: bold;}
+    }
+    .opvPageTitle{position: static; margin-bottom: 16px;}
+    /*icon样式*/
+    .icon{font-size:12px;font-weight:bold;position:relative;}
+    .icon:before{@include sprite;width:20px;height:20px;vertical-align: middle;margin-right:4px;}
+    .icon:after{display:block;content:'|';position:absolute;top:0;right:0;width:2px;height:30px;color:#dfdfdf}
+    .icon:last-child:after{content:'';}
+    //包裹信息不完整
+    .icon.icon1{
+        color:#ff6400;
+        &:before{background-position:-54px -172px;}
+    }
+    //交运信息不完整
+    .icon.icon2{
+        color:#ff6400;
+        &:before{background-position:-82px -172px;}
+    }
+    //预申报中
+    .icon.icon3{
+        color:#ff6400;
+        &:before{background-position:-106px -172px;}
+    }
+    //无可用物流方案
+    .icon.icon4{
+        color:#333333;
+        &:before{background-position:-56px -194px;}
+    }
+    //待选择物流方案
+    .icon.icon5{
+        color:#0065d1;
+        &:before{background-position:-82px -194px;}
+    }
+    //待申请物流单号
+    .icon.icon6{
+        color:#3da4a4;
+        &:before{background-position:-106px -194px;}
+    }
+    //待交运
+    .icon.icon7{
+        color:#6b9c46;
+        &:before{background-position:-129px -194px;}
+    }
+    //预申报未通过
+    .icon.icon8{
+        color:#ff6400;
+        &:before{background-position:-129px -172px;}
+    }
+    //运输中
+    .icon.icon9{
+        color:#6b9c46;
+        &:before{background-position:-153px -195px;width:24px;height:17px;}
+    }
+    // 重新发货
+    .icon.icon10{
+        color:#6e4cbb;
+        &:before{background-position:-179px -195px;width:24px;height:17px;}
+    }
+    // 删除
+    .icon.icon11{
+        color:#999999;
+        &:before{background-position:-204px -195px;vertical-align: middle;}
+    }
+    // 待取件
+    .icon.icon12{
+        color:#ff5100;
+        &:before{background-position:-227px -195px;width:15px;height:16px;}
+    }
+    // 异常
+    .icon.icon13{
+        color:#ff5100;
+        &:before{background-position:-129px -173px;width:15px;height:16px;}
+    }
+    //包裹状态1
+    .payment-status{@include sprite; background-position: -196px -171px;  width: 9px;  height: 18px;}
+    .declare-status{@include sprite; background-position: -214px -172px;  width: 16px; height: 16px;}
+    //底部
+    .footer-order{
+        position:fixed;bottom:0;left:0;width:100%;height:50px;background:#fff;z-index:899;@include shadow(0px 0px 5px #666);
+        .footer-order-content{
+            margin:0;padding:9px 70px 9px 272px;width:100%;
+            .checkBox{
+                padding:5px;
+                em{padding-left:22px}
+            }
+            a{position: relative;}
+        }
+    }
+    /*****包裹信息*****/
+    .package{
+        font-size:12px;
+        /***********************************/
+        .item-list{
+            .box{
+                border:1px solid #dfdfdf;margin-bottom:10px;
+                .title{overflow: hidden;letter-spacing: -0.3px;
+                    .key{color:#999;.value{color:#666;}}
+                    height:33px;line-height:30px;border-bottom: 1px solid #dfdfdf;
+                    &.red{background:#fff4ec;}
+                    &.gray{background:#f8f8f8;}
+                    &.blue{background:#f4f9ff;}
+                    &.verdant{background:#f4fffe;}
+                    &.green{background:#f4ffee;}
+                    .checkBox{
+                        width:25px;height:35px;position:relative;cursor: pointer;
+                        em{position:absolute;top:8px;left:8px}
+                    }
+                    .status{max-width: 680px;
+                        height:33px;line-height:30px;
+                        margin-left:8px;
+                        li{float:left;padding:0 10px;}
+                        li:first-child{padding-left:0;}
+                    }
+                    .user{
+                        height:33px;line-height:30px;
+                        li{
+                            float:left;padding:0 15px;overflow:hidden;text-overflow:ellipsis; white-space:nowrap;position:relative;
+                            span:first-child{color:#999;}
+                            span:last-child{font-weight:bold;}
+                            a:before{@include sprite;vertical-align: middle;}
+                        }
+                        li.buyer{
+                            max-width:156px;
+                            &:after{display:block;content:'|';position:absolute;top:0;right:0;width:2px;height:30px;color:#dfdfdf}
+                        }
+                        li.sellers{max-width:156px;}
+                        li.remark{
+                            text-align:right;width:102px;height:30px;
+                            a{text-decoration: none;}
+                            a:before{width:18px;height:18px;background-position: -92px -21px;}
+                        }
+                        li.edit-remark{
+                            a:before{width:20px;height:20px;background-position: -148px -170px;}
+                        }
+                    }
+                }
+                .content{
+                    .product{
+                        width:818px;
+                        .item{
+                            border-top: 1px solid #dfdfdf;
+                            &:first-child{border-top:none;}
+                            .left{
+                                width:35px;height:154px;position:relative;
+                                em{position:absolute;top:54px;left:8px}
+                            }
+                            .center{
+                                width:783px;height:154px;position:relative;
+                                .info{
+                                    .img{
+                                        width:92px;height:92px;border: 1px solid #dfdfdf;overflow: hidden;margin-right:10px;margin-top:15px;
+                                        img{width:100%;}
+                                    }
+                                    .text{
+                                        width:344px;padding:15px 0;
+                                        p{
+                                            padding:4px 0;
+                                            span:first-child{color:#999;}
+                                        }
+                                        p.name{
+                                            span:first-child{color:#333;}
+                                            span:last-child{color:#999;}
+                                        }
+                                        .format1{
+                                            min-height: 20px;
+                                            p{display:inline-block;margin-right:15px;}
+                                        }
+                                        .hisIcon a{
+                                            color:#666;font-size:12px;
+                                            &:before{@include sprite; width:18px;height:18px;background-position:-174px -172px;margin-right:6px;}
+                                        }
+                                        .buyer-remark{
+                                            margin-top:15px;margin-left:-103px;
+                                            &:before{@include sprite;vertical-align: middle;width:18px;height:18px;background-position: -92px -21px;}
+                                            span:first-child{color:#999;}
+                                        }
+                                    }
+                                    .format{
+                                        width:313px;margin-left:24px;
+                                        ul{
+                                            &.sub-title{background:#fafafa;border: 1px solid #dfdfdf;border-top:none;}
+                                            li{float:left;text-align: center;height:28px;line-height:28px;border-right: 1px solid #dfdfdf;color:#666;}
+                                            li:last-child{border-right:none;}
+                                            li.unit-price{width:152px;}
+                                            li.quantity{width:94px;}
+                                            li.status{width:60px;}
+                                            &.sub-val{
+                                                border: 1px solid #dfdfdf;border-bottom:none;border-top:none;height:156px;
+                                                li{height:100%;line-height:50px}
+                                                li.status{
+                                                    position:relative;
+                                                    p{display:block;position:absolute;top:20px;left:25px;}
+                                                    p.declare-status{top:50px;left:22px;}
+                                                    p.opacity{opacity: .5;filter:alpha(opacity=50);}
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .item:first-child .center .info .format ul.sub-val{height:126px;}
+                        &.type{
+                            width:740px;
+                            .item{
+                                .center{
+                                    width:705px;
+                                    .info{
+                                        .format{
+                                            width:235px;
+                                            ul{
+                                                li.unit-price{width:102px;}
+                                                li.quantity{width:70px;}
+                                                li.status{width:58px;}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .right{
+                        width:180px;
+                        ul{
+                            &.sub-title{background:#fafafa;border-bottom: 1px solid #dfdfdf;}
+                            li{float:left;text-align: center;height:28px;line-height:28px;border-right: 1px solid #dfdfdf;color:#666;}
+                            li.delivery-to{width:180px;}
+                            li:last-child{border-right:none;}
+                            &.sub-val{
+                                li{height:100%;line-height:50px;position:relative;}
+                                li.operation{
+                                    a{display:block;margin:0 auto;}
+                                    .edit{@include radius(3px);background:#ff5100;color:#fff;text-decoration: none;width:70px; text-align:center;height:26px;line-height:26px;margin-top:18px;}
+                                    .edit.default{background:transparent;color:#666;text-decoration: underline;margin-top:0;}
+                                    .del{@include sprite;width:16px;height:20px;background-position: -32px -20px;position:absolute;bottom:8px;right:8px;}
+                                    .restore{@include radius(3px);background:#fff;text-decoration: none;width:70px; text-align:center;height:26px;line-height:26px;margin-top:18px;border: 1px solid #dfdfdf;}
+                                    .selectBox{
+                                        position:relative;width:126px;margin:0 auto;margin-top:18px;
+                                        .selectVal{@include radius(3px);background:#ff5100;width:100%;height:26px;line-height:26px;padding:0 22px 0 4px;color:#fff;overflow: hidden;cursor: pointer}
+                                        .selectIcon{@include sprite;position:absolute;right:10px;top:10px;width:11px; height:9px; background-position:-194px -25px;cursor: pointer}
+                                        .selectOptions{
+                                            width:100%;background:#fff; border: 1px solid #dfdfdf;position:absolute;top:25px;left:0; z-index:1;display:none;
+                                            li{width:100%;display:block;line-height:30px;border-right:none;cursor: pointer;}
+                                            li.cur,li:hover{background:#fe6219;color:#fff;}
+                                        }
+                                    }
+                                    .selectBox.cur{
+                                        .selectOptions{display:block;}
+                                    }
+                                    .selectBox.default{margin-top:10px;}
+                                    .run-logistics-rules{color:#666666;line-height:25px;padding-top:8px;}
+                                    .application-number,.delivery{@include radius(3px);background:#ff5100;color:#fff;text-decoration: none;width:126px; text-align:center;height:26px;line-height:26px;margin-top:18px;}
+                                    .row{
+                                        line-height:35px;
+                                        a{display:inline-block;padding:0 5px;}
+                                        a.edit{width:auto}
+                                    }
+                                }
+                            }
+                        }
+                        &.type{
+                            width:258px;
+                            ul{
+                                li.delivery-to{width:107px;}
+                                li.operation{width:150px;}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .package-logistics{
+        font-size:12px;
+        table{
+            border: 1px solid #dfdfdf;margin-bottom:8px;
+            thead,tbody{
+                padding-left:10px;
+                tr{
+                    th,td{
+                        text-align:center;border-right:1px solid #dfdfdf;background:#fafafa;height:28px;line-height:28px;border-bottom: 1px solid #dfdfdf;position:relative;
+                        &.checkbox{
+                            width:27px;
+                        }
+                        &.trackingN-number{position:relative;width:125px;.radio{position:absolute;top:7px;left:10px;}}
+                        &.transaction-details{width:350px;}
+                        &.operation-name{
+                            width:70px;
+                        }
+                        &.paid-cost{
+                            width:70px;
+                        }
+                        &.way-delivery{width:120px;}
+                        &.is-liBattery{width:80px;}
+                        &.operation{width:150px;}
+                    }
+                    th{color:#666;}
+                    th:last-child{border-right:none;}
+                }
+            }
+            tbody{
+                tr{
+                    td{
+                        background: #fff;vertical-align:top;
+                        &.newcol{
+                            p{
+                                line-height:12px;margin-top:23px;text-align:center;
+                            }
+                        }
+                        &.trackingN-number{
+                            p{
+                                line-height:12px;margin-top:18px;text-align:left;padding-left:10px;
+                                span{display:block;padding:5px 0 2px 0}
+                            }
+                        }
+                        &.transaction-details{
+                            text-align:left;
+                            li{
+                                border-bottom: 1px solid #dfdfdf;padding:18px 12px;
+                                &:last-child{border-bottom:none;}
+                                p{
+                                    line-height:18px;
+                                    &.name{
+                                        span:last-child{color:#999;}
+                                    }
+                                }
+                                .format{
+                                    padding-top:5px;
+                                    p{
+                                        display:inline-block;margin-right:10px;
+                                        span:first-child,em{color:#999;}
+                                    }
+                                }
+                            }
+                        }
+                        &.way-delivery{
+                            p{
+                                padding:5px 0;line-height:12px;margin-top:18px;
+                            }
+                        }
+                        &.is-liBattery{
+                            p{
+                                padding:5px 0;line-height:12px;margin-top:18px;
+                            }
+                        }
+                        &.operation{
+                            .point-select{display:inline-block; z-index: 1;margin:18px auto 5px auto;}
+                            .shipping-info{@include radius(3px);display:block;width:126px;height:30px;line-height:30px;border:1px solid #dfdfdf;margin:18px auto 5px auto;text-decoration: none;}
+                            .selectBox {
+                                position: relative;width: 126px;
+                            }
+                            .row{
+                                line-height:35px;
+                                a{display:inline-block;padding:0 5px;}
+                            }
+                            a.del{@include sprite;width:16px;height:20px;background-position: -32px -20px;padding:5px 0;float:right;position: relative;right:15px;}
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

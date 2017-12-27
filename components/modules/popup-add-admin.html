@@ -1,0 +1,40 @@
+<!--添加管理员-->
+<div class='popup addAdmin' v-if="openerAddAdmin>0">
+    <div class='mask'></div>
+    <div class='content'>
+        <a href='javascript:;' v-on:click="closePopup" class='close sprite'></a>
+        <p class="addAdTit" v-bind:lg='openerAddAdmin==1?"addAdmin":"editAdmin"'></p>
+        <div class="juriList">
+            <p class="adminId">管理员ID</p>
+            <p class="groupInput"><input type="text" v-model="popidinput" v-on:blur='groupInputBlur' v-on:input='groupInputInput' v-bind:disabled='openerAddAdmin==2?"disabled":false'/><span>@ebay.com</span></p>
+            <p class="priManagement">权限管理</p>
+            <ul class="allOption cf">
+                <li>
+                    <p v-bind:class='selecterAllArr[0].boo?"cur":""' v-on:click='selectAllClick(0)'><i class="icon"></i>全部内容管理</p>
+                    <ul class="singleOption">
+                        <li v-for='(itemValue,itemIndex) in selecterAllArr[0].arr' v-on:click='selecterClick(itemValue)' v-bind:class='selecterArr[itemValue].class'>
+                            <i class="icon"></i>{{selecterArr[itemValue].value}}</li>
+                    </ul>
+                </li>
+                <li>
+                    <p v-bind:class='selecterAllArr[1].boo?"cur":""' v-on:click='selectAllClick(1)'><i class="icon"></i>全部开发者管理</p>
+                    <ul class="singleOption singleOption2 cf">
+                        <li v-for='(itemValue,itemIndex) in selecterAllArr[1].arr' v-on:click='selecterClick(itemValue)' v-bind:class='selecterArr[itemValue].class'>
+                            <i class="icon"></i>{{selecterArr[itemValue].value}}</li>
+                    </ul>
+                </li>
+                <li>
+                    <p v-for='(itemValue,itemIndex) in selecterAllArr[2].arr' v-on:click='selecterClick(itemValue)' v-bind:class='selecterArr[itemValue].class'>
+                        <i class="icon"></i>{{selecterArr[itemValue].value}}</p>
+                    <div class='line'></div>
+                    <p v-for='(itemValue,itemIndex) in selecterAllArr[3].arr' v-on:click='selecterClick(itemValue)' v-bind:class='selecterArr[itemValue].class'>
+                        <i class="icon"></i>{{selecterArr[itemValue].value}}</p>
+                </li>
+            </ul>
+            <div class="popBtn">
+                <a class="cancel" href="javascript:;" v-on:click="closePopup">取消</a>
+                <a class="submit" href="javascript:;" v-on:click='dev_adminAccountSave'>提交</a>
+            </div>
+        </div>
+    </div>
+</div>

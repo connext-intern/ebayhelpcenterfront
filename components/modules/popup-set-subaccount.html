@@ -1,0 +1,32 @@
+<!--指定子账号 add by gena-->
+<div class='popup setaccount' v-show="subaccounts.length>0">
+    <div class='mask'></div>
+    <div class='content'>
+        <a href='javascript:;' v-on:click="subaccounts=[];" class='close sprite' lg="close"></a>
+        <div class='content-container'>
+            <h3 class="setaccount-title" lg="point-subaccount"></h3>
+            <p class="setaccount-tips" lg="choose-subaccount"></p>
+            <div class="cf">
+                <div class="setting setaccount-left fl">
+                    <h4 lg="bined-subaccount"></h4>
+                    <div class="scrollBlock checkBox multi">
+                        <div class="js-checkbox radio" :class="{'cur':item.isbinded}" v-on:click="setActive(item,index)" v-for="(item,index) in subaccounts">{{item.userName}}</div>
+                    </div>
+                </div>
+                <div class="setting setaccount-center">
+
+                </div>
+                <div class="setting setaccount-right fl">
+                    <h4><span lg="selected-subaccount"></span><span class="bold" lg="click-to-remove"></span></h4>
+                    <div class="scrollBlock checkBox multi">
+                        <div class="js-checkbox disabled radio" v-for="(item,index) in selectedaccounts" v-on:click="setDisabled(item)">{{item.userName}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="btns">
+                <a class="btn reset" href="javascript:;" v-on:click="resetSetAccount" lg="reset-data"></a>
+                <a class="btn save" href="javascript:;" v-on:click="saveSetAccount" lg="save"></a>
+            </div>
+        </div>
+    </div>
+</div>

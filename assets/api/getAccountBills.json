@@ -1,0 +1,98 @@
+﻿{
+  "code": "00",
+  "message": "获取绑定ebayID地址",
+  "result": {
+    "dataList": [
+      {
+        "billType": "CHARGE",
+        "billTime": "2015-10-10 12:59:59",
+        "currency": "CNY",
+        "amount": "500.00",
+        "balance": "9,500.00",
+        "remark": "线上充值"
+      },
+      {
+        "billType": "CHARGE",
+        "billTime": "2015-10-10 12:59:59",
+        "currency": "HKD",
+        "amount": "500.00",
+        "balance": "9,500.00",
+        "remark": "线上充值"
+      },
+      {
+        "billType": "CHARGE",
+        "billTime": "2015-10-10 12:59:59",
+        "currency": "CNY",
+        "amount": "500.00",
+        "balance": "9,500.00",
+        "remark": "线上充值"
+      },
+      {
+        "billType": "CHARGE",
+        "billTime": "2015-10-10 12:59:59",
+        "currency": "HKD",
+        "amount": "500.00",
+        "balance": "9,500.00",
+        "remark": "线上充值"
+      },
+      {
+        "billType": "CHARGE",
+        "billTime": "2015-10-10 12:59:59",
+        "currency": "TWD",
+        "amount": "500.00",
+        "balance": "9,500.00",
+        "remark": "消费"
+      },
+      {
+        "billType": "COST",
+        "billTime": "2015-10-10 12:59:59",
+        "currency": "TWD",
+        "amount": "500.00",
+        "balance": "9,500.00",
+        "remark": "备注"
+      },
+      {
+        "billType": "COST",
+        "billTime": "2015-10-10 12:59:59",
+        "currency": "CNY",
+        "amount": "500.00",
+        "balance": "9,500.00",
+        "remark": "消费"
+      },
+      {
+        "billType": "COST",
+        "billTime": "2015-10-10 12:59:59",
+        "currency": "HKD",
+        "amount": "500.00",
+        "balance": "9,500.00",
+        "remark": "消费"
+      },
+      {
+        "billType": "COST",
+        "billTime": "2015-10-10 12:59:59",
+        "currency": "TWD",
+        "amount": "500.00",
+        "balance": "9,500.00",
+        "remark": "消费"
+      },
+      {
+        "billType": "COST",
+        "billTime": "2015-10-10 12:59:59",
+        "currency": "CNY",
+        "amount": "500.00",
+        "balance": "9,500.00",
+        "remark": "消费"
+      },
+      {
+        "billType": "COST",
+        "billTime": "2015-10-10 12:59:59",
+        "currency": "HKD",
+        "amount": "500.00",
+        "balance": "9,500.00",
+        "remark": "消费"
+      }
+    ],
+    "totalPages": "1",
+    "totalCounts": 330
+  }
+}

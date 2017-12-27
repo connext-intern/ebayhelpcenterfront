@@ -1,0 +1,61 @@
+﻿{
+    "code":"00",
+    "message":"查询已授权的第三方开发者",
+    "result":[
+        {
+            "developerId":"开发者ID",
+            "secret":"秘钥",
+            "developerType":"开发者类型（private/public）",
+            "contactName":"联系人姓名",
+            "contactPhone":"联系人电话",
+            "contactEmail":"eBay_000009999999@163.com",
+            "applicationName":"eBay IS Sytem V1.0",
+            "applicationDescription":"应用描述",
+            "company":"Shanghai Connext Information Technology Co., Ltd"
+        },
+        {
+            "developerId":"开发者ID",
+            "secret":"秘钥",
+            "developerType":"开发者类型（private/public）",
+            "contactName":"联系人姓名",
+            "contactPhone":"联系人电话",
+            "contactEmail":"eBay_000009999999@163.com",
+            "applicationName":"eBay IS Sytem V1.0",
+            "applicationDescription":"应用描述",
+            "company":"Shanghai Connext Information Technology Co., Ltd"
+        },
+        {
+            "developerId":"开发者ID",
+            "secret":"秘钥",
+            "developerType":"开发者类型（private/public）",
+            "contactName":"联系人姓名",
+            "contactPhone":"联系人电话",
+            "contactEmail":"eBay_000009999999@163.com",
+            "applicationName":"eBay IS Sytem V1.0",
+            "applicationDescription":"应用描述",
+            "company":"Shanghai Connext Information Technology Co., Ltd"
+        },
+        {
+            "developerId":"开发者ID",
+            "secret":"秘钥",
+            "developerType":"开发者类型（private/public）",
+            "contactName":"联系人姓名",
+            "contactPhone":"联系人电话",
+            "contactEmail":"eBay_000009999999@163.com",
+            "applicationName":"eBay IS Sytem V1.0",
+            "applicationDescription":"应用描述",
+            "company":"Shanghai Connext Information Technology Co., Ltd"
+        },
+        {
+            "developerId":"开发者ID",
+            "secret":"秘钥",
+            "developerType":"开发者类型（private/public）",
+            "contactName":"联系人姓名",
+            "contactPhone":"联系人电话",
+            "contactEmail":"eBay_000009999999@163.com",
+            "applicationName":"eBay IS Sytem V1.0",
+            "applicationDescription":"应用描述",
+            "company":"Shanghai Connext Information Technology Co., Ltd"
+        }
+    ]
+}
