@@ -1,0 +1,136 @@
+<div class="module-wrap good">
+  <div class="module-title" v-bind:class="(status&&status.unpackage)?'error':''">
+    <span lg="goodinfo-list"></span>
+    <span class="remark">（<span lg="package-include"></span><em>{{list.length}}</em><span lg="some-good"></span>）</span>
+    <a href="javascript:;" v-show="(packlist&&packlist.mergePackageList&&packlist.mergePackageList.length>0)" lg="pack-one-order"
+      class="pack-order" v-if="!isview&&!status.toBeShipped&&!status.toBeReceived&&!status.ReceiveConfirmation&&!status.onShipping&&!status.delivered"
+      v-on:click="clickPackOrder++"></a>
+  </div>
+  <div class="module-content">
+    <div class="module" v-for="item1 in list">
+      <div class="good-content cf">
+        <div class="good-info fl">
+          <p class="buyer-name"><span lg="buyerID"></span><em>：</em>
+            <span class="value">{{item1.buyerUserId}}</span>
+            <a v-show="item1.trackingRecords&&item1.trackingRecords.length>0" class="fr" href="javascript:;" lg="hisLogisticsNumber" v-on:click="hisLogisticsNumberEvent(item1,$event)"></a></p>
+          <div class="good-detail cf">
+            <div class="good-img fl">
+              <img v-bind:src="item1.imageLink" />
+            </div>
+            <div class="good-text fl">
+              <div class="cf">
+                <p class="key time fl"><span lg="costTime"></span><em>：</em><span class="value">{{item1.createDate}}</span></p>
+                <p class="fr"><span lg="transactionNumber"></span><em>：</em><span class="value">{{item1.recordNumber}}</span></p>
+              </div>
+              <p class="good-name">
+                <span class="value">{{item1.title}}</span>
+                <span>({{item1.recordNumber}})</span>
+              </p>
+              <div class="text-detail">
+                <p><span lg="SKUNumber"></span>：<span class="value">{{item1.sku}}</span></p>
+                <p><span lg="unitPrice"></span>：<span class="value">{{item1.currency}} {{item.transactionPrice}}</span></p>
+                <p><span lg="quantity"></span>：<span class="value">x{{item1.transactionPurchased}}</span></p>
+                <div class="propty">
+                  <p v-for="(key,value) in getJson(item1.transactionProperty)"><span>{{value}}</span><em>：</em><span class="value">{{key}}</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="good-remark">
+            <span lg="buyerRemark"></span>
+            <em>：</em>
+            <span class="value">{{item1.buyerCheckoutMessage}}</span>
+          </p>
+          <div class="good-status fr">
+            <!--申报状态-->
+            <template v-if="item1.declarationStatus==declare.declaring">
+              <span class="pending" lg="preDeclaration"></span>
+            </template>
+            <!--支付状态-->
+            <span v-bind:title="item1.paymentStatus!=pay.complete?'nopaid':'hadpaid'" v-bind:class="item1.paymentStatus==pay.complete?'':'disabled'"
+              class="currency"></span>
+            <!--交易状态-->
+            <span v-bind:title="item1.transactionStatus!=shipStatus.shipped?'noshipping':'hadshipped'" v-bind:class="item1.transactionStatus==shipStatus.shipped?'':'disabled'"
+              class="package"></span>
+          </div>
+        </div>
+        <table class="good-view fr">
+          <tr>
+            <td>
+              <span lg="skuPirceText"></span>
+              <em>： </em>
+              <template>
+                <span v-if="item1.skuPrice" class="value">{{item1.skuCurrencyCode}} {{item1.skuPrice}}</span>
+                <span v-else>---</span>
+              </template>
+            </td>
+            <td>
+              <span lg="skuWeightText"></span>
+              <em>： </em>
+              <template>
+                <span v-if="item1.skuWeight" class="value">{{item1.skuWeight}} g</span>
+                <span v-else>---</span>
+              </template>
+            </td>
+            <td><span lg="isSkuButtry"></span><em>： </em><span class="value" v-bind:lg="getName(isBattaries,item1.skuIsBattery)"></span></td>
+          </tr>
+          <tr>
+            <td>
+              <span lg="skuTariffCode"></span>
+              <em>： </em>
+              <template>
+                <span v-if="item1.skuTariffCode" class="value">{{item1.skuTariffCode}}</span>
+                <span v-else>---</span>
+              </template>
+            </td>
+            <td colspan="2">
+              <span lg="originLocation"></span>
+              <em>： </em>
+              <template>
+                <!-- v-bind:lg="getName(countries,item1.skuOrigin)" -->
+                <span v-if="item1.skuOrigin" class="value">{{item1.skuOrigin}}</span>
+                <span v-else>---</span>
+              </template>
+
+            </td>
+          </tr>
+          <tr class="name">
+            <td colspan="3">
+              <span lg="skuCENameText"></span><em>： </em>
+              <template>
+                <div class="value" v-if="item1.skuNameZH||item1.skuNameEN">
+                  <p>{{item1.skuNameZH}}</p>
+                  <p>{{item1.skuNameEN}}</p>
+                </div>
+                <p class="value empty" v-else>---</p>
+              </template>
+            </td>
+          </tr>
+          <tr class="remark">
+            <td colspan="3">
+              <span lg="skuRemark"></span>
+              <em>： </em>
+              <template>
+                <span v-if="item1.skuRemark" class="value">{{item1.skuRemark}}</span>
+                <span v-else>---</span>
+              </template>
+
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="good-btns cf">
+        <a class="btn unpackage fl" href="javascript:;" v-show="item&&item.supportSplit" lg="unpack-order" v-on:click="splitPackages(item1)">{{status.packageInfoLack}}</a>
+        <a class="btn edit fr" href="javascript:;" v-if="!isview&&!status.toBeShipped&&!status.toBeReceived&&!status.ReceiveConfirmation&&!status.onShipping&&!status.delivered"
+          lg="edit-goodinfo" v-on:click="transitionEntity=item1;type='edit';"></a>
+      </div>
+    </div>
+  </div>
+  <!--合并包裹-->
+  <popup-pack-order :list="packlist" :item="item" :operator="clickPackOrder" @refresh="refresh"></popup-pack-order>
+  <!--编辑物品信息-->
+  <popup-edit-order :package="item" :item="transitionEntity" v-bind:class="type=='edit'?'show':'hide'" @close-edit-order="transitionEntity=null;type='';"
+    @refresh="refresh"></popup-edit-order>
+  <!--获取历史物流单号-->
+  <order-history-shipping :item="historyRecords" v-bind:class="type=='history'?'show':'hide'" @close="type='';"></order-history-shipping>
+</div>

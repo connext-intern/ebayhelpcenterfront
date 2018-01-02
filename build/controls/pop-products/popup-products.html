@@ -1,0 +1,29 @@
+<!--编辑所有物流信息-->
+<div class="popup shipping-products">
+    <div class='mask'></div>
+    <div class='content'>
+        <div class="title">
+            <a href="javascript:;" class="close sprite" v-on:click="close();"></a>
+            <h2 lg="botchSelectedLogisticsProgram"></h2>
+        </div>
+        <div class="logistics-info">
+            <p><span lg="logisticsProgramPopDes"></span>：</p>
+            <div class="list">
+                <ul>
+                    <li v-for="(logistics,logisticsIndex) in list" v-on:click="setProgramSelect($event,logisticsIndex,logistics.id);">
+                        <template v-if='language=="en-us"'>
+                            {{logistics.nameEn}}
+                        </template>
+                        <template v-else>
+                            {{logistics.nameZh}}
+                        </template>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="btn-container">
+            <button class="btn confirm" v-on:click="saveProduct();" lg="save"></button>
+            <button class="btn cancel" v-on:click="close();" lg="cancel"></button>
+        </div>
+    </div>
+</div>

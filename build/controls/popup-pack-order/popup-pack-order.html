@@ -1,0 +1,111 @@
+<div class="order-wrap">
+  <!--合并包裹-->
+  <div class='popup control pack-order order' v-bind:class="isShow?'show':'hide'">
+    <div class='mask'></div>
+    <div class='content'>
+      <a href='javascript:;' class='close sprite' v-on:click="isShow=0"></a>
+      <div class='content-container'>
+        <div class="popup-head" lg="combin-package"></div>
+        <div class="popup-body">
+          <div class="packages merge">
+            <p class="title"><span lg="curr-combin-packagelist"></span><em>：</em></p>
+            <div class="package">
+              <table v-bind:class="package.isSelected?'cur':''" v-on:click="selectPackage(package,index);" class="package-orders" v-for="(package,index) in list&&list.mergePackageList">
+                <tr v-for="(order,orderIndex) in package.transactionList">
+                  <td class="td1" v-if="orderIndex==0" v-bind:rowspan="package.transactionList.length">
+                    <p>{{package.trackingNumber||'---'}}</p>
+                    <p>{{package.trackingMethodName||'---'}}</p>
+                  </td>
+                  <td class="td2">
+                    <p>{{order.title}}({{order.recordNumber}})</p>
+                    <p>
+                      <span class="value-text">
+                      <span lg="SKUNumber"></span>
+                      <em>：</em>
+                      <span class="value">{{order.sku}}</span>
+                      </span>
+                      <span class="value-text">
+                      <span lg="quantity"></span>
+                      <em>：</em>
+                      <span class="value">{{order.transactionPurchased}}</span>
+                      </span>
+                    </p>
+                  </td>
+                  <td class="td3" v-if="orderIndex==0" v-bind:rowspan="package.transactionList.length">
+                    <p>{{(package.deliveryInfo&&package.deliveryInfo.name)}}</p>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <!--<div class="packages unmerge">
+            <p class="title" lg="combin-package-tips1"></p>
+            <div class="package">
+              <div class="package-orders" v-for="package in list&&list.unMergePackageList">
+                <table>
+                  <tr v-for="order in package.transactionList">
+                    <td class="td1">
+                      <p>{{package.trackingNumber||'---'}}</p>
+                      <p>{{package.trackingMethodName||'---'}}</p>
+                    </td>
+                    <td class="td2">
+                      <p>{{order.title}}({{order.recordNumber}})</p>
+                      <p>
+                        <span class="value-text">
+                      <span lg="SKUNumber"></span>
+                        <em>：</em>
+                        <span class="value">{{order.sku}}</span>
+                        </span>
+                        <span class="value-text">
+                      <span lg="quantity"></span>
+                        <em>：</em>
+                        <span class="value">{{order.transactionPurchased}}</span>
+                        </span>
+                      </p>
+                    </td>
+                    <td class="td3">
+                      <p>{{package.deliveryInfo.name}}</p>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>-->
+        </div>
+        <div class="popup-foot cf">
+          <a href="javascript:;" data-href="PackOrderRule" class="fl rule" lg="combin-rule"></a>
+          <a href="javascript:;" class="fr btn save" v-on:click="saveFirst" lg="save"></a>
+          <a href="javascript:;" class="fr btn cancel" v-on:click="isShow=0" lg="cancel"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--合并包裹（选择地址）-->
+  <div class='popup control order packOrder-selectAddress' v-bind:class="clickSaveCount?'show':'hide'">
+    <div class='mask'></div>
+    <div class='content'>
+      <a href='javascript:;' class='close sprite' v-on:click="clickSaveCount=0;"></a>
+      <div class='content-container'>
+        <div class="popup-head" lg="combin-package"></div>
+        <div class="popup-body">
+          <div class="checkbox-tips" lg="combin-package-tips2"></div>
+          <div class="checkBox">
+            <div class="js-radio radio"  v-bind:class="currAddress.packageId==address.packageId?'cur':''" v-on:click="selectAddressEvent(address)"
+              v-for="address in filterAddressList&&filterAddressList">
+              <p class="title">{{address.receiverName}}<span class="ml34">{{address.receiverPhone}}</span></p>
+              <!--<p>{{address.companyName}}</p>-->
+              <p>{{address.receiverCountryName}}&nbsp;{{address.receiverProvince}}&nbsp;{{address.receiverCity}}&nbsp;{{address.receiverCounty}}&nbsp;{{address.receiverAddress1}}&nbsp;{{address.receiverAddress2}}</p>
+              <p>{{address.zipcode}}</p>
+              <!--<p>{{address.receiverName}}<span class="ml34">{{address.receiverPhone}}</span></p>-->
+            </div>
+          </div>
+        </div>
+        <div class="popup-foot cf">
+          <a href="javascript:;" data-href="PackOrderRule" class="fl rule" lg="combin-rule"></a>
+          <a href="javascript:;" class="fr btn save" v-on:click="save" lg="save"></a>
+          <a href="javascript:;" class="fr btn cancel" v-on:click="clickSaveCount=0" lg="cancel"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

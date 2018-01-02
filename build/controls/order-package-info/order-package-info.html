@@ -1,0 +1,28 @@
+<div class="module-wrap package">
+  <div class="module-title" v-bind:class="(status&&status.unpackage)?'error':''">
+    <h3 lg="package-info"></h3>
+    <a class="btn" href="javascript:;" v-if="!isview&&!status.toBeShipped&&!status.toBeReceived&&!status.ReceiveConfirmation&&!status.onShipping&&!status.delivered" lg="packageinfo-edit" v-on:click="entity=item;clickEdit++;"></a>
+  </div>
+  <div class="module-content">
+    <div class="module size">
+      <p>
+        <span lg="package-size"></span>
+        <em>：</em>
+        <span class="value">{{item&&item.packageLength}} cm×{{item&&item.packageWidth}} cm×{{item&&item.packageHeight}} cm</span>
+      </p>
+      <p>
+        <span lg="packageWeight"></span>
+        <em>：</em>
+        <span class="value">{{item&&item.packageWeight}} g</span>
+      </p>
+    </div>
+    <div class="module remark">
+      <p>
+        <span class="fl" lg="skuRemark"></span>
+        <em class="fl">：</em>
+        <span class="value fl">{{item&&item.sellerRemark}}</span>
+      </p>
+    </div>
+  </div>
+  <popup-edit-package @refresh="refresh" :item="entity" v-bind:class="clickEdit?'show':'hide'" @close="entity=null;clickEdit=0;"></popup-edit-package>
+</div>

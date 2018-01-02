@@ -1,0 +1,50 @@
+<!--选择交运方式-->
+<div class='popup control select-delivery'>
+  <div class='mask'></div>
+  <div class='content'>
+    <a href='javascript:;' class='close sprite' v-on:click="close"></a>
+    <div class='content-container'>
+      <div class="popup-head" lg="deliveryMethod1"></div>
+      <div class="popup-body">
+        <div class='selectBox basic'>
+          <div class='selectVal js-tips'>{{currentDelivery.name}}</div>
+          <ul class='selectOptions'>
+            <li v-on:click="selectDeliveryEvent(entity)" v-for="entity in list">{{entity.name}}</li>
+          </ul>
+        </div>
+        <div class="selectBox-detail">
+          <p>
+            <span lg="wayDelivery"></span>
+            <em>：</em>
+            <span>{{getDeliveryName(deliverTypes,currentDelivery.type)}}</span>
+          </p>
+          <p v-show="currentDelivery.pickupTime">
+            <span lg="pickTime"></span>
+            <em>：</em>
+            <span>{{currentDelivery.pickupTime}}</span>
+          </p>
+          <p v-if="currentDelivery.address">
+            <span class="value">
+            <span><em lg="contactName"></em>：{{currentDelivery.address.contactName}}</span>
+            <span><em lg="phone"></em>：{{currentDelivery.address.phone}}</span>
+            <span><em lg="addressInfo"></em>：{{currentDelivery.address.country}} {{currentDelivery.address.province}} {{currentDelivery.address.city}} {{currentDelivery.address.county}} {{currentDelivery.address.address1}} {{currentDelivery.address.address2}} {{currentDelivery.address.address3}}</span>
+            <span class="zipcode"><em lg="zipcode"></em>：{{currentDelivery.address.zipcode}}</span>
+            </span>
+          </p>
+          <p v-else>
+              <span class="value">
+            <span><em lg="contactName"></em>：{{currentDelivery.siteAddress.contactName}}</span>
+            <span><em lg="phone"></em>：{{currentDelivery.siteAddress.contactTel}}</span>
+            <span><em lg="addressInfo"></em>：{{currentDelivery.siteAddress.country}} {{currentDelivery.siteAddress.province}} {{currentDelivery.siteAddress.city}} {{currentDelivery.siteAddress.area}} {{currentDelivery.siteAddress.address1}} {{currentDelivery.siteAddress.address2}} {{currentDelivery.siteAddress.address3}}</span>
+            </span>
+          </p>
+        </div>
+      </div>
+      <div class="popup-foot cf">
+        <a href="javascript:;" data-href="preferencesDeliver" class="fl add-address" lg="add-delivery-method"></a>
+        <a href="javascript:;" class="fr btn save" v-on:click="save" lg="save"></a>
+        <a href="javascript:;" class="fr btn cancel" v-on:click="close" lg="cancel"></a>
+      </div>
+    </div>
+  </div>
+</div>

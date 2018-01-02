@@ -1,0 +1,86 @@
+<!--编辑物品信息-->
+<div class='popup control edit-order order' v-bind:class='showType'>
+  <div class='mask'></div>
+  <div class='content'>
+    <a href='javascript:;' class='close sprite' v-on:click="close"></a>
+    <div class='content-container'>
+      <div class="popup-head" lg="edit-goodinfo"></div>
+      <div class="popup-body">
+        <div class="errorMsg" lg="errorMessage" v-show="hasError()"></div>
+        <p class="good-title">
+          <span lg="transation-title"></span>
+          <em>：</em>
+          <span>{{entity&&entity.title}}</span>
+        </p>
+        <p class="sku-id" v-show="isShowSKUPre">
+          <span lg="SKUNumber"></span>
+          <em>：</em>
+          <span>{{entity&&entity.sku}}</span>
+        </p>
+        <div class="cf">
+          <div class="input fl price required" v-bind:class="(isClickSave||isClickSaveSku)&&(!params.skuPrice||errors.skuPrice)?'error':''">
+            <p class="input-title"><span lg="skuPirceText"></span><em>*</em></p>
+            <p class="input-content" v-bind:title="errors.skuPrice"><input maxlength="11" type="text" v-model="params.skuPrice" /><span>{{skuCurrencyCode}}</span></p>
+          </div>
+          <div class="input fl weight required" v-bind:class="(isClickSave||isClickSaveSku)&&(!params.skuWeight||errors.skuWeight)?'error':''">
+            <p class="input-title"><span lg="skuWeightText"></span><em>*</em></p>
+            <p class="input-content" v-bind:title="errors.skuWeight"><input maxlength="10" type="text" v-model="params.skuWeight" /><span>g</span></p>
+          </div>
+          <div class="input fl length required" v-bind:class="isClickSaveSku&&(!params.skuLength||errors.skuLength)?'error':''">
+            <p class="input-title"><span lg="skuLength1"></span><em></em></p>
+            <p class="input-content" v-bind:title="errors.skuLength"><input maxlength="6" type="text" v-model="params.skuLength" /><span>CM</span></p>
+          </div>
+          <div class="input fl width required" v-bind:class="isClickSaveSku&&(!params.skuWidth||errors.skuWidth)?'error':''">
+            <p class="input-title"><span lg="skuWidth1"></span><em></em></p>
+            <p class="input-content" v-bind:title="errors.skuWidth"><input maxlength="6" type="text" v-model="params.skuWidth" /><span>CM</span></p>
+          </div>
+          <div class="input fl height required" v-bind:class="isClickSaveSku&&(!params.skuHeight||errors.skuHeight)?'error':''">
+            <p class="input-title"><span lg="skuHeight1"></span><em></em></p>
+            <p class="input-content" v-bind:title="errors.skuHeight"><input maxlength="6" type="text" v-model="params.skuHeight" /><span>CM</span></p>
+          </div>
+        </div>
+        <div class="input skuName">
+          <p class="input-title"><span lg="skuCENameText"></span><em>*</em></p>
+          <p class="input-content required" v-bind:title="errors.skuNameZH" v-bind:class="(isClickSave||isClickSaveSku)&&(!params.skuNameZH||errors.skuNameZH)?'error':''"><input type="text" maxlength="100" v-model="params.skuNameZH" lg="skuCnName" /></p>
+          <p class="input-content required" v-bind:title="errors.skuNameEN" v-bind:class="(isClickSave||isClickSaveSku)&&(!params.skuNameEN||errors.skuNameEN)?'error':''"><input type="text" maxlength="200" v-model="params.skuNameEN" lg="skuEnName" /></p>
+        </div>
+        <div class="transfor cf">
+          <div class="select isberry fl required" v-bind:class="(isClickSave||isClickSaveSku)&&(!params.skuIsBattery||errors.skuIsBattery)?'error':''">
+            <p class="input-title"><span lg="isSkuButtry"></span><em>*</em></p>
+            <div class='selectBox basic'>
+              <div class='selectVal js-tips' v-bind:lg="skuIsBatteryText"></div>
+              <ul class='selectOptions'>
+                <li v-bind:class='params.skuIsBattery<0?"cur":""' v-on:click='fnSelectBattery({code:-1,lg:"plzSelect"})' lg='plzSelect'></li>
+                <li v-on:click="fnSelectBattery(item)" v-bind:data-code="item.code" v-for="item in isBattaries" v-bind:lg="item.lg"></li>
+              </ul>
+            </div>
+          </div>
+          <a href="javascript:;" class="batteryLink" lg='sendBattery' v-on:click='dev_getSsoUrl("jvbattery")'></a>
+          <p class="batteryTips" lg='battreyTips'></p>
+          <div class="select country fl required" v-bind:class="(isClickSave||isClickSaveSku)&&(!params.skuOrigin||errors.skuOrigin)?'error':''">
+            <p class="input-title"><span lg="originLocation"></span><em>*</em></p>
+            <div class="selectBox basic">
+              <div class='selectVal js-tips'>{{skuOriginText}}</div>
+              <ul class='selectOptions'>
+                <li v-on:click="fnSelectCount(country)" v-bind:data-code="country.code" v-for="country in countries">{{country.description}}</li>
+              </ul>
+            </div>
+          </div>
+          <!-- <div class="input fl code required" v-bind:class="isClickSave&&(!params.skuTariffCode||errors.skuTariffCode)?'error':''">
+            <p class="input-title" lg="skuTariffCode"><em>*</em></p>
+            <p class="input-content"><input type="text" minlength="6" placeholder="关税代码6位数字以上" v-model="params.skuTariffCode" /></p>
+          </div> -->
+        </div>
+        <div class="input remark">
+          <p class="input-title"><span lg="skuRemark"></span></p>
+          <p class="input-content"><textarea maxlength="500" v-model="params.skuRemark"></textarea></p>
+        </div>
+      </div>
+      <div class="popup-foot cf">
+        <a class="btn-save-to-skupre fl" v-show="isShowSKUPre" href="javascript:;" lg="save-to-skupre" v-on:click="saveToPre"></a>
+        <a class="btn save fr" href="javascript:;" lg="save" v-on:click="save"></a>
+        <a class="btn cancel fr" href="javascript:;" lg="cancel" v-on:click="close"></a>
+      </div>
+    </div>
+  </div>
+</div>

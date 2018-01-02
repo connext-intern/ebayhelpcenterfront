@@ -1,0 +1,133 @@
+<div class='popup prefer-sku' v-bind:class='showType'>
+    <div class='mask'></div>
+    <div class='content'>
+        <a href='javascript:;' class='close sprite' v-on:click='closePopup'></a>
+        <p class='popTitle'><em v-bind:lg='mainTitleLg'></em><span><b class="red">*</b><b lg='requiredText'></b></span></p>
+        <p class="topErroMsg"><span v-if='erroArr.length>0' v-bind:lg='errorMessage'></span></p>
+        <ul class="labelMulti cf">
+            <!--line1 left-->
+            <!-- sku编号 -->
+            <li class="type1 fl">
+                <div class='inputBox basic' inputKey='skuId'>
+                    <p class="inputName"><b lg='skuNo'></b><b class="red">*</b></p>
+                    <div class="input" v-bind:title="modelManager.skuId.isErro&&modelManager.skuId.err"><input maxlength='20' class='skuIdInputer' /></div>
+                </div>
+            </li>
+            <!-- 申报价格 -->
+            <li class="type1 fl">
+                <div class='inputBox basic' inputKey='price'>
+                    <p class="inputName"><b lg='skuPirce'></b><em></em><b class="red">*</b></p>
+                    <div class="input" v-bind:title="modelManager.price.isErro&&modelManager.price.err"><input maxlength='11' /></div>
+                </div>
+            </li>
+            <!-- 币种 -->
+            <li class="type1 fl onlinein1">
+                <div class='selectBox basic' v-bind:class='modelManager.isLanguage.isErro?"erro":""'>
+                    <p class="selectName"><b lg='currency'></b><b class="red">*</b></p>
+                    <div class='selectVal js-tips' v-bind:lg='modelManager.isLanguage.val'></div>
+                    <ul class='selectOptions'>
+                        <li v-for='(itemValue,itemIndex) in modelManager.isLanguage.options' v-bind:class='modelManager.isLanguage.index==itemIndex?"cur":""'
+                            v-on:click='fun_selectClick("isLanguage",itemIndex)' v-bind:lg='itemValue'></li>
+                    </ul>
+                </div>
+            </li>
+            <!-- 重量 -->
+            <li class="type1 fl">
+                <div class='inputBox basic' inputKey='weight'>
+                    <p class="inputName"><b lg='skuWeight'></b><b class="red">*</b></p>
+                    <div class="input" v-bind:title="modelManager.weight.isErro&&modelManager.weight.err"><input maxlength='10' /></div>
+                </div>
+            </li>
+            <!-- 长度 -->
+            <li class="type1 fl">
+                <div class='inputBox basic' inputKey='length'>
+                    <p class="inputName"><b lg='skuLength'></b><b class="red">*</b></p>
+                    <div class="input" v-bind:title="modelManager.length.isErro&&modelManager.length.err"><input maxlength='6' /></div>
+                </div>
+            </li>
+            
+            <!--line2 left-->
+            <li class="type2 battery fl onlinein1">
+                <div class='selectBox basic' v-bind:class='modelManager.isLiBattery.isErro?"erro":""'>
+                    <p class="selectName"><b lg='isLiBattery'></b><b class="red">*</b></p>
+                    <div class='selectVal js-tips' v-bind:lg='modelManager.isLiBattery.val'></div>
+                    <ul class='selectOptions'>
+                        <li v-for='(itemValue,itemIndex) in modelManager.isLiBattery.options' v-bind:class='modelManager.isLiBattery.index==itemIndex?"cur":""'
+                            v-on:click='fun_selectClick("isLiBattery",itemIndex)' v-bind:lg='itemValue'></li>
+                    </ul>
+                </div>
+                <p class="batteryTips" lg='battreyTips'></p>
+                <a href="javascript:;" class="batteryLink" lg='sendBattery' v-on:click='dev_getSsoUrl("jvbattery")'></a>
+            </li>
+            <!-- 高度 -->
+            <li class="type2 fl input">
+                <div class='inputBox basic' inputKey='height'>
+                    <p class="inputName"><b lg='skuHeight'></b><b class="red">*</b></p>
+                    <div class="input" v-bind:title="modelManager.height.isErro&&modelManager.height.err"><input maxlength='6' /></div>
+                </div>
+            </li>
+            <!-- 宽度 -->
+            <li class="type2 fl input">
+                <div class='inputBox basic' inputKey='width'>
+                    <p class="inputName"><b lg='skuWidth'></b><b class="red">*</b></p>
+                    <div class="input" v-bind:title="modelManager.width.isErro&&modelManager.width.err"><input maxlength='6' /></div>
+                </div>
+            </li>
+            <!--line2 right-->
+            <li class="type3 fr">
+                <div class='inputBox basic'>
+                    <p class="inputName"><b lg='skuRemark'></b></p>
+                    <div class="input"><textarea maxlength='300' v-model='remarkInput'></textarea></div>
+                </div>
+            </li>
+            <!--line3 left -->
+            <li class="type4 type6 fl onlinein1" style="width:250px;">
+                <div class='selectBox basic' v-bind:class='modelManager.origin.isErro?"erro":""'>
+                    <p class="selectName"><b lg='originLocation'></b><b class="red">*</b></p>
+                    <div class='selectVal js-tips'>
+                        <span v-bind:lg='modelManager.origin.index==0?"plzSelect":""'></span>{{modelManager.origin.index>0?modelManager.origin.val:''}}
+                    </div>
+                    <ul class='selectOptions'>
+                        <li v-bind:class='modelManager.origin.index==0?"cur":""' v-on:click='fun_selectClick("origin",0)' lg='plzSelect'></li>
+                        <li v-for='(itemValue,itemIndex) in modelManager.origin.options' v-if='itemIndex>0' v-bind:class='modelManager.origin.index==itemIndex?"cur":""'
+                            v-on:click='fun_selectClick("origin",itemIndex)'>{{itemValue}}</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="type6 fl onlinein1" style="display:none;width:80px;">
+                <!-- <div class='inputBox basic' inputKey='tariffCode'>
+                    <p class="inputName"><em lg='currency'></em></p>
+                    <div class="input"><input maxlength='50' /></div>
+                </div> -->
+                <div class='selectBox basic'>
+                    <p class="selectName"><b lg='currency'></b><b class="red">*</b></p>
+                    <div class='selectVal js-tips'>
+                        <span v-bind:lg='modelManager.origin.index==0?"plzSelect":""'></span>{{modelManager.origin.index>0?modelManager.origin.val:''}}
+                    </div>
+                    <ul class='selectOptions'>
+                        <li v-bind:class='modelManager.origin.index==0?"cur":""' v-on:click='fun_selectClick("origin",0)' lg='plzSelect'></li>
+                        <li v-for='(itemValue,itemIndex) in modelManager.origin.options' v-if='itemIndex>0' v-bind:class='modelManager.origin.index==itemIndex?"cur":""'
+                            v-on:click='fun_selectClick("origin",itemIndex)'>{{itemValue}}</li>
+                    </ul>
+                </div>
+            </li>
+            <!--line4 left-->
+            <li class="type2 fl">
+                <div class='inputBox basic' inputKey='nameZh' v-bind:class='modelManager.nameZh.isErro?"erro":""'>
+                    <p class="inputName"><b lg='skuCnName'></b><b class="red">*</b></p>
+                    <div class="input" v-bind:title="modelManager.nameZh.isErro&&modelManager.nameZh.err"><input maxlength='100' /></div>
+                </div>
+            </li>
+            <li class="type2 fl">
+                <div class='inputBox basic' inputKey='nameEn' v-bind:class='modelManager.nameEn.isErro?"erro":""'>
+                    <p class="inputName"><b lg='skuEnName'></b><b class="red">*</b></p>
+                    <div class="input" v-bind:title="modelManager.nameEn.isErro&&modelManager.nameEn.err"><input maxlength='200' /></div>
+                </div>
+            </li>
+        </ul>
+        <div class="btns cf">
+            <a class="saveBtn" href="javascript:;" v-on:click='saveClick($event)' lg='save'></a>
+            <a class="cancelBtn" href="javascript:;" v-on:click='closePopup' lg='cancel'></a>
+        </div>
+    </div>
+</div>

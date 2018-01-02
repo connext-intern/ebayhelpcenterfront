@@ -1,0 +1,17 @@
+<!--打印交接单-->
+<div class="popup print-delivery-order">
+    <div class='mask'></div>
+    <div class='content'>
+        <div class="title">
+            <a href="javascript:;" class="close sprite" v-on:click="close();"></a>
+            <h2 lg="printDeliveryOrder"></h2>
+        </div>
+        <div class="delivery-order-info">
+
+        </div>
+        <div class="btn-container">
+            <button class="btn confirm" v-on:click="saveDeliveryOrder($event);" lg="save"></button>
+            <button class="btn cancel" v-on:click="close();" lg="cancel"></button>
+        </div>
+    </div>
+</div>

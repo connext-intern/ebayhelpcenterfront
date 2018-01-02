@@ -1,0 +1,43 @@
+<div class="addresses">
+  <h3 class="title fl" lg="address-info"></h3>
+  <div class="address-container receiving fl">
+    <p class="address-header cf">
+      <span class="fl" lg="receive-address"></span>
+      <a class="fr" href="javascript:;" v-if="!isview&&!status.toBeShipped&&!status.toBeReceived&&!status.ReceiveConfirmation&&!status.onShipping&&!status.delivered"
+        lg="edit" v-on:click="clickEditAddressCount++;editAddress=item;"></a>
+    </p>
+    <div class="address-body cf">
+      <div class="content fl">
+        <span class="value">
+          <span class="value-title">{{item&&item.receiverName}}<strong class="phone">{{item&&item.receiverPhone}}</strong></span>
+        <span>{{item&&item.receiverCountry}} {{(item&&item.receiverProvinceName)||(item&&item.receiverProvince)}}<strong class="phone">{{item&&item.receiverZipCode}}</strong></span>
+        <span>{{item&&item.receiverCity}} {{item&&item.receiverCounty}} {{item&&item.receiverAddress1}}</span>
+        <span>{{item&&item.receiverAddress2}}</span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="address-container sending fl">
+    <p class="address-header cf">
+      <span class="fl" lg="send-address"></span>
+      <a class="fr" href="javascript:;" v-if="!isview&&!status.toBeShipped&&!status.toBeReceived&&!status.ReceiveConfirmation&&!status.onShipping&&!status.delivered"
+        v-on:click="clickCount++;" lg="select-exit-addressed"></a>
+    </p>
+    <div class="address-body cf">
+      <div class="content fl">
+        <span class="value">
+          <span class="value-title">{{sendAddress&&sendAddress.name}}</span>
+        <span>{{sendAddress&&sendAddress.contactName}}<strong class="phone">{{sendAddress&&sendAddress.phone}}</strong></span>
+        <span>{{sendAddress&&sendAddress.country}} {{sendAddress&&sendAddress.province}}<strong class="phone">{{sendAddress&&sendAddress.zipcode}}</strong></span>
+        <span>{{sendAddress&&sendAddress.city}} {{sendAddress&&sendAddress.county}} {{sendAddress&&sendAddress.address1}}</span>
+        <span>{{sendAddress&&sendAddress.address2}} {{sendAddress&&sendAddress.address3}}</span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <!--选择预设地址-->
+  <popup-select-address :item="item" @close="clickCount=0;" :operator="clickCount" @refresh="refresh" v-bind:class="clickCount?'show':'hide'"></popup-select-address>
+  <!--编辑收货人地址-->
+  <popup-edit-order-address :item="editAddress" @close="clickEditAddressCount=0;editAddress=null;" :operator="clickEditAddressCount" @refresh="refresh"
+    v-bind:class="clickEditAddressCount?'show':'hide'"></popup-edit-order-address>
+</div>

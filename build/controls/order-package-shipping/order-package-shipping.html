@@ -1,0 +1,42 @@
+<!--物流信息-->
+<div class="module-wrap shipping">
+  <div class="module-title" v-bind:class="status&&status.toBeShipped?'':'error'">
+    <h3 lg="shipping-info"></h3>
+    <p class="shipping-way">
+      <span>
+        <template v-if="language=='en-us'">
+          {{item&&item.trackingMethodNameEN}}
+          </template>
+          <template v-else>
+          {{item&&item.trackingMethodName}}
+          </template>
+        </span>
+      <a v-on:click="changeShipping" href="javascript:;" v-show="status.appliedTrackingCode" v-if="!isview" class="change-shipping"
+        lg="change"></a>
+    </p>
+    <p class="tracking-number">
+      <span lg="trackingNumber"></span>
+      <em>：</em>
+      <span class="value">{{item&&item.trackingNumber||'---'}}</span>
+    </p>
+    <a class="btn" href="javascript:;" v-on:click="applyTrackingNo" v-if="!isview" v-show="status.appliedTrackingCode" lg="applicationNumber"></a>
+    <template>
+      <!--预估运费-->
+      <p v-if="!(status&&status.toBeShipped)" class="estimated-cost"><span lg="estimatedCosts"></span><em>：</em><span class="value">{{item&&item.currency}} {{item&&item.estimateCost||'---'}}</span></p>
+      <!--冻结运费-->
+      <p v-if="(status&&status.toBeShipped)" class="estimated-cost"><span lg="freezeCost"></span><em>：</em><span class="value">{{item&&item.currency}} {{item&&item.freezeCost||'---'}}</span></p>
+    </template>
+  </div>
+  <div class="module-content" v-show="trackingList.length>0">
+    <div class="module">
+      <p class="title"><span lg="delivey-detail"></span><em>：</em></p>
+      <ul>
+        <li v-for="tracks in trackingList">
+          <span class="date">{{tracks.time.split(' ')[0]}}</span>
+          <span class="time">{{tracks.time.split(' ')[1]}}</span>
+          <span class="text">{{tracks.content}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

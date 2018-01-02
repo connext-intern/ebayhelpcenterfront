@@ -1,0 +1,243 @@
+<!--包裹信息 add by louis-->
+<div class="package cf">
+    <div class='popup popup-deliver-stauts' v-if='popDeliver.status>0'>
+        <div class='mask'></div>
+        <div class='content'>
+            <a href='javascript:;' class='close' v-on:click='popDeliver.status=0'></a>
+            <p class='mainTitle' lg='deliver'></p>
+            <p v-show="isMutiPackage" class='stautsText'><b lg='deliverSuccess'></b><span class='success'>{{popDeliver.success}}</span><b lg='deliverText01'></b>
+                <span class='failed'>{{popDeliver.failed}}</span><b lg='deliverText02'></b>
+            </p>
+            <p class='batteryText'>{{popDeliver.message}}</p>
+            <!-- <p class='batteryText' lg='battreyTips' v-if='popDeliver.status==3'></p> -->
+            <!-- <p class='batteryText' lg='deliverText03' v-if='popDeliver.status==2'></p> -->
+            <div class="btnArr cf">
+                <a class="blueBtn fr" href="javascript:;" lg='ensure' v-on:click='popDeliver.status=0'></a>
+                <a class="batteryBtn fr" href="javascript:;" lg='sendBattery' v-show='popDeliver.isNeedBatteryAuth' v-on:click='dev_getSsoUrl("jvbattery")'></a>
+                <!-- <a class="whiteBtn" href="javascript:;" lg='cancel' v-on:click='popDeliver.status=0' v-bind:class='popDeliver.status==2?"fl":"fr"'></a> -->
+            </div>
+        </div>
+    </div>
+    <div class="item-list" v-bind:class="isloading?'loading':''">
+        <!------单个包裹-------->
+        <div class="box" v-for="(package,packageIndex) in pageList.dataList">
+            <!------状态及用户信息-------->
+            <div class="title red cf">
+                <div v-if="type=='pedding'||type=='delete'" class="checkBox basic fl"><em class="radio" v-bind:class="{'cur':package.isCheck}" v-on:click="setCheckBox($event,packageIndex);"></em></div>
+                <ul class="status fl">
+                    <!-- 重新发货 -->
+                    <!-- <template v-if="package.parentPackageId">
+                        <li class="icon icon10" lg="redeliver"></li>
+                    </template> -->
+                    <template v-if="package.status==statusData.deleted">
+                        <li class="icon icon11" lg="deleted"></li>
+                    </template>
+                    <template v-if="package.status==statusData.toBeReceived">
+                        <li class="icon icon12" lg="waitingPickedUp"></li>
+                    </template>
+                    <!--包裹信息不完整-->
+                    <template v-if="(package.status==statusData.packageInfoLack&&package.lackOfPackageInfo)||(package.packageLastStatus==statusData.packageInfoLack&&package.lackOfPackageInfo&&type=='delete')">
+                        <li class="icon icon1" lg="pageckInfoIncomplete"></li>
+                    </template>
+                    <!--交运信息不完整-->
+                    <template v-if="(package.status==statusData.packageInfoLack&&package.lackOfDeliveryInfo)||(package.packageLastStatus==statusData.packageInfoLack&&package.lackOfDeliveryInfo&&type=='delete')">
+                        <li class="icon icon2" lg="deliveryInfoIncomplete"></li>
+                    </template>
+                    <!--预申报中-->
+                    <template v-if="(package.status==statusData.packageInfoLack&&!!package.declaring)||(package.packageLastStatus==statusData.packageInfoLack&&!!package.declaring&&type=='delete')">
+                        <li class="icon icon3" lg="preDeclaration"></li>
+                    </template>
+                    <!--无可用物流方案-->
+                    <template v-if="(package.status==statusData.noUsefulShipping)||(package.packageLastStatus==statusData.noUsefulShipping&&type=='delete')">
+                        <li class="icon icon4" lg="noLogisticsProgram"></li>
+                    </template>
+                    <!--待选择物流方案-->
+                    <template v-if="(package.status==statusData.selectedShipping)||(package.packageLastStatus==statusData.selectedShipping&&type=='delete')">
+                        <li class="icon icon5" lg="pendingSelectedLogisticsProgram"></li>
+                    </template>
+                    <!--待申请物流单号-->
+                    <template v-if="(package.status==statusData.appliedTrackingCode)||(package.packageLastStatus==statusData.appliedTrackingCode&&type=='delete')">
+                        <li class="icon icon6" lg="pendingApplicationNumber"></li>
+                        <li>
+                            <template v-if="language=='en-us'">
+                                {{package.trackingMethodNameEN}}
+                            </template>
+                            <template v-else>
+                                {{package.trackingMethodName}}
+                            </template>
+                        </li>
+                        <li class="key"><span lg="estimatedCosts"></span><em>：</em><span class="value">{{package.estimateCost}}</span></li>
+                    </template>
+                    <!--待交运-->
+                    <template v-if="(package.status==statusData.toBeShipped)||(package.packageLastStatus==statusData.toBeShipped&&type=='delete')">
+                        <li class="icon icon7" lg="pendingDelivery"></li>
+                        <li>
+                            <template v-if="language=='en-us'">
+                                {{package.trackingMethodNameEN}}
+                            </template>
+                            <template v-else>
+                                {{package.trackingMethodName}}
+                            </template>
+                        </li>
+                        <li class="key"><span lg="trackingNumber"></span><em>：</em><span class="value">{{package.trackingNumber}}</span></li>
+                        <li class="key"><span lg="freezeCost"></span><em>：</em><span class="value">{{package.estimateCost}}</span></li>
+                    </template>
+                    <!--预申报未通过-->
+                    <template v-if="(package.status==statusData.declaredFailed)||(package.packageLastStatus==statusData.declaredFailed&&type=='delete')">
+                        <li class="icon icon8" lg="declareFailed"></li>
+                    </template>
+                    <!--运输中-->
+                    <template v-if="(package.status==statusData.onShipping)||(package.packageLastStatus==statusData.onShipping&&type=='delete')">
+                        <li class="icon icon9" lg="transitd"></li>
+                    </template>
+                    <!-- 已妥投 -->
+                    <template v-if="(package.status==statusData.delivered)||(package.packageLastStatus==statusData.delivered&&type=='delete')">
+                        <li class="icon icon9" lg="delivered"></li>
+                    </template>
+                    <template v-if="(package.status==statusData.shippingException)||(package.packageLastStatus==statusData.shippingException&&type=='delete')">
+                        <li class="icon icon13" lg="shippingException"></li>
+                    </template>
+
+                    <!--<li class="icon icon1">包裹信息不完整</li>
+                        <li class="icon icon2">交运信息不完整</li>
+                        <li class="icon icon3">预申报中</li>
+                        <li class="icon icon4">无可用物流方案</li>
+                        <li class="icon icon5">待选择物流方案</li>
+                        <li class="icon icon6">待申请物流单号</li>
+                        <li class="icon icon7">待交运</li>
+                        <li class="icon icon8">预申报未通过</li>
+                        <li class="icon icon9">运输中</li>-->
+                </ul>
+                <ul class="user fr">
+                    <li class="buyer" v-bind:title="package.transactionList[0].buyerUserId"><span lg="buyerID"></span><em>：</em><span>{{package.transactionList[0].buyerUserId}}</span></li>
+                    <li class="sellers" v-bind:title="package.sellerId"><span lg="sellersID"></span><em>：</em><span>{{package.sellerId}}</span></li>
+                    <li v-show="type=='pedding'" v-if="!isUnVeri" title="edit-remark" class="edit-remark"><a href="javascript:;" v-on:click="showRemark(package.packageId,package.version,package.sellerRemark);"></a></li>
+                    <li v-show="type=='all'" class="remark"><a href="javascript:;" lg="remark"></a></li>
+                </ul>
+            </div>
+            <!---------包裹内容---------->
+            <div class="content cf" v-on:click="dispaPage(type,package);">
+                <div class="product fl" v-bind:class="{'type':type=='pedding'||type=='delete'}">
+                    <div class="item cf" v-for="(transaction,transactionIndex) in package.transactionList">
+                        <div class="left fl">
+                            <!---左边checkbox---->
+                            <!--<div class="checkBox basic">
+                                    <em class="radio"></em>
+                                </div>-->
+                        </div>
+                        <!---中间产品的信息---->
+                        <div class="center fl">
+                            <div class="info cf">
+                                <div class="img fl">
+                                    <img v-bind:src="transaction.imageLink" />
+                                </div>
+                                <div class="text fl">
+                                    <div class="cf">
+                                        <p class="const-time fl"><span lg="costTime"></span><em>：</em><span>{{transaction.createDate}}</span></p>
+                                        <p class="tran-num fr"><span lg="transactionNumber"></span><em>：</em><span>{{transaction.recordNumber}}</span></p>
+                                    </div>
+                                    <p class="name"><span>{{transaction.title}}</span> <span>({{transaction.itemId}})</span></p>
+                                    <div class="cf">
+                                        <p class="sku-number fl"><span lg="SKUNumber"></span><em>：</em><span>{{transaction.sku}}</span></p>
+                                        <div v-if="transaction.trackingRecords&&transaction.trackingRecords.length>0" class="hisIcon fr">
+                                            <a href="javascript:;" lg="hisLogisticsNumber" v-on:click="hisLogisticsNumberEvent($event,transaction.trackingRecords)"></a>
+                                        </div>
+                                    </div>
+                                    <div class="format1">
+                                        <p v-for="(key,value) in getJson(transaction.transactionProperty)"><span>{{value}}</span><em>：</em><span>{{key}}</span></p>
+                                    </div>
+                                    <p class="buyer-remark"><span lg="buyerRemark"></span><em>：</em><span>{{transaction.buyerCheckoutMessage}}</span></p>
+                                </div>
+                                <div class="format fl">
+                                    <ul class="sub-title cf" v-if="transactionIndex===0">
+                                        <li class="unit-price" lg="unitPrice"></li>
+                                        <li class="quantity" lg="quantity"></li>
+                                        <li class="status" lg="status"></li>
+                                    </ul>
+                                    <ul class="sub-val cf">
+                                        <li class="unit-price">{{transaction.currency}} {{transaction.transactionPrice}}</li>
+                                        <li class="quantity">× {{transaction.transactionPurchased}}</li>
+                                        <li class="status">
+                                            <p class="payment-status" v-bind:title="transaction.paymentStatus!=payStatus.complete?'nopaid':'hadpaid'" v-bind:class="{'opacity':transaction.paymentStatus!=payStatus.complete}"></p>
+                                            <p class="declare-status" v-bind:title="transaction.transactionStatus!=shipStatus.shipped?'noshipping':'hadshipped'" v-bind:class="{'opacity':transaction.transactionStatus!=shipStatus.shipped}"></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!---右边操作信息---->
+                <div class="right fl" v-bind:class="{'type':type=='pedding'||type=='delete'}">
+                    <ul class="sub-title cf">
+                        <li class="delivery-to" lg="deliveryTo"></li>
+                        <li v-if="type=='pedding'" class="operation" lg="operation"></li>
+                    </ul>
+                    <ul class="sub-val cf" v-bind:style="{height:(package.transactionList.length*156)-30+'px'}">
+                        <li class="delivery-to">{{package.receiverCountry}}</li>
+                        <template v-if="isUnVeri">
+                            <li></li>
+                        </template>
+                        <template v-else>
+                            <li v-if="type=='pedding'||type=='delete'" class="operation">
+                                <template v-if="package.status==statusData.packageInfoLack||package.status==statusData.noUsefulShipping">
+                                    <a href="javascript:;" data-href="packageEdit" v-bind:href-param="'?packageId='+package.packageId" class="edit" lg="edit"></a>
+                                    <a href="javascript:;" class="del" v-on:click="deletePackages($event,[package.packageId]);"></a>
+                                </template>
+                                <template v-if="package.status==statusData.selectedShipping">
+                                    <div class='selectBox cf'>
+                                        <div class='selectVal js-tips'><span lg="selectedLogisticsProgram"></span>
+                                            <div class='selectIcon'></div>
+                                        </div>
+                                        <ul class='selectOptions tips'>
+                                            <template v-if="language=='en-us'">
+                                                <li v-for="(select,selectIndex) in package.availableProductList" v-on:click="singlePackageSelectProduct($event,package.packageId,select.sysId,package.version);">{{select.productEnName}}</li>
+                                            </template>
+                                            <template v-else>
+                                                <li v-for="(select,selectIndex) in package.availableProductList" v-on:click="singlePackageSelectProduct($event,package.packageId,select.sysId,package.version);">{{select.productZhName}}</li>
+                                            </template>
+                                        </ul>
+                                    </div>
+                                    <a href="javascript:;" class="run-logistics-rules" lg="runLogisticsRules" v-on:click="getAvailableProduct($event,[package.packageId],packageIndex,package.status);"></a>
+                                    <a href="javascript:;" data-href="packageEdit" v-bind:href-param="'?packageId='+package.packageId" class="edit default" lg="edit"></a>
+                                    <a href="javascript:;" class="del" v-on:click="deletePackages($event,[package.packageId]);"></a>
+                                </template>
+                                <template v-if="package.status==statusData.appliedTrackingCode">
+                                    <a href="javascript:;" class="application-number" lg="applicationNumber" v-on:click="applyTrackingNo($event,[package.packageId]);"></a>
+                                    <a href="javascript:;" class="run-logistics-rules" lg="runLogisticsRules" v-on:click="getAvailableProduct($event,[package.packageId],packageIndex);"></a>
+                                    <a href="javascript:;" data-href="packageEdit" v-bind:href-param="'?packageId='+package.packageId" class="edit default" lg="edit"></a>
+                                    <a href="javascript:;" class="del" v-on:click="deletePackages($event,[package.packageId]);"></a>
+                                </template>
+                                <template v-if="package.status==statusData.toBeShipped">
+                                    <a href="javascript:;" class="delivery" lg="delivery" v-on:click="deliveryPackages($event,[package.packageId]);"></a>
+                                    <!-- <a href="javascript:;" class="delivery" lg="peintSheet" v-on:click="printPackage($event,[package.packageId]);"></a> -->
+                                    <div class='selectBox cf default'>
+                                        <div class='selectVal js-tips'><span v-bind:lg="package.printSelect.lg"></span>
+                                            <div class='selectIcon'></div>
+                                        </div>
+                                        <ul class='selectOptions tips'>
+                                            <li v-for="(select,selectIndex) in package.printSelect.data" v-bind:class="{'cur':selectIndex==package.printSelect.cur}"
+                                                v-bind:lg="select.lg" v-on:click="printPackage($event,[package.packageId],select.id,packageIndex);"></li>
+                                        </ul>
+                                    </div>
+                                    <div class="row">
+                                        <a href="javascript:;" data-href="packageView" v-bind:href-param="'?packageId='+package.packageId" class="edit default" lg="view"></a>
+                                        <!-- <a href="javascript:;" data-href="packageEdit" v-bind:href-param="'?packageId='+package.packageId" class="edit default" lg="edit"></a> -->
+                                        <a v-show="package.supportCancel" href="javascript:;" class="cancel" lg="cancel-package-no" v-on:click="cancelPackage($event,package.packageId);"></a>
+                                    </div>
+                                    <a href="javascript:;" title="delete" class="del" v-on:click="deletePackages($event,[package.packageId]);"></a>
+                                </template>
+                                <template v-if="package.status==statusData.deleted">
+                                    <a href="javascript:;" class="restore" lg="restore" v-on:click="restorePackages($event,[package.packageId]);"></a>
+                                    <!-- <a href="javascript:;" class="del" v-on:click="deletePackages($event,[package.packageId]);"></a> -->
+                                </template>
+                            </li>
+                        </template>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p lg='nolistdata' v-show="pageList.dataList.length==0&&!isloading"></p>
+    <order-history-shipping :item="history.transitionEntity" v-bind:class="history.status?'show':'hide'" @close="history.transitionEntity=null;history.status='';"></order-history-shipping>
+</div>

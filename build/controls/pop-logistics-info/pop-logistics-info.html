@@ -1,0 +1,26 @@
+<!--包裹物流信息-->
+<div class="popup logistics-info-list">
+    <div class='mask'></div>
+    <div class='content'>
+        <div class="title">
+            <a href="javascript:;" class="close sprite" v-on:click="close();"></a>
+            <h2 lg="packageLogisticsInfo"></h2>
+        </div>
+        <div class="logistics-content" v-if="logisticsInfo">
+            <div class="base-info cf">
+                <p class="fl"><span lg="logisticsSolutions"></span><em>：</em><span>{{logisticsInfo.productName}}</span></p>
+                <p class="fl"><span lg="trackingNumber"></span><em>：</em><a class="tracking" v-bind:title='logisticsInfo.trackingNo'>{{logisticsInfo.trackingNo}}</a></p>
+                <p class="fl"><span lg="charged-shipping-fee"></span><em>：</em><span>{{logisticsInfo.currency}} {{logisticsInfo.cost}}</span></p>
+            </div>
+            <div class="list">
+                <p><span lg="packageLogisticsInfo"></span>：</p>
+                <ul>
+                    <li v-for="(tracking,trackingIndex) in logisticsInfo.trackingEvents" class="cf">
+                        <span class="fl">{{tracking.time}}</span>
+                        <span class="fl">{{tracking.content}}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,123 @@
+<div class='popup prefer-addAdr'>
+    <div class='mask'></div>
+    <div class='content'>
+        <a href='javascript:;' class='close sprite' v-on:click='closePopup'></a>
+        <template v-if="isexternal">
+            <p class='popTitle'>
+                <em v-bind:lg='mainTitleLg'></em>(<label lg="need-required"></label>)
+                <span lg="address-tips"></span>
+            </p>
+        </template>
+        <template v-else>
+            <p class='popTitle'>
+                <em v-bind:lg='mainTitleLg'></em>
+                <span><b class="red">*</b><b lg='requiedEnglish2'></b></span>
+            </p>
+        </template>
+        <p class="topErroMsg"><span v-if='erroArr.length>0' lg='errorMessage'></span></p>
+        <div class='inputBox basic' inputKey='name'>
+            <p class="inputName">
+                <b lg='addressName'></b><b class="red">*</b>
+                <template v-if="isexternal">
+                    <span v-bind:lg="isexternal?'address-tips2':'address-tips1'"></span>
+                </template>
+                <template v-else>
+                    <span lg='address-tips1'></span>
+                </template>
+            </p>
+            <div class="input" v-bind:title="modelManager.name.isErro&&modelManager.name.err"><input maxlength='20' /></div>
+        </div>
+        <div class="labelTwo cf">
+            <div class='inputBox basic' inputKey='contactName'>
+                <p class="inputName"><em lg='contactName'></em><b class="red">*</b></p>
+                <div class="input" v-bind:title="modelManager.contactName.isErro&&modelManager.contactName.err"><input maxlength='50' /></div>
+            </div>
+            <div class='inputBox basic' inputKey='companyName'>
+                <p class="inputName"><em lg='companyName'></em></p>
+                <div class="input" v-bind:title="modelManager.companyName.isErro&&modelManager.companyName.err"><input maxlength='50' /></div>
+            </div>
+        </div>
+        <div class="labelTwo cf">
+            <div class='selectBox basic' v-bind:class='modelManager.country.isErro?"erro":""'>
+                <p class="selectName"><em lg='addressInfo'></em><b class="red">*</b></p>
+                <div class='selectVal js-tips' v-bind:lg='modelManager.country.val'></div>
+                <ul class='selectOptions'>
+                    <li v-bind:class='modelManager.country.index==0?"cur":""' v-on:click='fun_selectClick("country",0)' lg='settingCondition'></li>
+                    <li v-for='(itemValue,itemIndex) in modelManager.country.options' v-if='itemIndex>0' v-bind:class='modelManager.country.index==itemIndex?"cur":""'
+                        v-on:click='fun_selectClick("country",itemIndex)' v-bind:lg='itemValue'></li>
+                </ul>
+            </div>
+            <div class='selectBox basic' v-bind:class='modelManager.province.isErro?"erro":""'>
+                <p class="selectName"></p>
+                <div class='selectVal js-tips'>
+                    <span v-bind:lg='modelManager.province.index==0?"province":""'></span> {{modelManager.province.index>0?modelManager.province.val:''}}
+                </div>
+                <ul class='selectOptions'>
+                    <li v-bind:class='modelManager.province.index==0?"cur":""' v-on:click='fun_selectClick("province",0)' lg='province'></li>
+                    <li v-for='(itemValue,itemIndex) in modelManager.province.options' v-if='itemIndex>0' v-bind:class='modelManager.province.index==itemIndex?"cur":""'
+                        v-on:click='fun_selectClick("province",itemIndex)'>{{itemValue}}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="labelTwo cf short">
+            <div class='selectBox basic' v-bind:class='modelManager.city.isErro?"erro":""'>
+                <div class='selectVal js-tips'>
+                    <span v-bind:lg='modelManager.city.index==0?"city":""'></span> {{modelManager.city.index>0?modelManager.city.val:''}}
+                </div>
+                <ul class='selectOptions'>
+                    <li v-bind:class='modelManager.city.index==0?"cur":""' v-on:click='fun_selectClick("city",0)' lg='city'></li>
+                    <li v-for='(itemValue,itemIndex) in modelManager.city.options' v-if='itemIndex>0' v-bind:class='modelManager.city.index==itemIndex?"cur":""'
+                        v-on:click='fun_selectClick("city",itemIndex)'>{{itemValue}}</li>
+                </ul>
+            </div>
+            <div class='selectBox basic' v-bind:class='modelManager.county.isErro?"erro":""'>
+                <div class='selectVal js-tips'>
+                    <span v-bind:lg='modelManager.county.index==0?"county":""'></span> {{modelManager.county.index>0?modelManager.county.val:''}}
+                </div>
+                <ul class='selectOptions'>
+                    <li v-bind:class='modelManager.county.index==0?"cur":""' v-on:click='fun_selectClick("county",0)' lg='county'></li>
+                    <li v-for='(itemValue,itemIndex) in modelManager.county.options' v-if='itemIndex>0' v-bind:class='modelManager.county.index==itemIndex?"cur":""'
+                        v-on:click='fun_selectClick("county",itemIndex)'>{{itemValue}}</li>
+                </ul>
+            </div>
+        </div>
+        <div class='inputBox basic' inputKey='address1'>
+            <div class="input" v-bind:title="modelManager.address1.isErro&&modelManager.address1.err"><input class='darkPlaceholder' maxlength='50' lg='address1tips' /></div>
+        </div>
+        <div class='inputBox basic' inputKey='address2'>
+            <div class="input" v-bind:title="modelManager.address2.isErro&&modelManager.address2.err"><input maxlength='50' lg='address2tips' /></div>
+        </div>
+        <div class='inputBox basic' inputKey='address3'>
+            <div class="input" v-bind:title="modelManager.address3.isErro&&modelManager.address3.err"><input maxlength='50' lg='address3tips' /></div>
+        </div>
+        <div class="labelTwo cf">
+            <div class='inputBox basic' inputKey='zipcode'>
+                <template v-if='modelManager.country.val=="chinaHk"'>
+                    <p class="inputName"><em lg='zipcode'></em>(<em lg='hkZipcode'></em>)</p>
+                </template>
+                <template v-else>
+                    <p class="inputName"><em lg='zipcode'></em><b class="red">*</b></p>
+                </template>
+                <div class="input" v-bind:title="modelManager.zipcode.isErro&&modelManager.zipcode.err"><input maxlength='10' /></div>
+            </div>
+            <div class='inputBox basic' inputKey='phone'>
+                <p class="inputName"><em lg='phone'></em><b class="red">*</b></p>
+                <div class="input" v-bind:title="modelManager.phone.isErro&&modelManager.phone.err"><input maxlength='20' /></div>
+            </div>
+        </div>
+        <div class="btns cf">
+            <template v-if="isexternal">
+                <a class="cancelBtn" href="javascript:;" v-on:click='prevClick' lg='prev-step'></a>
+                <a class="saveBtn" href="javascript:;" v-on:click='saveClick' lg='save-continue'></a>
+            </template>
+            <template v-else>
+                <div class="checkBox basic setDft">
+                    <p class="radio" v-bind:class='modelManager.isDefault.radios[0]?"cur":""' v-on:click='fun_checkRadioClick("isDefault",0)'
+                        lg='setDefaultAdr'></p>
+                </div>
+                <a class="saveBtn" href="javascript:;" v-on:click='saveClick($event)' lg='save'></a>
+                <a class="cancelBtn" href="javascript:;" v-on:click='closePopup' lg='cancel'></a>
+            </template>
+        </div>
+    </div>
+</div>

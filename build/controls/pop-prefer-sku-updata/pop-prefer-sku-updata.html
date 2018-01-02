@@ -1,0 +1,29 @@
+<div class='popup prefer-sku-updata'>
+    <div class='mask'></div>
+    <div class='content'>
+        <a href='javascript:;' class='close sprite' v-on:click='closePop'></a>
+        <p class='popTitle'><b lg='updataSku'></b><span lg='required'></span></p>
+        <p class="topErroMsg"><span v-bind:lg='erroMsg'></span></p>
+        <div class="btns cf files">
+            <p class="longText"><span class="filetype" lg='fileType'></span><span lg='updataFile'></span></p>
+            <p class="gray" lg='supportFile'></p>
+            <form id="uploadForm">
+                <p class="selectFileBtn" href="javascript:;">
+                    <span lg='selectFile'></span>
+                    <input type="file" v-on:change="fileChange" class="selectFileBtnHidden" name="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+                    />
+                </p>
+                <!--<input type="file" name="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+                />
+                <input type="button" v-on:click="saveFileClick" value="开始上传" />-->
+            </form>
+            <p class="fileName">{{fileName}}</p>
+        </div>
+        <div class="btns cf">
+            <a class="download" href="javascript:;" lg='downloadCSVModel' v-on:click="getSKUTemplate('csvTemplet');"></a>
+            <a class="download" href="javascript:;" lg='downloadExcelModel' v-on:click="getSKUTemplate('excelTemplet');"></a>
+            <a class="saveBtn" href="javascript:;"><b lg='save'></b><input type="button" v-on:click="saveFileClick"/></a>
+            <a class="cancelBtn" href="javascript:;" v-on:click='closePop' lg='cancel'></a>
+        </div>
+    </div>
+</div>

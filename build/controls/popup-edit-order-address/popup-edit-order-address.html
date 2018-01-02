@@ -1,0 +1,65 @@
+<!--编辑收货地址-->
+<div class='popup control edit-order-address order'>
+  <div class='mask'></div>
+  <div class='content'>
+    <a href='javascript:;' class='close sprite' v-on:click="close"></a>
+    <div class='content-container'>
+      <div class="popup-head" lg="edit-send-address"></div>
+      <div class="popup-body">
+        <div class="errorMsg" lg="errorMessage" v-show="hasError()"></div>
+        <div class="input name required" v-bind:class="isClickSave&&(!params.receiverName||errors.receiverName)?'error':''">
+          <p class="input-title"><span lg="contactName"></span><em>*</em></p>
+          <p class="input-content" v-bind:title="errors.receiverName"><input maxlength="30" type="text" v-model="params.receiverName" /></p>
+        </div>
+        <div class="cf">
+          <p class="input-title"><span lg="address-info"></span><em>*</em></p>
+          <div class="select country fl required" v-bind:class="isClickSave&&(!params.receiverCountry||errors.receiverCountry)?'error':''">
+            <div class='selectBox basic'>
+              <div class='selectVal js-tips' v-bind:lg="countryText"></div>
+              <ul class='selectOptions'>
+                <li v-bind:class='params.receiverCountry==0?"cur":""' v-on:click='fnSelectCount({code:0,lg:"settingCondition"})' lg='settingCondition'></li>
+                <li v-on:click="fnSelectCount(country)" v-bind:data-code="country.code" v-for="country in countries" v-bind:lg="country.lg"></li>
+              </ul>
+            </div>
+          </div>
+          <div class="select province fl required" v-bind:class="isClickSave&&(!params.receiverProvince||errors.receiverProvince)?'error':''">
+            <div class='selectBox basic'>
+              <div class='selectVal js-tips'>{{params.receiverProvinceName}}</div>
+              <ul class='selectOptions'>
+                <li v-bind:class='params.receiverProvince==0?"cur":""' v-on:click='fnSelectProv({code:0,lg:"province"})' lg='province'></li>
+                <li v-on:click="fnSelectProv(item)" v-bind:data-code="item.code" v-for="item in provinces">{{item.name}}</li>
+              </ul>
+            </div>
+          </div>
+          <div class="input fl city required" v-bind:class="isClickSave&&(!params.receiverCity||errors.receiverCity)?'error':''">
+            <p class="input-content" v-bind:title="errors.receiverCity"><input maxlength="20" type="text" lg="city" v-model="params.receiverCity" /></p>
+          </div>
+
+          <!-- <div class="input fl county required" v-bind:class="isClickSave&&(!params.receiverCounty||errors.receiverCounty)?'error':''">
+            <p class="input-content"><input maxlength="20" type="text" lg="area" v-model="params.receiverCounty" /></p>
+          </div> -->
+        </div>
+        <div class="input address address1 required" v-bind:class="isClickSave&&(!params.receiverAddress1||errors.receiverAddress1)?'error':''">
+          <p class="input-content" v-bind:title="errors.receiverAddress1"><input maxlength="50" type="text" lg="address1tips" v-model="params.receiverAddress1" /></p>
+        </div>
+        <div class="input address address2 required" v-bind:class="isClickSave&&(errors.receiverAddress2)?'error':''">
+          <p class="input-content" v-bind:title="errors.receiverAddress2"><input maxlength="50" type="text" lg="address2tips" v-model="params.receiverAddress2" /></p>
+        </div>
+        <div class="cf">
+          <div class="input zipcode fl required" v-bind:class="isClickSave&&(!params.receiverZipCode||errors.receiverZipCode)?'error':''">
+            <p class="input-title"><span lg="zipcode"></span><em>*</em></p>
+            <p class="input-content" v-bind:title="errors.receiverZipCode"><input maxlength="10" type="tel" v-model="params.receiverZipCode" /></p>
+          </div>
+          <div class="input phone fl required" v-bind:class="isClickSave&&(!params.receiverPhone||errors.receiverPhone)?'error':''">
+            <p class="input-title"><span lg="phone"></span><em>*</em></p>
+            <p class="input-content" v-bind:title="errors.receiverPhone"><input maxlength="20" type="tel" v-model="params.receiverPhone" /></p>
+          </div>
+        </div>
+      </div>
+      <div class="popup-foot cf">
+        <a class="btn save fr" href="javascript:;" lg="save" v-on:click="save"></a>
+        <a class="btn cancel fr" href="javascript:;" lg="cancel" v-on:click="close"></a>
+      </div>
+    </div>
+  </div>
+</div>
