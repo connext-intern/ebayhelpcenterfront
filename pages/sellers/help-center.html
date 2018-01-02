@@ -23,7 +23,7 @@
 				<h2>常见问题分类</h2>
 				<dl>
 					<dt><a href="javascript:;">登录注册</a></dt>
-					<dd><a href="javascript:;">注册</a></dd>
+					<dd><a href="javascript:showSecondContent(1);">注册</a></dd>
 					<dd><a href="javascript:;">登录引导</a></dd>
 					<dd><a href="javascript:;">忘记密码</a></dd>
 					<dd><a href="javascript:;">退出登录</a></dd>
@@ -67,7 +67,8 @@
 				</article>
 			</div>
 			<!-- 右边 查询内容 -->
-			<div class="page search hide">
+			<div class="page search">
+				<div id="querycontent" style="display: none" js-view="view/help-page">
 				<nav>关于<span class="red">订单</span>，共找到了<span class="red">100</span>相关问题</nav>
 				<article id="searcharticle">
 					<div class="res">
@@ -80,7 +81,13 @@
 					</div>
 				</article>
 				<div class="js-pager"></div>
+				</div>
+				<div id="menucontent" style="display: none">
+
+				</div>
 			</div>
+
+
 			<!--page end-->
 		</div>
 		<!--main end-->

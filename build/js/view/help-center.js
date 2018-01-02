@@ -31,6 +31,10 @@ define(['api', 'global', 'data'], function (Api, Global, Data) {
                         this.pager();
                     },
                     init_event: function () {
+                        var _this = this;
+                        $('#a_query').on('click',function () {
+                            _this.querykey();
+                        });
                         $('.help-center .menu-left').on('click', 'dt', function () {
                             var $parent = $(this).parents('dl');
                             if($parent.hasClass('curr')){
@@ -65,9 +69,19 @@ define(['api', 'global', 'data'], function (Api, Global, Data) {
                         $('.help-center .menu-left dt').eq(index).trigger('click');
                     },
                     updatepage:function (current,pagesize) {
-                        $('#searcharticle').html('<h2>Hello Page</h2>')
+                        $('#searcharticle').html('<h2>这是下一页内容</h2>')
                         Global.fun.updataLanguage('.js-pager');
-                    }
+                    },
+                    querykey : function(){
+                        var _this = this;
+                        $('#searcharticle').html('<h2>这是分页内容</h2>')
+                        $('#querycontent').css('display','block');
+                        $('#menucontent').css('display','none');
+                        _this.page.count=100;
+                        _this.page.current=1;
+                        _this.page.pagesize=10;
+                        _this.pager();
+                    },
                 },
                 updated: function () {
                     Global.fun.updataLanguage('.help-center');
@@ -79,3 +93,9 @@ define(['api', 'global', 'data'], function (Api, Global, Data) {
         }
     };
 });
+
+function showSecondContent(titleId) {
+    $('#menucontent').html('<h2>这是二级菜单内容</h2>')
+    $('#querycontent').css('display','none');
+    $('#menucontent').css('display','block');
+}
