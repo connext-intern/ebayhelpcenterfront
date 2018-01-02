@@ -5089,7 +5089,7 @@ input::-ms-clear {
   display: none; }
 
 .show {
-  display: none; }
+  display: inline-block !important; }
 
 .hide {
   display: none !important; }

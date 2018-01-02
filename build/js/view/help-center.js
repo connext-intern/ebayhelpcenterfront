@@ -5,7 +5,7 @@ define(['api', 'global', 'data'], function (Api, Global, Data) {
         initialize: function () {
             var that = this;
             Global.fun.startLoadHtml(function () {
-             /*that.createComponent();*/
+                that.createComponent();
             });
         },
         createComponent: function () {
