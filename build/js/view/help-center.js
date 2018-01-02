@@ -55,6 +55,7 @@ define(['api', 'global', 'data'], function (Api, Global, Data) {
                                 _this.page.current = current;
                                 _this.page.pagesize = pagesize;
                                 // _this.load_list();
+                                _this.updatepage();
                                 Global.fun.updataLanguage('.js-pager');
                             }
                         });
@@ -62,6 +63,10 @@ define(['api', 'global', 'data'], function (Api, Global, Data) {
                     },
                     trigger:function(index){ // 初始化触发某个栏目
                         $('.help-center .menu-left dt').eq(index).trigger('click');
+                    },
+                    updatepage:function (current,pagesize) {
+                        $('#searcharticle').html('<h2>Hello Page</h2>')
+                        Global.fun.updataLanguage('.js-pager');
                     }
                 },
                 updated: function () {
