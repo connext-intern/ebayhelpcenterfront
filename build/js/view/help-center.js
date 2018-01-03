@@ -47,6 +47,27 @@ define(['api', 'global', 'data'], function (Api, Global, Data) {
                                 $parent.siblings('dl').removeClass('curr').find('dd').slideUp();
                             }
                         });
+                        $.ajax({
+                            type: "POST",
+                            url: "http://localhost:8060/user/listAllTitle",
+                            dataType:'json',
+                            success: function(msg){
+                                if(msg.state==1){
+                                    var data=msg.dataObject;
+                                    for(var i=0;i<data.length;i++){
+                                        $(".menu-left").append("<dl><dt><a href='javascript:;'>"+data[i].firstTitle+"</a></dt></dl>");
+                                        var x=data[i].secondMenuses;
+                                        for(var j=0;j<x.length;j++){
+                                            //alert("<dd><a href='javascript:show("+x[j].secondId+','+msg[i].firstTitle+','+x[j].secondTitle+");'>"+x[j].secondTitle+"</a></dd>");
+                                            //alert("<dd><a href='javascript:show("+x[j].secondId+");'>"+x[j].secondTitle+"</a></dd>")
+                                            var html=x[j].secondId+",\""+data[i].firstTitle+"\""+",\""+x[j].secondTitle+"\"";
+                                            $(".menu-left dl:eq("+i+")").append("<dd><a href='javascript:showSecondContent("+html+");'>"+x[j].secondTitle+"</a></dd>");
+                                        }
+                                    }
+                                }
+                            }
+                        });
+
                     },
                     pager: function () { // 分页
                         var _this = this;
@@ -94,8 +115,19 @@ define(['api', 'global', 'data'], function (Api, Global, Data) {
     };
 });
 
-function showSecondContent(titleId) {
-    $('#menucontent').html('<h2>这是二级菜单内容</h2>')
-    $('#querycontent').css('display','none');
-    $('#menucontent').css('display','block');
+function showSecondContent(id,title1,title2) {
+    $('nav').html(title1+">"+title2);
+    $.ajax({
+        type: "POST",
+        url: "http://localhost:8060/user/queryHtmlBySecondId",
+        data:{secondId:id},
+        dataType:'json',
+        success: function(msg){
+            if(msg.state==1) {
+                $('#menucontent').html("<nav>"+title1+">"+title2+"</nav>"+msg.dataObject);
+                $('#querycontent').css('display', 'none');
+                $('#menucontent').css('display', 'block');
+            }
+        }
+    });
 }
