@@ -1,4 +1,6 @@
 // 帮助中心 add by gena
+var keyword = "";
+var keycount=0;
 define(['api', 'global', 'data'], function (Api, Global, Data) {
     return {
         focusWatchArr: [],
@@ -15,7 +17,7 @@ define(['api', 'global', 'data'], function (Api, Global, Data) {
                 data: {
                     page: { // 页码块
                         pagesize: 10,
-                        count: 100,
+                        count: keycount,
                         current: 1
                     }
                 },
@@ -33,7 +35,9 @@ define(['api', 'global', 'data'], function (Api, Global, Data) {
                     init_event: function () {
                         var _this = this;
                         $('#a_query').on('click',function () {
-                            _this.querykey();
+                            //获取输入框的值
+                            keyword=$("#keyword").val();
+                            _this.querykey(keyword);
                         });
                         $('.help-center .menu-left').on('click', 'dt', function () {
                             var $parent = $(this).parents('dl');
@@ -79,8 +83,9 @@ define(['api', 'global', 'data'], function (Api, Global, Data) {
                             callback: function (current, pagesize, pagecount) {
                                 _this.page.current = current;
                                 _this.page.pagesize = pagesize;
+                                _this.page.pagecount = pagecount;
                                 // _this.load_list();
-                                _this.updatepage();
+                                _this.updatepage(current,pagesize,pagecount);
                                 Global.fun.updataLanguage('.js-pager');
                             }
                         });
@@ -89,19 +94,85 @@ define(['api', 'global', 'data'], function (Api, Global, Data) {
                     trigger:function(index){ // 初始化触发某个栏目
                         $('.help-center .menu-left dt').eq(index).trigger('click');
                     },
-                    updatepage:function (current,pagesize) {
-                        $('#searcharticle').html('<h2>这是下一页内容</h2>')
+                    updatepage:function (current,pagesize,pagecount) {
+                        //获取分页的页数和每页显示的条数
+                        //清空append();
+                        $("article").html("");
+                        $.ajax(
+                            {
+                                type: 'POST',
+                                url: "http://localhost:8060/user/queryByPage",
+                                data: {
+                                    'keyword': keyword,
+                                    "pageno": current,
+                                    "pagesize": pagesize
+                                },
+                                dataType: 'json',
+                                success: function (data) {
+                                    $("#count").html('关于<span class="red">' + keyword + '</span>，共找到了<span class="red">' + data.dataObject.countByKeyword + '</span>相关问题');
+                                    $.each(data.dataObject.list, function (index, value) {
+                                        console.log("value.content-->" + value.content);
+                                        var title = value.secondTitle.replace(/ /g,'&#32;');
+                                        var secondId = value.secondId;
+                                        $("#searcharticle").append("<div class='res'><h4 class='title'><a href='javascript:querycontent("+secondId+")' class='"+secondId+"'></a></h4> <p id='"+secondId+"'></p > </div>");
+                                        if (value.content.indexOf(keyword) >= 0) {
+                                            value.content = value.content.replace(new RegExp(keyword, "gm"), "<font color='red' >" + keyword + "</font>");
+                                        }
+                                        if (title.indexOf(keyword) >= 0) {
+                                            title = title.replace(new RegExp(keyword, "gm"), "<font color='red' >" + keyword + "</font>");
+                                        }
+                                        $("."+secondId+"").html(value.secondTitle);
+                                        $("#"+secondId+"").html(value.content);
+                                    });
+                                },
+                                error: function () {
+                                    alert("服务器请求异常");
+                                }
+                            });
+                        $("#page").css('display', 'none');
                         Global.fun.updataLanguage('.js-pager');
                     },
-                    querykey : function(){
-                        var _this = this;
-                        $('#searcharticle').html('<h2>这是分页内容</h2>')
+                    //根据关键词查询
+                    querykey : function(keyword){
                         $('#querycontent').css('display','block');
+                        var _this = this;
+                        $("#searcharticle").html("");
+                        $.ajax(
+                            {
+                                type: 'POST',
+                                url: "http://localhost:8060/user/queryByKeyWords",
+                                data: {
+                                    'keyword': keyword
+                                },
+                                dataType: 'json',
+                                success: function (data) {
+                                    keycount = data.dataObject.countByKeyword;
+                                    $("#count").html('关于<span class="red">' + keyword + '</span>，共找到了<span class="red">' + data.dataObject.countByKeyword + '</span>相关问题');
+                                    $.each(data.dataObject.list, function (index, value) {
+                                        console.log("value.content-->" + value.content);
+                                        var title = value.secondTitle.replace(/ /g,'&#32;');
+                                        var secondId = value.secondId;
+                                        $("#searcharticle").append("<div class='res'><h4 class='title'><a href='javascript:querycontent("+secondId+")' class='"+secondId+"'></a></h4> <p id='"+secondId+"'></p > </div>");
+                                        if (value.content.indexOf(keyword) >= 0) {
+                                            value.content = value.content.replace(new RegExp(keyword, "gm"), "<font color='red' >" + keyword + "</font>");
+                                        }
+                                        if (title.indexOf(keyword) >= 0) {
+                                            title = title.replace(new RegExp(keyword, "gm"), "<font color='red' >" + keyword + "</font>");
+                                        }
+                                        $("."+secondId+"").html(title);
+                                        $("#"+secondId+"").html(value.content);
+                                        _this.page.count=keycount;
+                                        _this.page.current=1;
+                                        _this.page.pagesize=10;
+                                        _this.pager();
+                                    });
+
+                                },
+                                error: function () {
+                                    alert("服务器请求异常");
+                                }
+                            });
                         $('#menucontent').css('display','none');
-                        _this.page.count=100;
-                        _this.page.current=1;
-                        _this.page.pagesize=10;
-                        _this.pager();
                     },
                 },
                 updated: function () {
@@ -114,6 +185,23 @@ define(['api', 'global', 'data'], function (Api, Global, Data) {
         }
     };
 });
+//根据标题查询内容
+function querycontent(secondid) {
+    $("#menucontent").html("");
+    $.ajax({
+        type: 'POST',
+        url: "http://localhost:8060/user/queryByTitle",
+        data: {
+            secondId: secondid
+        },
+        dataType: 'json',
+        success: function (data) {
+            $("#querycontent").css('display', 'none');
+            $("#menucontent").css('display', 'block');
+            $("#menucontent").html(data.dataObject.html);
+        }
+    });
+};
 
 function showSecondContent(id,title1,title2) {
     $('nav').html(title1+">"+title2);
@@ -131,3 +219,4 @@ function showSecondContent(id,title1,title2) {
         }
     });
 }
+
