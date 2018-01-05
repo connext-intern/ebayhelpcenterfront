@@ -114,7 +114,8 @@ define(['api', 'global', 'data'], function (Api, Global, Data) {
                                         console.log("value.content-->" + value.content);
                                         var title = value.secondTitle.replace(/ /g,'&#32;');
                                         var secondId = value.secondId;
-                                        $("#searcharticle").append("<div class='res'><h4 class='title'><a href='javascript:querycontent("+secondId+")' class='"+secondId+"'></a></h4> <p id='"+secondId+"'></p > </div>");
+                                        var secondTitle = value.secondTitle;
+                                        $("#searcharticle").append("<div class='res'><h4 class='title'><a href='javascript:querycontent("+secondId+",\""+secondTitle+"\")' class='"+secondId+"'></a></h4> <p id='"+secondId+"'></p > </div>");
                                         if (value.content.indexOf(keyword) >= 0) {
                                             value.content = value.content.replace(new RegExp(keyword, "gm"), "<font color='red' >" + keyword + "</font>");
                                         }
@@ -152,7 +153,8 @@ define(['api', 'global', 'data'], function (Api, Global, Data) {
                                         console.log("value.content-->" + value.content);
                                         var title = value.secondTitle.replace(/ /g,'&#32;');
                                         var secondId = value.secondId;
-                                        $("#searcharticle").append("<div class='res'><h4 class='title'><a href='javascript:querycontent("+secondId+")' class='"+secondId+"'></a></h4> <p id='"+secondId+"'></p > </div>");
+                                        var secondTitle = value.secondTitle;
+                                        $("#searcharticle").append("<div class='res'><h4 class='title'><a href='javascript:querycontent("+secondId+",\""+secondTitle+"\")' class='"+secondId+"'></a></h4> <p id='"+secondId+"'></p > </div>");
                                         if (value.content.indexOf(keyword) >= 0) {
                                             value.content = value.content.replace(new RegExp(keyword, "gm"), "<font color='red' >" + keyword + "</font>");
                                         }
@@ -186,7 +188,7 @@ define(['api', 'global', 'data'], function (Api, Global, Data) {
     };
 });
 //根据标题查询内容
-function querycontent(secondid) {
+function querycontent(secondid,secondTitle) {
     $("#menucontent").html("");
     $.ajax({
         type: 'POST',
@@ -198,7 +200,7 @@ function querycontent(secondid) {
         success: function (data) {
             $("#querycontent").css('display', 'none');
             $("#menucontent").css('display', 'block');
-            $("#menucontent").html(data.dataObject.html);
+            $("#menucontent").html("<nav>"+data.dataObject.firstTitle+">"+secondTitle+"</nav>"+data.dataObject.html);
         }
     });
 };
