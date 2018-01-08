@@ -109,22 +109,27 @@ define(['api', 'global', 'data'], function (Api, Global, Data) {
                                 },
                                 dataType: 'json',
                                 success: function (data) {
-                                    $("#count").html('关于<span class="red">' + keyword + '</span>，共找到了<span class="red">' + data.dataObject.countByKeyword + '</span>相关问题');
-                                    $.each(data.dataObject.list, function (index, value) {
-                                        console.log("value.content-->" + value.content);
-                                        var title = value.secondTitle.replace(/ /g,'&#32;');
-                                        var secondId = value.secondId;
-                                        var secondTitle = value.secondTitle;
-                                        $("#searcharticle").append("<div class='res'><h4 class='title'><a href='javascript:querycontent("+secondId+",\""+secondTitle+"\")' class='"+secondId+"'></a></h4> <p id='"+secondId+"'></p > </div>");
-                                        if (value.content.indexOf(keyword) >= 0) {
-                                            value.content = value.content.replace(new RegExp(keyword, "gm"), "<font color='red' >" + keyword + "</font>");
-                                        }
-                                        if (title.indexOf(keyword) >= 0) {
-                                            title = title.replace(new RegExp(keyword, "gm"), "<font color='red' >" + keyword + "</font>");
-                                        }
-                                        $("."+secondId+"").html(value.secondTitle);
-                                        $("#"+secondId+"").html(value.content);
-                                    });
+                                    if(data.state == 1){
+                                        $("#count").html('关于<span class="red">' + keyword + '</span>，共找到了<span class="red">' + data.dataObject.countByKeyword + '</span>相关问题');
+                                        $.each(data.dataObject.list, function (index, value) {
+                                            console.log("value.content-->" + value.content);
+                                            var title = value.secondTitle.replace(/ /g,'&#32;');
+                                            var secondId = value.secondId;
+                                            var secondTitle = value.secondTitle;
+                                            $("#searcharticle").append("<div class='res'><h4 class='title'><a style='color: #41a83e' href='javascript:querycontent("+secondId+",\""+secondTitle+"\")' class='"+secondId+"'></a></h4> <p id='"+secondId+"'></p > </div>");
+                                            if (value.content.indexOf(keyword) >= 0) {
+                                                value.content = value.content.replace(new RegExp(keyword, "gm"), "<font color='red' >" + keyword + "</font>");
+                                            }
+                                            if (title.indexOf(keyword) >= 0) {
+                                                title = title.replace(new RegExp(keyword, "gm"), "<font color='red' >" + keyword + "</font>");
+                                            }
+                                            $("."+secondId+"").html(value.secondTitle);
+                                            $("#"+secondId+"").html(value.content);
+                                        });
+                                    }else if(data.state == 0){
+                                        console.log("错误信息-->"+data.message);
+                                    }
+
                                 },
                                 error: function () {
                                     alert("服务器请求异常");
@@ -147,28 +152,38 @@ define(['api', 'global', 'data'], function (Api, Global, Data) {
                                 },
                                 dataType: 'json',
                                 success: function (data) {
-                                    keycount = data.dataObject.countByKeyword;
-                                    $("#count").html('关于<span class="red">' + keyword + '</span>，共找到了<span class="red">' + data.dataObject.countByKeyword + '</span>相关问题');
-                                    $.each(data.dataObject.list, function (index, value) {
-                                        console.log("value.content-->" + value.content);
-                                        var title = value.secondTitle.replace(/ /g,'&#32;');
-                                        var secondId = value.secondId;
-                                        var secondTitle = value.secondTitle;
-                                        $("#searcharticle").append("<div class='res'><h4 class='title'><a href='javascript:querycontent("+secondId+",\""+secondTitle+"\")' class='"+secondId+"'></a></h4> <p id='"+secondId+"'></p > </div>");
-                                        if (value.content.indexOf(keyword) >= 0) {
-                                            value.content = value.content.replace(new RegExp(keyword, "gm"), "<font color='red' >" + keyword + "</font>");
-                                        }
-                                        if (title.indexOf(keyword) >= 0) {
-                                            title = title.replace(new RegExp(keyword, "gm"), "<font color='red' >" + keyword + "</font>");
-                                        }
-                                        $("."+secondId+"").html(title);
-                                        $("#"+secondId+"").html(value.content);
-                                        _this.page.count=keycount;
-                                        _this.page.current=1;
-                                        _this.page.pagesize=10;
-                                        _this.pager();
-                                    });
-
+                                    if(data.state == 1){
+                                        keycount = data.dataObject.countByKeyword;
+                                        $("#count").html('关于<span class="red">' + keyword + '</span>，共找到了<span class="red">' + data.dataObject.countByKeyword + '</span>相关问题');
+                                        $.each(data.dataObject.list, function (index, value) {
+                                            console.log("value.content-->" + value.content);
+                                            var title = value.secondTitle.replace(/ /g,'&#32;');
+                                            var secondId = value.secondId;
+                                            var secondTitle = value.secondTitle;
+                                            $("#searcharticle").append("<div class='res'><h4 class='title'><a style='color: #41a83e' href='javascript:querycontent("+secondId+",\""+secondTitle+"\")' class='"+secondId+"'></a></h4> <p id='"+secondId+"'></p > </div>");
+                                            if (value.content.indexOf(keyword) >= 0) {
+                                                value.content = value.content.replace(new RegExp(keyword, "gm"), "<font color='red' >" + keyword + "</font>");
+                                            }
+                                            if (title.indexOf(keyword) >= 0) {
+                                                title = title.replace(new RegExp(keyword, "gm"), "<font color='red' >" + keyword + "</font>");
+                                            }
+                                            $("."+secondId+"").html(title);
+                                            $("#"+secondId+"").html(value.content);
+                                            _this.page.count=keycount;
+                                            _this.page.current=1;
+                                            _this.page.pagesize=10;
+                                            _this.pager();
+                                        });
+                                    }else if(data.state == 0){
+                                        console.log("没有相关搜索");
+                                        var keywordspan = "";
+                                        keywordspan += "<img src='/img/sorry.png' />";
+                                        keywordspan += "     ";
+                                        keywordspan += "很抱歉，我们暂时无 “"+"<font style='font-weight: bolder' '>"+keyword+"</font>"+"” 的相关信息，请您重新搜索。";
+                                        $("#searcharticle").html(keywordspan);
+                                        $("#count").html("");
+                                        $(".js-pager").html("");
+                                    }
                                 },
                                 error: function () {
                                     alert("服务器请求异常");
