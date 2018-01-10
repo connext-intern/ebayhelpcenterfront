@@ -24,7 +24,7 @@ function showAllFirst(){
 function sortFirst() {
         var length = $("#sortable .ui-state-default").length;
         var firstSerials = new Array();
-        for(var i=1;i<=length;i++ ){
+        for(var i=1;i<=10000;i++ ){
             $("#sortable .ui-state-default").each(function () {
                 if($(this).attr("id")==i){
                     firstSerials.push($(this).index()+1);
@@ -55,7 +55,7 @@ function showSecondTitle(id){
    $("#sortSecond").click(function () {
        var length = $("#sortable2 .ui-state-default").length;
        var secondSerials = new Array();
-       for(var i=1;i<=length;i++ ){
+       for(var i=1;i<=10000;i++ ){
            $("#sortable2 .ui-state-default").each(function () {
                if($(this).attr("id")==i){
                    secondSerials.push($(this).index()+1);

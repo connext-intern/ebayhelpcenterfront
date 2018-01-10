@@ -39,6 +39,16 @@ define(['api', 'global', 'data'], function (Api, Global, Data) {
                             keyword=$("#keyword").val();
                             _this.querykey(keyword);
                         });
+                        //清除输入框的值
+                        $('.show').on('click',function () {
+                            $("#keyword").val("");
+                        });
+                        //enter绑定点击事件
+                        $(document).keydown(function(event) {
+                            if (event.keyCode == 13) {
+                                $("#a_query").click();
+                            }
+                        });
                         $('.help-center .menu-left').on('click', 'dt', function () {
                             var $parent = $(this).parents('dl');
                             if($parent.hasClass('curr')){
@@ -113,18 +123,7 @@ define(['api', 'global', 'data'], function (Api, Global, Data) {
                                         $("#count").html('关于<span class="red">' + keyword + '</span>，共找到了<span class="red">' + data.dataObject.countByKeyword + '</span>相关问题');
                                         $.each(data.dataObject.list, function (index, value) {
                                             console.log("value.content-->" + value.content);
-                                            var title = value.secondTitle.replace(/ /g,'&#32;');
-                                            var secondId = value.secondId;
-                                            var secondTitle = value.secondTitle;
-                                            $("#searcharticle").append("<div class='res'><h4 class='title'><a style='color: #41a83e' href='javascript:querycontent("+secondId+",\""+secondTitle+"\")' class='"+secondId+"'></a></h4> <p id='"+secondId+"'></p > </div>");
-                                            if (value.content.indexOf(keyword) >= 0) {
-                                                value.content = value.content.replace(new RegExp(keyword, "gm"), "<font color='red' >" + keyword + "</font>");
-                                            }
-                                            if (title.indexOf(keyword) >= 0) {
-                                                title = title.replace(new RegExp(keyword, "gm"), "<font color='red' >" + keyword + "</font>");
-                                            }
-                                            $("."+secondId+"").html(value.secondTitle);
-                                            $("#"+secondId+"").html(value.content);
+                                            showAllResult(index,value);
                                         });
                                     }else if(data.state == 0){
                                         console.log("错误信息-->"+data.message);
@@ -157,18 +156,7 @@ define(['api', 'global', 'data'], function (Api, Global, Data) {
                                         $("#count").html('关于<span class="red">' + keyword + '</span>，共找到了<span class="red">' + data.dataObject.countByKeyword + '</span>相关问题');
                                         $.each(data.dataObject.list, function (index, value) {
                                             console.log("value.content-->" + value.content);
-                                            var title = value.secondTitle.replace(/ /g,'&#32;');
-                                            var secondId = value.secondId;
-                                            var secondTitle = value.secondTitle;
-                                            $("#searcharticle").append("<div class='res'><h4 class='title'><a style='color: #41a83e' href='javascript:querycontent("+secondId+",\""+secondTitle+"\")' class='"+secondId+"'></a></h4> <p id='"+secondId+"'></p > </div>");
-                                            if (value.content.indexOf(keyword) >= 0) {
-                                                value.content = value.content.replace(new RegExp(keyword, "gm"), "<font color='red' >" + keyword + "</font>");
-                                            }
-                                            if (title.indexOf(keyword) >= 0) {
-                                                title = title.replace(new RegExp(keyword, "gm"), "<font color='red' >" + keyword + "</font>");
-                                            }
-                                            $("."+secondId+"").html(title);
-                                            $("#"+secondId+"").html(value.content);
+                                            showAllResult(index,value);
                                             _this.page.count=keycount;
                                             _this.page.current=1;
                                             _this.page.pagesize=10;
@@ -215,7 +203,8 @@ function querycontent(secondid,secondTitle) {
         success: function (data) {
             $("#querycontent").css('display', 'none');
             $("#menucontent").css('display', 'block');
-            $("#menucontent").html("<nav>"+data.dataObject.firstTitle+">"+secondTitle+"</nav>"+data.dataObject.html);
+            $("#menucontent").html("<nav>"+data.dataObject.firstTitle+">"+secondTitle+"</nav>"+"<article style='line-height:30px'>"+data.dataObject.html)+"</article>";
+            $('#menucontent img').css('max-width','80%');
         }
     });
 };
@@ -229,11 +218,27 @@ function showSecondContent(id,title1,title2) {
         dataType:'json',
         success: function(msg){
             if(msg.state==1) {
-                $('#menucontent').html("<nav>"+title1+">"+title2+"</nav>"+msg.dataObject);
+                $('#menucontent').html("<nav>"+title1+">"+title2+"</nav>"+"<article style='line-height:30px'>"+msg.dataObject+"</article>");
                 $('#querycontent').css('display', 'none');
-                $('#menucontent').css('display', 'block');
+                $('#menucontent').css({'display':'block'});
+                $('#menucontent img').css('max-width','80%');
             }
         }
     });
 }
+function showAllResult(index,value) {
+    var title = value.secondTitle.replace(/ /g,'&#32;');
+    var secondId = value.secondId;
+    var secondTitle = value.secondTitle;
+    $("#searcharticle").append("<div class='res'><h4 class='title'><a style='color: #41a83e' href='javascript:querycontent("+secondId+",\""+secondTitle+"\")' class='"+secondId+"'></a></h4> <p id='"+secondId+"'></p > </div>");
+    if (value.content.indexOf(keyword) >= 0) {
+        value.content = value.content.replace(new RegExp(keyword, "gm"), "<font color='red' >" + keyword + "</font>");
+    }
+    if (title.indexOf(keyword) >= 0) {
+        title = title.replace(new RegExp(keyword, "gm"), "<font color='red' >" + keyword + "</font>");
+    }
+    $("."+secondId+"").html(title);
+    $("#"+secondId+"").html(value.content);
+}
+
 
